@@ -28,7 +28,7 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
 
     if not sentenceLines:
         logger.error(f"No valid lines found in '{inputFilePath}'. Please check the file.")
-        
+
         # Exit the program if no valid lines are found
         exit(1)
 
@@ -45,7 +45,7 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
 
         # Exit the program if invalid lines are found
         exit(1)
-    
+
     logger.info("Sentence lines are valid.")
     return sentenceLines
 
@@ -65,7 +65,7 @@ def prepareInUseClozeFlashcards(outputFilePath: str) -> Dict[str, List[ClozeFlas
     return getInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
 
 def printGeneratingClozeFlashcardsInfo(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]], 
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
     clozeChoosingAlgorithm: str
 ) -> None:
     totalInUseClozeFlashcards: int = sum(
@@ -97,7 +97,7 @@ def generateClozeFlashcards(
     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = createInitialClozeFlashcards(
         inUseClozeFlashcards
     )
-    
+
     for punctuationlessWord in punctuationlessWords.values():
         word: str = punctuationlessWord.word
         # If the word already has equal or more cloze flashcards than n, skip it
@@ -106,21 +106,20 @@ def generateClozeFlashcards(
 
         if clozeChoosingAlgorithm == "highestScore":
             highestScoreAlgorithm(
-                punctuationlessWord, 
-                wordToClozeFlashcards, 
-                punctuationlessWords, 
-                inUseClozeFlashcards, 
-                n, 
-                benefitShorterSentences, 
+                punctuationlessWord,
+                wordToClozeFlashcards,
+                punctuationlessWords,
+                n,
+                benefitShorterSentences,
                 maxWordFrequency
             )
         elif clozeChoosingAlgorithm == "mostDifferent":
             mostDifferentAlgorithm(
-                punctuationlessWord, 
-                wordToClozeFlashcards, 
-                punctuationlessWords, 
-                inUseClozeFlashcards, 
-                n, 
+                punctuationlessWord,
+                wordToClozeFlashcards,
+                punctuationlessWords,
+                inUseClozeFlashcards,
+                n,
                 benefitShorterSentences
             )
 
@@ -138,11 +137,11 @@ def ensureInUseClozeFlashcardsPersist(
                 f"in the new cloze flashcards."
             )
             exit(1)
-        
+
         for clozeFlashcard in clozeFlashcards:
             simpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
             if simpleClozeFlashcard not in wordToSimpleClozeFlashcards[word]:
-                # If the cloze flashcard is not in the new cloze flashcards, 
+                # If the cloze flashcard is not in the new cloze flashcards,
                 # a serious error has occurred
                 logger.error(
                     f"Cloze flashcard '{simpleClozeFlashcard}' for word '{word}' "
@@ -153,10 +152,10 @@ def ensureInUseClozeFlashcardsPersist(
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
 def main(
-    inputFilePath: str, 
-    outputFilePath: str, 
-    clozeChoosingAlgorithm: str, 
-    n: int, 
+    inputFilePath: str,
+    outputFilePath: str,
+    clozeChoosingAlgorithm: str,
+    n: int,
     benefitShorterSentences: bool
 ) -> None:
     # Try to get the lines from the input file
@@ -200,39 +199,39 @@ if __name__ == "__main__":
         level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
         format='%(levelname)s: %(message)s'
     )
-    
+
     profiler = None
 
     # If the logger is set to DEBUG, create a profile to analyze performance
     if logger.isEnabledFor(logging.DEBUG):
         # Create profiler
         profiler = cProfile.Profile()
-        
+
         # Start profiling
         profiler.enable()
-    
+
     # Your code to profile
     inputFilePath: str = 'sentences.txt'
     outputFilePath: str = 'clozeFlashcards.json'
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
-    benefitShorterSentences: bool = True
+    benefitShorterSentences: bool = False
     main(inputFilePath, outputFilePath, clozeChoosingAlgorithm, n, benefitShorterSentences)
-    
+
     if profiler is not None:
         # Stop profiling
         profiler.disable()
-        
+
         # Create a string buffer to capture output
         s = io.StringIO()
         ps = pstats.Stats(profiler, stream=s)
-        
+
         # Sort by cumulative time and print top 20 functions
         ps.sort_stats('cumulative')
         ps.print_stats(20)
-        
+
         # Print the results
         print(s.getvalue())
-        
+
         # You can also save to file
         ps.dump_stats('profile_results.prof')

@@ -10,8 +10,8 @@ def removePunctuation(word: str) -> str:
     return ''.join(char if char.isalpha() or char == '~' else '' for char in word)
 
 def getWordRarityScore(
-    word: str, 
-    punctuationlessWords: Dict[str, 'PunctuationlessWord'], 
+    word: str,
+    punctuationlessWords: Dict[str, 'PunctuationlessWord'],
     maxWordFrequency: int
 ) -> float:
     """Calculate the rarity score of a word based on its frequency."""
@@ -39,10 +39,10 @@ class RawLine:
         self.rawWords: List['RawWord'] = rawWords
         self.score: Optional[float] = None
         self.wordVector: Optional[np.ndarray] = None
-    
+
     def __str__(self) -> str:
         return ' '.join([rawWord.word for rawWord in self.rawWords])
-    
+
     def __eq__(self, other: object) -> bool:
         """Check if two RawLines have equal hashes."""
         if not isinstance(other, RawLine):
@@ -56,9 +56,9 @@ class RawLine:
         return any(self == otherRawLine for otherRawLine in otherRawLines)
 
     def getScore(
-        self, 
-        punctuationlessWords: Dict[str, 'PunctuationlessWord'], 
-        maxWordFrequency: int, 
+        self,
+        punctuationlessWords: Dict[str, 'PunctuationlessWord'],
+        maxWordFrequency: int,
         benefitShorterSentences: bool
     ) -> float:
         """
@@ -89,7 +89,7 @@ class RawLine:
         """
         if self.wordVector is not None:
             return self.wordVector
-        
+
         # Initialize the word vector as a dictionary
         # where keys are the punctuationless words and values are their counts
         wordCounts: Dict[str, int] = {word: 0 for word in punctuationlessWords.keys()}
@@ -106,8 +106,8 @@ class RawLine:
         return self.wordVector
 
     def getCosDissimilarity(
-        self, 
-        otherRawLine: 'RawLine', 
+        self,
+        otherRawLine: 'RawLine',
         punctuationlessWords: Dict[str, 'PunctuationlessWord']
     ) -> float:
         """
@@ -136,7 +136,7 @@ class RawLine:
 
         # Store the calculated dissimilarity for future use
         self.calculatedCosDissimilarities[(
-            self.hashedRawLine, 
+            self.hashedRawLine,
             otherRawLine.hashedRawLine
         )] = cosineDissimilarity
 
@@ -158,17 +158,17 @@ class RawLine:
 # Contains the before and after cloze words and the cloze word
 class SimpleClozeFlashcard:
     def __init__(
-        self, 
-        beforeCloze: str, 
-        afterCloze: str, 
-        clozeWord: str, 
+        self,
+        beforeCloze: str,
+        afterCloze: str,
+        clozeWord: str,
         inUse: bool = False
     ) -> None:
         self.beforeCloze: str = beforeCloze
         self.afterCloze: str = afterCloze
         self.clozeWord: str = clozeWord
         self.inUse: bool = inUse
-    
+
     def __eq__(self, other: object) -> bool:
         """Check if two SimpleClozeFlashcards are equal."""
         if not isinstance(other, SimpleClozeFlashcard):
@@ -177,7 +177,7 @@ class SimpleClozeFlashcard:
                 self.afterCloze == other.afterCloze and
                 self.clozeWord == other.clozeWord and
                 self.inUse == other.inUse)
-    
+
     def toDict(self) -> Dict[str, str]:
         """Convert SimpleClozeFlashcard to dictionary for JSON serialization."""
         return {
@@ -200,14 +200,14 @@ class ClozeFlashcard:
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ClozeFlashcard):
             return NotImplemented
-        return self.simpleClozeFlashcard == other.simpleClozeFlashcard 
+        return self.simpleClozeFlashcard == other.simpleClozeFlashcard
 
     def __str__(self) -> str:
         wordsBeforeCloze: str = self.GetWordsBeforeCloze()
         clozeWord: str = self.rawLine.rawWords[self.wordIndex].word
         wordsAfterCloze: str = self.GetWordsAfterCloze()
         return f"{wordsBeforeCloze} *{clozeWord}* {wordsAfterCloze}"
-    
+
     def GetSimpleClozeFlashcard(self) -> SimpleClozeFlashcard:
         if self.simpleClozeFlashcard is None:
             wordsBeforeCloze: str = self.GetWordsBeforeCloze()
@@ -216,13 +216,13 @@ class ClozeFlashcard:
             self.simpleClozeFlashcard = SimpleClozeFlashcard(
                 wordsBeforeCloze, wordsAfterCloze, clozeWord, self.inUse
             )
-        
+
         return self.simpleClozeFlashcard
 
     def GetWordsBeforeCloze(self) -> str:
         """Get the words before the cloze word."""
         return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[:self.wordIndex]])
-    
+
     def GetClozeRawWord(self) -> 'RawWord':
         """Get the raw word that is clozed."""
         return self.rawLine.rawWords[self.wordIndex]
@@ -231,7 +231,7 @@ class ClozeFlashcard:
         """Get the words after the cloze word."""
         if self.wordIndex + 1 >= len(self.rawLine.rawWords):
             return ''
-        
+
         return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[self.wordIndex + 1:]])
 
 # Punctuationless Word Class
@@ -257,11 +257,11 @@ class RawWord:
     def assignRawLine(self, rawLine: RawLine, wordIndex: int) -> None:
         self.rawLine: RawLine = rawLine
         self.wordIndex: int = wordIndex
-    
+
     def getSentenceScore(
-        self, 
-        punctuationlessWords: Dict[str, PunctuationlessWord], 
-        maxWordFrequency: int, 
+        self,
+        punctuationlessWords: Dict[str, PunctuationlessWord],
+        maxWordFrequency: int,
         benefitShorterSentences: bool
     ) -> float:
         return self.rawLine.getScore(

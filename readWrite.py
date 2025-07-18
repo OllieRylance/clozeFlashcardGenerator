@@ -26,7 +26,7 @@ def readJsonFile(filePath: str) -> Optional[str]:
         return None
 
 def writeJsonFile(
-    filePath: str, 
+    filePath: str,
     data: Dict[str, List[Dict[str, str]]]
 ) -> None:
     """

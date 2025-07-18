@@ -3,11 +3,11 @@ from typing import Dict, List, Optional
 import json
 
 from models import (
-    RawLine, 
-    RawWord, 
-    PunctuationlessWord, 
-    ClozeFlashcard, 
-    SimpleClozeFlashcard, 
+    RawLine,
+    RawWord,
+    PunctuationlessWord,
+    ClozeFlashcard,
+    SimpleClozeFlashcard,
     removePunctuation
 )
 
@@ -22,12 +22,12 @@ def findInvalidLines(lines: List[str]) -> List[str]:
     - it has characters that are not letters, ",", ".", "~", or "?"
     """
     invalidLines: List[str] = []
-    
+
     for line in lines:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
-        if ('  ' in line or 
-            line.startswith(' ') or 
-            line.endswith(' ') or 
+        if ('  ' in line or
+            line.startswith(' ') or
+            line.endswith(' ') or
             not all(c.isalpha() or c in '.,~? ' for c in line)):
             invalidLines.append(line)
 
@@ -44,7 +44,7 @@ def getInUseClozeFlashcards(
     existingClozeFlashcardsJsonFileString: Optional[str]
 ) -> Dict[str, List[ClozeFlashcard]]:
     """
-    Parse the existing cloze flashcards JSON file string and return a dictionary 
+    Parse the existing cloze flashcards JSON file string and return a dictionary
     of in-use cloze flashcards.
     """
     if existingClozeFlashcardsJsonFileString is None:
@@ -57,8 +57,8 @@ def getInUseClozeFlashcards(
             existingClozeFlashcardsJsonFileString
         )
         for clozeFlashcard in [
-            clozeFlashcard 
-            for clozeFlashcards in existingClozeFlashcards.values() 
+            clozeFlashcard
+            for clozeFlashcards in existingClozeFlashcards.values()
             for clozeFlashcard in clozeFlashcards
         ]:
             inUse = clozeFlashcard['inUse'] == "True"
@@ -87,7 +87,7 @@ def getInUseClozeFlashcards(
             inUseClozeFlashcards[punctuationlessWord].append(clozeFlashcardInstance)
     except json.JSONDecodeError:
         logger.error("Error decoding JSON from clozeFlashcards.json. Starting fresh.")
-    
+
     return inUseClozeFlashcards
 
 def createPunctuationlessWordsFromSentences(
@@ -112,7 +112,7 @@ def createPunctuationlessWordsFromSentences(
             # Remove punctuation from the raw word
             punctuationlessWordString: str = removePunctuation(rawWordString)
 
-            # If the punctuationless version of the word is not in the dictionary, 
+            # If the punctuationless version of the word is not in the dictionary,
             # create a new PunctuationlessWord
             if punctuationlessWordString not in punctuationlessWords:
                 # Create a new PunctuationlessWord
@@ -127,10 +127,10 @@ def createPunctuationlessWordsFromSentences(
 
         # Create a new RawLine instance which stores itself in the raw words
         RawLine(currentRawWords)
-    
+
     # Log the number of unique words found
     logger.debug(f"{len(punctuationlessWords)} unique words found in the sentences.")
-    
+
     # Sort the keys into alphabetical order
     punctuationlessWords = dict(sorted(punctuationlessWords.items(), key=lambda item: item[0]))
 
@@ -162,11 +162,11 @@ def createInitialClozeFlashcards(
         # If the word is already in use, add the cloze flashcards to the dictionary
         if word not in wordToClozeFlashcards:
             wordToClozeFlashcards[word] = []
-        
+
         for clozeFlashcard in inUseClozeFlashcards[word]:
             # Get the SimpleClozeFlashcard representation of the ClozeFlashcard
             simpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
 
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
-    
+
     return wordToClozeFlashcards

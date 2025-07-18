@@ -90,7 +90,7 @@ def generateClozeFlashcards(
     if logger.isEnabledFor(logging.INFO):
         printGeneratingClozeFlashcardsInfo(inUseClozeFlashcards, clozeChoosingAlgorithm)
 
-    maxWordFrequency: int = 1
+    maxWordFrequency: Optional[int] = None
     if clozeChoosingAlgorithm == "highestScore":
         maxWordFrequency = max(len(flashcards) for flashcards in inUseClozeFlashcards.values())
 
@@ -164,14 +164,13 @@ def main(
         exit(1)
 
     sentenceLines: List[str] = prepareSentenceLines(inputFilePath)
+    punctuationlessWords: Dict[str, PunctuationlessWord] = createPunctuationlessWordsFromSentences(
+        sentenceLines
+    )
 
     # Try to read existing cloze flashcards from the output file
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = prepareInUseClozeFlashcards(
         outputFilePath
-    )
-
-    punctuationlessWords: Dict[str, PunctuationlessWord] = createPunctuationlessWordsFromSentences(
-        sentenceLines
     )
 
     wordToSimpleClozeFlashcards: Optional[Dict[str, List[SimpleClozeFlashcard]]] = generateClozeFlashcards(

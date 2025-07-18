@@ -1,8 +1,10 @@
+from dataclasses import dataclass
 import logging
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 import json
 
 from models import (
+    MultiWordExpression,
     RawLine,
     RawWord,
     PunctuationlessWord,
@@ -19,16 +21,14 @@ def findInvalidLines(lines: List[str]) -> List[str]:
     A line is invalid if:
     - it has multiple spaces back to back,
     - it has leading or trailing whitespace (and not just a newline), or
-    - it has characters that are not letters, ",", ".", "~", or "?"
+    - it has characters that are not letters, numbers, ",", ".", "~", "?", "_" or " ".
     """
     invalidLines: List[str] = []
 
     for line in lines:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
         if ('  ' in line or
-            line.startswith(' ') or
-            line.endswith(' ') or
-            not all(c.isalpha() or c in '.,~? ' for c in line)):
+            not all(c.isalpha() or c.isdigit() or c in '",.~?_' or c.isspace() for c in line)):
             invalidLines.append(line)
 
     return invalidLines
@@ -90,6 +90,29 @@ def getInUseClozeFlashcards(
 
     return inUseClozeFlashcards
 
+def addPunctuationlessWord(
+    punctuationlessWordString: str,
+    punctuationlessWords: Dict[str, PunctuationlessWord],
+    rawWord: RawWord
+) -> None:
+    # If the punctuationless version of the word is not in the dictionary,
+    # create a new PunctuationlessWord
+    if punctuationlessWordString not in punctuationlessWords:
+        # Create a new PunctuationlessWord
+        punctuationlessWord: PunctuationlessWord = PunctuationlessWord(
+            punctuationlessWordString, rawWord
+        )
+        # Store the PunctuationlessWord in the dictionary
+        punctuationlessWords[punctuationlessWordString] = punctuationlessWord
+    else:
+        # If it exists, add the raw word ID to the existing PunctuationlessWord
+        punctuationlessWords[punctuationlessWordString].referenceRawWords.append(rawWord)
+
+@dataclass
+class MultiWordExpressionIndexCounter:
+    MWE: MultiWordExpression
+    count: int = 0
+
 def createPunctuationlessWordsFromSentences(
     sentenceLines: List[str]
 ) -> Dict[str, PunctuationlessWord]:
@@ -104,26 +127,49 @@ def createPunctuationlessWordsFromSentences(
     for line in sentenceLines:
         wordsInLine: List[str] = line.split()
         currentRawWords: List[RawWord] = []
+        currentMultiWordExpressions: Dict[str, MultiWordExpressionIndexCounter] = {}
 
         for rawWordString in wordsInLine:
-            rawWord: RawWord = RawWord(rawWordString)
+            # Detect multi-word expressions
+            multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = None
+            if '_' in rawWordString:
+                parts: List[str] = rawWordString.split('_')
+                rawWordString = parts[0]
+                inSentenceMWEId = parts[1]
+                if inSentenceMWEId not in currentMultiWordExpressions:
+                    # Create a new MultiWordExpression
+                    currentMultiWordExpressions[inSentenceMWEId] = MultiWordExpressionIndexCounter(MultiWordExpression())
+                multiWordExpressionInfo = (
+                    currentMultiWordExpressions[inSentenceMWEId].MWE,
+                    currentMultiWordExpressions[inSentenceMWEId].count
+                )
+                currentMultiWordExpressions[inSentenceMWEId].count += 1
+
+            rawWord: RawWord = RawWord(rawWordString, multiWordExpressionInfo)
             currentRawWords.append(rawWord)
+
+            # If the raw word is a multi-word expression, append the raw word to the multi-word expression and
+            # add it to the punctuationless words dictionary after the loop
+            if multiWordExpressionInfo is not None:
+                multiWordExpressionInfo[0].rawWords.append(rawWord)
+                continue
 
             # Remove punctuation from the raw word
             punctuationlessWordString: str = removePunctuation(rawWordString)
 
-            # If the punctuationless version of the word is not in the dictionary,
-            # create a new PunctuationlessWord
-            if punctuationlessWordString not in punctuationlessWords:
-                # Create a new PunctuationlessWord
-                punctuationlessWord: PunctuationlessWord = PunctuationlessWord(
-                    punctuationlessWordString, rawWord
-                )
-                # Store the PunctuationlessWord in the dictionary
-                punctuationlessWords[punctuationlessWordString] = punctuationlessWord
-            else:
-                # If it exists, add the raw word ID to the existing PunctuationlessWord
-                punctuationlessWords[punctuationlessWordString].referenceRawWords.append(rawWord)
+            addPunctuationlessWord(
+                punctuationlessWordString,
+                punctuationlessWords,
+                rawWord
+            )
+
+        # If there are multi-word expressions, add them to the punctuationless words dictionary
+        for multiWordExpression in [counter.MWE for counter in currentMultiWordExpressions.values()]:
+            addPunctuationlessWord(
+                multiWordExpression.getPunctuationlessWordString(),
+                punctuationlessWords,
+                multiWordExpression.rawWords[0]
+            )
 
         # Create a new RawLine instance which stores itself in the raw words
         RawLine(currentRawWords)

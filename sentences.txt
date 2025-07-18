@@ -139,13 +139,13 @@ on nie wie gdzie jest stacja~metra
 ona nie wie gdzie jest remiza~strażacka
 my nie wiemy gdzie jest szpital
 
-muszę iść do sklepu ale nie wiem gdzie jest
+muszę iść do sklepu ale nie wiem gdzie_1 jest_1
 muszę iść do apteki ale nie wiem gdzie jest
 muszę iść do galerii~handlowej ale nie wiem gdzie jest
 muszę iść do kościoła ale nie wiem gdzie jest
 muszę iść do muzeum ale nie wiem gdzie jest
 
-muszę jechać na lotnisko ale nie wiem jak mogę się tam dostać
+muszę jechać na lotnisko ale nie wiem jak mogę się_1 tam dostać_1
 muszę jechać do Warszawy ale nie wiem jak mogę dostać~się tam
 muszę jechać do Berlina ale nie wiem jak mogę dostać~się tam
 muszę jechać do Krakowa ale nie wiem jak mogę dostać~się tam

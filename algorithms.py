@@ -12,8 +12,14 @@ def highestScoreAlgorithm(
     punctuationlessWords: Dict[str, PunctuationlessWord],
     n: int,
     benefitShorterSentences: bool,
-    maxWordFrequency: int
+    optionalMaxWordFrequency: Optional[int]
 ) -> None:
+    if optionalMaxWordFrequency is None:
+        logger.error("Max word frequency is None, cannot proceed with highest score algorithm.")
+        exit(1)
+    
+    maxWordFrequency: int = optionalMaxWordFrequency
+
     # For each unique word, create cloze flashcards for the it's raw lines
     # with the top n highest scores
     # If there are already cloze flashcards in use for the word, use those as the start of the list

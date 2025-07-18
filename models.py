@@ -157,6 +157,7 @@ class RawLine:
 # Simple Cloze Flashcard Class
 # Contains the before and after cloze words and the cloze word
 class SimpleClozeFlashcard:
+    # TODO : alter this so that it can store separated multi-word expressions
     def __init__(
         self,
         beforeCloze: str,
@@ -208,6 +209,7 @@ class ClozeFlashcard:
         wordsAfterCloze: str = self.GetWordsAfterCloze()
         return f"{wordsBeforeCloze} *{clozeWord}* {wordsAfterCloze}"
 
+    # TODO : alter this so that the Simple flashcard takes MWE into account
     def GetSimpleClozeFlashcard(self) -> SimpleClozeFlashcard:
         if self.simpleClozeFlashcard is None:
             wordsBeforeCloze: str = self.GetWordsBeforeCloze()
@@ -247,9 +249,12 @@ class PunctuationlessWord:
 
 # Raw Word Class
 class RawWord:
-    def __init__(self, word: str) -> None:
+    def __init__(self, word: str, multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = None) -> None:
         self.word: str = word
         self.punctuationlessWordString: str = removePunctuation(word)
+
+        # Attribute to hold the MultiWordExpression and this word's index in it
+        self.multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = multiWordExpressionInfo
 
     def __str__(self) -> str:
         return self.word
@@ -267,3 +272,25 @@ class RawWord:
         return self.rawLine.getScore(
             punctuationlessWords, maxWordFrequency, benefitShorterSentences
         )
+
+class MultiWordExpression:
+    MWECount: int = 0
+
+    def __init__(self) -> None:
+        self.id: int = MultiWordExpression.MWECount
+        MultiWordExpression.MWECount += 1
+        self.rawWords: List[RawWord] = []
+
+        self.punctuationlessWordString: Optional[str] = None
+    
+    def getPunctuationlessWordString(self) -> str:
+        """
+        Get the punctuationless word string for the multi-word expression.
+        Combines the raw words in alphabetical order.
+        """
+        if self.punctuationlessWordString is not None:
+            return self.punctuationlessWordString
+
+        rawWordStrings: List[str] = sorted(rawWord.word for rawWord in self.rawWords)
+        self.punctuationlessWordString = removePunctuation('~'.join(rawWordStrings))
+        return self.punctuationlessWordString

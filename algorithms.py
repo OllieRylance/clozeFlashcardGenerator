@@ -45,14 +45,14 @@ def highestScoreAlgorithm(
         if word in wordToClozeFlashcards and len(wordToClozeFlashcards[word]) >= n:
             break
 
-        # If the raw line of the raw word is already in the dictionary, skip it
-        if rawWord.rawLine in wordToClozeFlashcards.get(word, []):
-            continue
-
         # Create a new SimpleClozeFlashcard instance for the raw word
         clozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
             rawWord.rawLine, rawWord.wordIndex
         ).GetSimpleClozeFlashcard()
+
+        # If the simple flashcard for the raw word is already in the dictionary, skip it
+        if clozeFlashcard in wordToClozeFlashcards.get(word, []):
+            continue
 
         # If the word is not in the dictionary, create a new list
         if word not in wordToClozeFlashcards:

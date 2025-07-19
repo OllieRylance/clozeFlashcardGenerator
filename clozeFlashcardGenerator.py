@@ -192,6 +192,7 @@ def main(
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
 
+# TODO: create test folders where different input and output set ups can be tested
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(

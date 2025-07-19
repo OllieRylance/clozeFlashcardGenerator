@@ -215,6 +215,8 @@ if __name__ == "__main__":
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
     benefitShorterSentences: bool = False
+    # TODO : implement outputOrder and use it to sort the cloze flashcards
+    outputOrder: str = "alphabetical" # options are "alphabetical", "frequency", "random", "firstComeFirstServed", "lastComeFirstServed"
     main(inputFilePath, outputFilePath, clozeChoosingAlgorithm, n, benefitShorterSentences)
 
     if profiler is not None:

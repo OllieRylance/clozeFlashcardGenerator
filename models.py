@@ -274,6 +274,8 @@ class RawWord:
         )
 
 class MultiWordExpression:
+    # TODO : distinguish between different word orders and whether a word is in the middle
+    # of a multi-word expression because Anki does not support storing them in the same place
     MWECount: int = 0
 
     def __init__(self) -> None:

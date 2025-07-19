@@ -1,14 +1,14 @@
-jak mogę dostać~się do apteki?
-jak mogę dostać~się na przystanek~autobusowy?
-jak mogę dostać~się na dworzec~autobusowy?
-jak mogę dostać~się na dworzec~kolejowy?
-jak mogę dostać~się na stację~metra?
-jak mogę dostać~się do galerii~handlowej?
-jak mogę dostać~się do kina?
-jak mogę dostać~się na lotnisko?
-jak mogę dostać~się do Berlina?
-jak mogę dostać~się do Warszawy?
-jak mogę dostać~się do Hiszpani?
+jak mogę dostać_1 się_1 do apteki?
+jak mogę dostać_1 się_1 na przystanek_2 autobusowy_2?
+jak mogę dostać_1 się_1 na dworzec_2 autobusowy_2?
+jak mogę dostać_1 się_1 na dworzec_2 kolejowy_2?
+jak mogę dostać_1 się_1 na stację_2 metra_2?
+jak mogę dostać_1 się_1 do galerii_2 handlowej_2?
+jak mogę dostać_1 się_1 do kina?
+jak mogę dostać_1 się_1 na lotnisko?
+jak mogę dostać_1 się_1 do Berlina?
+jak mogę dostać_1 się_1 do Warszawy?
+jak mogę dostać_1 się_1 do Hiszpani?
 
 możesz pojechać autobusem
 możesz pojechać samochodem
@@ -20,29 +20,29 @@ możesz pojechać rowerem
 
 przepraszam gdzie jest lotnisko?
 przepraszam gdzie jest apteka?
-przepraszam gdzie jest przystanek~autobusowy?
-przepraszam gdzie jest dworzec~autobusowy?
-przepraszam gdzie jest dworzec~kolejowy?
-przepraszam gdzie jest stacja~metra?
-przepraszam gdzie jest dworzec~tramwajowy?
+przepraszam gdzie jest przystanek_1 autobusowy_1?
+przepraszam gdzie jest dworzec_1 autobusowy_1?
+przepraszam gdzie jest dworzec_1 kolejowy_1?
+przepraszam gdzie jest stacja_1 metra_1?
+przepraszam gdzie jest dworzec_1 tramwajowy_1?
 przepraszam gdzie jest cepen?
 przepraszam gdzie jest kino?
-przepraszam gdzie jest galeria~handlowa?
-przepraszam gdzie jest postój~taksówek?
+przepraszam gdzie jest galeria_1 handlowa_1?
+przepraszam gdzie jest postój_1 taksówek_1?
 przepraszam gdzie jest toaleta?
 
-zobaczysz przystanek~autobusowy
-zobaczysz dworzec~autobusowy
-zobaczysz dworzec~kolejowy
-zobaczysz galerie~handlową
-zobaczysz postój~taksówek
+zobaczysz przystanek_1 autobusowy_1
+zobaczysz dworzec_1 autobusowy_1
+zobaczysz dworzec_1 kolejowy_1
+zobaczysz galerie_1 handlową_1
+zobaczysz postój_1 taksówek_1
 
-zobaczysz kino po~lewej
-zobaczysz apteke po~lewej
-zobaczysz stację~metra po~lewej
+zobaczysz kino po lewej
+zobaczysz apteke po lewej
+zobaczysz stację_1 metra_1 po lewej
 
-zobaczysz cepen po~prawej
-zobaczysz lotnisko po~prawej
+zobaczysz cepen po prawej
+zobaczysz lotnisko po prawej
 
 idź prosto przez sto metrów
 idź prosto przez dwieście metrów
@@ -54,50 +54,50 @@ idź prosto przez siedemset metrów
 idź prosto przez osiemset metrów
 idź prosto przez dziewięćset metrów
 
-idź prosto przez sto metrów i zobaczysz stację~autobusową
-idź prosto przez sto metrów i zobaczysz stację~autobusową po~lewej
-idź prosto przez sto metrów i zobaczysz dworzec~kolejowy po~prawej
-idź prosto przez sto metrów i zobaczysz galerie~handlową po~prawej
-idź prosto przez dwieście metrów i zobaczysz cepen po~prawej
-idź prosto przez trzysta metrów i zobaczysz stację~metra po~prawej
-idź prosto przez trzysta metrów i zobaczysz apteke po~prawej
-idź prosto przez czterysta metrów i zobaczysz kino po~prawej
-idź prosto przez pięćset metrów i zobaczysz postój~taksówek po~prawej
-idź prosto przez sześćset metrów i zobaczysz lotnisko po~prawej
-idź prosto przez siedemset metrów i zobaczysz basen po~prawej
-idź prosto przez osiemset metrów i zobaczysz basen po~lewej
-idź prosto przez siedemset metrów potem skręć w lewo i zobaczysz basen po~prawej
-idź prosto przez osiemset metrów potem skręć w lewo i zobaczysz basen po~prawej
-idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po~prawej
-idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po~lewej
+idź prosto przez sto metrów i zobaczysz stację_1 autobusową_1
+idź prosto przez sto metrów i zobaczysz stację_1 autobusową_1 po lewej
+idź prosto przez sto metrów i zobaczysz dworzec_1 kolejowy_1 po prawej
+idź prosto przez sto metrów i zobaczysz galerie_1 handlową_1 po prawej
+idź prosto przez dwieście metrów i zobaczysz cepen po prawej
+idź prosto przez trzysta metrów i zobaczysz stację_1 metra_1 po prawej
+idź prosto przez trzysta metrów i zobaczysz apteke po prawej
+idź prosto przez czterysta metrów i zobaczysz kino po prawej
+idź prosto przez pięćset metrów i zobaczysz postój_1 taksówek_1 po prawej
+idź prosto przez sześćset metrów i zobaczysz lotnisko po prawej
+idź prosto przez siedemset metrów i zobaczysz basen po prawej
+idź prosto przez osiemset metrów i zobaczysz basen po lewej
+idź prosto przez siedemset metrów potem skręć w lewo i zobaczysz basen po prawej
+idź prosto przez osiemset metrów potem skręć w lewo i zobaczysz basen po prawej
+idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po prawej
+idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po lewej
 
-możesz pojechać autobusem. idź prosto przez sto metrów i zobaczysz przystanek po~lewej
-możesz pojechać pociągiem. idź prosto przez sto metrów i zobaczysz stację po~prawej
-możesz pojechać taksówką. idź prosto przez dwieście metrów i zobaczysz postój po~lewej
-możesz pojechać taksówką. idź prosto przez dwieście metrów i zobaczysz postój po~prawej
-możesz pojechać metrem. idź prosto przez trzysta metrów i zobaczysz stację~metra po~lewej
-możesz pojechać metrem. idź prosto przez czterysta metrów potem skręć w lewo i zobaczysz stację~metra po~lewej
-możesz pojechać metrem. idź prosto przez pięćset metrów potem skręć w prawo i zobaczysz stację~metra po~lewej
-możesz pojechać metrem. idź prosto przez sześćset metrów potem skręć w prawo i zobaczysz stację~metra po~prawej
-możesz polecieć samolotem. idź prosto przez siedemset metrów potem skręć w prawo i zobaczysz lotnisko po~lewej
+możesz pojechać autobusem. idź prosto przez sto metrów i zobaczysz przystanek po lewej
+możesz pojechać pociągiem. idź prosto przez sto metrów i zobaczysz stację po prawej
+możesz pojechać taksówką. idź prosto przez dwieście metrów i zobaczysz postój po lewej
+możesz pojechać taksówką. idź prosto przez dwieście metrów i zobaczysz postój po prawej
+możesz pojechać metrem. idź prosto przez trzysta metrów i zobaczysz stację_1 metra_1 po lewej
+możesz pojechać metrem. idź prosto przez czterysta metrów potem skręć w lewo i zobaczysz stację_1 metra_1 po lewej
+możesz pojechać metrem. idź prosto przez pięćset metrów potem skręć w prawo i zobaczysz stację_1 metra_1 po lewej
+możesz pojechać metrem. idź prosto przez sześćset metrów potem skręć w prawo i zobaczysz stację_1 metra_1 po prawej
+możesz polecieć samolotem. idź prosto przez siedemset metrów potem skręć w prawo i zobaczysz lotnisko po lewej
 
 muszę jechać do kina
-muszę jechać do galerii~handlowej
+muszę jechać do galerii_1 handlowej_1
 muszę iść do apteki
 muszę iść na lotnisko
-muszę iść do sklepu~spożywczego
+muszę iść do sklepu_1 spożywczego_1
 muszę iść do toalety
 muszę jechać na basen
 on musi iść na basen
-on musi iść na przystanek~autobusowy
-on musi iść do galerii~handlowej
+on musi iść na przystanek_1 autobusowy_1
+on musi iść do galerii_1 handlowej_1
 on musi iść na pocztę
 ona musi jechać na basen
 ona musi iść do apteki
-ona musi jechać do sklepu~spożywczego
-my musimy iść do galerii~handlowej
+ona musi jechać do sklepu_1 spożywczego_1
+my musimy iść do galerii_1 handlowej_1
 my musimy jechać na lotnisko
-my musimy iść na stację~metra
+my musimy iść na stację_1 metra_1
 oni muszą iść do kina
 oni muszą iść do kościoła
 oni muszą iść do zoo
@@ -106,10 +106,10 @@ oni muszą iść do miasta
 czy musisz iść do kina?
 czy musisz iść do apteki?
 czy musisz iść na basen?
-czy musisz iść do galerii~handlowej?
+czy musisz iść do galerii_1 handlowej_1?
 czy musisz jechać na lotnisko?
 czy on musi jechać na lotnisko?
-czy ona musi iść na przystanek~autobusowy?
+czy ona musi iść na przystanek_1 autobusowy_1?
 czy ona musi iść do muzeum
 czy ona musi iść do zoo
 czy musimy iść na cepen
@@ -117,59 +117,59 @@ czy musimy iść do muzeum
 czy musimy iść na plażę
 czy oni muszą iść do kościoła
 czy oni muszą iść na lotnisko
-czy oni muszą iść na dworzec~kolejowy
+czy oni muszą iść na dworzec_1 kolejowy_1
 czy oni muszą iść do bankomatu
 
 wiem gdzie jest basen
 wiem gdzie jest kino
 ona wie gdzie jest kino
-wiem gdzie jest sklep~spożywczy
-oni wiedzą gdzie jest sklep~spożywczy
-oni wiedzą gdzie jest postój~taksówek
+wiem gdzie jest sklep_1 spożywczy_1
+oni wiedzą gdzie jest sklep_1 spożywczy_1
+oni wiedzą gdzie jest postój_1 taksówek_1
 wiem gdzie jest resteuracja
 wiem gdzie jest plaża
-wiem gdzie jest remiza~strażacka
-oni wiedzą gdzie jest remiza~strażacka
+wiem gdzie jest remiza_1 strażacka_1
+oni wiedzą gdzie jest remiza_1 strażacka_1
 
-nie wiem gdzie jest przystanek~autobusowy
+nie wiem gdzie jest przystanek_1 autobusowy_1
 nie wiem gdzie jest basen
-nie wiem gdzie jest dworzec~autobusowy
+nie wiem gdzie jest dworzec_1 autobusowy_1
 on nie wie gdzie jest plaża
-on nie wie gdzie jest stacja~metra
-ona nie wie gdzie jest remiza~strażacka
+on nie wie gdzie jest stacja_1 metra_1
+ona nie wie gdzie jest remiza_1 strażacka_1
 my nie wiemy gdzie jest szpital
 
 muszę iść do sklepu ale nie wiem gdzie_1 jest_1
 muszę iść do apteki ale nie wiem gdzie jest
-muszę iść do galerii~handlowej ale nie wiem gdzie jest
+muszę iść do galerii_1 handlowej_1 ale nie wiem gdzie jest
 muszę iść do kościoła ale nie wiem gdzie jest
 muszę iść do muzeum ale nie wiem gdzie jest
 
 muszę jechać na lotnisko ale nie wiem jak mogę się_1 tam dostać_1
-muszę jechać do Warszawy ale nie wiem jak mogę dostać~się tam
-muszę jechać do Berlina ale nie wiem jak mogę dostać~się tam
-muszę jechać do Krakowa ale nie wiem jak mogę dostać~się tam
-muszę jechać do Rzeszowa ale nie wiem jak mogę dostać~się tam
-muszę jechać do Bangkoku ale nie wiem jak mogę dostać~się tam
+muszę jechać do Warszawy ale nie wiem jak mogę dostać_1 się_1 tam
+muszę jechać do Berlina ale nie wiem jak mogę dostać_1 się_1 tam
+muszę jechać do Krakowa ale nie wiem jak mogę dostać_1 się_1 tam
+muszę jechać do Rzeszowa ale nie wiem jak mogę dostać_1 się_1 tam
+muszę jechać do Bangkoku ale nie wiem jak mogę dostać_1 się_1 tam
 
-muszę polecieć do Hiszpani ale nie wiem jak mogę dostać~się na lotnisko
-muszę polecieć do Brazyli ale nie wiem jak mogę dostać~się na lotnisko
-muszę polecieć do Australi ale nie wiem jak mogę dostać~się na lotnisko
-muszę polecieć do Włoch ale nie wiem jak mogę dostać~się na lotnisko
+muszę polecieć do Hiszpani ale nie wiem jak mogę dostać_1 się_1 na lotnisko
+muszę polecieć do Brazyli ale nie wiem jak mogę dostać_1 się_1 na lotnisko
+muszę polecieć do Australi ale nie wiem jak mogę dostać_1 się_1 na lotnisko
+muszę polecieć do Włoch ale nie wiem jak mogę dostać_1 się_1 na lotnisko
 muszę polecieć do Włoch
 
 czy wiesz gdzie jest Bangkok?
 czy wiesz gdzie jest basen?
 czy wiesz gdzie jest toaleta?
 czy wiesz gdzie jest lotnisko?
-czy wiesz gdzie jest dworzec~kolejowy?
+czy wiesz gdzie jest dworzec_1 kolejowy_1?
 czy wiesz gdzie jest cepen?
-czy wiesz gdzie jest galeria~handlowa?
-czy wiesz gdzie jest postój~taksówek?
+czy wiesz gdzie jest galeria_1 handlowa_1?
+czy wiesz gdzie jest postój_1 taksówek_1?
 czy on wie gdzie jest apteka?
-czy ona wie gdzie jest stacja~metra?
+czy ona wie gdzie jest stacja_1 metra_1?
 czy oni wiedzą gdzie jest plaża?
-czy oni wiedzą gdzie jest remiza~strażacka?
+czy oni wiedzą gdzie jest remiza_1 strażacka_1?
 czy wiesz gdzie jest to miejsce?
 
 przepraszam czy mógłbyś mi powiedzieć gdzie jest apteka?
@@ -177,24 +177,24 @@ przepraszam czy mógłbyś mi powiedzieć gdzie jest kino?
 przepraszam czy mogłabyś mi powiedzieć gdzie jest kino?
 przepraszam czy mógłbyś mi powiedzieć gdzie jest basen?
 przepraszam czy mógłbyś mi powiedzieć gdzie jest cepen?
-przepraszam czy mógłbyś mi powiedzieć gdzie jest remiza~strażacka?
+przepraszam czy mógłbyś mi powiedzieć gdzie jest remiza_1 strażacka_1?
 
 przepraszam czy mógłbyś mi powiedzieć gdzie jest lotnisko ponieważ muszę tam pojechać?
 przepraszam czy mógłbyś mi powiedzieć gdzie jest szpital ponieważ muszę tam pojechać?
 przepraszam czy mógłbyś mi powiedzieć gdzie jest muzeum ponieważ muszę tam pojechać?
-przepraszam czy mógłbyś mi powiedzieć gdzie jest plaża ponieważ muszę dostać~się tam?
-przepraszam czy mógłbyś mi powiedzieć gdzie jest kino ponieważ muszę dostać~się tam?
+przepraszam czy mógłbyś mi powiedzieć gdzie jest plaża ponieważ muszę dostać_1 się_1 tam?
+przepraszam czy mógłbyś mi powiedzieć gdzie jest kino ponieważ muszę dostać_1 się_1 tam?
 
-przepraszam czy mógłbyś mi powiedzieć jak mogę dostać~się na przystanek~autobusowy?
-przepraszam czy mogłabyś mi powiedzieć jak mogę dostać~się na dworzec~autobusowy?
-przepraszam czy mógłbyś mi powiedzieć jak mogę dostać~się na dworzec~kolejowy?
-przepraszam czy mógłbyś mi powiedzieć jak mogę dostać~się do remizy~strażackiej?
-przepraszam czy mógłbyś mi powiedzieć jak mogę dostać~się na na plażę?
+przepraszam czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na przystanek_2 autobusowy_2?
+przepraszam czy mogłabyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 autobusowy_2?
+przepraszam czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 kolejowy_2?
+przepraszam czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 do remizy_2 strażackiej_2?
+przepraszam czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na na plażę?
 
 czy mógłbyś powtórzyć?
-czy mógłbyś powtórzyć gdzie jest przystanek~autobusowy?
-czy mógłbyś powtórzyć gdzie jest remiza~strażacka?
-czy mógłbyś powtórzyć gdzie jest dworzec~kolejowy?
+czy mógłbyś powtórzyć gdzie jest przystanek_1 autobusowy_1?
+czy mógłbyś powtórzyć gdzie jest remiza_1 strażacka_1?
+czy mógłbyś powtórzyć gdzie jest dworzec_1 kolejowy_1?
 
 nie dosłyszałem
 
@@ -202,16 +202,16 @@ przepraszam ale nie dosłyszałem
 przepraszam ale nie dosłyszałem co powiedziałeś
 
 przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć głośniej
-przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć głośniej jak mogę dostać~się na lotnisko
+przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć głośniej jak mogę dostać_1 się_1 na lotnisko
 
-przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć wolniej jak mogę dostać~się na lotnisko
+przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć wolniej jak mogę dostać_1 się_1 na lotnisko
 przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć wolniej i głośniej
-przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć wolniej i głośniej gdzie jest galeria~handlowa
+przepraszam ale nie dosłyszałem co powiedziałeś czy mógłbyś powtórzyć wolniej i głośniej gdzie jest galeria_1 handlowa_1
 
 chciałbym pojechać do kina
-chciałbym pojechać do galerii~handlowej
+chciałbym pojechać do galerii_1 handlowej_1
 chciałbym pojechać na lotnisko
-chciałbym pojechać na przystanek~autobusowy
+chciałbym pojechać na przystanek_1 autobusowy_1
 on chciałby pojechać do kościoła
 ona chciałaby pójść na plażę
 chciałbym pojechać do muzeum
@@ -228,8 +228,8 @@ chciałbym polecieć do Berlina ponieważ mam bilet
 chciałbym polecieć do Polski ponieważ mam bilet
 chciałbym pojechać autobusem
 ona chciałaby pojechać samochodem
-chciałbym pojechać autobusem do galerii~handlowej
-on chciałby pojechać metrem do galerii~handlowej
+chciałbym pojechać autobusem do galerii_1 handlowej_1
+on chciałby pojechać metrem do galerii_1 handlowej_1
 oni chcieliby pojechać w góry
 chciałbym polecieć do Australi
 
@@ -248,22 +248,22 @@ przepraszam nie rozumiem czy mógbyś powtórzyć wolniej
 przepraszam nie rozumiem czy on mógłby powtórzyć wolniej
 przepraszam nie rozumiem czy ona mógłaby powtórzyć wolniej
 przepraszam nie rozumiem czy oni mogliby powtórzyć wolniej
-przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać~się na lotnisko
-przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać~się na cepen
-przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać~się na stację~metra
-przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać~się do remizy~strażackiej
+przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać_1 się_1 na lotnisko
+przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać_1 się_1 na cepen
+przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać_1 się_1 na stację_2 metra_2
+przepraszam nie rozumiem czy mógbyś powtórzyć wolniej jak mogę dostać_1 się_1 do remizy_2 strażackiej_2
 
-czy mógbyś powtórzyć jeszcze~raz
+czy mógbyś powtórzyć jeszcze_1 raz_1
 
-przepraszam nie rozumiem czy mógbyś powtórzyć jeszcze~raz
-przepraszam nie rozumiem czy mógbyś powtórzyć jeszcze~raz jak mogę dostać~się do kościoła
+przepraszam nie rozumiem czy mógbyś powtórzyć jeszcze_1 raz_1
+przepraszam nie rozumiem czy mógbyś powtórzyć jeszcze_1 raz_1 jak mogę dostać_2 się_2 do kościoła
 
 plaża jest siedemset metrów stád jeśli chcesz możesz pójść tam
 basen jest trzysta metrów stád jeśli chcesz możesz pójść tam
 muzeum jest pięćset metrów stád jeśli chcesz możesz pójść tam pieszą
 kino jest dziewięćset metrów stád jeśli chcesz możesz pójść tam pieszą
-galeria~handlowa jest dziewięćset metrów stád jeśli chcesz możesz pójść tam pieszą
-remiza~strażacka jest sześćset metrów stád jeśli chcesz możesz pójść tam pieszą
+galeria_1 handlowa_1 jest dziewięćset metrów stád jeśli chcesz możesz pójść tam pieszą
+remiza_1 strażacka_1 jest sześćset metrów stád jeśli chcesz możesz pójść tam pieszą
 
 plaża jest blisko jeśli chcesz możesz pójść tam pieszą
 resteuracja jest blisko jeśli chcesz możesz pójść tam pieszą
@@ -276,9 +276,9 @@ apteka jest blisko to tylko sześćset metrów stád
 apteka jest blisko to tylko dziewięćset metrów stád jeśli chcesz możesz pojechać tam rowerem
 jezioro jest blisko jeśli chcesz możesz pójść tam pieszą
 
-stacja~metra jest daleko
-stacja~metra jest daleko jeśli chcesz możesz pojechać tam samochodem
-stacja~metra jest daleko jeśli chcesz możesz pojechać tam taksówką
+stacja_1 metra_1 jest daleko
+stacja_1 metra_1 jest daleko jeśli chcesz możesz pojechać tam samochodem
+stacja_1 metra_1 jest daleko jeśli chcesz możesz pojechać tam taksówką
 
 plaża jest daleko to sześć kilometrów stád
 
@@ -286,4 +286,4 @@ plaża jest daleko to około siedem kilometrów stád jeśli chcesz możesz poje
 
 basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę
 
-basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po~lewej
+basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej

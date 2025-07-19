@@ -158,6 +158,28 @@ class RawLine:
 # Contains the before and after cloze words and the cloze word
 class SimpleClozeFlashcard:
     # TODO : alter this so that it can store separated multi-word expressions
+    # TODO : reformat the outputs to with the following changes:
+    #   current:
+    #   {
+    #       "beforeCloze": "words",
+    #       "midCloze": "words",
+    #       "afterCloze": "",
+    #       "clozeWordPart1": "words,",
+    #       "clozeWordPart2": "words?",
+    #       "inUse": "False"
+    #   }
+    #   desired:
+    #   {
+    #       "beforeCloze": "words ",
+    #       "midCloze": ", words",
+    #       "afterCloze": "?",
+    #       "clozeWordPart1": "words",
+    #       "clozeWordPart2": "words",
+    #       "inUse": "False"
+    #   }
+    #   The changes include taking the punctuation out of the cloze words and including the spaces
+    #   between the rest of the words and the clozes
+    
     def __init__(
         self,
         beforeCloze: str,

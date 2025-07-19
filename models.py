@@ -274,7 +274,7 @@ class RawWord:
         )
 
 class MultiWordExpression:
-    # TODO : distinguish between different word orders and whether a word is in the middle
+    # TODO : distinguish between whether a word is in the middle
     # of a multi-word expression because Anki does not support storing them in the same place
     MWECount: int = 0
 
@@ -293,6 +293,6 @@ class MultiWordExpression:
         if self.punctuationlessWordString is not None:
             return self.punctuationlessWordString
 
-        rawWordStrings: List[str] = sorted(rawWord.word for rawWord in self.rawWords)
+        rawWordStrings: List[str] = [rawWord.word for rawWord in self.rawWords]
         self.punctuationlessWordString = removePunctuation('~'.join(rawWordStrings))
         return self.punctuationlessWordString

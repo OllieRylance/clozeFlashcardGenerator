@@ -86,7 +86,7 @@ def mostDifferentAlgorithm(
     # If the number of reference raw words plus the number of in use cloze flashcards
     # is less than or equal to n, create cloze flashcards for all the raw words
     if len(unusedRawWords) + len(inUseClozeFlashcardsForWord) <= n:
-        for rawWord in rawWords:
+        for rawWord in unusedRawWords:
             simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
                 rawWord.rawLine, rawWord.wordIndex
             ).GetSimpleClozeFlashcard()
@@ -116,8 +116,8 @@ def mostDifferentAlgorithm(
     # Add the in-use cloze flashcards to the rawLineIdToRawWord
     for clozeFlashcard in inUseClozeFlashcardsForWord:
         rawLineId: int = clozeFlashcard.rawLine.hashedRawLine
-        rawWord: RawWord = clozeFlashcard.GetClozeRawWord()
-        rawLineIdToRawWord[rawLineId] = rawWord
+        clozeRawWord: RawWord = clozeFlashcard.GetClozeRawWord()
+        rawLineIdToRawWord[rawLineId] = clozeRawWord
 
     inUseIds: List[int] = [
         clozeFlashcard.rawLine.hashedRawLine for clozeFlashcard in inUseClozeFlashcardsForWord
@@ -141,12 +141,12 @@ def mostDifferentAlgorithm(
     for rawLineId in bestCombinationWithoutInUse:
         rawLine: RawLine = rawLineIdToRawWord[rawLineId].rawLine
         wordIndex: int = rawLineIdToRawWord[rawLineId].wordIndex
-        clozeFlashcard = ClozeFlashcard(
+        newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
             rawLine, wordIndex
         ).GetSimpleClozeFlashcard()
         if word not in wordToClozeFlashcards:
             wordToClozeFlashcards[word] = []
-        wordToClozeFlashcards[word].append(clozeFlashcard)
+        wordToClozeFlashcards[word].append(newSimpleClozeFlashcard)
 
 def generateNewCombinations(
     rawLineIds: List[int],

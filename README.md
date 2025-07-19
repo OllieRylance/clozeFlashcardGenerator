@@ -63,12 +63,12 @@ benefitShorterSentences: bool = True
 The input file should contain one sentence per line. Sentences should:
 - Use single spaces between words
 - Not have leading or trailing whitespace
-- Only contain letters, spaces, and the following punctuation: `,`, `.`, `~`, `?`
-- Use `~` to indicate compound words (e.g., `galerii~handlowej`)
+- Only contain letters, spaces, and the following punctuation: `,`, `.`, `?`, `_`
+- `_` indicates multi-word expressions (e.g., ")
 
 Example:
 ```
-jak mogę dostać~się do apteki?
+jak mogę dostać_1 się_1 do apteki?
 możesz pojechać autobusem
 możesz pojechać samochodem
 ```
@@ -82,8 +82,10 @@ The application generates a JSON file with the following structure:
     "word": [
         {
             "beforeCloze": "text before the blank",
+            "midCloze": "text in the middle of the blank which isn't blank (optional)",
             "afterCloze": "text after the blank",
-            "clozeWord": "word to fill in",
+            "clozeWordPart1": "first part of word to fill",
+            "closeWordPart2": "second part of word if the word is a multi-word expression",
             "inUse": "True/False"
         }
     ]

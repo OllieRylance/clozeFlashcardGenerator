@@ -179,6 +179,9 @@ class SimpleClozeFlashcard:
     #   }
     #   The changes include taking the punctuation out of the cloze words and including the spaces
     #   between the rest of the words and the clozes
+    #   This may require adding a punctuation class and separating the punctuation from the words
+    #   so that if puncuation is after the last which is the cloze word, it is included in the
+    #   afterCloze 
     
     def __init__(
         self,

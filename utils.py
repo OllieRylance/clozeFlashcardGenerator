@@ -3,6 +3,7 @@ from typing import Dict, List, Optional, Tuple
 import json
 import re
 
+from algorithms import mostDifferentAlgorithm
 from models import (
     MultiWordExpression,
     Line,
@@ -12,8 +13,143 @@ from models import (
     ClozeFlashcard,
     SimpleClozeFlashcard,
 )
+from readWrite import readJsonFile, readLines
 
 logger = logging.getLogger(__name__)
+
+def prepareSentenceLines(inputFilePath: str) -> List[str]:
+    """
+    Read sentences from a file and validate them.
+    Returns a list of valid sentences.
+    """
+    logger.info(f"Reading sentences from '{inputFilePath}'...")
+    sentenceLines: List[str] = readLines(inputFilePath)
+
+    if not sentenceLines:
+        logger.error(
+            f"No valid lines found in '{inputFilePath}'. Please check the file."
+        )
+
+        # Exit the program if no valid lines are found
+        exit(1)
+
+    # Check for invalid lines in the sentences file
+    logger.info(f"Checking for invalid lines in '{inputFilePath}'...")
+
+    invalidLines: List[str] = findInvalidLines(sentenceLines)
+
+    if invalidLines:
+        logger.error("Invalid sentence lines found.")
+
+        if logger.isEnabledFor(logging.DEBUG):
+            printFoundInvalidLines(invalidLines)
+
+        # Exit the program if invalid lines are found
+        exit(1)
+
+    logger.info("Sentence lines are valid.")
+    return sentenceLines
+
+def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
+    """
+    Prepare the in-use cloze flashcards from the output file.
+    Returns a dictionary of in-use cloze flashcards.
+    """
+    # Try to read existing cloze flashcards from the output file
+    existingClozeFlashcardsJsonFileString: Optional[str] = readJsonFile(outputFilePath)
+    if existingClozeFlashcardsJsonFileString is None:
+        logger.info(
+            f"No existing cloze flashcards found in '{outputFilePath}'. "
+            f"Starting fresh."
+        )
+
+    makeInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
+
+def printGeneratingClozeFlashcardsInfo(
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    clozeChoosingAlgorithm: str
+) -> None:
+    totalInUseClozeFlashcards: int = sum(
+        len(flashcards) for flashcards in inUseClozeFlashcards.values()
+    )
+    logger.info(
+        f"Generating cloze flashcards using the '{clozeChoosingAlgorithm}' algorithm "
+        f"given {totalInUseClozeFlashcards} existing cloze flashcards..."
+    )
+
+def generateClozeFlashcards(
+    clozeChoosingAlgorithm: str,
+    n: int,
+    benefitShorterSentences: bool
+) -> None:
+    """
+    Generate cloze flashcards based on the chosen algorithm.
+    Returns a dictionary of words to lists of SimpleClozeFlashcard objects.
+    """
+    if logger.isEnabledFor(logging.INFO):
+        printGeneratingClozeFlashcardsInfo(
+            ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm
+        )
+
+    # maxWordFrequency: Optional[int] = None
+    # if clozeChoosingAlgorithm == "highestScore":
+    #     maxWordFrequency = max(
+    #         len(flashcards) 
+    #         for flashcards in ClozeFlashcard.inUseClozeFlashcards.values()
+    #     )
+
+    createInitialClozeFlashcards()
+
+    for uniqueWordId in Word.uniqueWordIdToWordObjects.keys():
+        # If the word already has equal or more cloze flashcards than n, skip it
+        if (
+            uniqueWordId in SimpleClozeFlashcard.wordToFlashcards
+            and len(SimpleClozeFlashcard.wordToFlashcards[uniqueWordId]) >= n
+        ):
+            continue
+
+        # if clozeChoosingAlgorithm == "highestScore":
+        #     highestScoreAlgorithm(
+        #         punctuationlessWord,
+        #         wordToClozeFlashcards,
+        #         punctuationlessWords,
+        #         n,
+        #         benefitShorterSentences,
+        #         maxWordFrequency
+        #     )
+        if clozeChoosingAlgorithm == "mostDifferent":
+            mostDifferentAlgorithm(
+                uniqueWordId,
+                n,
+                benefitShorterSentences
+            )
+
+def ensureInUseClozeFlashcardsPersist() -> None:
+    for word, clozeFlashcards in ClozeFlashcard.inUseClozeFlashcards.items():
+        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+            SimpleClozeFlashcard.wordToFlashcards
+        )
+
+        if word not in wordToSimpleClozeFlashcards:
+            # If the word is not in the new cloze flashcards, 
+            # a serious error has occurred
+            logger.error(
+                f"Word '{word}' from in-use cloze flashcards is not present "
+                f"in the new cloze flashcards."
+            )
+            exit(1)
+
+        for clozeFlashcard in clozeFlashcards:
+            simpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
+            if simpleClozeFlashcard not in wordToSimpleClozeFlashcards[word]:
+                # If the cloze flashcard is not in the new cloze flashcards,
+                # a serious error has occurred
+                logger.error(
+                    f"Cloze flashcard '{simpleClozeFlashcard}' for word '{word}' "
+                    f"from in-use cloze flashcards is not present in the new "
+                    f"cloze flashcards."
+                )
+                exit(1)
 
 def findInvalidLines(lines: List[str]) -> List[str]:
     """

@@ -1,0 +1,42 @@
+{
+    "a": [
+        {
+            "beforeCloze": "this is",
+            "midCloze": "",
+            "afterCloze": "test",
+            "clozeWordPart1": "a",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "is": [
+        {
+            "beforeCloze": "this",
+            "midCloze": "",
+            "afterCloze": "a test",
+            "clozeWordPart1": "is",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "test": [
+        {
+            "beforeCloze": "this is a",
+            "midCloze": "",
+            "afterCloze": "",
+            "clozeWordPart1": "test",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "this": [
+        {
+            "beforeCloze": "",
+            "midCloze": "",
+            "afterCloze": "is a test",
+            "clozeWordPart1": "this",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ]
+}

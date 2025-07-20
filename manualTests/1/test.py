@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(
-        level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
+        level=logging.CRITICAL, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
         format='%(levelname)s: %(message)s'
     )
 

@@ -16,8 +16,8 @@ if __name__ == "__main__":
         format='%(levelname)s: %(message)s'
     )
 
-    inputFilePath: str = 'manualTests/1/sentences.txt'
-    outputFilePath: str = 'manualTests/1/clozeFlashcards.json'
+    inputFilePath: str = 'manualTests/1/testSentences.txt'
+    outputFilePath: str = 'manualTests/1/testClozeFlashcards.json'
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
     benefitShorterSentences: bool = False

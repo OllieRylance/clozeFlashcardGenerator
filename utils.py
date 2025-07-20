@@ -84,7 +84,7 @@ def makeInUseClozeFlashcards(
     existingClozeFlashcards: Dict[str, List[Dict[str, str]]] = {}
 
     try:
-        existingClozeFlashcards: Dict[str, List[Dict[str, str]]] = json.loads(
+        existingClozeFlashcards = json.loads(
             existingClozeFlashcardsJsonFileString
         )
     except json.JSONDecodeError:

@@ -164,6 +164,7 @@ class Line:
         Convert a list of words and punctuation into a single string.
         """
         result: str = ""
+        alonePunctuation: List['Punctuation'] = []
         for index, word in enumerate(words):
             if index > 0:
                 result += " "
@@ -172,7 +173,7 @@ class Line:
             )
             wordString: str = word.thisWordString
             if relevantPunctuation:
-                alonePunctuation: List[Punctuation] = [
+                alonePunctuation = [
                     p for p in relevantPunctuation 
                     if p.wordPosition == PunctuationWordPosition.ALONE
                 ]
@@ -195,7 +196,7 @@ class Line:
         # Add any punctuation that is alone at the end of the sentence
         indexAfterWords = len(words)
         if indexAfterWords in punctuationDict:
-            alonePunctuation: List[Punctuation] = [
+            alonePunctuation = [
                 p for p in punctuationDict[indexAfterWords] 
                 if p.wordPosition == PunctuationWordPosition.ALONE
             ]
@@ -329,7 +330,7 @@ class ClozeFlashcard:
             )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex = len(self.getWords())
-            afterCloze: str = (
+            afterCloze = (
                 self.GetStringOfWordsAndPunctuation(
                     currentStartWordIndex,
                     currentNextWordIndex,
@@ -341,14 +342,14 @@ class ClozeFlashcard:
             )
         else:
             currentNextWordIndex += multiWordExpression.getNumWordsBeforeSplitInCloze()
-            clozePart1: str = self.GetStringOfWordsAndPunctuation(
+            clozePart1 = self.GetStringOfWordsAndPunctuation(
                 currentStartWordIndex,
                 currentNextWordIndex,
                 isCloze=True
             ) if currentStartWordIndex != currentNextWordIndex else clozePart1
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex += multiWordExpression.getNumWordsInSplitOfCloze()
-            midCloze: str = (
+            midCloze = (
                 self.GetStringOfWordsAndPunctuation(
                     currentStartWordIndex,
                     currentNextWordIndex,
@@ -358,7 +359,7 @@ class ClozeFlashcard:
             )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex += multiWordExpression.getNumWordsAfterSplitInCloze()
-            clozePart2: str = (
+            clozePart2 = (
                 self.GetStringOfWordsAndPunctuation(
                     currentStartWordIndex,
                     currentNextWordIndex,
@@ -367,7 +368,7 @@ class ClozeFlashcard:
             )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex = len(self.getWords())
-            afterCloze: str = (
+            afterCloze = (
                 self.GetStringOfWordsAndPunctuation(
                     currentStartWordIndex,
                     currentNextWordIndex,

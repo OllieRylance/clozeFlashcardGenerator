@@ -27,7 +27,9 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
     sentenceLines: List[str] = readLines(inputFilePath)
 
     if not sentenceLines:
-        logger.error(f"No valid lines found in '{inputFilePath}'. Please check the file.")
+        logger.error(
+            f"No valid lines found in '{inputFilePath}'. Please check the file."
+        )
 
         # Exit the program if no valid lines are found
         exit(1)
@@ -57,7 +59,10 @@ def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
     # Try to read existing cloze flashcards from the output file
     existingClozeFlashcardsJsonFileString: Optional[str] = readJsonFile(outputFilePath)
     if existingClozeFlashcardsJsonFileString is None:
-        logger.info(f"No existing cloze flashcards found in '{outputFilePath}'. Starting fresh.")
+        logger.info(
+            f"No existing cloze flashcards found in '{outputFilePath}'. "
+            f"Starting fresh."
+        )
 
     makeInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
 
@@ -83,11 +88,16 @@ def generateClozeFlashcards(
     Returns a dictionary of words to lists of SimpleClozeFlashcard objects.
     """
     if logger.isEnabledFor(logging.INFO):
-        printGeneratingClozeFlashcardsInfo(ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm)
+        printGeneratingClozeFlashcardsInfo(
+            ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm
+        )
 
     # maxWordFrequency: Optional[int] = None
     # if clozeChoosingAlgorithm == "highestScore":
-    #     maxWordFrequency = max(len(flashcards) for flashcards in ClozeFlashcard.inUseClozeFlashcards.values())
+    #     maxWordFrequency = max(
+    #         len(flashcards) 
+    #         for flashcards in ClozeFlashcard.inUseClozeFlashcards.values()
+    #     )
 
     createInitialClozeFlashcards()
 
@@ -117,10 +127,13 @@ def generateClozeFlashcards(
 
 def ensureInUseClozeFlashcardsPersist() -> None:
     for word, clozeFlashcards in ClozeFlashcard.inUseClozeFlashcards.items():
-        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = SimpleClozeFlashcard.wordToFlashcards
+        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+            SimpleClozeFlashcard.wordToFlashcards
+        )
 
         if word not in wordToSimpleClozeFlashcards:
-            # If the word is not in the new cloze flashcards, a serious error has occurred
+            # If the word is not in the new cloze flashcards, 
+            # a serious error has occurred
             logger.error(
                 f"Word '{word}' from in-use cloze flashcards is not present "
                 f"in the new cloze flashcards."
@@ -134,7 +147,8 @@ def ensureInUseClozeFlashcardsPersist() -> None:
                 # a serious error has occurred
                 logger.error(
                     f"Cloze flashcard '{simpleClozeFlashcard}' for word '{word}' "
-                    f"from in-use cloze flashcards is not present in the new cloze flashcards."
+                    f"from in-use cloze flashcards is not present in the new "
+                    f"cloze flashcards."
                 )
                 exit(1)
 
@@ -174,8 +188,8 @@ def main(
         )
     )
 
-    wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = convertToJsonableFormat(
-        SimpleClozeFlashcard.wordToFlashcards
+    wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
+        convertToJsonableFormat(SimpleClozeFlashcard.wordToFlashcards)
     )
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
@@ -205,8 +219,13 @@ if __name__ == "__main__":
     n: int = 3
     benefitShorterSentences: bool = False
     # TODO : implement outputOrder and use it to sort the cloze flashcards
-    outputOrder: str = "alphabetical" # options are "alphabetical", "frequency", "random", "firstComeFirstServed", "lastComeFirstServed"
-    main(inputFilePath, outputFilePath, clozeChoosingAlgorithm, n, benefitShorterSentences)
+    # options are "alphabetical", "frequency", "random", 
+    # "firstComeFirstServed", "lastComeFirstServed"
+    outputOrder: str = "alphabetical"
+    main(
+        inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
+        n, benefitShorterSentences
+    )
 
     if profiler is not None:
         # Stop profiling

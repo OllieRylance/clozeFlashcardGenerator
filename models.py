@@ -12,7 +12,10 @@ class Line:
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
     calculatedSentenceLengthScores: Dict[int, float] = {}
 
-    def __init__(self, words: List['Word'], punctuationDict: Dict[int, List['Punctuation']]) -> None:
+    def __init__(
+        self, words: List['Word'], 
+        punctuationDict: Dict[int, List['Punctuation']]
+    ) -> None:
         for index, word in enumerate(words):
             word.appendReferenceLine(self, index)
         self.words: List['Word'] = words
@@ -25,7 +28,9 @@ class Line:
 
     def __str__(self) -> str:
         if self.asString is None:
-            self.asString = Line.stringifyWordsAndPunctuation(self.words, self.punctuationDict)
+            self.asString = Line.stringifyWordsAndPunctuation(
+                self.words, self.punctuationDict
+            )
 
         return self.asString
 
@@ -87,7 +92,10 @@ class Line:
 
         # Initialize the word vector as a dictionary
         # where keys are the punctuationless words and values are their counts
-        wordCounts: Dict[str, int] = {uniqueWordId: 0 for uniqueWordId in Word.uniqueWordIdToWordObjects.keys()}
+        wordCounts: Dict[str, int] = {
+            uniqueWordId: 0 
+            for uniqueWordId in Word.uniqueWordIdToWordObjects.keys()
+        }
 
         # Iterate through the words and update the word vector
         for word in self.words:
@@ -159,21 +167,26 @@ class Line:
         for index, word in enumerate(words):
             if index > 0:
                 result += " "
-            relevantPunctuation: Optional[List[Punctuation]] = punctuationDict.get(index)
+            relevantPunctuation: Optional[List[Punctuation]] = (
+                punctuationDict.get(index)
+            )
             wordString: str = word.thisWordString
             if relevantPunctuation:
                 alonePunctuation: List[Punctuation] = [
-                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.ALONE
+                    p for p in relevantPunctuation 
+                    if p.wordPosition == PunctuationWordPosition.ALONE
                 ]
                 if alonePunctuation:
                     result += f"{alonePunctuation[0].character} "
                 beforePunctuation: List[Punctuation] = [
-                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.BEFORE
+                    p for p in relevantPunctuation 
+                    if p.wordPosition == PunctuationWordPosition.BEFORE
                 ]
                 if beforePunctuation:
                     wordString = beforePunctuation[0].character + wordString
                 afterPunctuation: List[Punctuation] = [
-                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.AFTER
+                    p for p in relevantPunctuation 
+                    if p.wordPosition == PunctuationWordPosition.AFTER
                 ]
                 if afterPunctuation:
                     wordString += afterPunctuation[0].character
@@ -183,7 +196,8 @@ class Line:
         indexAfterWords = len(words)
         if indexAfterWords in punctuationDict:
             alonePunctuation: List[Punctuation] = [
-                p for p in punctuationDict[indexAfterWords] if p.wordPosition == PunctuationWordPosition.ALONE
+                p for p in punctuationDict[indexAfterWords] 
+                if p.wordPosition == PunctuationWordPosition.ALONE
             ]
             if alonePunctuation:
                 result += f"{alonePunctuation[0].character} "
@@ -303,7 +317,9 @@ class ClozeFlashcard:
         clozePart2: str = ""
         afterCloze: str = ""
 
-        multiWordExpression: Optional[MultiWordExpression] = self.GetFirstClozeWord().multiWordExpression
+        multiWordExpression: Optional[MultiWordExpression] = (
+            self.GetFirstClozeWord().multiWordExpression
+        )
         if multiWordExpression is None:
             currentNextWordIndex += 1
             clozePart1 = self.GetStringOfWordsAndPunctuation(
@@ -313,11 +329,16 @@ class ClozeFlashcard:
             )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex = len(self.getWords())
-            afterCloze: str = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                # leadingSpace=currentStartWordIndex != currentNextWordIndex
-            ) if currentStartWordIndex != currentNextWordIndex or currentNextWordIndex in self.line.punctuationDict else afterCloze
+            afterCloze: str = (
+                self.GetStringOfWordsAndPunctuation(
+                    currentStartWordIndex,
+                    currentNextWordIndex,
+                    # leadingSpace=currentStartWordIndex != currentNextWordIndex
+                ) 
+                if (currentStartWordIndex != currentNextWordIndex 
+                    or currentNextWordIndex in self.line.punctuationDict) 
+                else afterCloze
+            )
         else:
             currentNextWordIndex += multiWordExpression.getNumWordsBeforeSplitInCloze()
             clozePart1: str = self.GetStringOfWordsAndPunctuation(
@@ -327,26 +348,35 @@ class ClozeFlashcard:
             ) if currentStartWordIndex != currentNextWordIndex else clozePart1
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex += multiWordExpression.getNumWordsInSplitOfCloze()
-            midCloze: str = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                # leadingSpace=True,
-                # trailingSpace=True
-            ) if currentStartWordIndex != currentNextWordIndex else midCloze
+            midCloze: str = (
+                self.GetStringOfWordsAndPunctuation(
+                    currentStartWordIndex,
+                    currentNextWordIndex,
+                    # leadingSpace=True,
+                    # trailingSpace=True
+                ) if currentStartWordIndex != currentNextWordIndex else midCloze
+            )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex += multiWordExpression.getNumWordsAfterSplitInCloze()
-            clozePart2: str = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                isCloze=True
-            ) if currentStartWordIndex != currentNextWordIndex else clozePart2
+            clozePart2: str = (
+                self.GetStringOfWordsAndPunctuation(
+                    currentStartWordIndex,
+                    currentNextWordIndex,
+                    isCloze=True
+                ) if currentStartWordIndex != currentNextWordIndex else clozePart2
+            )
             currentStartWordIndex = currentNextWordIndex
             currentNextWordIndex = len(self.getWords())
-            afterCloze: str = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                # leadingSpace=currentStartWordIndex != currentNextWordIndex
-            ) if currentStartWordIndex != currentNextWordIndex or currentNextWordIndex in self.line.punctuationDict else afterCloze
+            afterCloze: str = (
+                self.GetStringOfWordsAndPunctuation(
+                    currentStartWordIndex,
+                    currentNextWordIndex,
+                    # leadingSpace=currentStartWordIndex != currentNextWordIndex
+                ) 
+                if (currentStartWordIndex != currentNextWordIndex 
+                    or currentNextWordIndex in self.line.punctuationDict) 
+                else afterCloze
+            )
 
         self.simpleClozeFlashcard = SimpleClozeFlashcard(
             beforeCloze, midCloze, afterCloze, clozePart1, clozePart2, self.inUse
@@ -419,7 +449,8 @@ class ClozeFlashcard:
             wordString: str = words[i].thisWordString
             if i in punctuationDict:
                 for punctuation in punctuationDict[i]:
-                    if punctuation.wordPosition == PunctuationWordPosition.ALONE and not isCloze:
+                    if (punctuation.wordPosition == PunctuationWordPosition.ALONE 
+                        and not isCloze):
                         result += punctuation.character + " "
                     elif punctuation.wordPosition == PunctuationWordPosition.BEFORE:
                         wordString = punctuation.character + wordString
@@ -470,7 +501,10 @@ class ClozeFlashcard:
 class Word:
     uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
 
-    def __init__(self, wordString: str, multiWordExpression: Optional['MultiWordExpression'] = None) -> None:
+    def __init__(
+        self, wordString: str, 
+        multiWordExpression: Optional['MultiWordExpression'] = None
+    ) -> None:
         self.thisWordString: str = wordString
         self.line: Optional['Line'] = None
         self.index: Optional[int] = None
@@ -490,7 +524,8 @@ class Word:
     
     def getUniqueWordId(self) -> str:
         """
-        Get a unique identifier for the word (and the rest of its multi-word expression).
+        Get a unique identifier for the word (and the rest of its 
+        multi-word expression).
         """
         if self.uniqueWordId is not None:
             return self.uniqueWordId
@@ -504,12 +539,15 @@ class Word:
         self.uniqueWordId = multiWordExpression.getUniqueWordId()
         return self.uniqueWordId
     
-    def thisInstanceInClozeFlashcards(self, clozeFlashcards: List['ClozeFlashcard']) -> bool:
+    def thisInstanceInClozeFlashcards(
+        self, clozeFlashcards: List['ClozeFlashcard']
+    ) -> bool:
         """
         Check if this instance of the word is in the list of cloze flashcards.
         """
         for clozeFlashcard in clozeFlashcards:
-            if clozeFlashcard.line == self.line and clozeFlashcard.wordIndex == self.index:
+            if (clozeFlashcard.line == self.line 
+                and clozeFlashcard.wordIndex == self.index):
                 return True
         return False
 
@@ -621,7 +659,10 @@ class MultiWordExpression:
         """
         Handle the case where a word in the multi-word expression has no index.
         """
-        logger.error(f"Word '{word.thisWordString}' in multi-word expression '{self.getUniqueWordId()}' has no index.")
+        logger.error(
+            f"Word '{word.thisWordString}' in multi-word expression "
+            f"'{self.getUniqueWordId()}' has no index."
+        )
         exit(1) 
 
     # example sentence a b word c d more words

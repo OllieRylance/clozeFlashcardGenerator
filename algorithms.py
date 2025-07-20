@@ -66,9 +66,12 @@ def mostDifferentAlgorithm(
 ) -> None:
     # For each unique word, create cloze flashcards for the it's raw lines
     # with the top n most different sentences
-    # If there are already cloze flashcards in use for the word, use those as the start of the list
+    # If there are already cloze flashcards in use for the word, 
+    # use those as the start of the list
     words: List[Word] = Word.uniqueWordIdToWordObjects[uniqueWordId]
-    inUseClozeFlashcardsForWord: List[ClozeFlashcard] = ClozeFlashcard.inUseClozeFlashcards.get(uniqueWordId, [])
+    inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
+        ClozeFlashcard.inUseClozeFlashcards.get(uniqueWordId, [])
+    )
 
     # Create a list of the raw words that are not already in use
     unusedWords: List[Word] = []
@@ -84,7 +87,10 @@ def mostDifferentAlgorithm(
             currentUniqueWordId: str = word.getUniqueWordId()
 
             if word.line is None or word.index is None:
-                logger.error(f"Word '{currentUniqueWordId}' has no line or word index, cannot create cloze flashcard.")
+                logger.error(
+                    f"Word '{currentUniqueWordId}' has no line or word index, "
+                    f"cannot create cloze flashcard."
+                )
                 continue
 
             simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
@@ -98,7 +104,9 @@ def mostDifferentAlgorithm(
 
             if currentUniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
                 SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId] = []
-            SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId].append(simpleClozeFlashcard)
+            SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId].append(
+                simpleClozeFlashcard
+            )
 
         return
 
@@ -136,24 +144,34 @@ def mostDifferentAlgorithm(
         logger.error(f"No valid combination found for word '{uniqueWordId}'.")
         return
 
-    bestCombinationWithoutInUse: Tuple[int, ...] = removeInUseIds(bestCombination, inUseIds)
+    bestCombinationWithoutInUse: Tuple[int, ...] = removeInUseIds(
+        bestCombination, inUseIds
+    )
 
     for lineId in bestCombinationWithoutInUse:
         if lineId not in lineIdToWord:
-            logger.error(f"Line ID {lineId} not found in lineIdToWord mapping for word '{uniqueWordId}'.")
+            logger.error(
+                f"Line ID {lineId} not found in lineIdToWord mapping "
+                f"for word '{uniqueWordId}'."
+            )
             continue
 
         line: Optional[Line] = lineIdToWord[lineId].line
         wordIndex: Optional[int] = lineIdToWord[lineId].index
         if line is None or wordIndex is None:
-            logger.error(f"Word '{uniqueWordId}' has no line or word index, cannot create cloze flashcard.")
+            logger.error(
+                f"Word '{uniqueWordId}' has no line or word index, "
+                f"cannot create cloze flashcard."
+            )
             continue
         newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
             line, wordIndex
         ).GetSimpleClozeFlashcard()
         if uniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
             SimpleClozeFlashcard.wordToFlashcards[uniqueWordId] = []
-        SimpleClozeFlashcard.wordToFlashcards[uniqueWordId].append(newSimpleClozeFlashcard)
+        SimpleClozeFlashcard.wordToFlashcards[uniqueWordId].append(
+            newSimpleClozeFlashcard
+        )
 
 def generateNewCombinations(
     lineIds: List[int],
@@ -181,8 +199,9 @@ def findMostDifferentCombination(
     currentHighestCosDissimilarity: float = 0
     currentBestCombination: Optional[Tuple[int, ...]] = None
 
-    # For each combination of raw lines work out the sum of the normalised dot products of
-    # their word vectors and find the combination with the highest cosine dissimilarity
+    # For each combination of raw lines work out the sum of the normalised 
+    # dot products of their word vectors and find the combination with the 
+    # highest cosine dissimilarity
     for combination in combinationsOfRawLines:
         sumOfCosDissimilarities: float = 0
         for i in range(len(combination)):
@@ -190,7 +209,9 @@ def findMostDifferentCombination(
                 line1: Optional[Line] = lineIdToWord[combination[i]].line
                 line2: Optional[Line] = lineIdToWord[combination[j]].line
                 if line1 is None or line2 is None:
-                    logger.error(f"One of the lines for combination {combination} is None.")
+                    logger.error(
+                        f"One of the lines for combination {combination} is None."
+                    )
                     continue
                 cosDissimilarity: float = line1.getCosDissimilarity(
                     line2
@@ -210,7 +231,9 @@ def findMostDifferentCombination(
 
     return currentBestCombination
 
-def removeInUseIds(combination: Tuple[int, ...], inUseIds: List[int]) -> Tuple[int, ...]:
+def removeInUseIds(
+    combination: Tuple[int, ...], inUseIds: List[int]
+) -> Tuple[int, ...]:
     """
     Remove the in-use IDs from the combination.
     """

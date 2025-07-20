@@ -28,7 +28,8 @@ def findInvalidLines(lines: List[str]) -> List[str]:
     for line in lines:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
         if ('  ' in line or
-            not all(c.isalpha() or c.isdigit() or c in '",.?_' or c.isspace() for c in line)):
+            not all(c.isalpha() or c.isdigit() or c in '",.?_' or c.isspace() 
+                   for c in line)):
             invalidLines.append(line)
 
     return invalidLines
@@ -40,12 +41,20 @@ def printFoundInvalidLines(invalidLines: List[str]) -> None:
     for line in invalidLines:
         print(f"\"{line}\"")
 
-def createClozeFlashcardFromSimpleJsonableDict(clozeFlashcard: Dict[str, str]) -> ClozeFlashcard:
+def createClozeFlashcardFromSimpleJsonableDict(
+    clozeFlashcard: Dict[str, str]
+) -> ClozeFlashcard:
     """
     Create a ClozeFlashcard from a simple JSON-serializable dictionary.
     """
-    clozeWordsPart1: List[str] = [Word.addClozeIdToString(word, 1) for word in clozeFlashcard['clozeWordPart1'].split()]
-    clozeWordsPart2: List[str] = [Word.addClozeIdToString(word, 1) for word in clozeFlashcard['clozeWordPart2'].split()]
+    clozeWordsPart1: List[str] = [
+        Word.addClozeIdToString(word, 1) 
+        for word in clozeFlashcard['clozeWordPart1'].split()
+    ]
+    clozeWordsPart2: List[str] = [
+        Word.addClozeIdToString(word, 1) 
+        for word in clozeFlashcard['clozeWordPart2'].split()
+    ]
     lineString: str = (
         clozeFlashcard['beforeCloze']
         + ' '.join(clozeWordsPart1)
@@ -56,7 +65,9 @@ def createClozeFlashcardFromSimpleJsonableDict(clozeFlashcard: Dict[str, str]) -
 
     line = parseSentenceLine(lineString, addWordsToClassDict=False)
     wordIndex: int = SimpleClozeFlashcard.wordsInString(clozeFlashcard['beforeCloze'])
-    clozeFlashcardInstance = ClozeFlashcard(line, wordIndex, clozeFlashcard['inUse'] == "True")
+    clozeFlashcardInstance = ClozeFlashcard(
+        line, wordIndex, clozeFlashcard['inUse'] == "True"
+    )
 
     return clozeFlashcardInstance
 
@@ -80,7 +91,10 @@ def makeInUseClozeFlashcards(
         logger.error("Error decoding JSON from clozeFlashcards.json. Starting fresh.")
 
     # Log the number of unique words found
-    logger.debug(f"{len(Word.uniqueWordIdToWordObjects)} unique words (+ multi word expressions) found in the sentences.")
+    logger.debug(
+        f"{len(Word.uniqueWordIdToWordObjects)} unique words "
+        f"(+ multi word expressions) found in the sentences."
+    )
 
     for clozeFlashcard in [
         clozeFlashcard
@@ -97,10 +111,14 @@ def makeInUseClozeFlashcards(
         )
 
         # Add the cloze flashcard to the in-use cloze flashcards dictionary
-        uniqueWordId: str = clozeFlashcardInstance.GetFirstClozeWord().getUniqueWordId()
+        uniqueWordId: str = (
+            clozeFlashcardInstance.GetFirstClozeWord().getUniqueWordId()
+        )
         if uniqueWordId not in ClozeFlashcard.inUseClozeFlashcards:
             ClozeFlashcard.inUseClozeFlashcards[uniqueWordId] = []
-        ClozeFlashcard.inUseClozeFlashcards[uniqueWordId].append(clozeFlashcardInstance)
+        ClozeFlashcard.inUseClozeFlashcards[uniqueWordId].append(
+            clozeFlashcardInstance
+        )
 
 def addWordToClassDict(word: Word) -> None:
     # If the unique word ID is not in the dictionary, add it
@@ -156,7 +174,10 @@ def processPunctuation(
     if match.group(2) == "":
         # If the word is just punctuation, treat it as alone punctuation
         punctuationDict[realIndex].append(
-            Punctuation(match.group(1) + match.group(3), PunctuationWordPosition.ALONE)
+            Punctuation(
+                match.group(1) + match.group(3), 
+                PunctuationWordPosition.ALONE
+            )
         )
         return "", True
     wordString = match.group(2)
@@ -185,7 +206,9 @@ def processMultiWordExpression(
         wordString, inSentenceMultiWordExpressionId = getWordStringAndId(wordString)
         if inSentenceMultiWordExpressionId not in multiWordExpressions:
             # Create a new MultiWordExpression
-            multiWordExpressions[inSentenceMultiWordExpressionId] = MultiWordExpression()
+            multiWordExpressions[inSentenceMultiWordExpressionId] = (
+                MultiWordExpression()
+            )
         
         multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
         return wordString, multiWordExpression
@@ -215,8 +238,9 @@ def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
         word: Word = Word(wordString, multiWordExpression)
         words.append(word)
 
-        # If the word is a multi-word expression, append the word to the multi-word expression
-        # and continue as multi-word expressions are handled after the loop
+        # If the word is a multi-word expression, append the word to the 
+        # multi-word expression and continue as multi-word expressions are 
+        # handled after the loop
         if multiWordExpression is not None:
             multiWordExpression.words.append(word)
             continue
@@ -235,7 +259,8 @@ def convertToJsonableFormat(
 ) -> Dict[str, List[Dict[str, str]]]:
     """
     Convert the word to SimpleClozeFlashcard dictionary to a JSON-serializable format.
-    Returns a dictionary of words to lists of dictionaries representing SimpleClozeFlashcards.
+    Returns a dictionary of words to lists of dictionaries 
+    representing SimpleClozeFlashcards.
     """
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = {}
 
@@ -256,7 +281,9 @@ def createInitialClozeFlashcards() -> None:
             wordToClozeFlashcards[word] = []
 
         for clozeFlashcard in ClozeFlashcard.inUseClozeFlashcards[word]:
-            simpleClozeFlashcard: SimpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
+            simpleClozeFlashcard: SimpleClozeFlashcard = (
+                clozeFlashcard.GetSimpleClozeFlashcard()
+            )
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
     SimpleClozeFlashcard.wordToFlashcards = wordToClozeFlashcards

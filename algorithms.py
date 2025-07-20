@@ -2,155 +2,162 @@ import logging
 from typing import Dict, List, Optional, Tuple
 from itertools import combinations
 
-from models import RawLine, RawWord, PunctuationlessWord, ClozeFlashcard, SimpleClozeFlashcard
+from models import Line, ClozeFlashcard, SimpleClozeFlashcard, Word
 
 logger = logging.getLogger(__name__)
 
-def highestScoreAlgorithm(
-    currentPunctuationlessWord: PunctuationlessWord,
-    wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
-    punctuationlessWords: Dict[str, PunctuationlessWord],
-    n: int,
-    benefitShorterSentences: bool,
-    optionalMaxWordFrequency: Optional[int]
-) -> None:
-    if optionalMaxWordFrequency is None:
-        logger.error("Max word frequency is None, cannot proceed with highest score algorithm.")
-        exit(1)
+# def highestScoreAlgorithm(
+#     currentPunctuationlessWord: PunctuationlessWord,
+#     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
+#     punctuationlessWords: Dict[str, PunctuationlessWord],
+#     n: int,
+#     benefitShorterSentences: bool,
+#     optionalMaxWordFrequency: Optional[int]
+# ) -> None:
+#     if optionalMaxWordFrequency is None:
+#         logger.error("Max word frequency is None, cannot proceed with highest score algorithm.")
+#         exit(1)
     
-    maxWordFrequency: int = optionalMaxWordFrequency
+#     maxWordFrequency: int = optionalMaxWordFrequency
 
-    # For each unique word, create cloze flashcards for the it's raw lines
-    # with the top n highest scores
-    # If there are already cloze flashcards in use for the word, use those as the start of the list
-    word: str = currentPunctuationlessWord.word
-    referenceRawWords: List[RawWord] = currentPunctuationlessWord.referenceRawWords
-    sortedRawWordObjects: List[RawWord] = sorted(
-        referenceRawWords,
-        key=lambda x: x.getSentenceScore(
-            punctuationlessWords, maxWordFrequency, benefitShorterSentences
-        ),
-        reverse=True
-    )
+#     # For each unique word, create cloze flashcards for the it's raw lines
+#     # with the top n highest scores
+#     # If there are already cloze flashcards in use for the word, use those as the start of the list
+#     word: str = currentPunctuationlessWord.word
+#     referenceRawWords: List[RawWord] = currentPunctuationlessWord.referenceRawWords
+#     sortedRawWordObjects: List[RawWord] = sorted(
+#         referenceRawWords,
+#         key=lambda x: x.getSentenceScore(
+#             punctuationlessWords, maxWordFrequency, benefitShorterSentences
+#         ),
+#         reverse=True
+#     )
 
-    # Take the top n highest scoring raw lines
-    topRawWordObjects: List[RawWord] = (
-        sortedRawWordObjects[:n] if len(sortedRawWordObjects) > n
-        else sortedRawWordObjects
-    )
+#     # Take the top n highest scoring raw lines
+#     topRawWordObjects: List[RawWord] = (
+#         sortedRawWordObjects[:n] if len(sortedRawWordObjects) > n
+#         else sortedRawWordObjects
+#     )
 
-    for rawWord in topRawWordObjects:
-        # Ensure that the wordToClozeFlashcards has not reached the limit
-        # (from some preexisting in use and some new ones)
-        if word in wordToClozeFlashcards and len(wordToClozeFlashcards[word]) >= n:
-            break
+#     for rawWord in topRawWordObjects:
+#         # Ensure that the wordToClozeFlashcards has not reached the limit
+#         # (from some preexisting in use and some new ones)
+#         if word in wordToClozeFlashcards and len(wordToClozeFlashcards[word]) >= n:
+#             break
 
-        # Create a new SimpleClozeFlashcard instance for the raw word
-        clozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-            rawWord.rawLine, rawWord.wordIndex
-        ).GetSimpleClozeFlashcard()
+#         # Create a new SimpleClozeFlashcard instance for the raw word
+#         clozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
+#             rawWord.rawLine, rawWord.wordIndex
+#         ).GetSimpleClozeFlashcard()
 
-        # If the simple flashcard for the raw word is already in the dictionary, skip it
-        if clozeFlashcard in wordToClozeFlashcards.get(word, []):
-            continue
+#         # If the simple flashcard for the raw word is already in the dictionary, skip it
+#         if clozeFlashcard in wordToClozeFlashcards.get(word, []):
+#             continue
 
-        # If the word is not in the dictionary, create a new list
-        if word not in wordToClozeFlashcards:
-            wordToClozeFlashcards[word] = []
-        wordToClozeFlashcards[word].append(clozeFlashcard)
+#         # If the word is not in the dictionary, create a new list
+#         if word not in wordToClozeFlashcards:
+#             wordToClozeFlashcards[word] = []
+#         wordToClozeFlashcards[word].append(clozeFlashcard)
 
 def mostDifferentAlgorithm(
-    currentPunctuationlessWord: PunctuationlessWord,
-    wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
-    punctuationlessWords: Dict[str, PunctuationlessWord],
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    uniqueWordId: str,
     n: int,
     benefitShorterSentences: bool
 ) -> None:
     # For each unique word, create cloze flashcards for the it's raw lines
     # with the top n most different sentences
     # If there are already cloze flashcards in use for the word, use those as the start of the list
-    word: str = currentPunctuationlessWord.word
-    rawWords: List[RawWord] = currentPunctuationlessWord.referenceRawWords
-    inUseClozeFlashcardsForWord: List[ClozeFlashcard] = inUseClozeFlashcards.get(word, [])
+    words: List[Word] = Word.uniqueWordIdToWordObjects[uniqueWordId]
+    inUseClozeFlashcardsForWord: List[ClozeFlashcard] = ClozeFlashcard.inUseClozeFlashcards.get(uniqueWordId, [])
 
     # Create a list of the raw words that are not already in use
-    unusedRawWords: List[RawWord] = []
+    unusedWords: List[Word] = []
 
-    for rawWord in rawWords:
-        if not rawWord.rawLine.inListOfOtherRawLines([
-            clozeFlashcard.rawLine for clozeFlashcard in inUseClozeFlashcardsForWord
-        ]):
-            unusedRawWords.append(rawWord)
+    for word in words:
+        if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
+            unusedWords.append(word)
 
-    # If the number of reference raw words plus the number of in use cloze flashcards
-    # is less than or equal to n, create cloze flashcards for all the raw words
-    if len(unusedRawWords) + len(inUseClozeFlashcardsForWord) <= n:
-        for rawWord in unusedRawWords:
+    # If the number of reference words plus the number of in use cloze flashcards
+    # is less than or equal to n, create cloze flashcards for all the words
+    if len(unusedWords) + len(inUseClozeFlashcardsForWord) <= n:
+        for word in unusedWords:
+            currentUniqueWordId: str = word.getUniqueWordId()
+
+            if word.line is None or word.index is None:
+                logger.error(f"Word '{currentUniqueWordId}' has no line or word index, cannot create cloze flashcard.")
+                continue
+
             simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-                rawWord.rawLine, rawWord.wordIndex
+                word.line, word.index
             ).GetSimpleClozeFlashcard()
 
-            if (word in inUseClozeFlashcards and
+            if (currentUniqueWordId in ClozeFlashcard.inUseClozeFlashcards and
                 simpleClozeFlashcard in inUseClozeFlashcardsForWord):
                 # If the cloze flashcard is already in use, skip it
                 continue
 
-            if word not in wordToClozeFlashcards:
-                wordToClozeFlashcards[word] = []
-            wordToClozeFlashcards[word].append(simpleClozeFlashcard)
+            if currentUniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
+                SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId] = []
+            SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId].append(simpleClozeFlashcard)
 
         return
 
-    # Subtract the number of cloze flashcards already in use for the word from n
-    n = n - len(inUseClozeFlashcardsForWord)
-
     # Create a dictionary that maps all of the relevant raw lines IDs to their objects
-    rawLineIdToRawWord: Dict[int, RawWord] = {
-        rawWord.rawLine.hashedRawLine: rawWord for rawWord in unusedRawWords
+    lineIdToWord: Dict[int, Word] = {
+        word.line.id: word for word in unusedWords if word.line is not None
     }
 
     # Create a list of all the combinations of n raw lines
-    rawLineIds: List[int] = list(rawLineIdToRawWord.keys())
+    lineIds: List[int] = list(lineIdToWord.keys())
 
-    # Add the in-use cloze flashcards to the rawLineIdToRawWord
+    # Add the in-use cloze flashcards to the lineIdToWord
     for clozeFlashcard in inUseClozeFlashcardsForWord:
-        rawLineId: int = clozeFlashcard.rawLine.hashedRawLine
-        clozeRawWord: RawWord = clozeFlashcard.GetClozeRawWord()
-        rawLineIdToRawWord[rawLineId] = clozeRawWord
+        lineId: int = clozeFlashcard.line.id
+        clozeWord: Word = clozeFlashcard.GetFirstClozeWord()
+        lineIdToWord[lineId] = clozeWord
 
     inUseIds: List[int] = [
-        clozeFlashcard.rawLine.hashedRawLine for clozeFlashcard in inUseClozeFlashcardsForWord
+        clozeFlashcard.line.id for clozeFlashcard in inUseClozeFlashcardsForWord
     ]
+
+    # Subtract the number of cloze flashcards already in use for the word from n
+    newSentenceNum = n - len(inUseClozeFlashcardsForWord)
 
     # Combination means combination of sentences, not words
     newCombinations: List[Tuple[int, ...]] = generateNewCombinations(
-        rawLineIds, inUseIds, n
+        lineIds, inUseIds, newSentenceNum
     )
 
     bestCombination: Optional[Tuple[int, ...]] = findMostDifferentCombination(
-        newCombinations, rawLineIdToRawWord, punctuationlessWords, benefitShorterSentences
+        newCombinations, lineIdToWord, benefitShorterSentences
     )
 
     if bestCombination is None:
-        logger.error(f"No valid combination found for word '{word}'.")
+        logger.error(f"No valid combination found for word '{uniqueWordId}'.")
         return
 
     bestCombinationWithoutInUse: Tuple[int, ...] = removeInUseIds(bestCombination, inUseIds)
 
-    for rawLineId in bestCombinationWithoutInUse:
-        rawLine: RawLine = rawLineIdToRawWord[rawLineId].rawLine
-        wordIndex: int = rawLineIdToRawWord[rawLineId].wordIndex
+    for lineId in bestCombinationWithoutInUse:
+        if lineId not in lineIdToWord:
+            logger.error(f"Line ID {lineId} not found in lineIdToWord mapping for word '{uniqueWordId}'.")
+            continue
+
+        line: Optional[Line] = lineIdToWord[lineId].line
+        wordIndex: Optional[int] = lineIdToWord[lineId].index
+        if line is None or wordIndex is None:
+            logger.error(f"Word '{uniqueWordId}' has no line or word index, cannot create cloze flashcard.")
+            continue
         newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-            rawLine, wordIndex
+            line, wordIndex
         ).GetSimpleClozeFlashcard()
-        if word not in wordToClozeFlashcards:
-            wordToClozeFlashcards[word] = []
-        wordToClozeFlashcards[word].append(newSimpleClozeFlashcard)
+        if uniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
+            SimpleClozeFlashcard.wordToFlashcards[uniqueWordId] = []
+        SimpleClozeFlashcard.wordToFlashcards[uniqueWordId].append(newSimpleClozeFlashcard)
 
 def generateNewCombinations(
-    rawLineIds: List[int],
-    inUseClozeFlashcardIds: List[int],
+    lineIds: List[int],
+    inUseIds: List[int],
     n: int
 ) -> List[Tuple[int, ...]]:
     """
@@ -159,17 +166,16 @@ def generateNewCombinations(
     newCombinations: List[Tuple[int, ...]] = []
 
     # Generate all combinations of n raw lines
-    for combination in combinations(rawLineIds, n):
+    for combination in combinations(lineIds, n):
         # Create a new combination that includes the in-use cloze flashcards
-        newCombination: Tuple[int, ...] = tuple(inUseClozeFlashcardIds) + combination
+        newCombination: Tuple[int, ...] = tuple(inUseIds) + combination
         newCombinations.append(newCombination)
 
     return newCombinations
 
 def findMostDifferentCombination(
     combinationsOfRawLines: List[Tuple[int, ...]],
-    rawLineIdToRawWord: Dict[int, RawWord],
-    punctuationlessWords: Dict[str, PunctuationlessWord],
+    lineIdToWord: Dict[int, Word],
     benefitShorterSentences: bool
 ) -> Optional[Tuple[int, ...]]:
     currentHighestCosDissimilarity: float = 0
@@ -181,16 +187,19 @@ def findMostDifferentCombination(
         sumOfCosDissimilarities: float = 0
         for i in range(len(combination)):
             for j in range(i + 1, len(combination)):
-                rawLine1: RawLine = rawLineIdToRawWord[combination[i]].rawLine
-                rawLine2: RawLine = rawLineIdToRawWord[combination[j]].rawLine
-                cosDissimilarity: float = rawLine1.getCosDissimilarity(
-                    rawLine2, punctuationlessWords
+                line1: Optional[Line] = lineIdToWord[combination[i]].line
+                line2: Optional[Line] = lineIdToWord[combination[j]].line
+                if line1 is None or line2 is None:
+                    logger.error(f"One of the lines for combination {combination} is None.")
+                    continue
+                cosDissimilarity: float = line1.getCosDissimilarity(
+                    line2
                 )
 
                 if benefitShorterSentences:
                     cosDissimilarity *= (
-                        rawLine1.getSentenceLengthScore() *
-                        rawLine2.getSentenceLengthScore()
+                        line1.getSentenceLengthScore() *
+                        line2.getSentenceLengthScore()
                     )
 
                 sumOfCosDissimilarities += cosDissimilarity

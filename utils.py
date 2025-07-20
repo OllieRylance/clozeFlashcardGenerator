@@ -1,13 +1,14 @@
-from dataclasses import dataclass
 import logging
 from typing import Dict, List, Optional, Tuple
 import json
+import re
 
 from models import (
     MultiWordExpression,
-    RawLine,
-    RawWord,
-    PunctuationlessWord,
+    Line,
+    Word,
+    Punctuation,
+    PunctuationWordPosition,
     ClozeFlashcard,
     SimpleClozeFlashcard,
 )
@@ -39,187 +40,195 @@ def printFoundInvalidLines(invalidLines: List[str]) -> None:
     for line in invalidLines:
         print(f"\"{line}\"")
 
-def getInUseClozeFlashcards(
+def createClozeFlashcardFromSimpleJsonableDict(clozeFlashcard: Dict[str, str]) -> ClozeFlashcard:
+    """
+    Create a ClozeFlashcard from a simple JSON-serializable dictionary.
+    """
+    clozeWordsPart1: List[str] = [Word.addClozeIdToString(word, 1) for word in clozeFlashcard['clozeWordPart1'].split()]
+    clozeWordsPart2: List[str] = [Word.addClozeIdToString(word, 1) for word in clozeFlashcard['clozeWordPart2'].split()]
+    lineString: str = (
+        clozeFlashcard['beforeCloze']
+        + ' '.join(clozeWordsPart1)
+        + clozeFlashcard['midCloze']
+        + ' '.join(clozeWordsPart2)
+        + clozeFlashcard['afterCloze']
+    )
+
+    line = parseSentenceLine(lineString, addWordsToClassDict=False)
+    wordIndex: int = SimpleClozeFlashcard.wordsInString(clozeFlashcard['beforeCloze'])
+    clozeFlashcardInstance = ClozeFlashcard(line, wordIndex, clozeFlashcard['inUse'] == "True")
+
+    return clozeFlashcardInstance
+
+def makeInUseClozeFlashcards(
     existingClozeFlashcardsJsonFileString: Optional[str]
-) -> Dict[str, List[ClozeFlashcard]]:
+) -> None:
     """
     Parse the existing cloze flashcards JSON file string and return a dictionary
     of in-use cloze flashcards.
     """
     if existingClozeFlashcardsJsonFileString is None:
-        return {}
+        return
 
-    inUseClozeFlashcards : Dict[str, List[ClozeFlashcard]] = {}
+    existingClozeFlashcards: Dict[str, List[Dict[str, str]]] = {}
 
     try:
         existingClozeFlashcards: Dict[str, List[Dict[str, str]]] = json.loads(
             existingClozeFlashcardsJsonFileString
         )
-        for clozeFlashcard in [
-            clozeFlashcard
-            for clozeFlashcards in existingClozeFlashcards.values()
-            for clozeFlashcard in clozeFlashcards
-        ]:
-            inUse = clozeFlashcard['inUse'] == "True"
-            if not bool(inUse):
-                continue
-
-            # Create a ClozeFlashcard instance
-            rawWords: List[RawWord] = []
-            multiWordExpressionIndexCounter: MultiWordExpressionIndexCounter = MultiWordExpressionIndexCounter(MultiWordExpression())
-
-            beforeClozeWordStrings = clozeFlashcard['beforeCloze'].split()
-            for word in beforeClozeWordStrings:
-                rawWords.append(RawWord(word))
-            clozeWordPart1 = clozeFlashcard['clozeWordPart1'].split()
-            for word in clozeWordPart1:
-                rawWord: RawWord = RawWord(word, multiWordExpressionIndexCounter.getMultiWordExpressionInfo())
-                multiWordExpressionIndexCounter.MWE.rawWords.append(rawWord)
-                multiWordExpressionIndexCounter.count += 1
-                rawWords.append(rawWord)
-            midClozeWordStrings = clozeFlashcard['midCloze'].split()
-            for word in midClozeWordStrings:
-                rawWords.append(RawWord(word))
-            clozeWordPart2 = clozeFlashcard['clozeWordPart2'].split()
-            for word in clozeWordPart2:
-                clozeRawWord: RawWord = RawWord(word, multiWordExpressionIndexCounter.getMultiWordExpressionInfo())
-                multiWordExpressionIndexCounter.MWE.rawWords.append(clozeRawWord)
-                multiWordExpressionIndexCounter.count += 1
-                rawWords.append(clozeRawWord)
-            afterClozeWordStrings = clozeFlashcard['afterCloze'].split()
-            for word in afterClozeWordStrings:
-                rawWords.append(RawWord(word))
-            
-            rawLine: RawLine = RawLine(rawWords)
-            wordIndex: int = len(beforeClozeWordStrings)
-            clozeFlashcardInstance: ClozeFlashcard = ClozeFlashcard(
-                rawLine, wordIndex, inUse
-            )
-
-            # Add the cloze flashcard to the in-use cloze flashcards dictionary
-            punctuationlessWord = clozeFlashcardInstance.GetPunctuationlessClozeString()
-            if punctuationlessWord not in inUseClozeFlashcards:
-                inUseClozeFlashcards[punctuationlessWord] = []
-            inUseClozeFlashcards[punctuationlessWord].append(clozeFlashcardInstance)
     except json.JSONDecodeError:
         logger.error("Error decoding JSON from clozeFlashcards.json. Starting fresh.")
 
-    return inUseClozeFlashcards
-
-def addPunctuationlessWord(
-    punctuationlessWordString: str,
-    punctuationlessWords: Dict[str, PunctuationlessWord],
-    rawWord: RawWord
-) -> None:
-    # If the punctuationless version of the word is not in the dictionary,
-    # create a new PunctuationlessWord
-    if punctuationlessWordString not in punctuationlessWords:
-        # Create a new PunctuationlessWord
-        punctuationlessWord: PunctuationlessWord = PunctuationlessWord(
-            punctuationlessWordString, rawWord
-        )
-        # Store the PunctuationlessWord in the dictionary
-        punctuationlessWords[punctuationlessWordString] = punctuationlessWord
-    else:
-        # If it exists, add the raw word ID to the existing PunctuationlessWord
-        punctuationlessWords[punctuationlessWordString].referenceRawWords.append(rawWord)
-
-@dataclass
-class MultiWordExpressionIndexCounter:
-    MWE: MultiWordExpression
-    count: int = 0
-
-    def getMultiWordExpressionInfo(self) -> Tuple[MultiWordExpression, int]:
-        """
-        Get the MultiWordExpression and its index.
-        Returns a tuple of MultiWordExpression and its index.
-        """
-        return self.MWE, self.count
-
-def getRawWordStringAndMWEId(rawWordString: str) -> Tuple[str, str]:
-    # Split the raw word string into parts taking punctuation after the number into account. e.g.,
-    # "word_1" -> "word" and "1"
-    # "word_1?" -> "word?" and "1"
-
-    # First, separate any punctuation from the number at the end
-    # Using regex to find the last underscore followed by digits
-    # and get any puntuation that follows the number
-    import re
-    match = re.search(r'_(\d+)([^\w\s]*)$', rawWordString)
-    if not match:
-        logger.error(f"Invalid raw word string format: {rawWordString}")
-        # If no match is found, return the original string and an empty MWE ID
-        return rawWordString, ""
-
-    inSentenceMWEId = match.group(1)
-    punctuation = match.group(2)
-    rawWordString = rawWordString[:match.start()] + punctuation
-    
-    return rawWordString, inSentenceMWEId
-
-def createPunctuationlessWordsFromSentences(
-    sentenceLines: List[str]
-) -> Dict[str, PunctuationlessWord]:
-    """
-    Create PunctuationlessWord objects from a list of sentence lines.
-    Returns a dictionary of PunctuationlessWord objects.
-    """
-    # Dictionary to store PunctuationlessWord objects
-    punctuationlessWords: Dict[str, PunctuationlessWord] = {}
-
-    # Read the file and process each line
-    for line in sentenceLines:
-        wordsInLine: List[str] = line.split()
-        currentRawWords: List[RawWord] = []
-        currentMultiWordExpressions: Dict[str, MultiWordExpressionIndexCounter] = {}
-
-        for rawWordString in wordsInLine:
-            # Detect multi-word expressions
-            multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = None
-            if '_' in rawWordString:
-                rawWordString, inSentenceMWEId = getRawWordStringAndMWEId(rawWordString)
-                if inSentenceMWEId not in currentMultiWordExpressions:
-                    # Create a new MultiWordExpression
-                    currentMultiWordExpressions[inSentenceMWEId] = MultiWordExpressionIndexCounter(MultiWordExpression())
-                multiWordExpressionInfo = currentMultiWordExpressions[inSentenceMWEId].getMultiWordExpressionInfo()
-                currentMultiWordExpressions[inSentenceMWEId].count += 1
-
-            rawWord: RawWord = RawWord(rawWordString, multiWordExpressionInfo)
-            currentRawWords.append(rawWord)
-
-            # If the raw word is a multi-word expression, append the raw word to the multi-word expression and
-            # add it to the punctuationless words dictionary after the loop
-            if multiWordExpressionInfo is not None:
-                multiWordExpressionInfo[0].rawWords.append(rawWord)
-                continue
-
-            # Remove punctuation from the raw word
-            punctuationlessWordString: str = rawWord.GetUniquePunctuationlessWordString()
-
-            addPunctuationlessWord(
-                punctuationlessWordString,
-                punctuationlessWords,
-                rawWord
-            )
-
-        # If there are multi-word expressions, add them to the punctuationless words dictionary
-        for multiWordExpression in [counter.MWE for counter in currentMultiWordExpressions.values()]:
-            addPunctuationlessWord(
-                multiWordExpression.getUniquePunctuationlessWordString(),
-                punctuationlessWords,
-                multiWordExpression.rawWords[0]
-            )
-
-        # Create a new RawLine instance which stores itself in the raw words
-        RawLine(currentRawWords)
-
     # Log the number of unique words found
-    logger.debug(f"{len(punctuationlessWords)} unique words found in the sentences.")
+    logger.debug(f"{len(Word.uniqueWordIdToWordObjects)} unique words (+ multi word expressions) found in the sentences.")
 
-    # Sort the keys into alphabetical order
-    punctuationlessWords = dict(sorted(punctuationlessWords.items(), key=lambda item: item[0]))
+    for clozeFlashcard in [
+        clozeFlashcard
+        for clozeFlashcards in existingClozeFlashcards.values()
+        for clozeFlashcard in clozeFlashcards
+    ]:
+        inUse = clozeFlashcard['inUse'] == "True"
+        if not bool(inUse):
+            continue
 
-    return punctuationlessWords
+        # Create a ClozeFlashcard instance
+        clozeFlashcardInstance: ClozeFlashcard = (
+            createClozeFlashcardFromSimpleJsonableDict(clozeFlashcard)
+        )
+
+        # Add the cloze flashcard to the in-use cloze flashcards dictionary
+        uniqueWordId: str = clozeFlashcardInstance.GetFirstClozeWord().getUniqueWordId()
+        if uniqueWordId not in ClozeFlashcard.inUseClozeFlashcards:
+            ClozeFlashcard.inUseClozeFlashcards[uniqueWordId] = []
+        ClozeFlashcard.inUseClozeFlashcards[uniqueWordId].append(clozeFlashcardInstance)
+
+def addWordToClassDict(word: Word) -> None:
+    # If the unique word ID is not in the dictionary, add it
+    uniqueWordId: str = word.getUniqueWordId()
+    if uniqueWordId not in Word.uniqueWordIdToWordObjects:
+        Word.uniqueWordIdToWordObjects[uniqueWordId] = []
+    Word.uniqueWordIdToWordObjects[uniqueWordId].append(word)
+
+# def getWordRarityScore(
+#     word: str,
+#     punctuationlessWords: Dict[str, 'PunctuationlessWord'],
+#     maxWordFrequency: int
+# ) -> float:
+#     """Calculate the rarity score of a word based on its frequency."""
+#     punctuationlessWord: Optional['PunctuationlessWord'] = punctuationlessWords.get(word)
+#     if punctuationlessWord is None:
+#         frequency: int = 0
+#     else:
+#         frequency = len(punctuationlessWord.referenceRawWords)
+
+#     normalized: float = frequency / maxWordFrequency
+#     # Exponential decay with tunable steepness
+#     return math.exp(-5 * normalized)
+
+def getWordStringAndId(wordString: str) -> Tuple[str, int]:
+    """
+    Split the raw word string into parts, e.g.,
+    "word_1" -> "word" and 1
+    """
+    parts = wordString.split('_')
+    if len(parts) != 2:
+        logger.error(f"Invalid word string format: {wordString}")
+        return wordString, 0
+    if not parts[1].isdigit():
+        logger.error(f"Invalid word ID in word string: {wordString}")
+        return parts[0], 0
+    return parts[0], int(parts[1])
+
+def processPunctuation(
+    subString: str,
+    punctuationDict: Dict[int, List[Punctuation]],
+    realIndex: int
+) -> Tuple[str, bool]:
+    # If the subString starts or ends with a string of punctuation
+    # using regex to find punctuation at the start and end
+    # punctuation to look for is ",?"
+    match = re.match(r'([^\w\s]*)(.*?)([^\w\s]*)$', subString)
+    if not match:
+        return subString, False
+
+    if realIndex not in punctuationDict:
+        punctuationDict[realIndex] = []
+    if match.group(2) == "":
+        # If the word is just punctuation, treat it as alone punctuation
+        punctuationDict[realIndex].append(
+            Punctuation(match.group(1) + match.group(3), PunctuationWordPosition.ALONE)
+        )
+        return "", True
+    wordString = match.group(2)
+    if match.group(1):
+        # If there is punctuation at the start, add it before the word
+        punctuationDict[realIndex].append(
+            Punctuation(match.group(1), PunctuationWordPosition.BEFORE)
+        )
+    if match.group(3):
+        # If there is punctuation at the end, add it after the word
+        punctuationDict[realIndex].append(
+            Punctuation(match.group(3), PunctuationWordPosition.AFTER)
+        )
+    
+    return wordString, False
+
+def processMultiWordExpression(
+    wordString: str,
+    multiWordExpressions: Dict[int, MultiWordExpression]
+) -> Tuple[str, Optional[MultiWordExpression]]:
+    """
+    Process a word string to detect multi-word expressions.
+    Returns a tuple of MultiWordExpression and its index if found, otherwise None.
+    """
+    if '_' in wordString:
+        wordString, inSentenceMultiWordExpressionId = getWordStringAndId(wordString)
+        if inSentenceMultiWordExpressionId not in multiWordExpressions:
+            # Create a new MultiWordExpression
+            multiWordExpressions[inSentenceMultiWordExpressionId] = MultiWordExpression()
+        
+        multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
+        return wordString, multiWordExpression
+    return wordString, None
+
+def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
+    subStrings: List[str] = line.split()
+    words: List[Word] = []
+    punctuationDict: Dict[int, List[Punctuation]] = {}
+    alonePunctuation: int = 0
+    multiWordExpressions: Dict[int, MultiWordExpression] = {}
+    for index, subString in enumerate(subStrings):
+        realIndex = index - alonePunctuation
+        # Deal with punctuation
+        wordString, alonePunctuationFound = processPunctuation(
+            subString, punctuationDict, realIndex
+        )
+        if alonePunctuationFound:
+            alonePunctuation += 1
+            continue
+        
+        # Detect multi-word expressions
+        wordString, multiWordExpression = processMultiWordExpression(
+            wordString, multiWordExpressions
+        )
+        
+        word: Word = Word(wordString, multiWordExpression)
+        words.append(word)
+
+        # If the word is a multi-word expression, append the word to the multi-word expression
+        # and continue as multi-word expressions are handled after the loop
+        if multiWordExpression is not None:
+            multiWordExpression.words.append(word)
+            continue
+        
+        if addWordsToClassDict:
+            addWordToClassDict(word)
+
+    if addWordsToClassDict:
+        for multiWordExpression in [m for m in multiWordExpressions.values()]:
+            addWordToClassDict(multiWordExpression.words[0])
+
+    return Line(words, punctuationDict)
 
 def convertToJsonableFormat(
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
@@ -233,25 +242,21 @@ def convertToJsonableFormat(
     for word, simpleClozeFlashcards in wordToSimpleClozeFlashcards.items():
         jsonableFlashcards: List[Dict[str, str]] = []
         for simpleClozeFlashcard in simpleClozeFlashcards:
-            jsonableFlashcards.append(simpleClozeFlashcard.toDict())
+            jsonableFlashcards.append(simpleClozeFlashcard.toJsonableDict())
         wordToJsonableClozeFlashcards[word] = jsonableFlashcards
 
     return wordToJsonableClozeFlashcards
 
-def createInitialClozeFlashcards(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
-) -> Dict[str, List[SimpleClozeFlashcard]]:
+def createInitialClozeFlashcards() -> None:
     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 
-    for word in inUseClozeFlashcards:
+    for word in ClozeFlashcard.inUseClozeFlashcards:
         # If the word is already in use, add the cloze flashcards to the dictionary
         if word not in wordToClozeFlashcards:
             wordToClozeFlashcards[word] = []
 
-        for clozeFlashcard in inUseClozeFlashcards[word]:
-            # Get the SimpleClozeFlashcard representation of the ClozeFlashcard
-            simpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
-
+        for clozeFlashcard in ClozeFlashcard.inUseClozeFlashcards[word]:
+            simpleClozeFlashcard: SimpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
-    return wordToClozeFlashcards
+    SimpleClozeFlashcard.wordToFlashcards = wordToClozeFlashcards

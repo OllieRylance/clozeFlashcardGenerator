@@ -4,16 +4,16 @@ import cProfile
 import pstats
 import io
 
-from models import PunctuationlessWord, ClozeFlashcard, SimpleClozeFlashcard
+from models import ClozeFlashcard, SimpleClozeFlashcard, Word
 from utils import (
     findInvalidLines,
+    parseSentenceLine,
     printFoundInvalidLines,
-    getInUseClozeFlashcards,
-    createPunctuationlessWordsFromSentences,
+    makeInUseClozeFlashcards,
     convertToJsonableFormat,
     createInitialClozeFlashcards,
 )
-from algorithms import highestScoreAlgorithm, mostDifferentAlgorithm
+from algorithms import mostDifferentAlgorithm
 from readWrite import readLines, readJsonFile, writeJsonFile
 
 logger = logging.getLogger(__name__)
@@ -49,7 +49,7 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
     logger.info("Sentence lines are valid.")
     return sentenceLines
 
-def prepareInUseClozeFlashcards(outputFilePath: str) -> Dict[str, List[ClozeFlashcard]]:
+def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
     """
     Prepare the in-use cloze flashcards from the output file.
     Returns a dictionary of in-use cloze flashcards.
@@ -59,10 +59,7 @@ def prepareInUseClozeFlashcards(outputFilePath: str) -> Dict[str, List[ClozeFlas
     if existingClozeFlashcardsJsonFileString is None:
         logger.info(f"No existing cloze flashcards found in '{outputFilePath}'. Starting fresh.")
 
-    logger.info(f"Found existing cloze flashcards data in '{outputFilePath}'.")
-
-    # Return the dictionary that stores the in use cloze flashcards
-    return getInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
+    makeInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
 
 def printGeneratingClozeFlashcardsInfo(
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
@@ -79,57 +76,49 @@ def printGeneratingClozeFlashcardsInfo(
 def generateClozeFlashcards(
     clozeChoosingAlgorithm: str,
     n: int,
-    punctuationlessWords: Dict[str, PunctuationlessWord],
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
     benefitShorterSentences: bool
-) -> Optional[Dict[str, List[SimpleClozeFlashcard]]]:
+) -> None:
     """
     Generate cloze flashcards based on the chosen algorithm.
     Returns a dictionary of words to lists of SimpleClozeFlashcard objects.
     """
     if logger.isEnabledFor(logging.INFO):
-        printGeneratingClozeFlashcardsInfo(inUseClozeFlashcards, clozeChoosingAlgorithm)
+        printGeneratingClozeFlashcardsInfo(ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm)
 
-    maxWordFrequency: Optional[int] = None
-    if clozeChoosingAlgorithm == "highestScore":
-        maxWordFrequency = max(len(flashcards) for flashcards in inUseClozeFlashcards.values())
+    # maxWordFrequency: Optional[int] = None
+    # if clozeChoosingAlgorithm == "highestScore":
+    #     maxWordFrequency = max(len(flashcards) for flashcards in ClozeFlashcard.inUseClozeFlashcards.values())
 
-    wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = createInitialClozeFlashcards(
-        inUseClozeFlashcards
-    )
+    createInitialClozeFlashcards()
 
-    for punctuationlessWord in punctuationlessWords.values():
-        word: str = punctuationlessWord.word
+    for uniqueWordId in Word.uniqueWordIdToWordObjects.keys():
         # If the word already has equal or more cloze flashcards than n, skip it
-        if word in wordToClozeFlashcards and len(wordToClozeFlashcards[word]) >= n:
+        if (
+            uniqueWordId in SimpleClozeFlashcard.wordToFlashcards
+            and len(SimpleClozeFlashcard.wordToFlashcards[uniqueWordId]) >= n
+        ):
             continue
 
-        if clozeChoosingAlgorithm == "highestScore":
-            highestScoreAlgorithm(
-                punctuationlessWord,
-                wordToClozeFlashcards,
-                punctuationlessWords,
-                n,
-                benefitShorterSentences,
-                maxWordFrequency
-            )
-        elif clozeChoosingAlgorithm == "mostDifferent":
+        # if clozeChoosingAlgorithm == "highestScore":
+        #     highestScoreAlgorithm(
+        #         punctuationlessWord,
+        #         wordToClozeFlashcards,
+        #         punctuationlessWords,
+        #         n,
+        #         benefitShorterSentences,
+        #         maxWordFrequency
+        #     )
+        if clozeChoosingAlgorithm == "mostDifferent":
             mostDifferentAlgorithm(
-                punctuationlessWord,
-                wordToClozeFlashcards,
-                punctuationlessWords,
-                inUseClozeFlashcards,
+                uniqueWordId,
                 n,
                 benefitShorterSentences
             )
 
-    return wordToClozeFlashcards
+def ensureInUseClozeFlashcardsPersist() -> None:
+    for word, clozeFlashcards in ClozeFlashcard.inUseClozeFlashcards.items():
+        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = SimpleClozeFlashcard.wordToFlashcards
 
-def ensureInUseClozeFlashcardsPersist(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
-    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
-) -> None:
-    for word, clozeFlashcards in inUseClozeFlashcards.items():
         if word not in wordToSimpleClozeFlashcards:
             # If the word is not in the new cloze flashcards, a serious error has occurred
             logger.error(
@@ -164,35 +153,34 @@ def main(
         exit(1)
 
     sentenceLines: List[str] = prepareSentenceLines(inputFilePath)
-    punctuationlessWords: Dict[str, PunctuationlessWord] = createPunctuationlessWordsFromSentences(
-        sentenceLines
-    )
+    for line in sentenceLines:
+        parseSentenceLine(line)
 
     # Try to read existing cloze flashcards from the output file
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = prepareInUseClozeFlashcards(
-        outputFilePath
-    )
+    prepareInUseClozeFlashcards(outputFilePath)
 
-    wordToSimpleClozeFlashcards: Optional[Dict[str, List[SimpleClozeFlashcard]]] = generateClozeFlashcards(
-        clozeChoosingAlgorithm, n, punctuationlessWords, inUseClozeFlashcards, benefitShorterSentences
+    generateClozeFlashcards(
+        clozeChoosingAlgorithm, n, benefitShorterSentences
     )
-
-    if wordToSimpleClozeFlashcards is None:
-        logger.error(
-            f"Failed to generate cloze flashcards using the '{clozeChoosingAlgorithm}' algorithm."
-        )
-        exit(1)
 
     # Ensure that that all of the past in use cloze flashcards are still in the output
-    ensureInUseClozeFlashcardsPersist(inUseClozeFlashcards, wordToSimpleClozeFlashcards)
+    ensureInUseClozeFlashcardsPersist()
+
+    # Sort the output for testing purposes
+    SimpleClozeFlashcard.wordToFlashcards = dict(
+        sorted(
+            SimpleClozeFlashcard.wordToFlashcards.items(),
+            key=lambda item: item[0]  # Sort by word (key)
+        )
+    )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = convertToJsonableFormat(
-        wordToSimpleClozeFlashcards
+        SimpleClozeFlashcard.wordToFlashcards
     )
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
 
-# TODO: create test folders where different input and output set ups can be tested
+# TODO : create test folders where different input and output set ups can be tested
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(

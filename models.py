@@ -2,88 +2,83 @@ import logging
 from typing import Dict, List, Optional, Tuple
 import numpy as np
 import math
+from enum import Enum
+import re
 
 logger = logging.getLogger(__name__)
 
-def removePunctuation(word: str) -> str:
-    """Remove punctuation from the word, keeping only letters."""
-    return ''.join(char if char.isalpha() else '' for char in word)
-
-def getWordRarityScore(
-    word: str,
-    punctuationlessWords: Dict[str, 'PunctuationlessWord'],
-    maxWordFrequency: int
-) -> float:
-    """Calculate the rarity score of a word based on its frequency."""
-    punctuationlessWord: Optional['PunctuationlessWord'] = punctuationlessWords.get(word)
-    if punctuationlessWord is None:
-        frequency: int = 0
-    else:
-        frequency = len(punctuationlessWord.referenceRawWords)
-
-    normalized: float = frequency / maxWordFrequency
-    # Exponential decay with tunable steepness
-    return math.exp(-5 * normalized)
-
-# Raw Line Class
-# Contains an ID and a list of raw words
-class RawLine:
+# Line Class
+class Line:
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
     calculatedSentenceLengthScores: Dict[int, float] = {}
 
-    def __init__(self, rawWords: List['RawWord']) -> None:
-        self.hashedRawLine: int = hash(" ".join(rawWord.word for rawWord in rawWords))
+    def __init__(self, words: List['Word'], punctuationDict: Dict[int, List['Punctuation']]) -> None:
+        for index, word in enumerate(words):
+            word.appendReferenceLine(self, index)
+        self.words: List['Word'] = words
+        self.punctuationDict: Dict[int, List['Punctuation']] = punctuationDict
 
-        for index, rawWord in enumerate(rawWords):
-            rawWord.assignRawLine(self, index)
-        self.rawWords: List['RawWord'] = rawWords
-        self.score: Optional[float] = None
+        self.asString: Optional[str] = None
+        self.id: int = hash(str(self))
+        # self.score: Optional[float] = None
         self.wordVector: Optional[np.ndarray] = None
 
     def __str__(self) -> str:
-        return ' '.join([rawWord.word for rawWord in self.rawWords])
+        if self.asString is None:
+            self.asString = Line.stringifyWordsAndPunctuation(self.words, self.punctuationDict)
+
+        return self.asString
 
     def __eq__(self, other: object) -> bool:
-        """Check if two RawLines have equal hashes."""
-        if not isinstance(other, RawLine):
+        """Check if two Lines have equal hashes."""
+        if not isinstance(other, Line):
             return NotImplemented
-        return self.hashedRawLine == other.hashedRawLine
+        return self.id == other.id
 
-    def inListOfOtherRawLines(self, otherRawLines: List['RawLine']) -> bool:
+    def GetLastIndex(self) -> int:
         """
-        Check if this raw line is in the list of other raw lines.
+        Get the last index of the line.
+        This is used to determine if the line has any words after a certain index.
         """
-        return any(self == otherRawLine for otherRawLine in otherRawLines)
+        highestWordIndex: int = len(self.words) - 1
+        highestPunctuationIndex: int = max(self.punctuationDict.keys())
+        return max(highestWordIndex, highestPunctuationIndex)  
 
-    def getScore(
-        self,
-        punctuationlessWords: Dict[str, 'PunctuationlessWord'],
-        maxWordFrequency: int,
-        benefitShorterSentences: bool
-    ) -> float:
-        """
-        Score a sentence based on how useful it is for clozing.
-        """
-        if self.score is not None:
-            return self.score
+    # def inListOfOtherRawLines(self, otherRawLines: List['RawLine']) -> bool:
+    #     """
+    #     Check if this raw line is in the list of other raw lines.
+    #     """
+    #     return any(self == otherRawLine for otherRawLine in otherRawLines)
 
-        score: float = 0.0
+    # def getScore(
+    #     self,
+    #     punctuationlessWords: Dict[str, 'PunctuationlessWord'],
+    #     maxWordFrequency: int,
+    #     benefitShorterSentences: bool
+    # ) -> float:
+    #     """
+    #     Score a sentence based on how useful it is for clozing.
+    #     """
+    #     if self.score is not None:
+    #         return self.score
 
-        # Calculate the score based on the rarity of the words in the sentence
-        for rawWord in self.rawWords:
-            wordString: str = rawWord.punctuationlessWordString
-            rarity: float = getWordRarityScore(wordString, punctuationlessWords, maxWordFrequency)
-            score += rarity
+    #     score: float = 0.0
 
-        # Penalize long sentences if shorter sentences are preferred
-        if benefitShorterSentences:
-            lengthPenalty: float = len(self.rawWords) ** 0.8
-            score = score / lengthPenalty
+    #     # Calculate the score based on the rarity of the words in the sentence
+    #     for rawWord in self.rawWords:
+    #         wordString: str = rawWord.punctuationlessWordString
+    #         rarity: float = getWordRarityScore(wordString, punctuationlessWords, maxWordFrequency)
+    #         score += rarity
 
-        self.score = score
-        return score
+    #     # Penalize long sentences if shorter sentences are preferred
+    #     if benefitShorterSentences:
+    #         lengthPenalty: float = len(self.rawWords) ** 0.8
+    #         score = score / lengthPenalty
 
-    def getWordVector(self, punctuationlessWords: Dict[str, 'PunctuationlessWord']) -> np.ndarray:
+    #     self.score = score
+    #     return score
+
+    def getUniqueWordIdVector(self) -> np.ndarray:
         """
         Generate a word vector for the raw line.
         """
@@ -92,33 +87,29 @@ class RawLine:
 
         # Initialize the word vector as a dictionary
         # where keys are the punctuationless words and values are their counts
-        wordCounts: Dict[str, int] = {word: 0 for word in punctuationlessWords.keys()}
+        wordCounts: Dict[str, int] = {uniqueWordId: 0 for uniqueWordId in Word.uniqueWordIdToWordObjects.keys()}
 
-        # Iterate through the raw words and update the word vector
-        for rawWord in self.rawWords:
-            word: str = rawWord.punctuationlessWordString
-            if word in wordCounts:
-                wordCounts[word] += 1
+        # Iterate through the words and update the word vector
+        for word in self.words:
+            uniqueWordId: str = word.getUniqueWordId()
+            if uniqueWordId in wordCounts:
+                wordCounts[uniqueWordId] += 1
 
         # Convert the dictionary to a numpy array for easier manipulation
         self.wordVector = np.array(list(wordCounts.values()), dtype=float)
 
         return self.wordVector
 
-    def getCosDissimilarity(
-        self,
-        otherRawLine: 'RawLine',
-        punctuationlessWords: Dict[str, 'PunctuationlessWord']
-    ) -> float:
+    def getCosDissimilarity(self, otherLine: 'Line') -> float:
         """
         Calculate the cosine dissimilarity between this raw line and another raw line.
         """
         # Check if the cosine dissimilarity has already been calculated
-        if (self.hashedRawLine, otherRawLine.hashedRawLine) in self.calculatedCosDissimilarities:
-            return self.calculatedCosDissimilarities[(self.hashedRawLine, otherRawLine.hashedRawLine)]
+        if (self.id, otherLine.id) in self.calculatedCosDissimilarities:
+            return self.calculatedCosDissimilarities[(self.id, otherLine.id)]
 
-        vector1: np.ndarray = self.getWordVector(punctuationlessWords)
-        vector2: np.ndarray = otherRawLine.getWordVector(punctuationlessWords)
+        vector1: np.ndarray = self.getUniqueWordIdVector()
+        vector2: np.ndarray = otherLine.getUniqueWordIdVector()
 
         # Calculate the dot product
         dotProduct: float = np.dot(vector1, vector2)
@@ -136,8 +127,8 @@ class RawLine:
 
         # Store the calculated dissimilarity for future use
         self.calculatedCosDissimilarities[(
-            self.hashedRawLine,
-            otherRawLine.hashedRawLine
+            self.id,
+            otherLine.id
         )] = cosineDissimilarity
 
         return cosineDissimilarity
@@ -147,17 +138,61 @@ class RawLine:
         Calculate a score based on the length of the sentence.
         Shorter sentences get a higher score with a reciprocal of exponential curve.
         """
-        if self.calculatedSentenceLengthScores.get(len(self.rawWords)) is not None:
-            return self.calculatedSentenceLengthScores[len(self.rawWords)]
+        length = len(self.words)
 
-        sentenceLengthScore = 1 / (math.exp((4 * len(self.rawWords) / 25) ** 4))
-        self.calculatedSentenceLengthScores[len(self.rawWords)] = sentenceLengthScore
+        if self.calculatedSentenceLengthScores.get(length) is not None:
+            return self.calculatedSentenceLengthScores[length]
+
+        sentenceLengthScore = 1 / (math.exp((4 * length / 25) ** 4))
+        self.calculatedSentenceLengthScores[length] = sentenceLengthScore
         return sentenceLengthScore
+    
+    @staticmethod
+    def stringifyWordsAndPunctuation(
+        words: List['Word'],
+        punctuationDict: Dict[int, List['Punctuation']]
+    ) -> str:
+        """
+        Convert a list of words and punctuation into a single string.
+        """
+        result: str = ""
+        for index, word in enumerate(words):
+            if index > 0:
+                result += " "
+            relevantPunctuation: Optional[List[Punctuation]] = punctuationDict.get(index)
+            wordString: str = word.thisWordString
+            if relevantPunctuation:
+                alonePunctuation: List[Punctuation] = [
+                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.ALONE
+                ]
+                if alonePunctuation:
+                    result += f"{alonePunctuation[0].character} "
+                beforePunctuation: List[Punctuation] = [
+                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.BEFORE
+                ]
+                if beforePunctuation:
+                    wordString = beforePunctuation[0].character + wordString
+                afterPunctuation: List[Punctuation] = [
+                    p for p in relevantPunctuation if p.wordPosition == PunctuationWordPosition.AFTER
+                ]
+                if afterPunctuation:
+                    wordString += afterPunctuation[0].character
+            result += wordString
+        
+        # Add any punctuation that is alone at the end of the sentence
+        indexAfterWords = len(words)
+        if indexAfterWords in punctuationDict:
+            alonePunctuation: List[Punctuation] = [
+                p for p in punctuationDict[indexAfterWords] if p.wordPosition == PunctuationWordPosition.ALONE
+            ]
+            if alonePunctuation:
+                result += f"{alonePunctuation[0].character} "
+            
+        return result
 
 # Simple Cloze Flashcard Class
 # Contains the before and after cloze words and the cloze word
 class SimpleClozeFlashcard:
-    # TODO : alter this so that it can store separated multi-word expressions
     # TODO : reformat the outputs to with the following changes:
     #   current:
     #   {
@@ -179,42 +214,60 @@ class SimpleClozeFlashcard:
     #   }
     #   The changes include taking the punctuation out of the cloze words and including the spaces
     #   between the rest of the words and the clozes
-    #   This may require adding a punctuation class and separating the punctuation from the words
-    #   so that if puncuation is after the last which is the cloze word, it is included in the
-    #   afterCloze 
     
+    wordToFlashcards: Dict[str, List['SimpleClozeFlashcard']] = {}
+
     def __init__(
         self,
         beforeCloze: str,
         midCloze: str,
         afterCloze: str,
-        clozeWordPart1: str,
-        clozeWordPart2: str,
+        clozePart1: str,
+        clozePart2: str,
         inUse: bool = False
     ) -> None:
         self.beforeCloze: str = beforeCloze
         self.midCloze: str = midCloze
         self.afterCloze: str = afterCloze
-        self.clozeWordPart1: str = clozeWordPart1
-        self.clozeWordPart2: str = clozeWordPart2
+        self.clozePart1: str = clozePart1
+        self.clozePart2: str = clozePart2
         self.inUse: bool = inUse
 
-    def toDict(self) -> Dict[str, str]:
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, SimpleClozeFlashcard):
+            return NotImplemented
+        return (
+            self.beforeCloze == other.beforeCloze and
+            self.midCloze == other.midCloze and
+            self.afterCloze == other.afterCloze and
+            self.clozePart1 == other.clozePart1 and
+            self.clozePart2 == other.clozePart2
+        )
+
+    def toJsonableDict(self) -> Dict[str, str]:
         """Convert SimpleClozeFlashcard to dictionary for JSON serialization."""
         return {
             'beforeCloze': self.beforeCloze,
             'midCloze': self.midCloze,
             'afterCloze': self.afterCloze,
-            'clozeWordPart1': self.clozeWordPart1,
-            'clozeWordPart2': self.clozeWordPart2,
+            'clozeWordPart1': self.clozePart1,
+            'clozeWordPart2': self.clozePart2,
             'inUse': str(self.inUse)
         }
+    
+    @staticmethod
+    def wordsInString(string: str) -> int:
+        words: List[str] = string.split()
+        # Ignore words that are just punctuation
+        return sum(1 for word in words if not re.match(r'^[^\w\s]+$', word))
 
 # Cloze Flashcard Class
 # Contains a raw line and the index of the word to be clozed
 class ClozeFlashcard:
-    def __init__(self, rawLine: RawLine, wordIndex: int, inUse: bool = False) -> None:
-        self.rawLine: RawLine = rawLine
+    inUseClozeFlashcards: Dict[str, List['ClozeFlashcard']] = {}
+
+    def __init__(self, line: Line, wordIndex: int, inUse: bool = False) -> None:
+        self.line: Line = line
         self.wordIndex: int = wordIndex
         self.inUse: bool = inUse
 
@@ -225,152 +278,351 @@ class ClozeFlashcard:
             return NotImplemented
         return self.simpleClozeFlashcard == other.simpleClozeFlashcard
 
-    def __str__(self) -> str:
-        wordsBeforeCloze: str = self.GetWordsBeforeCloze()
-        clozeWord: str = self.rawLine.rawWords[self.wordIndex].word
-        wordsAfterCloze: str = self.GetWordsAfterCloze()
-        return f"{wordsBeforeCloze} *{clozeWord}* {wordsAfterCloze}"
+    # def __str__(self) -> str:
+    #     wordsBeforeCloze: str = self.GetWordsBeforeCloze()
+    #     clozeWord: str = self.rawLine.rawWords[self.wordIndex].word
+    #     wordsAfterCloze: str = self.GetWordsAfterCloze()
+    #     return f"{wordsBeforeCloze} *{clozeWord}* {wordsAfterCloze}"
 
-    # TODO : alter this so that the Simple flashcard takes MWE into account
     def GetSimpleClozeFlashcard(self) -> SimpleClozeFlashcard:
         if self.simpleClozeFlashcard is not None:
             return self.simpleClozeFlashcard
 
-        clozeRawWord: RawWord = self.rawLine.rawWords[self.wordIndex]
-        
-        if clozeRawWord.multiWordExpressionInfo is None:
-            clozeWord = clozeRawWord.word
-            beforeCloze: str = self.GetWordsBeforeCloze()
-            afterCloze: str = self.GetWordsAfterCloze()
-            self.simpleClozeFlashcard = SimpleClozeFlashcard(
-                beforeCloze, "", afterCloze, clozeWord, "", self.inUse
-            )
-            return self.simpleClozeFlashcard
-        
-        # If the cloze word is part of a multi-word expression
-        multiWordExpressionId: int = clozeRawWord.multiWordExpressionInfo[0].id
-        wordsBeforeCloze: List[str] = []
-        wordsMidCloze: List[str] = []
-        wordsAfterCloze: List[str] = []
-        clozePart1: List[str] = []
-        clozePart2: List[str] = []
-        
-        for rawWord in self.rawLine.rawWords:
-            if rawWord.multiWordExpressionInfo is not None and \
-                rawWord.multiWordExpressionInfo[0].id == multiWordExpressionId:
-                if len(wordsMidCloze) == 0:
-                    clozePart1.append(rawWord.word)
-                else:
-                    clozePart2.append(rawWord.word)
-            else:
-                if len(clozePart1) == 0:
-                    wordsBeforeCloze.append(rawWord.word)
-                elif len(clozePart2) == 0:
-                    wordsMidCloze.append(rawWord.word)
-                else:
-                    wordsAfterCloze.append(rawWord.word)
-        
-        self.simpleClozeFlashcard = SimpleClozeFlashcard(
-            ' '.join(wordsBeforeCloze),
-            ' '.join(wordsMidCloze),
-            " ".join(wordsAfterCloze),
-            " ".join(clozePart1),
-            " ".join(clozePart2),
-            self.inUse
+        currentStartWordIndex: int = 0
+        currentNextWordIndex: int = self.wordIndex
+        beforeCloze: str = self.GetStringOfWordsAndPunctuation(
+            currentStartWordIndex,
+            currentNextWordIndex,
+            # trailingSpace=True
         )
+        currentStartWordIndex = currentNextWordIndex
+
+        # If the cloze word is not part of a multi-word expression,
+        clozePart1: str = ""
+        midCloze: str = ""
+        clozePart2: str = ""
+        afterCloze: str = ""
+
+        multiWordExpression: Optional[MultiWordExpression] = self.GetFirstClozeWord().multiWordExpression
+        if multiWordExpression is None:
+            currentNextWordIndex += 1
+            clozePart1 = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                isCloze=True
+            )
+            currentStartWordIndex = currentNextWordIndex
+            currentNextWordIndex = len(self.getWords())
+            afterCloze: str = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                # leadingSpace=currentStartWordIndex != currentNextWordIndex
+            ) if currentStartWordIndex != currentNextWordIndex or currentNextWordIndex in self.line.punctuationDict else afterCloze
+        else:
+            currentNextWordIndex += multiWordExpression.getNumWordsBeforeSplitInCloze()
+            clozePart1: str = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                isCloze=True
+            ) if currentStartWordIndex != currentNextWordIndex else clozePart1
+            currentStartWordIndex = currentNextWordIndex
+            currentNextWordIndex += multiWordExpression.getNumWordsInSplitOfCloze()
+            midCloze: str = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                # leadingSpace=True,
+                # trailingSpace=True
+            ) if currentStartWordIndex != currentNextWordIndex else midCloze
+            currentStartWordIndex = currentNextWordIndex
+            currentNextWordIndex += multiWordExpression.getNumWordsAfterSplitInCloze()
+            clozePart2: str = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                isCloze=True
+            ) if currentStartWordIndex != currentNextWordIndex else clozePart2
+            currentStartWordIndex = currentNextWordIndex
+            currentNextWordIndex = len(self.getWords())
+            afterCloze: str = self.GetStringOfWordsAndPunctuation(
+                currentStartWordIndex,
+                currentNextWordIndex,
+                # leadingSpace=currentStartWordIndex != currentNextWordIndex
+            ) if currentStartWordIndex != currentNextWordIndex or currentNextWordIndex in self.line.punctuationDict else afterCloze
+
+        self.simpleClozeFlashcard = SimpleClozeFlashcard(
+            beforeCloze, midCloze, afterCloze, clozePart1, clozePart2, self.inUse
+        )
+
         return self.simpleClozeFlashcard
 
-    def GetWordsBeforeCloze(self) -> str:
-        """Get the words before the cloze word."""
-        return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[:self.wordIndex]])
+        # lastIndex: int = self.line.GetLastIndex()
 
-    def GetClozeRawWord(self) -> 'RawWord':
-        """Get the raw word that is clozed."""
-        return self.rawLine.rawWords[self.wordIndex]
+        # multiWordExpressionId: int = word.multiWordExpressionInfo[0].id
+        # wordsBeforeCloze: List[Word] = []
+        # punctuationBeforeCloze: List[Punctuation] = []
+        # wordsMidCloze: List[Word] = []
+        # punctuationMidCloze: List[Punctuation] = []
+        # wordsAfterCloze: List[Word] = []
+        # punctuationAfterCloze: List[Punctuation] = []
+        # clozeWordsPart1: List[Word] = []
+        # clozePunctuationPart1: List[Punctuation] = []
+        # clozeWordsPart2: List[Word] = []
+        # clozePunctuationPart2: List[Punctuation] = []
 
-    def GetWordsAfterCloze(self) -> str:
-        """Get the words after the cloze word."""
-        if self.wordIndex + 1 >= len(self.rawLine.rawWords):
-            return ''
-
-        return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[self.wordIndex + 1:]])
-
-    def GetPunctuationlessClozeString(self) -> str:
-        clozeFirstRawWord: RawWord = self.GetClozeRawWord()
+        # for rawWord in self.rawLine.rawWords:
+        #     if rawWord.multiWordExpressionInfo is not None and \
+        #         rawWord.multiWordExpressionInfo[0].id == multiWordExpressionId:
+        #         if len(wordsMidCloze) == 0:
+        #             clozeWordsPart1.append(rawWord.word)
+        #         else:
+        #             clozeWordsPart2.append(rawWord.word)
+        #     else:
+        #         if len(clozeWordsPart1) == 0:
+        #             wordsBeforeCloze.append(rawWord.word)
+        #         elif len(clozeWordsPart2) == 0:
+        #             wordsMidCloze.append(rawWord.word)
+        #         else:
+        #             wordsAfterCloze.append(rawWord.word)
         
-        return clozeFirstRawWord.GetUniquePunctuationlessWordString()
+        # self.simpleClozeFlashcard = SimpleClozeFlashcard(
+        #     ' '.join(wordsBeforeCloze),
+        #     ' '.join(wordsMidCloze),
+        #     " ".join(wordsAfterCloze),
+        #     " ".join(clozePart1),
+        #     " ".join(clozePart2),
+        #     self.inUse
+        # )
+        # return self.simpleClozeFlashcard
 
-# Punctuationless Word Class
-# Contains a word with punctuation removed and references to raw words
-class PunctuationlessWord:
-    def __init__(self, word: str, rawWord: 'RawWord') -> None:
-        self.word: str = word
-        self.referenceRawWords: List['RawWord'] = [rawWord]
+    def hasMultiWordExpression(self) -> bool:
+        """
+        Check if the cloze word is part of a multi-word expression.
+        """
+        if self.GetFirstClozeWord().multiWordExpression is not None:
+            return True
+        return False
 
-    def appendRawWord(self, rawWord: 'RawWord') -> None:
-        """Add a raw word to the list of reference raw words."""
-        self.referenceRawWords.append(rawWord)
-
-# Raw Word Class
-class RawWord:
-    def __init__(self, word: str, multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = None) -> None:
-        self.word: str = word
-        self.punctuationlessWordString: str = removePunctuation(word)
-
-        # Attribute to hold the MultiWordExpression and this word's index in it
-        self.multiWordExpressionInfo: Optional[Tuple['MultiWordExpression', int]] = multiWordExpressionInfo
-        self.uniquePunctuationlessWordString: Optional[str] = None
-
-    def __str__(self) -> str:
-        return self.word
-
-    def assignRawLine(self, rawLine: RawLine, wordIndex: int) -> None:
-        self.rawLine: RawLine = rawLine
-        self.wordIndex: int = wordIndex
-
-    def getSentenceScore(
+    def GetStringOfWordsAndPunctuation(
         self,
-        punctuationlessWords: Dict[str, PunctuationlessWord],
-        maxWordFrequency: int,
-        benefitShorterSentences: bool
-    ) -> float:
-        return self.rawLine.getScore(
-            punctuationlessWords, maxWordFrequency, benefitShorterSentences
-        )
+        firstIndex: int,
+        nextIndex: int,
+        isCloze: bool = False,
+        leadingSpace: bool = False,
+        trailingSpace: bool = False
+    ) -> str:
+        words: List[Word] = self.line.words
+        punctuationDict: Dict[int, List['Punctuation']] = self.line.punctuationDict
+        result = ""
+        if leadingSpace:
+            result += " "
+        for i in range(firstIndex, nextIndex):
+            # Add alone punctuation before the word is not clozed
+            wordString: str = words[i].thisWordString
+            if i in punctuationDict:
+                for punctuation in punctuationDict[i]:
+                    if punctuation.wordPosition == PunctuationWordPosition.ALONE and not isCloze:
+                        result += punctuation.character + " "
+                    elif punctuation.wordPosition == PunctuationWordPosition.BEFORE:
+                        wordString = punctuation.character + wordString
+                    elif punctuation.wordPosition == PunctuationWordPosition.AFTER:
+                        wordString += punctuation.character
+            result += wordString
+            if i < nextIndex - 1:
+                result += " "
+
+        # Add alone punctuation after the word if it is not clozed
+        if not isCloze and nextIndex in punctuationDict:
+            for punctuation in punctuationDict[nextIndex]:
+                if punctuation.wordPosition == PunctuationWordPosition.ALONE:
+                    result += " " + punctuation.character
+
+        if trailingSpace:
+            result += " "
+
+        return result
+
+    def getWords(self) -> List['Word']:
+        """
+        Get the words in the line.
+        """
+        return self.line.words
+
+    # def GetWordsBeforeCloze(self) -> str:
+    #     """Get the words before the cloze word."""
+    #     return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[:self.wordIndex]])
+
+    def GetFirstClozeWord(self) -> 'Word':
+        """Get the word that is clozed."""
+        return self.line.words[self.wordIndex]
+
+    # def GetWordsAfterCloze(self) -> str:
+    #     """Get the words after the cloze word."""
+    #     if self.wordIndex + 1 >= len(self.rawLine.rawWords):
+    #         return ''
+
+    #     return ' '.join([rawWord.word for rawWord in self.rawLine.rawWords[self.wordIndex + 1:]])
+
+    # def GetPunctuationlessClozeString(self) -> str:
+    #     clozeFirstRawWord: RawWord = self.GetClozeWord()
+        
+    #     return clozeFirstRawWord.GetUniquePunctuationlessWordString()
+
+# Word Class
+class Word:
+    uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
+
+    def __init__(self, wordString: str, multiWordExpression: Optional['MultiWordExpression'] = None) -> None:
+        self.thisWordString: str = wordString
+        self.line: Optional['Line'] = None
+        self.index: Optional[int] = None
+        self.uniqueWordId: Optional[str] = None
+
+        self.multiWordExpression: Optional['MultiWordExpression'] = multiWordExpression
+
+    # def getSentenceScore(
+    #     self,
+    #     punctuationlessWords: Dict[str, PunctuationlessWord],
+    #     maxWordFrequency: int,
+    #     benefitShorterSentences: bool
+    # ) -> float:
+    #     return self.rawLine.getScore(
+    #         punctuationlessWords, maxWordFrequency, benefitShorterSentences
+    #     )
     
-    def GetUniquePunctuationlessWordString(self) -> str:
-        if self.uniquePunctuationlessWordString is not None:
-            return self.uniquePunctuationlessWordString
+    def getUniqueWordId(self) -> str:
+        """
+        Get a unique identifier for the word (and the rest of its multi-word expression).
+        """
+        if self.uniqueWordId is not None:
+            return self.uniqueWordId
 
-        if self.multiWordExpressionInfo is None:
-            self.uniquePunctuationlessWordString = removePunctuation(self.word)
-            return self.uniquePunctuationlessWordString
-
+        if self.multiWordExpression is None:
+            self.uniqueWordId = self.thisWordString
+            return self.uniqueWordId
+        
         # If the word is part of a multi-word expression
-        multiWordExpression: 'MultiWordExpression' = self.multiWordExpressionInfo[0]
-        self.uniquePunctuationlessWordString = multiWordExpression.getUniquePunctuationlessWordString()
-        return self.uniquePunctuationlessWordString
+        multiWordExpression: 'MultiWordExpression' = self.multiWordExpression
+        self.uniqueWordId = multiWordExpression.getUniqueWordId()
+        return self.uniqueWordId
+    
+    def thisInstanceInClozeFlashcards(self, clozeFlashcards: List['ClozeFlashcard']) -> bool:
+        """
+        Check if this instance of the word is in the list of cloze flashcards.
+        """
+        for clozeFlashcard in clozeFlashcards:
+            if clozeFlashcard.line == self.line and clozeFlashcard.wordIndex == self.index:
+                return True
+        return False
+
+    @staticmethod
+    def addClozeIdToString(
+        wordString: str, multiWordExpressionIndex: int
+    ) -> str:
+        # Using regex, separate any punctuation at the end of the word
+        # Punctuation at the end of a word can be "?"
+        match = re.match(r'(.*?)([^\w\s]*)$', wordString)
+        if match:
+            return f"{match.group(1)}_{multiWordExpressionIndex}{match.group(2)}"
+        return f"{wordString}_{multiWordExpressionIndex}"
+
+    # def GetUniquePunctuationlessWordString(self) -> str:
+    #     if self.uniquePunctuationlessWordString is not None:
+    #         return self.uniquePunctuationlessWordString
+
+    #     if self.multiWordExpressionInfo is None:
+    #         self.uniquePunctuationlessWordString = removePunctuation(self.word)
+    #         return self.uniquePunctuationlessWordString
+
+    #     # If the word is part of a multi-word expression
+    #     multiWordExpression: 'MultiWordExpression' = self.multiWordExpressionInfo[0]
+    #     self.uniquePunctuationlessWordString = multiWordExpression.getUniquePunctuationlessWordString()
+    #     return self.uniquePunctuationlessWordString
+
+    def appendReferenceLine(self, line: Line, index: int) -> None:
+        """Add a reference to the line and index of this word."""
+        self.line = line
+        self.index = index
+        # if self.getUniqueWordId() not in Word.uniqueWordIdToWordObjects:
+        #     Word.uniqueWordIdToWordObjects[self.getUniqueWordId()] = []
+        # Word.uniqueWordIdToWordObjects[self.getUniqueWordId()].append(self)
+
+class PunctuationWordPosition(Enum):
+    BEFORE = 1
+    AFTER = 2
+    ALONE = 3
+
+class Punctuation:
+    def __init__(self, character: str, wordPosition: PunctuationWordPosition) -> None:
+        self.character: str = character
+        self.wordPosition: PunctuationWordPosition = wordPosition
 
 class MultiWordExpression:
-    # TODO : distinguish between whether a word is in the middle
-    # of a multi-word expression because Anki does not support storing them in the same place
-    MWECount: int = 0
+    multiWordExpressionCount: int = 0
 
     def __init__(self) -> None:
-        self.id: int = MultiWordExpression.MWECount
-        MultiWordExpression.MWECount += 1
-        self.rawWords: List[RawWord] = []
+        self.id: int = MultiWordExpression.multiWordExpressionCount
+        MultiWordExpression.multiWordExpressionCount += 1
+        self.words: List[Word] = []
 
-        self.punctuationlessWordString: Optional[str] = None
+        self.uniqueWordId: Optional[str] = None
+        self.numWordsBeforeSplitInCloze: Optional[int] = None
     
-    def getUniquePunctuationlessWordString(self) -> str:
+    def __str__(self) -> str:
+        return " ".join([word.thisWordString for word in self.words])
+
+    def getUniqueWordId(self) -> str:
         """
         Get the unique punctuationless word string for the multi-word expression.
         Combines the raw words in alphabetical order.
         """
-        if self.punctuationlessWordString is not None:
-            return self.punctuationlessWordString
+        if self.uniqueWordId is not None:
+            return self.uniqueWordId
+        
+        self.uniqueWordId = ' '.join([word.thisWordString for word in self.words])
+        return self.uniqueWordId
 
-        rawWordStrings: List[str] = [rawWord.word for rawWord in self.rawWords]
-        self.punctuationlessWordString = ' '.join([removePunctuation(word) for word in rawWordStrings])
-        return self.punctuationlessWordString
+    def getNumWordsBeforeSplitInCloze(self) -> int:
+        if self.numWordsBeforeSplitInCloze is not None:
+            return self.numWordsBeforeSplitInCloze
+        
+        currentIndex: int = self.getFirstIndex()
+        currentIndex -= 1
+        for wordNumber, word in enumerate(self.words):
+            if word.index is None:
+                self.handleMissingIndexError(word)
+                continue
+            if word.index != currentIndex + 1:
+                return wordNumber
+            currentIndex = word.index
+        return len(self.words)
+
+    def getNumWordsInSplitOfCloze(self) -> int:
+        firstWordIndex: int = self.getFirstIndex()
+        lastWordIndex: int = self.getLastIndex()
+        return (lastWordIndex - firstWordIndex + 1) - len(self.words)
+    
+    def getNumWordsAfterSplitInCloze(self) -> int:
+        return len(self.words) - self.getNumWordsBeforeSplitInCloze()
+    
+    def getFirstIndex(self) -> int:
+        firstWordIndex: Optional[int] = self.words[0].index
+        if firstWordIndex is None:
+            self.handleMissingIndexError(self.words[0])
+            return -1
+        return firstWordIndex
+    
+    def getLastIndex(self) -> int:
+        lastWordIndex: Optional[int] = self.words[-1].index
+        if lastWordIndex is None:
+            self.handleMissingIndexError(self.words[-1])
+            return -1
+        return lastWordIndex
+
+    def handleMissingIndexError(self, word: Word) -> None:
+        """
+        Handle the case where a word in the multi-word expression has no index.
+        """
+        logger.error(f"Word '{word.thisWordString}' in multi-word expression '{self.getUniqueWordId()}' has no index.")
+        exit(1) 
+
+    # example sentence a b word c d more words
+    # 0       1        2 3 4    5 6 7    8

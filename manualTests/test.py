@@ -2,7 +2,7 @@ import logging
 import sys
 import os
 
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
 from clozeFlashcardGenerator import main
@@ -16,8 +16,14 @@ if __name__ == "__main__":
         format='%(levelname)s: %(message)s'
     )
 
-    inputFilePath: str = 'manualTests/1/testSentences.txt'
-    outputFilePath: str = 'manualTests/1/testClozeFlashcards.json'
+    fileStartDict = {
+        1: "test"
+    }
+
+    currentTestFileStart = fileStartDict[1]
+
+    inputFilePath: str = f'manualTests/{currentTestFileStart}Sentences.txt'
+    outputFilePath: str = f'manualTests/{currentTestFileStart}ClozeFlashcards.json'
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
     benefitShorterSentences: bool = False

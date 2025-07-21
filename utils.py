@@ -269,6 +269,7 @@ def processPunctuation(
     # If the subString starts or ends with a string of punctuation
     # using regex to find punctuation at the start and end
     # punctuation to look for is ",?"
+    # TODO : allow more punctuation characters
     match = re.match(r'([^\w\s]*)(.*?)([^\w\s]*)$', subString)
     if not match:
         return subString, False

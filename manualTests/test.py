@@ -1,7 +1,7 @@
 import logging
 import sys
 import os
-from typing import Dict
+from typing import Dict, List
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
@@ -36,38 +36,44 @@ if __name__ == "__main__":
         format='%(levelname)s: %(message)s'
     )
 
-    presets: Dict[int, Dict[str, str]] = {
-        1: {
+    presets: List[Dict[str, str]] = [
+        {
             "FileStart": "alonePunctuationMidCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
-        2: {
+        {
             "FileStart": "punctuationBeforeFirstWordWhichIsCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
-        3: {
+        {
             "FileStart": "aloneWordBeforeFirstWordWhichIsCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
-        4: {
+        {
             "FileStart": "afterAndAlonePunctuationAfterLastWordWhichIsCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
-    }
+        {
+            "FileStart": "doubleAfterPunctuation",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
+    ]
 
-    for presetNumber in presets:
+    for preset in presets:
         resetForTesting()
-        preset: Dict[str, str] = presets.get(presetNumber, presets[1])
         runTest(preset)

@@ -51,6 +51,20 @@ if __name__ == "__main__":
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
+        3: {
+            "FileStart": "aloneWordBeforeFirstWordWhichIsCloze",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
+        4: {
+            "FileStart": "afterAndAlonePunctuationAfterLastWordWhichIsCloze",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
     }
 
     for presetNumber in presets:

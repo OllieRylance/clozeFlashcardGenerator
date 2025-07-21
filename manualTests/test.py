@@ -2,12 +2,32 @@ import logging
 import sys
 import os
 
+from typing import Dict
+
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
 from clozeFlashcardGenerator import main
 
 logger = logging.getLogger(__name__)
+
+def runTest(preset: Dict[str, str]) -> None:
+    """
+    Run the test with the given preset.
+    
+    :param preset: A dictionary containing the test configuration.
+    """
+    currentTestFileStart: str = preset["FileStart"]
+    inputFilePath: str = f'manualTests/{currentTestFileStart}/sentences.txt'
+    outputFilePath: str = f'manualTests/{currentTestFileStart}/clozeFlashcards.json'
+    clozeChoosingAlgorithm: str = preset["Algorithm"]
+    n: int = int(preset["n"])
+    benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
+    # outputOrder: str = preset["OutputOrder"]
+    main(
+        inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
+        n, benefitShorterSentences
+    )
 
 if __name__ == "__main__":
     # Configure logging
@@ -16,19 +36,32 @@ if __name__ == "__main__":
         format='%(levelname)s: %(message)s'
     )
 
-    fileStartDict = {
-        1: "test"
+    presets: Dict[int, Dict[str, str]] = {
+        1: {
+            "FileStart": "test",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
+        2: {
+            "FileStart": "alonePunctuationMidCloze",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
+        3: {
+            "FileStart": "punctuationBeforeFirstWordWhichIsCloze",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
     }
 
-    currentTestFileStart = fileStartDict[1]
+    presetNumber: int = 3
 
-    inputFilePath: str = f'manualTests/{currentTestFileStart}Sentences.txt'
-    outputFilePath: str = f'manualTests/{currentTestFileStart}ClozeFlashcards.json'
-    clozeChoosingAlgorithm: str = "mostDifferent"
-    n: int = 3
-    benefitShorterSentences: bool = False
-    outputOrder: str = "alphabetical"
-    main(
-        inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences
-    )
+    preset: Dict[str, str] = presets.get(presetNumber, presets[1])
+
+    runTest(preset)

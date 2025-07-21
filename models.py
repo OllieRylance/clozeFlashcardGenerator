@@ -573,7 +573,6 @@ class ClozeFlashcard:
         result: str = ""
 
         # Deal with punctuation before the first word if it is not clozed
-        # TODO : test "a_1?? b"
         previousPunctuationFound: bool = False
         if getLeadingAndTrailingPunctuation:
             if previousIndex in punctuationDict:
@@ -615,7 +614,6 @@ class ClozeFlashcard:
                 result += " "
 
         # Add trailing punctuation
-        # TODO : test "a - \"b_1"
         nextWordBeforePunctuation: str = ""
         if getLeadingAndTrailingPunctuation and nextIndex in punctuationDict:
             for punctuation in punctuationDict[nextIndex]:

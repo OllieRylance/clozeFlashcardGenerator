@@ -72,6 +72,13 @@ if __name__ == "__main__":
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
+        {
+            "FileStart": "aloneAndBeforePunctuationMidSentence",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical"
+        },
     ]
 
     for preset in presets:

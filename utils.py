@@ -91,13 +91,6 @@ def generateClozeFlashcards(
             ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm
         )
 
-    # maxWordFrequency: Optional[int] = None
-    # if clozeChoosingAlgorithm == "highestScore":
-    #     maxWordFrequency = max(
-    #         len(flashcards) 
-    #         for flashcards in ClozeFlashcard.inUseClozeFlashcards.values()
-    #     )
-
     createInitialClozeFlashcards()
 
     for uniqueWordId in Word.uniqueWordIdToWordObjects.keys():
@@ -108,15 +101,6 @@ def generateClozeFlashcards(
         ):
             continue
 
-        # if clozeChoosingAlgorithm == "highestScore":
-        #     highestScoreAlgorithm(
-        #         punctuationlessWord,
-        #         wordToClozeFlashcards,
-        #         punctuationlessWords,
-        #         n,
-        #         benefitShorterSentences,
-        #         maxWordFrequency
-        #     )
         if clozeChoosingAlgorithm == "mostDifferent":
             mostDifferentAlgorithm(
                 uniqueWordId,
@@ -262,22 +246,6 @@ def addWordToClassDict(word: Word) -> None:
     if uniqueWordId not in Word.uniqueWordIdToWordObjects:
         Word.uniqueWordIdToWordObjects[uniqueWordId] = []
     Word.uniqueWordIdToWordObjects[uniqueWordId].append(word)
-
-# def getWordRarityScore(
-#     word: str,
-#     punctuationlessWords: Dict[str, 'PunctuationlessWord'],
-#     maxWordFrequency: int
-# ) -> float:
-#     """Calculate the rarity score of a word based on its frequency."""
-#     punctuationlessWord: Optional['PunctuationlessWord'] = punctuationlessWords.get(word)
-#     if punctuationlessWord is None:
-#         frequency: int = 0
-#     else:
-#         frequency = len(punctuationlessWord.referenceRawWords)
-
-#     normalized: float = frequency / maxWordFrequency
-#     # Exponential decay with tunable steepness
-#     return math.exp(-5 * normalized)
 
 def getWordStringAndId(wordString: str) -> Tuple[str, int]:
     """

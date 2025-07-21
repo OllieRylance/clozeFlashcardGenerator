@@ -21,7 +21,7 @@ def main(
     benefitShorterSentences: bool
 ) -> None:
     # Try to get the lines from the input file
-    if clozeChoosingAlgorithm not in ["highestScore", "mostDifferent"]:
+    if clozeChoosingAlgorithm not in ["mostDifferent"]:
         logger.error(f"Invalid cloze choosing algorithm: {clozeChoosingAlgorithm}.")
         exit(1)
 

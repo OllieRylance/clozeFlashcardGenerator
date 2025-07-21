@@ -9,7 +9,6 @@ This application processes a file of sentences and generates cloze flashcards (f
 ## Features
 
 - **Two selection algorithms**:
-  - `highestScore`: Selects sentences based on word rarity scores
   - `mostDifferent`: Selects sentences that are most semantically different from each other
 - **Configurable parameters**:
   - Number of flashcards per word (n)
@@ -51,7 +50,7 @@ To modify these settings, edit the parameters in the `__main__` section of `cloz
 ```python
 inputFilePath: str = 'sentences.txt'
 outputFilePath: str = 'clozeFlashcards.json'
-clozeChoosingAlgorithm: str = "mostDifferent"  # or "highestScore"
+clozeChoosingAlgorithm: str = "mostDifferent"
 n: int = 3
 benefitShorterSentences: bool = True
 ```
@@ -93,12 +92,6 @@ The application generates a JSON file with the following structure:
 ```
 
 ## Algorithms
-
-### Highest Score Algorithm
-
-Selects sentences based on a scoring system that considers:
-- **Word rarity**: Less frequent words get higher scores
-- **Sentence length**: Shorter sentences are preferred (if `benefitShorterSentences` is True)
 
 ### Most Different Algorithm
 

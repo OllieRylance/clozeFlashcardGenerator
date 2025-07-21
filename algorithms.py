@@ -6,59 +6,6 @@ from models import Line, ClozeFlashcard, SimpleClozeFlashcard, Word
 
 logger = logging.getLogger(__name__)
 
-# def highestScoreAlgorithm(
-#     currentPunctuationlessWord: PunctuationlessWord,
-#     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
-#     punctuationlessWords: Dict[str, PunctuationlessWord],
-#     n: int,
-#     benefitShorterSentences: bool,
-#     optionalMaxWordFrequency: Optional[int]
-# ) -> None:
-#     if optionalMaxWordFrequency is None:
-#         logger.error("Max word frequency is None, cannot proceed with highest score algorithm.")
-#         exit(1)
-    
-#     maxWordFrequency: int = optionalMaxWordFrequency
-
-#     # For each unique word, create cloze flashcards for the it's raw lines
-#     # with the top n highest scores
-#     # If there are already cloze flashcards in use for the word, use those as the start of the list
-#     word: str = currentPunctuationlessWord.word
-#     referenceRawWords: List[RawWord] = currentPunctuationlessWord.referenceRawWords
-#     sortedRawWordObjects: List[RawWord] = sorted(
-#         referenceRawWords,
-#         key=lambda x: x.getSentenceScore(
-#             punctuationlessWords, maxWordFrequency, benefitShorterSentences
-#         ),
-#         reverse=True
-#     )
-
-#     # Take the top n highest scoring raw lines
-#     topRawWordObjects: List[RawWord] = (
-#         sortedRawWordObjects[:n] if len(sortedRawWordObjects) > n
-#         else sortedRawWordObjects
-#     )
-
-#     for rawWord in topRawWordObjects:
-#         # Ensure that the wordToClozeFlashcards has not reached the limit
-#         # (from some preexisting in use and some new ones)
-#         if word in wordToClozeFlashcards and len(wordToClozeFlashcards[word]) >= n:
-#             break
-
-#         # Create a new SimpleClozeFlashcard instance for the raw word
-#         clozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-#             rawWord.rawLine, rawWord.wordIndex
-#         ).GetSimpleClozeFlashcard()
-
-#         # If the simple flashcard for the raw word is already in the dictionary, skip it
-#         if clozeFlashcard in wordToClozeFlashcards.get(word, []):
-#             continue
-
-#         # If the word is not in the dictionary, create a new list
-#         if word not in wordToClozeFlashcards:
-#             wordToClozeFlashcards[word] = []
-#         wordToClozeFlashcards[word].append(clozeFlashcard)
-
 def mostDifferentAlgorithm(
     uniqueWordId: str,
     n: int,

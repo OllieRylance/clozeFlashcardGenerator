@@ -43,6 +43,9 @@ def main(
     # TODO : investigate adding more output order options
     # firstly, the option to put words without used cloze flashcards at the start
     # and then most frequent words at the beginning
+    # Output order could be a list with most important sort first, etc. And the list
+    # gets iterated through backwards permorming the sorts one by one (or all in same
+    # run though using lambda if possible)
     if outputOrder == "alphabetical":
         SimpleClozeFlashcard.wordToFlashcards = dict(
             sorted(

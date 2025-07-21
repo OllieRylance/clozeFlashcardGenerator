@@ -1,12 +1,12 @@
 import logging
 import sys
 import os
-
 from typing import Dict
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
+from models import resetForTesting
 from clozeFlashcardGenerator import main
 
 logger = logging.getLogger(__name__)
@@ -38,20 +38,13 @@ if __name__ == "__main__":
 
     presets: Dict[int, Dict[str, str]] = {
         1: {
-            "FileStart": "test",
-            "Algorithm": "mostDifferent",
-            "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
-        },
-        2: {
             "FileStart": "alonePunctuationMidCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
-        3: {
+        2: {
             "FileStart": "punctuationBeforeFirstWordWhichIsCloze",
             "Algorithm": "mostDifferent",
             "n": "3",
@@ -60,8 +53,7 @@ if __name__ == "__main__":
         },
     }
 
-    presetNumber: int = 3
-
-    preset: Dict[str, str] = presets.get(presetNumber, presets[1])
-
-    runTest(preset)
+    for presetNumber in presets:
+        resetForTesting()
+        preset: Dict[str, str] = presets.get(presetNumber, presets[1])
+        runTest(preset)

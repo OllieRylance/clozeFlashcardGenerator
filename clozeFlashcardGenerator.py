@@ -60,6 +60,7 @@ def main(
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
 
+# TODO : come up with and stick to naming convention
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(

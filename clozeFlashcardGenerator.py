@@ -7,7 +7,14 @@ import io
 from models import SimpleClozeFlashcard
 
 from readWrite import writeJsonFile
-from utils import convertToJsonableFormat, ensureInUseClozeFlashcardsPersist, generateClozeFlashcards, parseSentenceLine, prepareInUseClozeFlashcards, prepareSentenceLines
+from utils import (
+    convertToJsonableFormat,
+    ensureInUseClozeFlashcardsPersist,
+    generateClozeFlashcards,
+    parseSentenceLine,
+    prepareInUseClozeFlashcards,
+    prepareSentenceLines
+)
 
 logger = logging.getLogger(__name__)
 

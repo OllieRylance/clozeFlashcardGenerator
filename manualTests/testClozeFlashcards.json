@@ -1,27 +1,27 @@
 {
     "a": [
         {
-            "beforeCloze": "this is",
+            "beforeCloze": "this , is, ",
             "midCloze": "",
-            "afterCloze": "test",
-            "clozeWordPart1": "a",
+            "afterCloze": " test ,",
+            "clozeWordPart1": "a,",
             "clozeWordPart2": "",
             "inUse": "False"
         }
     ],
     "is": [
         {
-            "beforeCloze": "this",
+            "beforeCloze": "this , ",
             "midCloze": "",
-            "afterCloze": "a test",
-            "clozeWordPart1": "is",
+            "afterCloze": " a, test ,",
+            "clozeWordPart1": "is,",
             "clozeWordPart2": "",
             "inUse": "False"
         }
     ],
     "test": [
         {
-            "beforeCloze": "this is a",
+            "beforeCloze": "this , is, a, ",
             "midCloze": "",
             "afterCloze": "",
             "clozeWordPart1": "test",
@@ -33,7 +33,7 @@
         {
             "beforeCloze": "",
             "midCloze": "",
-            "afterCloze": "is a test",
+            "afterCloze": " , is, a, test ,",
             "clozeWordPart1": "this",
             "clozeWordPart2": "",
             "inUse": "False"

@@ -7,7 +7,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
 from models import resetForTesting
-from clozeFlashcardGenerator import main
+from main import main
 
 logger = logging.getLogger(__name__)
 

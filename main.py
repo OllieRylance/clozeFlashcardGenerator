@@ -93,7 +93,8 @@ if __name__ == "__main__":
     benefitShorterSentences: bool = False
     # outputOrder options are "unchanged", "alphabetical", "frequency", "random",
     # "firstComeFirstServed", "lastComeFirstServed"
-    outputOrder: str = "unchanged"
+    # TODO : make enum for outputOrder
+    outputOrder: str = "alphabetical"
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
         n, benefitShorterSentences, outputOrder

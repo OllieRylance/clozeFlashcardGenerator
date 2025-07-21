@@ -18,7 +18,8 @@ def main(
     outputFilePath: str,
     clozeChoosingAlgorithm: str,
     n: int,
-    benefitShorterSentences: bool
+    benefitShorterSentences: bool,
+    outputOrder: str = "unchanged"
 ) -> None:
     # Try to get the lines from the input file
     if clozeChoosingAlgorithm not in ["mostDifferent"]:
@@ -39,13 +40,13 @@ def main(
     # Ensure that that all of the past in use cloze flashcards are still in the output
     ensureInUseClozeFlashcardsPersist()
 
-    # Sort the output for testing purposes
-    SimpleClozeFlashcard.wordToFlashcards = dict(
-        sorted(
-            SimpleClozeFlashcard.wordToFlashcards.items(),
-            key=lambda item: item[0]  # Sort by word (key)
+    if outputOrder == "alphabetical":
+        SimpleClozeFlashcard.wordToFlashcards = dict(
+            sorted(
+                SimpleClozeFlashcard.wordToFlashcards.items(),
+                key=lambda item: item[0]  # Sort by word (key)
+            )
         )
-    )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(SimpleClozeFlashcard.wordToFlashcards)
@@ -53,7 +54,6 @@ def main(
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
 
-# TODO : create test folders where different input and output set ups can be tested
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(
@@ -77,13 +77,12 @@ if __name__ == "__main__":
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
     benefitShorterSentences: bool = False
-    # TODO : implement outputOrder and use it to sort the cloze flashcards
-    # options are "alphabetical", "frequency", "random", 
+    # outputOrder options are "unchanged", "alphabetical", "frequency", "random",
     # "firstComeFirstServed", "lastComeFirstServed"
-    outputOrder: str = "alphabetical"
+    outputOrder: str = "unchanged"
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences
+        n, benefitShorterSentences, outputOrder
     )
 
     if profiler is not None:

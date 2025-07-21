@@ -23,10 +23,10 @@ def runTest(preset: Dict[str, str]) -> None:
     clozeChoosingAlgorithm: str = preset["Algorithm"]
     n: int = int(preset["n"])
     benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
-    # outputOrder: str = preset["OutputOrder"]
+    outputOrder: str = preset["OutputOrder"]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences
+        n, benefitShorterSentences, outputOrder
     )
 
 if __name__ == "__main__":

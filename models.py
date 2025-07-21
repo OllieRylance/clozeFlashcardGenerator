@@ -216,28 +216,6 @@ class Line:
 # Simple Cloze Flashcard Class
 # Contains the before and after cloze words and the cloze word
 class SimpleClozeFlashcard:
-    # TODO : reformat the outputs to with the following changes:
-    #   current:
-    #   {
-    #       "beforeCloze": "words",
-    #       "midCloze": "words",
-    #       "afterCloze": "",
-    #       "clozeWordPart1": "words,",
-    #       "clozeWordPart2": "words?",
-    #       "inUse": "False"
-    #   }
-    #   desired:
-    #   {
-    #       "beforeCloze": "words ",
-    #       "midCloze": ", words",
-    #       "afterCloze": "?",
-    #       "clozeWordPart1": "words",
-    #       "clozeWordPart2": "words",
-    #       "inUse": "False"
-    #   }
-    #   The changes include taking the punctuation out of the cloze words and including the spaces
-    #   between the rest of the words and the clozes
-    
     wordToFlashcards: Dict[str, List['SimpleClozeFlashcard']] = {}
 
     def __init__(
@@ -271,9 +249,9 @@ class SimpleClozeFlashcard:
         """Convert SimpleClozeFlashcard to dictionary for JSON serialization."""
         return {
             'beforeCloze': self.beforeCloze,
-            'midCloze': self.midCloze,
-            'afterCloze': self.afterCloze,
             'clozeWordPart1': self.clozePart1,
+            'afterCloze': self.afterCloze,
+            'midCloze': self.midCloze,
             'clozeWordPart2': self.clozePart2,
             'inUse': str(self.inUse)
         }

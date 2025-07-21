@@ -2,9 +2,9 @@
     "a": [
         {
             "beforeCloze": "?",
-            "midCloze": "",
-            "afterCloze": " b",
             "clozeWordPart1": "a",
+            "afterCloze": " b",
+            "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         }
@@ -12,9 +12,9 @@
     "b": [
         {
             "beforeCloze": "?a ",
-            "midCloze": "",
-            "afterCloze": "",
             "clozeWordPart1": "b",
+            "afterCloze": "",
+            "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         }

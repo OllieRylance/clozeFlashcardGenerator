@@ -2,9 +2,9 @@
     "a": [
         {
             "beforeCloze": "",
-            "midCloze": "",
-            "afterCloze": " b ? c d",
             "clozeWordPart1": "a",
+            "afterCloze": " b ? c d",
+            "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         }
@@ -12,9 +12,9 @@
     "b c": [
         {
             "beforeCloze": "a ",
-            "midCloze": "",
-            "afterCloze": " d",
             "clozeWordPart1": "b ? c",
+            "afterCloze": " d",
+            "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         }
@@ -22,9 +22,9 @@
     "d": [
         {
             "beforeCloze": "a b ? c ",
-            "midCloze": "",
-            "afterCloze": "",
             "clozeWordPart1": "d",
+            "afterCloze": "",
+            "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         }

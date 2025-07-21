@@ -7,6 +7,14 @@ import re
 
 logger = logging.getLogger(__name__)
 
+def resetForTesting() -> None:
+    Line.calculatedCosDissimilarities.clear()
+    Line.calculatedSentenceLengthScores.clear()
+    Word.uniqueWordIdToWordObjects.clear()
+    SimpleClozeFlashcard.wordToFlashcards.clear()
+    ClozeFlashcard.inUseClozeFlashcards.clear()
+    MultiWordExpression.multiWordExpressionCount = 0
+
 # Line Class
 class Line:
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
@@ -276,6 +284,13 @@ class SimpleClozeFlashcard:
         # Ignore words that are just punctuation
         return sum(1 for word in words if not re.match(r'^[^\w\s]+$', word))
 
+class sentencePart(Enum):
+    BEFORE_CLOZE = 1
+    MID_CLOZE = 2
+    AFTER_CLOZE = 3
+    CLOZE_PART_1 = 4
+    CLOZE_PART_2 = 5
+
 # Cloze Flashcard Class
 # Contains a raw line and the index of the word to be clozed
 class ClozeFlashcard:
@@ -303,87 +318,109 @@ class ClozeFlashcard:
         if self.simpleClozeFlashcard is not None:
             return self.simpleClozeFlashcard
 
-        currentStartWordIndex: int = 0
-        currentNextWordIndex: int = self.wordIndex
-        beforeCloze: str = self.GetStringOfWordsAndPunctuation(
-            currentStartWordIndex,
-            currentNextWordIndex,
-            # trailingSpace=True
+        beforeCloze: str = self.GetStringOfSentencePart(
+            sentencePart.BEFORE_CLOZE
         )
-        currentStartWordIndex = currentNextWordIndex
-
-        # If the cloze word is not part of a multi-word expression,
-        clozePart1: str = ""
-        midCloze: str = ""
-        clozePart2: str = ""
-        afterCloze: str = ""
-
-        multiWordExpression: Optional[MultiWordExpression] = (
-            self.GetFirstClozeWord().multiWordExpression
+        midCloze: str = self.GetStringOfSentencePart(
+            sentencePart.MID_CLOZE
         )
-        if multiWordExpression is None:
-            currentNextWordIndex += 1
-            clozePart1 = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                isCloze=True
-            )
-            currentStartWordIndex = currentNextWordIndex
-            currentNextWordIndex = len(self.getWords())
-            afterCloze = (
-                self.GetStringOfWordsAndPunctuation(
-                    currentStartWordIndex,
-                    currentNextWordIndex,
-                    # leadingSpace=currentStartWordIndex != currentNextWordIndex
-                ) 
-                if (currentStartWordIndex != currentNextWordIndex 
-                    or currentNextWordIndex in self.line.punctuationDict) 
-                else afterCloze
-            )
-        else:
-            currentNextWordIndex += multiWordExpression.getNumWordsBeforeSplitInCloze()
-            clozePart1 = self.GetStringOfWordsAndPunctuation(
-                currentStartWordIndex,
-                currentNextWordIndex,
-                isCloze=True
-            ) if currentStartWordIndex != currentNextWordIndex else clozePart1
-            currentStartWordIndex = currentNextWordIndex
-            currentNextWordIndex += multiWordExpression.getNumWordsInSplitOfCloze()
-            midCloze = (
-                self.GetStringOfWordsAndPunctuation(
-                    currentStartWordIndex,
-                    currentNextWordIndex,
-                    # leadingSpace=True,
-                    # trailingSpace=True
-                ) if currentStartWordIndex != currentNextWordIndex else midCloze
-            )
-            currentStartWordIndex = currentNextWordIndex
-            currentNextWordIndex += multiWordExpression.getNumWordsAfterSplitInCloze()
-            clozePart2 = (
-                self.GetStringOfWordsAndPunctuation(
-                    currentStartWordIndex,
-                    currentNextWordIndex,
-                    isCloze=True
-                ) if currentStartWordIndex != currentNextWordIndex else clozePart2
-            )
-            currentStartWordIndex = currentNextWordIndex
-            currentNextWordIndex = len(self.getWords())
-            afterCloze = (
-                self.GetStringOfWordsAndPunctuation(
-                    currentStartWordIndex,
-                    currentNextWordIndex,
-                    # leadingSpace=currentStartWordIndex != currentNextWordIndex
-                ) 
-                if (currentStartWordIndex != currentNextWordIndex 
-                    or currentNextWordIndex in self.line.punctuationDict) 
-                else afterCloze
-            )
+        afterCloze: str = self.GetStringOfSentencePart(
+            sentencePart.AFTER_CLOZE
+        )
+        clozePart1: str = self.GetStringOfSentencePart(
+            sentencePart.CLOZE_PART_1
+        )
+        clozePart2: str = self.GetStringOfSentencePart(
+            sentencePart.CLOZE_PART_2
+        )
 
         self.simpleClozeFlashcard = SimpleClozeFlashcard(
             beforeCloze, midCloze, afterCloze, clozePart1, clozePart2, self.inUse
         )
 
         return self.simpleClozeFlashcard
+
+        # currentStartWordIndex: int = 0
+        # currentNextWordIndex: int = self.wordIndex
+        # beforeCloze: str = self.GetStringOfSentencePart(
+        #     currentStartWordIndex,
+        #     currentNextWordIndex,
+        #     # trailingSpace=True
+        # )
+        # currentStartWordIndex = currentNextWordIndex
+
+        # # If the cloze word is not part of a multi-word expression,
+        # clozePart1: str = ""
+        # midCloze: str = ""
+        # clozePart2: str = ""
+        # afterCloze: str = ""
+
+        # multiWordExpression: Optional[MultiWordExpression] = (
+        #     self.GetFirstClozeWord().multiWordExpression
+        # )
+        # if multiWordExpression is None:
+        #     currentNextWordIndex += 1
+        #     clozePart1 = self.GetStringOfSentencePart(
+        #         currentStartWordIndex,
+        #         currentNextWordIndex,
+        #         isCloze=True
+        #     )
+        #     currentStartWordIndex = currentNextWordIndex
+        #     currentNextWordIndex = len(self.getWords())
+        #     afterCloze = (
+        #         self.GetStringOfSentencePart(
+        #             currentStartWordIndex,
+        #             currentNextWordIndex,
+        #             # leadingSpace=currentStartWordIndex != currentNextWordIndex
+        #         ) 
+        #         if (currentStartWordIndex != currentNextWordIndex 
+        #             or currentNextWordIndex in self.line.punctuationDict) 
+        #         else afterCloze
+        #     )
+        # else:
+        #     currentNextWordIndex += multiWordExpression.getNumWordsBeforeSplitInCloze()
+        #     clozePart1 = self.GetStringOfSentencePart(
+        #         currentStartWordIndex,
+        #         currentNextWordIndex,
+        #         isCloze=True
+        #     ) if currentStartWordIndex != currentNextWordIndex else clozePart1
+        #     currentStartWordIndex = currentNextWordIndex
+        #     currentNextWordIndex += multiWordExpression.getNumWordsInSplitOfCloze()
+        #     midCloze = (
+        #         self.GetStringOfSentencePart(
+        #             currentStartWordIndex,
+        #             currentNextWordIndex,
+        #             # leadingSpace=True,
+        #             # trailingSpace=True
+        #         ) if currentStartWordIndex != currentNextWordIndex else midCloze
+        #     )
+        #     currentStartWordIndex = currentNextWordIndex
+        #     currentNextWordIndex += multiWordExpression.getNumWordsAfterSplitInCloze()
+        #     clozePart2 = (
+        #         self.GetStringOfSentencePart(
+        #             currentStartWordIndex,
+        #             currentNextWordIndex,
+        #             isCloze=True
+        #         ) if currentStartWordIndex != currentNextWordIndex else clozePart2
+        #     )
+        #     currentStartWordIndex = currentNextWordIndex
+        #     currentNextWordIndex = len(self.getWords())
+        #     afterCloze = (
+        #         self.GetStringOfSentencePart(
+        #             currentStartWordIndex,
+        #             currentNextWordIndex,
+        #             # leadingSpace=currentStartWordIndex != currentNextWordIndex
+        #         ) 
+        #         if (currentStartWordIndex != currentNextWordIndex 
+        #             or currentNextWordIndex in self.line.punctuationDict) 
+        #         else afterCloze
+        #     )
+
+        # self.simpleClozeFlashcard = SimpleClozeFlashcard(
+        #     beforeCloze, midCloze, afterCloze, clozePart1, clozePart2, self.inUse
+        # )
+
+        # return self.simpleClozeFlashcard
 
         # lastIndex: int = self.line.GetLastIndex()
 
@@ -432,43 +469,185 @@ class ClozeFlashcard:
             return True
         return False
 
-    def GetStringOfWordsAndPunctuation(
+    def GetStringOfSentencePart(
         self,
+        part: sentencePart
+    ) -> str:
+        leadingSpace: bool = False
+        trailingSpace: bool = False
+        getLeadingAndTrailingPunctuation: bool = True
+        firstIndex: int = 0
+        nextIndex: int = 0
+        firstClozeWord: 'Word' = self.GetFirstClozeWord()
+        multiWordExpression: Optional['MultiWordExpression'] = (
+            firstClozeWord.multiWordExpression
+        )
+        isMultiWordExpression: bool = (
+            multiWordExpression is not None
+        ) 
+        words: List[Word] = self.line.words
+        
+        if part == sentencePart.BEFORE_CLOZE:
+            trailingSpace = True
+            firstIndex = 0
+            nextIndex = self.wordIndex
+        elif part == sentencePart.CLOZE_PART_1:
+            getLeadingAndTrailingPunctuation = False
+            firstIndex = self.wordIndex
+            nextIndex = (
+                self.wordIndex
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
+                    if isMultiWordExpression else 1)
+            )
+        elif part == sentencePart.MID_CLOZE:
+            leadingSpace = True
+            trailingSpace = True
+            firstIndex = (
+                self.wordIndex
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze() 
+                   if isMultiWordExpression else 1)
+            )
+            nextIndex = (
+                self.wordIndex 
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
+                   + multiWordExpression.getNumWordsInSplitOfCloze()
+                   if isMultiWordExpression else 1)
+            )
+        elif part == sentencePart.CLOZE_PART_2:
+            getLeadingAndTrailingPunctuation = False
+            firstIndex = (
+                self.wordIndex 
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
+                   + multiWordExpression.getNumWordsInSplitOfCloze()
+                   if isMultiWordExpression else 1)
+            )
+            nextIndex = (
+                self.wordIndex 
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
+                   + multiWordExpression.getNumWordsInSplitOfCloze()
+                   + multiWordExpression.getNumWordsAfterSplitInCloze()
+                   if isMultiWordExpression else 1)
+            )
+        elif part == sentencePart.AFTER_CLOZE:
+            leadingSpace = True
+            firstIndex = (
+                self.wordIndex 
+                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
+                   + multiWordExpression.getNumWordsInSplitOfCloze()
+                   + multiWordExpression.getNumWordsAfterSplitInCloze()
+                   if isMultiWordExpression else 1)
+            )
+            nextIndex = len(words)
+
+        return self.GenerateSentencePart(
+            leadingSpace,
+            trailingSpace,
+            getLeadingAndTrailingPunctuation,
+            firstIndex,
+            nextIndex,
+            words,
+            self.line.punctuationDict
+        )
+
+    @staticmethod
+    def GenerateSentencePart(
+        leadingSpace: bool,
+        trailingSpace: bool,
+        getLeadingAndTrailingPunctuation: bool,
         firstIndex: int,
         nextIndex: int,
-        isCloze: bool = False,
-        leadingSpace: bool = False,
-        trailingSpace: bool = False
+        words: List['Word'],
+        punctuationDict: Dict[int, List['Punctuation']]
     ) -> str:
-        words: List[Word] = self.line.words
-        punctuationDict: Dict[int, List['Punctuation']] = self.line.punctuationDict
-        result = ""
-        if leadingSpace:
+        # If the first index is the same as the next index, return an empty string
+        previousIndex: int = firstIndex - 1
+        
+        # If this part has no words
+        if firstIndex == nextIndex:
+            if not getLeadingAndTrailingPunctuation:
+                return ""
+            # Before cloze
+            elif not leadingSpace and trailingSpace:
+                if nextIndex in punctuationDict:
+                    punctuationsBeforeTheFirstWord: str = ""
+                    for punctuation in punctuationDict[nextIndex]:
+                        if punctuation.wordPosition == PunctuationWordPosition.ALONE:
+                            punctuationsBeforeTheFirstWord += punctuation.character + " "
+                        elif punctuation.wordPosition == PunctuationWordPosition.BEFORE:
+                            punctuationsBeforeTheFirstWord += punctuation.character
+                    return punctuationsBeforeTheFirstWord
+            # Mid cloze
+            elif leadingSpace and trailingSpace:
+                return ""
+            # After cloze
+            elif leadingSpace and not trailingSpace:
+                punctuationAfterTheLastWord: str = ""
+                if previousIndex in punctuationDict:
+                    for punctuation in punctuationDict[previousIndex]:
+                        if punctuation.wordPosition == PunctuationWordPosition.AFTER:
+                            punctuationAfterTheLastWord += punctuation.character
+                if firstIndex in punctuationDict:
+                    for punctuation in punctuationDict[firstIndex]:
+                        if punctuation.wordPosition == PunctuationWordPosition.ALONE:
+                            punctuationAfterTheLastWord += " " + punctuation.character
+                return punctuationAfterTheLastWord
+
+        result: str = ""
+
+        # Deal with punctuation before the first word if it is not clozed
+        # TODO : test "a_1?? b"
+        previousPunctuationFound: bool = False
+        if getLeadingAndTrailingPunctuation:
+            if previousIndex in punctuationDict:
+                for punctuation in punctuationDict[previousIndex]:
+                    if punctuation.wordPosition == PunctuationWordPosition.AFTER:
+                        result += punctuation.character
+                        previousPunctuationFound = True
+
+        if previousPunctuationFound or leadingSpace:
             result += " "
+        
+        # Add the words and punctuation in the range from firstIndex to nextIndex
+        lastIndex: int = nextIndex - 1
         for i in range(firstIndex, nextIndex):
-            # Add alone punctuation before the word is not clozed
+            addAlonePunctuation: bool = (
+                getLeadingAndTrailingPunctuation 
+                or i != firstIndex
+            )
+            addBeforePunctuation: bool = addAlonePunctuation
+            addAfterPunctuation: bool = (
+                getLeadingAndTrailingPunctuation
+                or i != lastIndex
+            )
+
             wordString: str = words[i].thisWordString
             if i in punctuationDict:
                 for punctuation in punctuationDict[i]:
                     if (punctuation.wordPosition == PunctuationWordPosition.ALONE 
-                        and not isCloze):
+                        and addAlonePunctuation):
                         result += punctuation.character + " "
-                    elif punctuation.wordPosition == PunctuationWordPosition.BEFORE:
+                    elif (punctuation.wordPosition == PunctuationWordPosition.BEFORE
+                          and addBeforePunctuation):
                         wordString = punctuation.character + wordString
-                    elif punctuation.wordPosition == PunctuationWordPosition.AFTER:
+                    elif (punctuation.wordPosition == PunctuationWordPosition.AFTER
+                          and addAfterPunctuation):
                         wordString += punctuation.character
             result += wordString
-            if i < nextIndex - 1:
+            if i < lastIndex:
                 result += " "
 
-        # Add alone punctuation after the word if it is not clozed
-        if not isCloze and nextIndex in punctuationDict:
+        # Add trailing punctuation
+        # TODO : test "a - \"b_1"
+        nextWordBeforePunctuation: str = ""
+        if getLeadingAndTrailingPunctuation and nextIndex in punctuationDict:
             for punctuation in punctuationDict[nextIndex]:
                 if punctuation.wordPosition == PunctuationWordPosition.ALONE:
                     result += " " + punctuation.character
+                elif punctuation.wordPosition == PunctuationWordPosition.BEFORE:
+                    nextWordBeforePunctuation += punctuation.character
 
         if trailingSpace:
-            result += " "
+            result += " " + nextWordBeforePunctuation
 
         return result
 

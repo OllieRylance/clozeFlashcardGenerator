@@ -45,21 +45,21 @@ if __name__ == "__main__":
             "OutputOrder": "alphabetical"
         },
         {
-            "FileStart": "punctuationBeforeFirstWordWhichIsCloze",
+            "FileStart": "punctuationBeforeFirstWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
         {
-            "FileStart": "aloneWordBeforeFirstWordWhichIsCloze",
+            "FileStart": "alonePunctuationBeforeFirstWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical"
         },
         {
-            "FileStart": "afterAndAlonePunctuationAfterLastWordWhichIsCloze",
+            "FileStart": "afterAndAlonePunctuationAfterLastWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",

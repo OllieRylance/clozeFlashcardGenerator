@@ -40,6 +40,9 @@ def main(
     # Ensure that that all of the past in use cloze flashcards are still in the output
     ensureInUseClozeFlashcardsPersist()
 
+    # TODO : investigate adding more output order options
+    # firstly, the option to put words without used cloze flashcards at the start
+    # and then most frequent words at the beginning
     if outputOrder == "alphabetical":
         SimpleClozeFlashcard.wordToFlashcards = dict(
             sorted(

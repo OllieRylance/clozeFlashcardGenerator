@@ -6,7 +6,6 @@ from typing import Dict, List, Optional
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
-from models import resetForTesting
 from main import main, OutputOrder, ClozeChoosingAlgorithm
 
 logger = logging.getLogger(__name__)
@@ -160,5 +159,4 @@ if __name__ == "__main__":
     ]
 
     for config in configs:
-        resetForTesting()
         runTest(config)

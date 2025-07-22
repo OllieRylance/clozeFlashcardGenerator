@@ -11,14 +11,15 @@ from resources import (
 
 logger = logging.getLogger(__name__)
 
-def resetForTesting() -> None:
-    Line.calculatedCosDissimilarities.clear()
-    Word.uniqueWordIdToWordObjects.clear()
-    SimpleClozeFlashcard.wordToFlashcards.clear()
-    ClozeFlashcard.inUseClozeFlashcards.clear()
+# def resetForTesting() -> None:
+#     Line.calculatedCosDissimilarities.clear()
+#     Line.calculatedSentenceLengthScores.clear()
+#     Word.uniqueWordIdToWordObjects.clear()
+#     SimpleClozeFlashcard.wordToFlashcards.clear()
+#     ClozeFlashcard.inUseClozeFlashcards.clear()
 
 class Word:
-    uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
+    # uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
 
     def __init__(
         self, wordString: str, 
@@ -148,8 +149,8 @@ class Punctuation:
         self.wordPosition: PunctuationWordPosition = wordPosition
 
 class Line:
-    calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
-    calculatedSentenceLengthScores: Dict[int, float] = {}
+    # calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
+    # calculatedSentenceLengthScores: Dict[int, float] = {}
 
     def __init__(
         self, words: List['Word'], 
@@ -187,7 +188,7 @@ class Line:
         highestPunctuationIndex: int = max(self.punctuationDict.keys())
         return max(highestWordIndex, highestPunctuationIndex)  
 
-    def getUniqueWordIdVector(self) -> np.ndarray:
+    def getUniqueWordIdVector(self, uniqueWordIdToWordObjects: Dict[str, List['Word']]) -> np.ndarray:
         """
         Generate a word vector for the raw line.
         """
@@ -198,7 +199,7 @@ class Line:
         # where keys are the punctuationless words and values are their counts
         wordCounts: Dict[str, int] = {
             uniqueWordId: 0 
-            for uniqueWordId in Word.uniqueWordIdToWordObjects.keys()
+            for uniqueWordId in uniqueWordIdToWordObjects.keys()
         }
 
         # Iterate through the words and update the word vector
@@ -212,16 +213,25 @@ class Line:
 
         return self.wordVector
 
-    def getCosDissimilarity(self, otherLine: 'Line') -> float:
+    def getCosDissimilarity(
+            self,
+            otherLine: 'Line',
+            calculatedCosDissimilarities: Dict[Tuple[int, int], float],
+            uniqueWordIdToWordObjects: Dict[str, List['Word']]
+        ) -> float:
         """
         Calculate the cosine dissimilarity between this raw line and another raw line.
         """
         # Check if the cosine dissimilarity has already been calculated
-        if (self.id, otherLine.id) in self.calculatedCosDissimilarities:
-            return self.calculatedCosDissimilarities[(self.id, otherLine.id)]
+        if (self.id, otherLine.id) in calculatedCosDissimilarities:
+            return calculatedCosDissimilarities[(self.id, otherLine.id)]
 
-        vector1: np.ndarray = self.getUniqueWordIdVector()
-        vector2: np.ndarray = otherLine.getUniqueWordIdVector()
+        vector1: np.ndarray = self.getUniqueWordIdVector(
+            uniqueWordIdToWordObjects
+        )
+        vector2: np.ndarray = otherLine.getUniqueWordIdVector(
+            uniqueWordIdToWordObjects
+        )
 
         # Calculate the dot product
         dotProduct: float = np.dot(vector1, vector2)
@@ -238,25 +248,25 @@ class Line:
         cosineDissimilarity: float = 1 - normalisedDotProduct
 
         # Store the calculated dissimilarity for future use
-        self.calculatedCosDissimilarities[(
+        calculatedCosDissimilarities[(
             self.id,
             otherLine.id
         )] = cosineDissimilarity
 
         return cosineDissimilarity
 
-    def getSentenceLengthScore(self) -> float:
+    def getSentenceLengthScore(self, calculatedSentenceLengthScores: Dict[int, float]) -> float:
         """
         Calculate a score based on the length of the sentence.
         Shorter sentences get a higher score with a reciprocal of exponential curve.
         """
         length = len(self.words)
 
-        if self.calculatedSentenceLengthScores.get(length) is not None:
-            return self.calculatedSentenceLengthScores[length]
+        if calculatedSentenceLengthScores.get(length) is not None:
+            return calculatedSentenceLengthScores[length]
 
         sentenceLengthScore = 1 / (math.exp((4 * length / 25) ** 4))
-        self.calculatedSentenceLengthScores[length] = sentenceLengthScore
+        calculatedSentenceLengthScores[length] = sentenceLengthScore
         return sentenceLengthScore
     
     @staticmethod
@@ -310,7 +320,7 @@ class Line:
         return result
 
 class ClozeFlashcard:
-    inUseClozeFlashcards: Dict[str, List['ClozeFlashcard']] = {}
+    # inUseClozeFlashcards: Dict[str, List['ClozeFlashcard']] = {}
 
     def __init__(self, line: Line, wordIndex: int, inUse: bool = False) -> None:
         self.line: Line = line
@@ -540,7 +550,7 @@ class ClozeFlashcard:
         return self.line.words[self.wordIndex]
 
 class SimpleClozeFlashcard:
-    wordToFlashcards: Dict[str, List['SimpleClozeFlashcard']] = {}
+    # wordToFlashcards: Dict[str, List['SimpleClozeFlashcard']] = {}
 
     def __init__(
         self,

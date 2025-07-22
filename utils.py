@@ -45,7 +45,11 @@ def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
     logger.info("Sentence lines are valid.")
     return sentenceLines
 
-def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
+def prepareInUseClozeFlashcards(
+        outputFilePath: str,
+        uniqueWordIdToWordObjects: Dict[str, List[Word]],
+        inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
+    ) -> None:
     """
     Prepare the in-use cloze flashcards from the output file.
     Returns a dictionary of in-use cloze flashcards.
@@ -58,7 +62,11 @@ def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
             f"Starting fresh."
         )
 
-    makeInUseClozeFlashcards(existingClozeFlashcardsJsonFileString)
+    makeInUseClozeFlashcards(
+        existingClozeFlashcardsJsonFileString,
+        uniqueWordIdToWordObjects,
+        inUseClozeFlashcards
+    )
 
 def printGeneratingClozeFlashcardsInfo(
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
@@ -75,7 +83,10 @@ def printGeneratingClozeFlashcardsInfo(
 def generateClozeFlashcards(
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm,
     n: int,
-    benefitShorterSentences: bool
+    benefitShorterSentences: bool,
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    uniqueWordIdToWordObjects: Dict[str, List[Word]],
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
 ) -> None:
     """
     Generate cloze flashcards based on the chosen algorithm.
@@ -83,32 +94,39 @@ def generateClozeFlashcards(
     """
     if logger.isEnabledFor(logging.INFO):
         printGeneratingClozeFlashcardsInfo(
-            ClozeFlashcard.inUseClozeFlashcards, clozeChoosingAlgorithm
+            inUseClozeFlashcards, clozeChoosingAlgorithm
         )
 
-    createInitialClozeFlashcards()
+    createInitialClozeFlashcards(inUseClozeFlashcards, wordToSimpleClozeFlashcards)
 
-    for uniqueWordId in Word.uniqueWordIdToWordObjects.keys():
+    for uniqueWordId in uniqueWordIdToWordObjects.keys():
         # If the word already has equal or more cloze flashcards than n, skip it
         if (
-            uniqueWordId in SimpleClozeFlashcard.wordToFlashcards
-            and len(SimpleClozeFlashcard.wordToFlashcards[uniqueWordId]) >= n
+            uniqueWordId in wordToSimpleClozeFlashcards
+            and len(wordToSimpleClozeFlashcards[uniqueWordId]) >= n
         ):
             continue
+
+        calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
+        calculatedSentenceLengthScores: Dict[int, float] = {}
 
         if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
             mostDifferentAlgorithm(
                 uniqueWordId,
                 n,
-                benefitShorterSentences
+                benefitShorterSentences,
+                calculatedCosDissimilarities,
+                uniqueWordIdToWordObjects,
+                inUseClozeFlashcards,
+                wordToSimpleClozeFlashcards,
+                calculatedSentenceLengthScores
             )
 
-def ensureInUseClozeFlashcardsPersist() -> None:
-    for word, clozeFlashcards in ClozeFlashcard.inUseClozeFlashcards.items():
-        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
-            SimpleClozeFlashcard.wordToFlashcards
-        )
-
+def ensureInUseClozeFlashcardsPersist(
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
+) -> None:
+    for word, clozeFlashcards in inUseClozeFlashcards.items():
         if word not in wordToSimpleClozeFlashcards:
             # If the word is not in the new cloze flashcards, 
             # a serious error has occurred
@@ -160,7 +178,8 @@ def printFoundInvalidLines(invalidLines: List[str]) -> None:
         print(f"\"{line}\"")
 
 def createClozeFlashcardFromSimpleJsonableDict(
-    clozeFlashcard: Dict[str, str]
+    clozeFlashcard: Dict[str, str],
+    uniqueWordIdToWordObjects: Dict[str, List[Word]]
 ) -> ClozeFlashcard:
     """
     Create a ClozeFlashcard from a simple JSON-serializable dictionary.
@@ -181,7 +200,7 @@ def createClozeFlashcardFromSimpleJsonableDict(
         + clozeFlashcard['afterCloze']
     )
 
-    line = parseSentenceLine(lineString, addWordsToClassDict=False)
+    line = parseSentenceLine(lineString, uniqueWordIdToWordObjects, addWordsToClassDict=False)
     wordIndex: int = SimpleClozeFlashcard.wordsInString(clozeFlashcard['beforeCloze'])
     clozeFlashcardInstance = ClozeFlashcard(
         line, wordIndex, clozeFlashcard['inUse'] == "True"
@@ -190,7 +209,9 @@ def createClozeFlashcardFromSimpleJsonableDict(
     return clozeFlashcardInstance
 
 def makeInUseClozeFlashcards(
-    existingClozeFlashcardsJsonFileString: Optional[str]
+    existingClozeFlashcardsJsonFileString: Optional[str],
+    uniqueWordIdToWordObjects: Dict[str, List[Word]],
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
 ) -> None:
     """
     Parse the existing cloze flashcards JSON file string and return a dictionary
@@ -210,7 +231,7 @@ def makeInUseClozeFlashcards(
 
     # Log the number of unique words found
     logger.debug(
-        f"{len(Word.uniqueWordIdToWordObjects)} unique words "
+        f"{len(uniqueWordIdToWordObjects)} unique words "
         f"(+ multi word expressions) found in the sentences."
     )
 
@@ -225,25 +246,31 @@ def makeInUseClozeFlashcards(
 
         # Create a ClozeFlashcard instance
         clozeFlashcardInstance: ClozeFlashcard = (
-            createClozeFlashcardFromSimpleJsonableDict(clozeFlashcard)
+            createClozeFlashcardFromSimpleJsonableDict(
+                clozeFlashcard,
+                uniqueWordIdToWordObjects
+            )
         )
 
         # Add the cloze flashcard to the in-use cloze flashcards dictionary
         uniqueWordId: str = (
             clozeFlashcardInstance.GetFirstClozeWord().getUniqueWordId()
         )
-        if uniqueWordId not in ClozeFlashcard.inUseClozeFlashcards:
-            ClozeFlashcard.inUseClozeFlashcards[uniqueWordId] = []
-        ClozeFlashcard.inUseClozeFlashcards[uniqueWordId].append(
+        if uniqueWordId not in inUseClozeFlashcards:
+            inUseClozeFlashcards[uniqueWordId] = []
+        inUseClozeFlashcards[uniqueWordId].append(
             clozeFlashcardInstance
         )
 
-def addWordToClassDict(word: Word) -> None:
+def addWordToClassDict(
+        word: Word,
+        uniqueWordIdToWordObjects: Dict[str, List[Word]]
+    ) -> None:
     # If the unique word ID is not in the dictionary, add it
     uniqueWordId: str = word.getUniqueWordId()
-    if uniqueWordId not in Word.uniqueWordIdToWordObjects:
-        Word.uniqueWordIdToWordObjects[uniqueWordId] = []
-    Word.uniqueWordIdToWordObjects[uniqueWordId].append(word)
+    if uniqueWordId not in uniqueWordIdToWordObjects:
+        uniqueWordIdToWordObjects[uniqueWordId] = []
+    uniqueWordIdToWordObjects[uniqueWordId].append(word)
 
 def getWordStringAndId(wordString: str) -> Tuple[str, int]:
     """
@@ -329,7 +356,11 @@ def processMultiWordExpressions(
     multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
     return wordString, multiWordExpression
 
-def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
+def parseSentenceLine(
+        line: str,
+        uniqueWordIdToWordObjects: Dict[str, List[Word]],
+        addWordsToClassDict: bool = True
+    ) -> Line:
     subStrings: List[str] = line.split()
     words: List[Word] = []
     punctuationDict: Dict[int, List[Punctuation]] = {}
@@ -357,7 +388,9 @@ def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
 
     if addWordsToClassDict:
         for multiWordExpression in [m for m in multiWordExpressions.values()]:
-            addWordToClassDict(multiWordExpression.words[0])
+            addWordToClassDict(
+                multiWordExpression.words[0], uniqueWordIdToWordObjects
+            )
 
     return Line(words, punctuationDict)
 
@@ -379,18 +412,21 @@ def convertToJsonableFormat(
 
     return wordToJsonableClozeFlashcards
 
-def createInitialClozeFlashcards() -> None:
+def createInitialClozeFlashcards(
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
+) -> None:
     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 
-    for word in ClozeFlashcard.inUseClozeFlashcards:
+    for word in inUseClozeFlashcards:
         # If the word is already in use, add the cloze flashcards to the dictionary
         if word not in wordToClozeFlashcards:
             wordToClozeFlashcards[word] = []
 
-        for clozeFlashcard in ClozeFlashcard.inUseClozeFlashcards[word]:
+        for clozeFlashcard in inUseClozeFlashcards[word]:
             simpleClozeFlashcard: SimpleClozeFlashcard = (
                 clozeFlashcard.GetSimpleClozeFlashcard()
             )
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
-    SimpleClozeFlashcard.wordToFlashcards = wordToClozeFlashcards
+    wordToSimpleClozeFlashcards.update(wordToClozeFlashcards)

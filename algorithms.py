@@ -9,15 +9,20 @@ logger = logging.getLogger(__name__)
 def mostDifferentAlgorithm(
     uniqueWordId: str,
     n: int,
-    benefitShorterSentences: bool
+    benefitShorterSentences: bool,
+    calculatedCosDissimilarities: Dict[Tuple[int, int], float],
+    uniqueWordIdToWordObjects: Dict[str, List[Word]],
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
+    calculatedSentenceLengthScores: Dict[int, float]
 ) -> None:
     # For each unique word, create cloze flashcards for the it's raw lines
     # with the top n most different sentences
     # If there are already cloze flashcards in use for the word, 
     # use those as the start of the list
-    words: List[Word] = Word.uniqueWordIdToWordObjects[uniqueWordId]
+    words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
     inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
-        ClozeFlashcard.inUseClozeFlashcards.get(uniqueWordId, [])
+        inUseClozeFlashcards.get(uniqueWordId, [])
     )
 
     # Create a list of the raw words that are not already in use
@@ -44,14 +49,14 @@ def mostDifferentAlgorithm(
                 word.line, word.index
             ).GetSimpleClozeFlashcard()
 
-            if (currentUniqueWordId in ClozeFlashcard.inUseClozeFlashcards and
+            if (currentUniqueWordId in inUseClozeFlashcards and
                 simpleClozeFlashcard in inUseClozeFlashcardsForWord):
                 # If the cloze flashcard is already in use, skip it
                 continue
 
-            if currentUniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
-                SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId] = []
-            SimpleClozeFlashcard.wordToFlashcards[currentUniqueWordId].append(
+            if currentUniqueWordId not in wordToSimpleClozeFlashcards:
+                wordToSimpleClozeFlashcards[currentUniqueWordId] = []
+            wordToSimpleClozeFlashcards[currentUniqueWordId].append(
                 simpleClozeFlashcard
             )
 
@@ -84,7 +89,12 @@ def mostDifferentAlgorithm(
     )
 
     bestCombination: Optional[Tuple[int, ...]] = findMostDifferentCombination(
-        newCombinations, lineIdToWord, benefitShorterSentences
+        newCombinations,
+        lineIdToWord,
+        benefitShorterSentences,
+        calculatedCosDissimilarities,
+        uniqueWordIdToWordObjects,
+        calculatedSentenceLengthScores
     )
 
     if bestCombination is None:
@@ -114,9 +124,9 @@ def mostDifferentAlgorithm(
         newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
             line, wordIndex
         ).GetSimpleClozeFlashcard()
-        if uniqueWordId not in SimpleClozeFlashcard.wordToFlashcards:
-            SimpleClozeFlashcard.wordToFlashcards[uniqueWordId] = []
-        SimpleClozeFlashcard.wordToFlashcards[uniqueWordId].append(
+        if uniqueWordId not in wordToSimpleClozeFlashcards:
+            wordToSimpleClozeFlashcards[uniqueWordId] = []
+        wordToSimpleClozeFlashcards[uniqueWordId].append(
             newSimpleClozeFlashcard
         )
 
@@ -141,7 +151,10 @@ def generateNewCombinations(
 def findMostDifferentCombination(
     combinationsOfRawLines: List[Tuple[int, ...]],
     lineIdToWord: Dict[int, Word],
-    benefitShorterSentences: bool
+    benefitShorterSentences: bool,
+    calculatedCosDissimilarities: Dict[Tuple[int, int], float],
+    uniqueWordIdToWordObjects: Dict[str, List[Word]],
+    calculatedSentenceLengthScores: Dict[int, float]
 ) -> Optional[Tuple[int, ...]]:
     currentHighestCosDissimilarity: float = 0
     currentBestCombination: Optional[Tuple[int, ...]] = None
@@ -161,13 +174,19 @@ def findMostDifferentCombination(
                     )
                     continue
                 cosDissimilarity: float = line1.getCosDissimilarity(
-                    line2
+                    line2,
+                    calculatedCosDissimilarities,
+                    uniqueWordIdToWordObjects
                 )
 
                 if benefitShorterSentences:
                     cosDissimilarity *= (
-                        line1.getSentenceLengthScore() *
-                        line2.getSentenceLengthScore()
+                        line1.getSentenceLengthScore(
+                            calculatedSentenceLengthScores
+                        ) *
+                        line2.getSentenceLengthScore(
+                            calculatedSentenceLengthScores
+                        )
                     )
 
                 sumOfCosDissimilarities += cosDissimilarity

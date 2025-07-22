@@ -4,7 +4,7 @@ import cProfile
 import pstats
 import io
 
-from models import SimpleClozeFlashcard, Word
+from models import ClozeFlashcard, SimpleClozeFlashcard, Word
 from readWrite import writeJsonFile
 from utils import (
     convertToJsonableFormat,
@@ -36,8 +36,15 @@ def main(
 
     if sentenceLines is None: return
 
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = {}
+
     for line in sentenceLines:
-        parseSentenceLine(line)
+        parseSentenceLine(
+            line,
+            uniqueWordIdToWordObjects
+        )
+
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
 
     # Determine which file to use for existing cloze flashcards
     if existingOutputFilePath is None:
@@ -45,56 +52,70 @@ def main(
         logger.info("Ignoring any existing cloze flashcards - starting fresh")
     elif existingOutputFilePath == "Same":
         # Use the same file as output (default behavior)
-        prepareInUseClozeFlashcards(outputFilePath)
+        prepareInUseClozeFlashcards(
+            outputFilePath,
+            uniqueWordIdToWordObjects,
+            inUseClozeFlashcards
+        )
     else:
         # Use the specified existing file
-        prepareInUseClozeFlashcards(existingOutputFilePath)
+        prepareInUseClozeFlashcards(
+            existingOutputFilePath,
+            uniqueWordIdToWordObjects,
+            inUseClozeFlashcards
+        )
+
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 
     generateClozeFlashcards(
-        clozeChoosingAlgorithm, n, benefitShorterSentences
+        clozeChoosingAlgorithm, n, benefitShorterSentences,
+        inUseClozeFlashcards, uniqueWordIdToWordObjects,
+        wordToSimpleClozeFlashcards
     )
 
     # Ensure that that all of the past in use cloze flashcards are still in the output
-    ensureInUseClozeFlashcardsPersist()
+    ensureInUseClozeFlashcardsPersist(
+        inUseClozeFlashcards, wordToSimpleClozeFlashcards
+    )
 
     outputOrder.reverse()
     for order in outputOrder:
         if order == OutputOrder.ALPHABETICAL:
-            SimpleClozeFlashcard.wordToFlashcards = dict(
+            wordToSimpleClozeFlashcards = dict(
                 sorted(
-                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    wordToSimpleClozeFlashcards.items(),
                     key=lambda item: item[0]  # Sort by word (key)
                 )
             )
         elif order == OutputOrder.FREQUENCY:
             frequencies: Dict[str, int] = {}
-            for word, references in Word.uniqueWordIdToWordObjects.items():
+            for word, references in uniqueWordIdToWordObjects.items():
                 frequencies[word] = len(references)
-            SimpleClozeFlashcard.wordToFlashcards = dict(
+            wordToSimpleClozeFlashcards = dict(
                 sorted(
-                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    wordToSimpleClozeFlashcards.items(),
                     key=lambda item: frequencies[item[0]],  # Sort by frequency
                     reverse=True  # Most frequent first
                 )
             )
         elif order == OutputOrder.RANDOM:
             import random
-            items = list(SimpleClozeFlashcard.wordToFlashcards.items())
+            items = list(wordToSimpleClozeFlashcards.items())
             random.shuffle(items)
-            SimpleClozeFlashcard.wordToFlashcards = dict(items)
+            wordToSimpleClozeFlashcards = dict(items)
         elif order == OutputOrder.LEAST_USED_FIRST:
             usedCounts: Dict[str, int] = {}
-            for word, flashcards in SimpleClozeFlashcard.wordToFlashcards.items():
+            for word, flashcards in wordToSimpleClozeFlashcards.items():
                 usedCounts[word] = sum(1 for fc in flashcards if fc.inUse)
-            SimpleClozeFlashcard.wordToFlashcards = dict(
+            wordToSimpleClozeFlashcards = dict(
                 sorted(
-                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    wordToSimpleClozeFlashcards.items(),
                     key=lambda item: usedCounts[item[0]],  # Sort by used count
                 )
             )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
-        convertToJsonableFormat(SimpleClozeFlashcard.wordToFlashcards)
+        convertToJsonableFormat(wordToSimpleClozeFlashcards)
     )
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)

@@ -16,7 +16,6 @@ def resetForTesting() -> None:
     Word.uniqueWordIdToWordObjects.clear()
     SimpleClozeFlashcard.wordToFlashcards.clear()
     ClozeFlashcard.inUseClozeFlashcards.clear()
-    MultiWordExpression.multiWordExpressionCount = 0
 
 class Word:
     uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
@@ -74,11 +73,7 @@ class Word:
         self.index = index
 
 class MultiWordExpression:
-    multiWordExpressionCount: int = 0
-
     def __init__(self) -> None:
-        self.id: int = MultiWordExpression.multiWordExpressionCount
-        MultiWordExpression.multiWordExpressionCount += 1
         self.words: List[Word] = []
 
         self.uniqueWordId: Optional[str] = None

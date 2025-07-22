@@ -39,9 +39,12 @@ def main(
     # Try to get the lines from the input file
     if clozeChoosingAlgorithm not in ["mostDifferent"]:
         logger.error(f"Invalid cloze choosing algorithm: {clozeChoosingAlgorithm}.")
-        exit(1)
+        return
 
-    sentenceLines: List[str] = prepareSentenceLines(inputFilePath)
+    sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
+
+    if sentenceLines is None: return
+
     for line in sentenceLines:
         parseSentenceLine(line)
 
@@ -63,12 +66,6 @@ def main(
     # Ensure that that all of the past in use cloze flashcards are still in the output
     ensureInUseClozeFlashcardsPersist()
 
-    # TODO : investigate adding more output order options
-    # firstly, the option to put words without used cloze flashcards at the start
-    # and then most frequent words at the beginning
-    # Output order could be a list with most important sort first, etc. And the list
-    # gets iterated through backwards permorming the sorts one by one (or all in same
-    # run though using lambda if possible)
     outputOrder.reverse()
     for order in outputOrder:
         if order == OutputOrder.ALPHABETICAL:

@@ -14,10 +14,11 @@ from models import (
     SimpleClozeFlashcard,
 )
 from readWrite import readJsonFile, readLines
+from resources import Recources
 
 logger = logging.getLogger(__name__)
 
-def prepareSentenceLines(inputFilePath: str) -> List[str]:
+def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
     """
     Read sentences from a file and validate them.
     Returns a list of valid sentences.
@@ -36,8 +37,7 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
         if logger.isEnabledFor(logging.DEBUG):
             printFoundInvalidLines(invalidLines)
 
-        # Exit the program if invalid lines are found
-        exit(1)
+        return None
 
     logger.info("Sentence lines are valid.")
     return sentenceLines
@@ -133,14 +133,15 @@ def findInvalidLines(lines: List[str]) -> List[str]:
     A line is invalid if:
     - it has multiple spaces back to back,
     - it has leading or trailing whitespace (and not just a newline), or
-    - it has characters that are not letters, numbers, ",", ".", "?", "_" or " ".
+    - it has characters that are not letters, numbers, " ", "_", or valid
+      punctuation in the punctuation characters resource.
     """
     invalidLines: List[str] = []
 
     for line in lines:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
         if ('  ' in line or
-            not all(c.isalpha() or c.isdigit() or c in '",.?_' or c.isspace() 
+            not all(c.isalpha() or c.isdigit() or c.isspace() or c == "_" or c in Recources.punctuationChars
                    for c in line)):
             invalidLines.append(line)
 
@@ -260,9 +261,11 @@ def processPunctuation(
 ) -> Tuple[str, bool]:
     # If the subString starts or ends with a string of punctuation
     # using regex to find punctuation at the start and end
-    # punctuation to look for is ",?"
+    # punctuation to look for is in the punctuation characters resource
     # TODO : allow more punctuation characters
-    match = re.match(r'([^\w\s]*)(.*?)([^\w\s]*)$', subString)
+    allowedPunctuation = Recources.punctuationChars
+    pattern = f"([{re.escape(allowedPunctuation)}]*)(.*?)([{re.escape(allowedPunctuation)}]*)$"
+    match = re.match(pattern, subString)
     if not match:
         return subString, False
 

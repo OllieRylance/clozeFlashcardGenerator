@@ -95,7 +95,9 @@ class MultiWordExpression:
         if self.uniqueWordId is not None:
             return self.uniqueWordId
         
-        self.uniqueWordId = ' '.join([word.thisWordString for word in self.words])
+        self.uniqueWordId = ' '.join(
+            sorted([word.thisWordString for word in self.words])
+        )
         return self.uniqueWordId
 
     def getNumWordsBeforeSplitInCloze(self) -> int:

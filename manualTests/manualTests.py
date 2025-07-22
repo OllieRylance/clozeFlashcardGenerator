@@ -149,6 +149,14 @@ if __name__ == "__main__":
             "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFileName": "None"
         },
+        {
+            "FileStart": "sortUnusedFirstThenFrequency/",
+            "Algorithm": "MOST_DIFFERENT",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "LEAST_USED_FIRST, FREQUENCY",
+            "ExistingOutputFileName": "existingClozeFlashcards"
+        },
     ]
 
     for config in configs:

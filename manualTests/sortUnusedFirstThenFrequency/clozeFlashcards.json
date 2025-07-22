@@ -1,0 +1,84 @@
+{
+    "d": [
+        {
+            "beforeCloze": "a b c ",
+            "clozeWordPart1": "d",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "b c ",
+            "clozeWordPart1": "d",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "d",
+            "afterCloze": " e",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "c": [
+        {
+            "beforeCloze": "a b ",
+            "clozeWordPart1": "c",
+            "afterCloze": " d",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "b ",
+            "clozeWordPart1": "c",
+            "afterCloze": " d",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "e": [
+        {
+            "beforeCloze": "d ",
+            "clozeWordPart1": "e",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "a": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "a",
+            "afterCloze": " b c d",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ],
+    "b": [
+        {
+            "beforeCloze": "a ",
+            "clozeWordPart1": "b",
+            "afterCloze": " c d",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "b",
+            "afterCloze": " c d",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ]
+}

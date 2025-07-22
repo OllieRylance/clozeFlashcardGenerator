@@ -1,5 +1,5 @@
 import logging
-from typing import Dict, List
+from typing import Dict, List, Optional
 import cProfile
 import pstats
 import io
@@ -26,7 +26,8 @@ def main(
     clozeChoosingAlgorithm: str,
     n: int,
     benefitShorterSentences: bool,
-    outputOrder: str = "unchanged"
+    outputOrder: str = "unchanged",
+    existingOutputFilePath: Optional[str] = "Same",
 ) -> None:
     # Try to get the lines from the input file
     if clozeChoosingAlgorithm not in ["mostDifferent"]:
@@ -37,8 +38,16 @@ def main(
     for line in sentenceLines:
         parseSentenceLine(line)
 
-    # Try to read existing cloze flashcards from the output file
-    prepareInUseClozeFlashcards(outputFilePath)
+    # Determine which file to use for existing cloze flashcards
+    if existingOutputFilePath is None:
+        # User wants to ignore any existing files - start fresh
+        logger.info("Ignoring any existing cloze flashcards - starting fresh")
+    elif existingOutputFilePath == "Same":
+        # Use the same file as output (default behavior)
+        prepareInUseClozeFlashcards(outputFilePath)
+    else:
+        # Use the specified existing file
+        prepareInUseClozeFlashcards(existingOutputFilePath)
 
     generateClozeFlashcards(
         clozeChoosingAlgorithm, n, benefitShorterSentences

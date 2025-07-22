@@ -1,7 +1,7 @@
 import logging
 import sys
 import os
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
@@ -24,9 +24,12 @@ def runTest(preset: Dict[str, str]) -> None:
     n: int = int(preset["n"])
     benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
     outputOrder: str = preset["OutputOrder"]
+    existingOutputFilePath: Optional[str] = (
+        preset["ExistingOutputFilePath"] if preset["ExistingOutputFilePath"] != "None" else None
+    )
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences, outputOrder
+        n, benefitShorterSentences, outputOrder, existingOutputFilePath
     )
 
 if __name__ == "__main__":
@@ -42,42 +45,48 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
         {
             "FileStart": "punctuationBeforeFirstWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
         {
             "FileStart": "alonePunctuationBeforeFirstWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
         {
             "FileStart": "afterAndAlonePunctuationAfterLastWord",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
         {
             "FileStart": "doubleAfterPunctuation",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
         {
             "FileStart": "aloneAndBeforePunctuationMidSentence",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical"
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
     ]
 

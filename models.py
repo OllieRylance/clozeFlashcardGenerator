@@ -2,8 +2,12 @@ import logging
 from typing import Dict, List, Optional, Tuple
 import numpy as np
 import math
-from enum import Enum
 import re
+
+from resources import (
+    PunctuationWordPosition,
+    sentencePart
+)
 
 logger = logging.getLogger(__name__)
 
@@ -599,15 +603,3 @@ class SimpleClozeFlashcard:
         words: List[str] = string.split()
         # Ignore words that are just punctuation
         return sum(1 for word in words if not re.match(r'^[^\w\s]+$', word))
-
-class sentencePart(Enum):
-    BEFORE_CLOZE = 1
-    MID_CLOZE = 2
-    AFTER_CLOZE = 3
-    CLOZE_PART_1 = 4
-    CLOZE_PART_2 = 5
-
-class PunctuationWordPosition(Enum):
-    BEFORE = 1
-    AFTER = 2
-    ALONE = 3

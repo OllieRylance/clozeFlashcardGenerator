@@ -14,7 +14,10 @@ from models import (
     SimpleClozeFlashcard,
 )
 from readWrite import readJsonFile, readLines
-from resources import Recources
+from resources import (
+    Recources,
+    ClozeChoosingAlgorithm
+)
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +62,7 @@ def prepareInUseClozeFlashcards(outputFilePath: str) -> None:
 
 def printGeneratingClozeFlashcardsInfo(
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
-    clozeChoosingAlgorithm: str
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm
 ) -> None:
     totalInUseClozeFlashcards: int = sum(
         len(flashcards) for flashcards in inUseClozeFlashcards.values()
@@ -70,7 +73,7 @@ def printGeneratingClozeFlashcardsInfo(
     )
 
 def generateClozeFlashcards(
-    clozeChoosingAlgorithm: str,
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm,
     n: int,
     benefitShorterSentences: bool
 ) -> None:
@@ -93,7 +96,7 @@ def generateClozeFlashcards(
         ):
             continue
 
-        if clozeChoosingAlgorithm == "mostDifferent":
+        if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
             mostDifferentAlgorithm(
                 uniqueWordId,
                 n,
@@ -262,7 +265,6 @@ def processPunctuation(
     # If the subString starts or ends with a string of punctuation
     # using regex to find punctuation at the start and end
     # punctuation to look for is in the punctuation characters resource
-    # TODO : allow more punctuation characters
     allowedPunctuation = Recources.punctuationChars
     pattern = f"([{re.escape(allowedPunctuation)}]*)(.*?)([{re.escape(allowedPunctuation)}]*)$"
     match = re.match(pattern, subString)

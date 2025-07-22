@@ -1,4 +1,3 @@
-from enum import Enum
 import logging
 from typing import Dict, List, Optional
 import cProfile
@@ -6,7 +5,6 @@ import pstats
 import io
 
 from models import SimpleClozeFlashcard, Word
-
 from readWrite import writeJsonFile
 from utils import (
     convertToJsonableFormat,
@@ -16,31 +14,24 @@ from utils import (
     prepareInUseClozeFlashcards,
     prepareSentenceLines
 )
+from resources import (
+    ClozeChoosingAlgorithm,
+    OutputOrder
+)
 
 logger = logging.getLogger(__name__)
-
-class OutputOrder(Enum):
-    ALPHABETICAL = 1
-    FREQUENCY = 2
-    RANDOM = 3
-    LEAST_USED_FIRST = 4
 
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
 def main(
     inputFilePath: str,
     outputFilePath: str,
-    clozeChoosingAlgorithm: str,
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm,
     n: int,
     benefitShorterSentences: bool,
     outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL],
     existingOutputFilePath: Optional[str] = "Same",
 ) -> None:
-    # Try to get the lines from the input file
-    if clozeChoosingAlgorithm not in ["mostDifferent"]:
-        logger.error(f"Invalid cloze choosing algorithm: {clozeChoosingAlgorithm}.")
-        return
-
     sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
 
     if sentenceLines is None: return
@@ -129,7 +120,7 @@ if __name__ == "__main__":
     # Your code to profile
     inputFilePath: str = 'sentences.txt'
     outputFilePath: str = 'clozeFlashcards.json'
-    clozeChoosingAlgorithm: str = "mostDifferent"
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     n: int = 3
     benefitShorterSentences: bool = False
     outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL]

@@ -7,7 +7,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
 from models import resetForTesting
-from main import main, OutputOrder
+from main import main, OutputOrder, ClozeChoosingAlgorithm
 
 logger = logging.getLogger(__name__)
 
@@ -20,7 +20,7 @@ def runTest(config: Dict[str, str]) -> None:
     currentTestFileStart: str = config["FileStart"]
     inputFilePath: str = f'manualTests/{currentTestFileStart}sentences.txt'
     outputFilePath: str = f'manualTests/{currentTestFileStart}clozeFlashcards.json'
-    clozeChoosingAlgorithm: str = config["Algorithm"]
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm[config["Algorithm"].upper()]
     n: int = int(config["n"])
     benefitShorterSentences: bool = config["BenefitShorterSentences"] == "True"
     outputOrderStrings: List[str] = config["OutputOrder"].split(", ")
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     configs: List[Dict[str, str]] = [
         {
             "FileStart": "alonePunctuationMidCloze/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "punctuationBeforeFirstWord/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "alonePunctuationBeforeFirstWord/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -71,7 +71,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "afterAndAlonePunctuationAfterLastWord/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -79,7 +79,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "doubleAfterPunctuation/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "aloneAndBeforePunctuationMidSentence/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "noInputButExistingInUseOutput/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -103,7 +103,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "multiWordExpressionInDifferentOrderGetGrouped/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
@@ -119,7 +119,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "sortUnusedFirstThenAlphabetical/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "LEAST_USED_FIRST, ALPHABETICAL",
@@ -127,7 +127,7 @@ if __name__ == "__main__":
         },
         {
             "FileStart": "invalidPunctuationTest/",
-            "Algorithm": "mostDifferent",
+            "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",

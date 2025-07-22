@@ -91,12 +91,28 @@ if __name__ == "__main__":
             "ExistingOutputFilePath": "None"
         },
         {
-            "FileStart": "noInputButExistingOutput",
+            "FileStart": "noInputButExistingInUseOutput",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical",
             "ExistingOutputFilePath": "existingClozeFlashcards"
+        },
+        {
+            "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "existingClozeFlashcards"
+        },
+        {
+            "FileStart": "multiWordExpressionInDifferentOrderGetGrouped",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
         },
     ]
 

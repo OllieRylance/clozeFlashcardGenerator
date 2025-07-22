@@ -1,0 +1,32 @@
+{
+    "a": [
+        {
+            "beforeCloze": "?",
+            "clozeWordPart1": "a",
+            "afterCloze": " b ? c? d? e",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "b d": [
+        {
+            "beforeCloze": "?a ",
+            "clozeWordPart1": "b",
+            "afterCloze": "? e",
+            "midCloze": " ? c? ",
+            "clozeWordPart2": "d",
+            "inUse": "True"
+        }
+    ],
+    "c e": [
+        {
+            "beforeCloze": "?a b ? ",
+            "clozeWordPart1": "c",
+            "afterCloze": "",
+            "midCloze": "? d? ",
+            "clozeWordPart2": "e",
+            "inUse": "False"
+        }
+    ]
+}

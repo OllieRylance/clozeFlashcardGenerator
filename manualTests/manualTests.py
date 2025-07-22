@@ -125,6 +125,15 @@ if __name__ == "__main__":
             "OutputOrder": "LEAST_USED_FIRST, ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
+        {
+            "FileStart": "invalidPunctuationTest/",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "ALPHABETICAL",
+            "ExistingOutputFileName": "None"
+        },
+        
     ]
 
     for config in configs:

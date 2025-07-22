@@ -11,23 +11,23 @@ from main import main, OutputOrder
 
 logger = logging.getLogger(__name__)
 
-def runTest(preset: Dict[str, str]) -> None:
+def runTest(config: Dict[str, str]) -> None:
     """
-    Run the test with the given preset.
+    Run the test with the given config.
     
-    :param preset: A dictionary containing the test configuration.
+    :param config: A dictionary containing the test configuration.
     """
-    currentTestFileStart: str = preset["FileStart"]
-    inputFilePath: str = f'manualTests/{currentTestFileStart}/sentences.txt'
-    outputFilePath: str = f'manualTests/{currentTestFileStart}/clozeFlashcards.json'
-    clozeChoosingAlgorithm: str = preset["Algorithm"]
-    n: int = int(preset["n"])
-    benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
-    outputOrderStrings: List[str] = preset["OutputOrder"].split(", ")
+    currentTestFileStart: str = config["FileStart"]
+    inputFilePath: str = f'manualTests/{currentTestFileStart}sentences.txt'
+    outputFilePath: str = f'manualTests/{currentTestFileStart}clozeFlashcards.json'
+    clozeChoosingAlgorithm: str = config["Algorithm"]
+    n: int = int(config["n"])
+    benefitShorterSentences: bool = config["BenefitShorterSentences"] == "True"
+    outputOrderStrings: List[str] = config["OutputOrder"].split(", ")
     outputOrder: List[OutputOrder] = [
         OutputOrder[order.strip().upper()] for order in outputOrderStrings
     ]
-    existingOutputFileName: str = preset["ExistingOutputFilePath"]
+    existingOutputFileName: str = config["ExistingOutputFileName"]
     existingOutputFilePath: Optional[str] = (
         f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
         if existingOutputFileName != "None" else None
@@ -44,89 +44,89 @@ if __name__ == "__main__":
         format='%(levelname)s: %(message)s'
     )
 
-    presets: List[Dict[str, str]] = [
+    configs: List[Dict[str, str]] = [
         {
-            "FileStart": "alonePunctuationMidCloze",
+            "FileStart": "alonePunctuationMidCloze/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "punctuationBeforeFirstWord",
+            "FileStart": "punctuationBeforeFirstWord/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "alonePunctuationBeforeFirstWord",
+            "FileStart": "alonePunctuationBeforeFirstWord/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "afterAndAlonePunctuationAfterLastWord",
+            "FileStart": "afterAndAlonePunctuationAfterLastWord/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "doubleAfterPunctuation",
+            "FileStart": "doubleAfterPunctuation/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "aloneAndBeforePunctuationMidSentence",
+            "FileStart": "aloneAndBeforePunctuationMidSentence/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "noInputButExistingInUseOutput",
+            "FileStart": "noInputButExistingInUseOutput/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "existingClozeFlashcards"
+            "ExistingOutputFileName": "existingClozeFlashcards"
         },
         {
-            "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence",
+            "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "existingClozeFlashcards"
+            "ExistingOutputFileName": "existingClozeFlashcards"
         },
         {
-            "FileStart": "multiWordExpressionInDifferentOrderGetGrouped",
+            "FileStart": "multiWordExpressionInDifferentOrderGetGrouped/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFilePath": "None"
+            "ExistingOutputFileName": "None"
         },
         {
-            "FileStart": "sortUnusedFirstThenAlphabetical",
+            "FileStart": "sortUnusedFirstThenAlphabetical/",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "LEAST_USED_FIRST, ALPHABETICAL",
-            "ExistingOutputFilePath": "existingClozeFlashcards"
+            "ExistingOutputFileName": "existingClozeFlashcards"
         },
     ]
 
-    for preset in presets:
+    for config in configs:
         resetForTesting()
-        runTest(preset)
+        runTest(config)

@@ -25,14 +25,6 @@ def prepareSentenceLines(inputFilePath: str) -> List[str]:
     logger.info(f"Reading sentences from '{inputFilePath}'...")
     sentenceLines: List[str] = readLines(inputFilePath)
 
-    if not sentenceLines:
-        logger.error(
-            f"No valid lines found in '{inputFilePath}'. Please check the file."
-        )
-
-        # Exit the program if no valid lines are found
-        exit(1)
-
     # Check for invalid lines in the sentences file
     logger.info(f"Checking for invalid lines in '{inputFilePath}'...")
 

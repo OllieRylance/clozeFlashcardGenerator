@@ -7,7 +7,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
 from models import resetForTesting
-from main import main
+from main import main, OutputOrder
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,10 @@ def runTest(preset: Dict[str, str]) -> None:
     clozeChoosingAlgorithm: str = preset["Algorithm"]
     n: int = int(preset["n"])
     benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
-    outputOrder: str = preset["OutputOrder"]
+    outputOrderStrings: List[str] = preset["OutputOrder"].split(", ")
+    outputOrder: List[OutputOrder] = [
+        OutputOrder[order.strip().upper()] for order in outputOrderStrings
+    ]
     existingOutputFileName: str = preset["ExistingOutputFilePath"]
     existingOutputFilePath: Optional[str] = (
         f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
@@ -112,6 +115,15 @@ if __name__ == "__main__":
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "None"
+        },
+        
+        {
+            "FileStart": "multiWordExpressionInDifferentOrderGetGrouped",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "unused, alphabetical",
             "ExistingOutputFilePath": "None"
         },
     ]

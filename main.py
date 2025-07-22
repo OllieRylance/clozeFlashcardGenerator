@@ -1,10 +1,11 @@
+from enum import Enum
 import logging
 from typing import Dict, List, Optional
 import cProfile
 import pstats
 import io
 
-from models import SimpleClozeFlashcard
+from models import SimpleClozeFlashcard, Word
 
 from readWrite import writeJsonFile
 from utils import (
@@ -18,6 +19,12 @@ from utils import (
 
 logger = logging.getLogger(__name__)
 
+class OutputOrder(Enum):
+    ALPHABETICAL = 1
+    FREQUENCY = 2
+    RANDOM = 3
+    UNUSED_FIRST = 4
+
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
 def main(
@@ -26,7 +33,7 @@ def main(
     clozeChoosingAlgorithm: str,
     n: int,
     benefitShorterSentences: bool,
-    outputOrder: str = "unchanged",
+    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL],
     existingOutputFilePath: Optional[str] = "Same",
 ) -> None:
     # Try to get the lines from the input file
@@ -62,13 +69,41 @@ def main(
     # Output order could be a list with most important sort first, etc. And the list
     # gets iterated through backwards permorming the sorts one by one (or all in same
     # run though using lambda if possible)
-    if outputOrder == "alphabetical":
-        SimpleClozeFlashcard.wordToFlashcards = dict(
-            sorted(
-                SimpleClozeFlashcard.wordToFlashcards.items(),
-                key=lambda item: item[0]  # Sort by word (key)
+    outputOrder.reverse()
+    for order in outputOrder:
+        if order == OutputOrder.ALPHABETICAL:
+            SimpleClozeFlashcard.wordToFlashcards = dict(
+                sorted(
+                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    key=lambda item: item[0]  # Sort by word (key)
+                )
             )
-        )
+        elif order == OutputOrder.FREQUENCY:
+            frequencies: Dict[str, int] = {}
+            for word, references in Word.uniqueWordIdToWordObjects.items():
+                frequencies[word] = len(references)
+            SimpleClozeFlashcard.wordToFlashcards = dict(
+                sorted(
+                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    key=lambda item: frequencies[item[0]],  # Sort by frequency
+                    reverse=True  # Most frequent first
+                )
+            )
+        elif order == OutputOrder.RANDOM:
+            import random
+            items = list(SimpleClozeFlashcard.wordToFlashcards.items())
+            random.shuffle(items)
+            SimpleClozeFlashcard.wordToFlashcards = dict(items)
+        elif order == OutputOrder.UNUSED_FIRST:
+            usedCounts: Dict[str, int] = {}
+            for word, flashcards in SimpleClozeFlashcard.wordToFlashcards.items():
+                usedCounts[word] = sum(1 for fc in flashcards if fc.inUse)
+            SimpleClozeFlashcard.wordToFlashcards = dict(
+                sorted(
+                    SimpleClozeFlashcard.wordToFlashcards.items(),
+                    key=lambda item: usedCounts[item[0]],  # Sort by used count
+                )
+            )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(SimpleClozeFlashcard.wordToFlashcards)
@@ -100,10 +135,7 @@ if __name__ == "__main__":
     clozeChoosingAlgorithm: str = "mostDifferent"
     n: int = 3
     benefitShorterSentences: bool = False
-    # outputOrder options are "unchanged", "alphabetical", "frequency", "random",
-    # "firstComeFirstServed", "lastComeFirstServed"
-    # TODO : make enum for outputOrder
-    outputOrder: str = "alphabetical"
+    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
         n, benefitShorterSentences, outputOrder

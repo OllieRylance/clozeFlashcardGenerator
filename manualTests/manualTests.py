@@ -24,8 +24,10 @@ def runTest(preset: Dict[str, str]) -> None:
     n: int = int(preset["n"])
     benefitShorterSentences: bool = preset["BenefitShorterSentences"] == "True"
     outputOrder: str = preset["OutputOrder"]
+    existingOutputFileName: str = preset["ExistingOutputFilePath"]
     existingOutputFilePath: Optional[str] = (
-        preset["ExistingOutputFilePath"] if preset["ExistingOutputFilePath"] != "None" else None
+        f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
+        if existingOutputFileName != "None" else None
     )
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
@@ -87,6 +89,14 @@ if __name__ == "__main__":
             "BenefitShorterSentences": "False",
             "OutputOrder": "alphabetical",
             "ExistingOutputFilePath": "None"
+        },
+        {
+            "FileStart": "noInputButExistingOutput",
+            "Algorithm": "mostDifferent",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "alphabetical",
+            "ExistingOutputFilePath": "existingClozeFlashcards"
         },
     ]
 

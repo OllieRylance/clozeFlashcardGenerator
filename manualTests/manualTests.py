@@ -126,14 +126,29 @@ if __name__ == "__main__":
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
         {
-            "FileStart": "invalidPunctuationTest/",
+            "FileStart": "invalidPunctuation/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFileName": "None"
         },
-        
+        {
+            "FileStart": "wordlessSentence/",
+            "Algorithm": "MOST_DIFFERENT",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "ALPHABETICAL",
+            "ExistingOutputFileName": "None"
+        },
+        {
+            "FileStart": "doubleSpace/",
+            "Algorithm": "MOST_DIFFERENT",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "ALPHABETICAL",
+            "ExistingOutputFileName": "None"
+        },
     ]
 
     for config in configs:

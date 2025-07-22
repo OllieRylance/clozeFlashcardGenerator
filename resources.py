@@ -1,6 +1,6 @@
 from matplotlib.pylab import Enum
 
-class Recources:
+class Resources:
     """
     A class to hold various resources used in the application.
     """

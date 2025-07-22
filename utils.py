@@ -298,25 +298,36 @@ def processPunctuation(
     
     return wordString, False
 
-def processMultiWordExpression(
+def processMultiWordExpressions(
     wordString: str,
     multiWordExpressions: Dict[int, MultiWordExpression]
-) -> Tuple[str, Optional[MultiWordExpression]]:
+) -> Tuple[str, MultiWordExpression]:
     """
     Process a word string to detect multi-word expressions.
     Returns a tuple of MultiWordExpression and its index if found, otherwise None.
     """
+
+    inSentenceMultiWordExpressionId: int = -1
     if '_' in wordString:
         wordString, inSentenceMultiWordExpressionId = getWordStringAndId(wordString)
-        if inSentenceMultiWordExpressionId not in multiWordExpressions:
-            # Create a new MultiWordExpression
-            multiWordExpressions[inSentenceMultiWordExpressionId] = (
-                MultiWordExpression()
-            )
-        
-        multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
-        return wordString, multiWordExpression
-    return wordString, None
+    else:
+        currentLowestExpressionId = min(
+            multiWordExpressions.keys(), 
+            default=1
+        )
+        if currentLowestExpressionId < 0:
+            inSentenceMultiWordExpressionId = currentLowestExpressionId - 1
+        else:
+            inSentenceMultiWordExpressionId = -1
+
+    if inSentenceMultiWordExpressionId not in multiWordExpressions:
+        # Create a new MultiWordExpression
+        multiWordExpressions[inSentenceMultiWordExpressionId] = (
+            MultiWordExpression()
+        )
+    
+    multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
+    return wordString, multiWordExpression
 
 def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
     subStrings: List[str] = line.split()
@@ -335,22 +346,14 @@ def parseSentenceLine(line: str, addWordsToClassDict: bool = True) -> Line:
             continue
         
         # Detect multi-word expressions
-        wordString, multiWordExpression = processMultiWordExpression(
+        wordString, multiWordExpression = processMultiWordExpressions(
             wordString, multiWordExpressions
         )
         
         word: Word = Word(wordString, multiWordExpression)
         words.append(word)
 
-        # If the word is a multi-word expression, append the word to the 
-        # multi-word expression and continue as multi-word expressions are 
-        # handled after the loop
-        if multiWordExpression is not None:
-            multiWordExpression.words.append(word)
-            continue
-        
-        if addWordsToClassDict:
-            addWordToClassDict(word)
+        multiWordExpression.words.append(word)
 
     if addWordsToClassDict:
         for multiWordExpression in [m for m in multiWordExpressions.values()]:

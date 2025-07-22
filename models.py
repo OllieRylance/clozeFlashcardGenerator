@@ -23,14 +23,14 @@ class Word:
 
     def __init__(
         self, wordString: str, 
-        multiWordExpression: Optional['MultiWordExpression'] = None
+        multiWordExpression: 'MultiWordExpression'
     ) -> None:
         self.thisWordString: str = wordString
         self.line: Optional['Line'] = None
         self.index: Optional[int] = None
         self.uniqueWordId: Optional[str] = None
 
-        self.multiWordExpression: Optional['MultiWordExpression'] = multiWordExpression
+        self.multiWordExpression: 'MultiWordExpression' = multiWordExpression
     
     def getUniqueWordId(self) -> str:
         """
@@ -38,10 +38,6 @@ class Word:
         multi-word expression).
         """
         if self.uniqueWordId is not None:
-            return self.uniqueWordId
-
-        if self.multiWordExpression is None:
-            self.uniqueWordId = self.thisWordString
             return self.uniqueWordId
         
         # If the word is part of a multi-word expression
@@ -359,13 +355,13 @@ class ClozeFlashcard:
 
         return self.simpleClozeFlashcard
 
-    def hasMultiWordExpression(self) -> bool:
-        """
-        Check if the cloze word is part of a multi-word expression.
-        """
-        if self.GetFirstClozeWord().multiWordExpression is not None:
-            return True
-        return False
+    # def hasMultiWordExpression(self) -> bool:
+    #     """
+    #     Check if the cloze word is part of a multi-word expression.
+    #     """
+    #     if self.GetFirstClozeWord().multiWordExpression is not None:
+    #         return True
+    #     return False
 
     def GetStringOfSentencePart(
         self,
@@ -380,9 +376,6 @@ class ClozeFlashcard:
         multiWordExpression: Optional['MultiWordExpression'] = (
             firstClozeWord.multiWordExpression
         )
-        isMultiWordExpression: bool = (
-            multiWordExpression is not None
-        ) 
         words: List[Word] = self.line.words
         
         if part == sentencePart.BEFORE_CLOZE:
@@ -394,46 +387,40 @@ class ClozeFlashcard:
             firstIndex = self.wordIndex
             nextIndex = (
                 self.wordIndex
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
-                    if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
             )
         elif part == sentencePart.MID_CLOZE:
             leadingSpace = True
             trailingSpace = True
             firstIndex = (
                 self.wordIndex
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze() 
-                   if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
             )
             nextIndex = (
                 self.wordIndex 
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
-                   + multiWordExpression.getNumWordsInSplitOfCloze()
-                   if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
+                + multiWordExpression.getNumWordsInSplitOfCloze()
             )
         elif part == sentencePart.CLOZE_PART_2:
             getLeadingAndTrailingPunctuation = False
             firstIndex = (
                 self.wordIndex 
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
-                   + multiWordExpression.getNumWordsInSplitOfCloze()
-                   if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
+                + multiWordExpression.getNumWordsInSplitOfCloze()
             )
             nextIndex = (
                 self.wordIndex 
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
-                   + multiWordExpression.getNumWordsInSplitOfCloze()
-                   + multiWordExpression.getNumWordsAfterSplitInCloze()
-                   if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
+                + multiWordExpression.getNumWordsInSplitOfCloze()
+                + multiWordExpression.getNumWordsAfterSplitInCloze()
             )
         elif part == sentencePart.AFTER_CLOZE:
             leadingSpace = True
             firstIndex = (
                 self.wordIndex 
-                + (multiWordExpression.getNumWordsBeforeSplitInCloze()
-                   + multiWordExpression.getNumWordsInSplitOfCloze()
-                   + multiWordExpression.getNumWordsAfterSplitInCloze()
-                   if isMultiWordExpression else 1)
+                + multiWordExpression.getNumWordsBeforeSplitInCloze()
+                + multiWordExpression.getNumWordsInSplitOfCloze()
+                + multiWordExpression.getNumWordsAfterSplitInCloze()
             )
             nextIndex = len(words)
 

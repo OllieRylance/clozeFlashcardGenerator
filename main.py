@@ -23,7 +23,7 @@ class OutputOrder(Enum):
     ALPHABETICAL = 1
     FREQUENCY = 2
     RANDOM = 3
-    UNUSED_FIRST = 4
+    LEAST_USED_FIRST = 4
 
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
@@ -94,7 +94,7 @@ def main(
             items = list(SimpleClozeFlashcard.wordToFlashcards.items())
             random.shuffle(items)
             SimpleClozeFlashcard.wordToFlashcards = dict(items)
-        elif order == OutputOrder.UNUSED_FIRST:
+        elif order == OutputOrder.LEAST_USED_FIRST:
             usedCounts: Dict[str, int] = {}
             for word, flashcards in SimpleClozeFlashcard.wordToFlashcards.items():
                 usedCounts[word] = sum(1 for fc in flashcards if fc.inUse)

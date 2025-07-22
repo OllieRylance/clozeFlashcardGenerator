@@ -50,7 +50,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -58,7 +58,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -66,7 +66,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -74,7 +74,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -82,7 +82,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -90,7 +90,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
         {
@@ -98,7 +98,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "existingClozeFlashcards"
         },
         {
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "existingClozeFlashcards"
         },
         {
@@ -114,17 +114,16 @@ if __name__ == "__main__":
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "alphabetical",
+            "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFilePath": "None"
         },
-        
         {
-            "FileStart": "multiWordExpressionInDifferentOrderGetGrouped",
+            "FileStart": "sortUnusedFirstThenAlphabetical",
             "Algorithm": "mostDifferent",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "unused, alphabetical",
-            "ExistingOutputFilePath": "None"
+            "OutputOrder": "LEAST_USED_FIRST, ALPHABETICAL",
+            "ExistingOutputFilePath": "existingClozeFlashcards"
         },
     ]
 

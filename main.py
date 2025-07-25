@@ -144,6 +144,7 @@ if __name__ == "__main__":
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     n: int = 3
     benefitShorterSentences: bool = True
+    # TODO : Add not in any in use cloze flashcards first to output order
     outputOrder: List[OutputOrder] = [OutputOrder.LEAST_USED_FIRST, OutputOrder.FREQUENCY, OutputOrder.ALPHABETICAL]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 

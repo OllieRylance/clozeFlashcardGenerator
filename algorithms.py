@@ -162,6 +162,7 @@ def findMostDifferentCombination(
     # For each combination of raw lines work out the sum of the normalised 
     # dot products of their word vectors and find the combination with the 
     # highest cosine dissimilarity
+    # TODO : add progress bar
     for combination in combinationsOfRawLines:
         sumOfCosDissimilarities: float = 0
         for i in range(len(combination)):

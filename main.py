@@ -143,8 +143,8 @@ if __name__ == "__main__":
     outputFilePath: str = 'clozeFlashcards.json'
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     n: int = 3
-    benefitShorterSentences: bool = False
-    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL]
+    benefitShorterSentences: bool = True
+    outputOrder: List[OutputOrder] = [OutputOrder.LEAST_USED_FIRST, OutputOrder.FREQUENCY, OutputOrder.ALPHABETICAL]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
         n, benefitShorterSentences, outputOrder

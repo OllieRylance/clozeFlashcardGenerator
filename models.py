@@ -265,7 +265,7 @@ class Line:
         if calculatedSentenceLengthScores.get(length) is not None:
             return calculatedSentenceLengthScores[length]
 
-        sentenceLengthScore = 1 / (math.exp((4 * length / 25) ** 4))
+        sentenceLengthScore = 1 / (math.exp((3 * length / 25) ** 2))
         calculatedSentenceLengthScores[length] = sentenceLengthScore
         return sentenceLengthScore
     

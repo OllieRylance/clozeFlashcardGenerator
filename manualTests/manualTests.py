@@ -121,7 +121,7 @@ if __name__ == "__main__":
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "LEAST_USED_FIRST, ALPHABETICAL",
+            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
         {
@@ -153,7 +153,7 @@ if __name__ == "__main__":
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
             "BenefitShorterSentences": "False",
-            "OutputOrder": "LEAST_USED_FIRST, FREQUENCY",
+            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, FREQUENCY",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
     ]

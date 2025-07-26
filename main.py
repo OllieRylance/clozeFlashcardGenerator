@@ -31,6 +31,7 @@ def main(
     benefitShorterSentences: bool,
     outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL],
     existingOutputFilePath: Optional[str] = "Same",
+    wordsToBury: Optional[List[str]] = None
 ) -> None:
     sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
 
@@ -84,7 +85,7 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: item[0]  # Sort by word (key)
+                    key=lambda item: item[0] # Sort by word (key)
                 )
             )
         elif order == OutputOrder.FREQUENCY:
@@ -94,8 +95,8 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: frequencies[item[0]],  # Sort by frequency
-                    reverse=True  # Most frequent first
+                    key=lambda item: frequencies[item[0]], # Sort by frequency
+                    reverse=True # Most frequent first
                 )
             )
         elif order == OutputOrder.RANDOM:
@@ -110,7 +111,7 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: usedCounts[item[0]],  # Sort by used count
+                    key=lambda item: usedCounts[item[0]], # Sort by used count
                 )
             )
         elif order == OutputOrder.LEAST_IN_USED_SENTENCES_FIRST:
@@ -128,9 +129,17 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: inUseCounts[item[0]],  # Sort by in use count
+                    key=lambda item: inUseCounts[item[0]], # Sort by in use count
                 )
             )
+
+    if wordsToBury is not None:
+        wordToSimpleClozeFlashcards = dict(
+            sorted(
+                wordToSimpleClozeFlashcards.items(),
+                key=lambda item: 1 if item[0] in wordsToBury else 0 # Bury specified words
+            )
+        )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(wordToSimpleClozeFlashcards)
@@ -173,9 +182,10 @@ if __name__ == "__main__":
     # TODO : add option to just output in use cloze flashcards for
     # words that have them (save processing time)
     # onlyExistingForWordsWithClozeFlashcards: bool = True
+    wordsToBury: Optional[List[str]] = ["oni", "ona"]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences, outputOrder
+        n, benefitShorterSentences, outputOrder, wordsToBury=wordsToBury
     )
 
     if profiler is not None:

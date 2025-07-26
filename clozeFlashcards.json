@@ -1,56 +1,4 @@
 {
-    "oni": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "oni",
-            "afterCloze": " potrzebują samochodu",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "czy ",
-            "clozeWordPart1": "oni",
-            "afterCloze": " mają bilety?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "oni",
-            "afterCloze": " uczą się nowych słów",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "ona": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "ona",
-            "afterCloze": " chciałaby pojechać samochodem",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "czy ",
-            "clozeWordPart1": "ona",
-            "afterCloze": " potrzebuje pomocy?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "ona",
-            "afterCloze": " uczy się nowych słów",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "ponieważ": [
         {
             "beforeCloze": "chciałbym pojechać do kina ",
@@ -6038,6 +5986,58 @@
             "beforeCloze": "gdzie ",
             "clozeWordPart1": "jest",
             "afterCloze": " przystanek autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "oni": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "oni",
+            "afterCloze": " potrzebują samochodu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "oni",
+            "afterCloze": " mają bilety?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "oni",
+            "afterCloze": " uczą się nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ona": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ona",
+            "afterCloze": " chciałaby pojechać samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "ona",
+            "afterCloze": " potrzebuje pomocy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ona",
+            "afterCloze": " uczy się nowych słów",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"

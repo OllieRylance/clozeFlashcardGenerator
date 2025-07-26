@@ -141,11 +141,21 @@ if __name__ == "__main__":
     # Your code to profile
     inputFilePath: str = 'sentences.txt'
     outputFilePath: str = 'clozeFlashcards.json'
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = (
+        ClozeChoosingAlgorithm.MOST_DIFFERENT
+    )
     n: int = 3
     benefitShorterSentences: bool = True
-    # TODO : Add not in any in use cloze flashcards first to output order (LEAST_IN_USED_SENTENCES_FIRST)
-    outputOrder: List[OutputOrder] = [OutputOrder.LEAST_USED_AS_CLOZE_FIRST, OutputOrder.FREQUENCY, OutputOrder.ALPHABETICAL]
+    # TODO : Add not in any in use cloze flashcards first to output
+    # order (LEAST_IN_USED_SENTENCES_FIRST)
+    outputOrder: List[OutputOrder] = [
+        OutputOrder.LEAST_USED_AS_CLOZE_FIRST,
+        OutputOrder.FREQUENCY,
+        OutputOrder.ALPHABETICAL
+    ]
+    # TODO : add option to just output in use cloze flashcards for
+    # words that have them (save processing time)
+    # onlyExistingForWordsWithClozeFlashcards: bool = True
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
         n, benefitShorterSentences, outputOrder

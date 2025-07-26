@@ -153,6 +153,7 @@ czy oni wiedzą gdzie jest plaża?
 czy oni wiedzą gdzie jest remiza_1 strażacka_1?
 czy wiesz gdzie jest to miejsce?
 
+czy mógłbyś mi powiedzieć, gdzie jestem?
 czy mógłbyś mi powiedzieć gdzie jest apteka?
 czy mógłbyś mi powiedzieć gdzie jest kino?
 czy mogłabyś mi powiedzieć gdzie jest kino?
@@ -232,12 +233,12 @@ czy oni mogliby powtórzyć wolniej?
 czy mógłbyś powtórzyć jeszcze_1 raz_1?
 
 możesz pójść tam pieszą
-plaża jest siedemset metrów stád
-basen jest trzysta metrów stád jeśli chcesz możesz pójść tam
-muzeum jest pięćset metrów stád jeśli chcesz możesz pójść tam pieszą
-kino jest dziewięćset metrów stád jeśli chcesz możesz pójść tam pieszą
-galeria_1 handlowa_1 jest dziewięćset metrów stád jeśli chcesz możesz pójść tam pieszą
-remiza_1 strażacka_1 jest sześćset metrów stád jeśli chcesz możesz pójść tam pieszą
+plaża jest siedemset metrów stąd
+basen jest trzysta metrów stąd jeśli chcesz możesz pójść tam
+muzeum jest pięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
+kino jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
+galeria_1 handlowa_1 jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
+remiza_1 strażacka_1 jest sześćset metrów stąd jeśli chcesz możesz pójść tam pieszą
 
 plaża jest blisko jeśli chcesz możesz pójść tam pieszą
 resteuracja jest blisko jeśli chcesz możesz pójść tam pieszą
@@ -246,22 +247,22 @@ poczta jest blisko jeśli chcesz możesz pojechać tam rowerem
 plaża jest blisko jeśli chcesz możesz pójść tam pieszą lub pojechać rowerem
 możesz pójść tam pieszą lub pojechać rowerem
 
-apteka jest blisko to tylko sześćset metrów stád
-apteka jest blisko to tylko dziewięćset metrów stád jeśli chcesz możesz pojechać tam rowerem
+apteka jest blisko to tylko sześćset metrów stąd
+apteka jest blisko to tylko dziewięćset metrów stąd jeśli chcesz możesz pojechać tam rowerem
 jezioro jest blisko jeśli chcesz możesz pójść tam pieszą
 
 stacja_1 metra_1 jest daleko
 stacja_1 metra_1 jest daleko jeśli chcesz możesz pojechać tam samochodem
 stacja_1 metra_1 jest daleko jeśli chcesz możesz pojechać tam taksówką
 
-plaża jest daleko to sześć kilometrów stád
+plaża jest daleko to sześć kilometrów stąd
 
-plaża jest daleko to około siedem kilometrów stád jeśli chcesz możesz pojechać tam taksówką
+plaża jest daleko to około siedem kilometrów stąd jeśli chcesz możesz pojechać tam taksówką
 
 mogę wytłumaczyć ci drogę
-basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę
+basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę
 
-basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej
+basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej
 
 muszę kupić chleb
 muszę kupić kartę_1 sim_1
@@ -373,3 +374,79 @@ muszę nauczyć_1 się_1 więcej słów ponieważ chciałbym tworzyć lepsze zda
 chciałbym nauczyć_1 się_1 więcej słów żeby tworzyć dłuższe zdania po polsku
 jeśli chcesz tworzyć dłuższe zdania musisz nauczyć_1 się_1 więcej słów
 jeśli chcesz tworzyć dłuższe zdania potrzebujesz znać więcej słów
+
+jest pierwsza godzina
+jest druga
+jest trzecia
+jest czwarta
+jest piąta
+jest szósta
+jest siódma
+jest ósma
+jest dziewiąta
+jest dziesiąta
+jest jednasta
+jest dwunasta
+jest południe
+
+jest trzynasta
+jest pierwsza po południu
+jest czternasta
+jest druga po południu
+jest piętnasta 
+jest trzecia po południu
+jest szesnasta
+jest czwarta po południu
+jest siedemnasta
+jest piąta po południu
+jest osiemnasta
+jest szósta po południu
+jest dziewiętnasta
+jest siódma po południu
+jest dwudziesta
+jest ósma po południu
+jest dwudziestapierwsza
+jest dziewiąta po południu
+jest dwudziestadruga
+jest dziesiąta po południu
+jest dwudziestatrzecia
+jest jednasta po południu
+jest północ
+
+o pierwszej
+o drugiej
+o trzeciej
+o czwartej
+o piątej
+o szóstej
+o siódmej
+o ósmej
+o dziewiątej
+o dziesiątej
+o jednastej
+o dwunastej
+o trzynastej
+o czternastej
+o piętnastej
+o szesnastej
+o siedemnastej
+o osiemnastej
+o dziewiętnastej
+o dwudziestej
+o dwudziestej pierwszej
+o dwudziestej drugiej
+o dwudziestej trzeciej
+o północy
+
+chciałbym iść do kina o czwartej
+o czwartej chciałbym pójść do kina
+chciałby pojechać do galerii handlowej o dwudziestej
+muszę pojechać na lotnisko o szesnastej
+muszę iśc do apteki
+muszę iść do apteki to tylko sześćset metrów stąd
+potrzebuję pójść do apteki
+apteka jest blisko to tylko czterysta metrów stąd
+potrzebuję pójść do apteki ale apteka jest daleko to około sześć metrów stąd
+potrzebuję pójść do apteki ale apteka jest daleko to około sześć metrów stąd więc muszę pojechać tam samochodem
+
+jem obiad o dwunastej

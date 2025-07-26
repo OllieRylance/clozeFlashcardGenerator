@@ -239,6 +239,7 @@ muzeum jest pięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
 kino jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
 galeria_1 handlowa_1 jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam pieszą
 remiza_1 strażacka_1 jest sześćset metrów stąd jeśli chcesz możesz pójść tam pieszą
+jeśli chcesz, możesz pojechać autobusem
 
 plaża jest blisko jeśli chcesz możesz pójść tam pieszą
 resteuracja jest blisko jeśli chcesz możesz pójść tam pieszą

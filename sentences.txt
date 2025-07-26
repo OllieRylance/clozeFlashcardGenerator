@@ -18,18 +18,18 @@ możesz pojechać tramwajem
 możesz pojechać metrem
 możesz pojechać rowerem
 
-przepraszam, gdzie jest lotnisko?
-przepraszam, gdzie jest apteka?
-przepraszam, gdzie jest przystanek_1 autobusowy_1?
-przepraszam, gdzie jest dworzec_1 autobusowy_1?
-przepraszam, gdzie jest dworzec_1 kolejowy_1?
-przepraszam, gdzie jest stacja_1 metra_1?
-przepraszam, gdzie jest dworzec_1 tramwajowy_1?
-przepraszam, gdzie jest cepen?
-przepraszam, gdzie jest kino?
-przepraszam, gdzie jest galeria_1 handlowa_1?
-przepraszam, gdzie jest postój_1 taksówek_1?
-przepraszam, gdzie jest toaleta?
+gdzie jest lotnisko?
+gdzie jest apteka?
+gdzie jest przystanek_1 autobusowy_1?
+gdzie jest dworzec_1 autobusowy_1?
+gdzie jest dworzec_1 kolejowy_1?
+gdzie jest stacja_1 metra_1?
+gdzie jest dworzec_1 tramwajowy_1?
+gdzie jest cepen?
+gdzie jest kino?
+gdzie jest galeria_1 handlowa_1?
+gdzie jest postój_1 taksówek_1?
+gdzie jest toaleta?
 
 zobaczysz przystanek_1 autobusowy_1
 zobaczysz dworzec_1 autobusowy_1
@@ -53,23 +53,6 @@ idź prosto przez sześćset metrów
 idź prosto przez siedemset metrów
 idź prosto przez osiemset metrów
 idź prosto przez dziewięćset metrów
-
-idź prosto przez sto metrów i zobaczysz stację_1 autobusową_1
-idź prosto przez sto metrów i zobaczysz stację_1 autobusową_1 po lewej
-idź prosto przez sto metrów i zobaczysz dworzec_1 kolejowy_1 po prawej
-idź prosto przez sto metrów i zobaczysz galerie_1 handlową_1 po prawej
-idź prosto przez dwieście metrów i zobaczysz cepen po prawej
-idź prosto przez trzysta metrów i zobaczysz stację_1 metra_1 po prawej
-idź prosto przez trzysta metrów i zobaczysz apteke po prawej
-idź prosto przez czterysta metrów i zobaczysz kino po prawej
-idź prosto przez pięćset metrów i zobaczysz postój_1 taksówek_1 po prawej
-idź prosto przez sześćset metrów i zobaczysz lotnisko po prawej
-idź prosto przez siedemset metrów i zobaczysz basen po prawej
-idź prosto przez osiemset metrów i zobaczysz basen po lewej
-idź prosto przez siedemset metrów potem skręć w lewo i zobaczysz basen po prawej
-idź prosto przez osiemset metrów potem skręć w lewo i zobaczysz basen po prawej
-idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po prawej
-idź prosto przez dziewięćset metrów potem skręć w prawo i zobaczysz basen po lewej
 
 możesz pojechać autobusem. zobaczysz przystanek po lewej
 możesz pojechać pociągiem. zobaczysz stację po prawej
@@ -142,6 +125,7 @@ muszę iść do galerii_1 handlowej_1 ale nie wiem gdzie jest
 muszę iść do kościoła ale nie wiem gdzie jest
 muszę iść do muzeum ale nie wiem gdzie jest
 
+muszę jechać
 muszę jechać na lotnisko ale nie wiem jak mogę się_1 tam dostać_1
 muszę jechać do Warszawy ale nie wiem jak mogę dostać_1 się_1 tam
 muszę jechać do Berlina ale nie wiem jak mogę dostać_1 się_1 tam
@@ -169,34 +153,35 @@ czy oni wiedzą gdzie jest plaża?
 czy oni wiedzą gdzie jest remiza_1 strażacka_1?
 czy wiesz gdzie jest to miejsce?
 
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest apteka?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest kino?
-przepraszam, czy mogłabyś mi powiedzieć gdzie jest kino?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest basen?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest cepen?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest remiza_1 strażacka_1?
+czy mógłbyś mi powiedzieć gdzie jest apteka?
+czy mógłbyś mi powiedzieć gdzie jest kino?
+czy mogłabyś mi powiedzieć gdzie jest kino?
+czy mógłbyś mi powiedzieć gdzie jest basen?
+czy mógłbyś mi powiedzieć gdzie jest cepen?
+czy mógłbyś mi powiedzieć gdzie jest remiza_1 strażacka_1?
 
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest lotnisko ponieważ muszę tam pojechać?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest szpital ponieważ muszę tam pojechać?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest muzeum ponieważ muszę tam pojechać?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest plaża ponieważ muszę dostać_1 się_1 tam?
-przepraszam, czy mógłbyś mi powiedzieć gdzie jest kino ponieważ muszę dostać_1 się_1 tam?
+czy mógłbyś mi powiedzieć gdzie jest lotnisko ponieważ muszę tam pojechać?
+czy mógłbyś mi powiedzieć gdzie jest szpital ponieważ muszę tam pojechać?
+czy mógłbyś mi powiedzieć gdzie jest muzeum ponieważ muszę tam pojechać?
+czy mógłbyś mi powiedzieć gdzie jest plaża ponieważ muszę dostać_1 się_1 tam?
+czy mógłbyś mi powiedzieć gdzie jest kino ponieważ muszę dostać_1 się_1 tam?
 
-przepraszam, czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na przystanek_2 autobusowy_2?
-przepraszam, czy mogłabyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 autobusowy_2?
-przepraszam, czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 kolejowy_2?
-przepraszam, czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 do remizy_2 strażackiej_2?
-przepraszam, czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na na plażę?
+czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na przystanek_2 autobusowy_2?
+czy mogłabyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 autobusowy_2?
+czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 kolejowy_2?
+czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 do remizy_2 strażackiej_2?
+czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na na plażę?
 
 czy mógłbyś powtórzyć?
 czy mógłbyś powtórzyć gdzie jest przystanek_1 autobusowy_1?
 czy mógłbyś powtórzyć gdzie jest remiza_1 strażacka_1?
 czy mógłbyś powtórzyć gdzie jest dworzec_1 kolejowy_1?
 
-nie dosłyszałem
+nie słyszałem
+nie słyszałem co powiedziałeś
 
-przepraszam, ale nie dosłyszałem
-przepraszam, ale nie dosłyszałem co powiedziałeś
+przepraszam, ale nie słyszałem
+przepraszam, ale nie słyszałem co powiedziałeś
 
 czy mógłbyś powtórzyć głośniej?
 
@@ -246,6 +231,7 @@ czy oni mogliby powtórzyć wolniej?
 
 czy mógłbyś powtórzyć jeszcze_1 raz_1?
 
+możesz pójść tam pieszą
 plaża jest siedemset metrów stád
 basen jest trzysta metrów stád jeśli chcesz możesz pójść tam
 muzeum jest pięćset metrów stád jeśli chcesz możesz pójść tam pieszą
@@ -272,6 +258,7 @@ plaża jest daleko to sześć kilometrów stád
 
 plaża jest daleko to około siedem kilometrów stád jeśli chcesz możesz pojechać tam taksówką
 
+mogę wytłumaczyć ci drogę
 basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę
 
 basen jest blisko to tylko dwieście metrów stád jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej
@@ -292,21 +279,21 @@ gdzie możemy kupić miotłe?
 
 przepraszam, czy mógłbyś mi powiedzieć gdzie jest apteka?
 przepraszam, gdzie jest galeria handlowa? muszę kupić miotłe
-galeria handlowa jest dwa kilometry z tąd możesz pojechać tam autobusem przystanek_1 autobusowy_1 jest naprzeciwko apteki
+galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek_1 autobusowy_1 jest naprzeciwko apteki
 czy mógłbyś powtórzyć ale wolniej?
-galeria handlowa jest dwa kilometry z tąd możesz pojechać tam autobusem przystanek_1 autobusowy_1 jest naprzeciwko apteki
+galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek_1 autobusowy_1 jest naprzeciwko apteki
 ale ja nie wiem gdzie jest galeria handlowa. czy mógłbyś mi wytłumaczyć?
 
-apteka jest tylko kilka metrów z tąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej
-apteka jest tylko kilka metrów z tąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek
+apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej
+apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek
 
 cieszę_1 się_1 ponieważ wiem gdzie jest apteka dziękuję że wytłumaczyłeś mi to
 przepraszam, gdzie jest sklep spożywczy? chciałbym kupić chleb
 
 potrzebuję kartę_1 sim_1
 potrzebujemy wodę
-oni potrzebują samochód
-potrzebujemy samochód żeby się_1 dostać_1 do Krakowa
+oni potrzebują samochodu
+potrzebujemy samochodu aby się_1 dostać_1 do Krakowa
 potrzebuje wodę niegazowaną
 
 potrzebuję pomocy
@@ -321,6 +308,8 @@ czy potrzebujesz więcej informacji?
 tak potrzebuję więcej informacji
 czy on potrzebuje więcej informacji?
 czy ona potrzebuje więcej informacji?
+
+ile metrów?
 
 ile to kosztuje?
 ile kosztuje rower?
@@ -344,13 +333,14 @@ oni chcę jechać w góry więc potrzebują trochę pieniędzy
 on chce iść na basen więc potrzebuje kupić ręcznik
 ona chce iść do kina więc musi kupić bilet
 
-jeśli potrzebujesz ręcznik możesz go kupić za szesnaście złotych
+możesz kupić ręcznik za szesnaście złotych
+jeśli potrzebujesz ręcznika możesz go kupić za szesnaście złotych
 
 jeśli potrzebujesz ładowarkę możesz ją kupić za trzydzieści pięć złotych
 jeśli potrzebujesz kurtkę możesz ją kupić za siedemdziesiąt osiem złotych
 jeśli potrzebujesz spodenki możesz je kupić za dwadzieścia siedem złotych
-jeśli potrzebujesz rower możesz go kupić za trzy tysiące dwieście pięćdziesiąt złotych
-jeśli potrzebujesz samochód możesz go kupić za pięćdziesiąt tysięcy złotych
+jeśli potrzebujesz roweru możesz go kupić za trzy tysiące dwieście pięćdziesiąt złotych
+jeśli potrzebujesz samochodu możesz go kupić za pięćdziesiąt tysięcy złotych
 
 uczę_1 się_1 nowych słów
 uczysz_1 się_1 nowych słów

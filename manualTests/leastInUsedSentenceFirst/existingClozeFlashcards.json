@@ -1,0 +1,12 @@
+{
+    "c": [
+        {
+            "beforeCloze": "a b ",
+            "clozeWordPart1": "c",
+            "afterCloze": " d f g",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ]
+}

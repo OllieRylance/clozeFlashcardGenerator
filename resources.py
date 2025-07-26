@@ -11,6 +11,7 @@ class OutputOrder(Enum):
     FREQUENCY = "frequency"
     RANDOM = "random"
     LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
+    LEAST_IN_USED_SENTENCES_FIRST = "leastInUsedSentencesFirst"
 
 # TODO : add an algorithm which prioritises sentences with the 
 # highest proportion of words that are either:

@@ -29,6 +29,7 @@ class Word:
         self.line: Optional['Line'] = None
         self.index: Optional[int] = None
         self.uniqueWordId: Optional[str] = None
+        self.firstWordInMultiWordExpression: Optional[bool] = None
 
         self.multiWordExpression: 'MultiWordExpression' = multiWordExpression
     
@@ -72,6 +73,18 @@ class Word:
         """Add a reference to the line and index of this word."""
         self.line = line
         self.index = index
+    
+    def isFirstWordInMultiWordExpression(self) -> bool:
+        """
+        Check if this word is the first word in its multi-word expression.
+        """
+        if self.firstWordInMultiWordExpression is not None:
+            return self.firstWordInMultiWordExpression
+        
+        self.firstWordInMultiWordExpression = (
+            self.multiWordExpression.getFirstIndex() == self.index
+        )
+        return self.firstWordInMultiWordExpression
 
 class MultiWordExpression:
     def __init__(self) -> None:

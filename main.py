@@ -113,6 +113,24 @@ def main(
                     key=lambda item: usedCounts[item[0]],  # Sort by used count
                 )
             )
+        elif order == OutputOrder.LEAST_IN_USED_SENTENCES_FIRST:
+            inUseCounts: Dict[str, int] = {}
+            for word in wordToSimpleClozeFlashcards.keys():
+                inUseCounts[word] = 0
+            for word in (word for flashcards in inUseClozeFlashcards.values() 
+                         for flashcard in flashcards 
+                         for word in flashcard.getWords()):
+                if word.isFirstWordInMultiWordExpression():
+                    uniqueWordId: str = word.getUniqueWordId()
+                    if uniqueWordId not in inUseCounts:
+                        inUseCounts[uniqueWordId] = 0
+                    inUseCounts[uniqueWordId] += 1
+            wordToSimpleClozeFlashcards = dict(
+                sorted(
+                    wordToSimpleClozeFlashcards.items(),
+                    key=lambda item: inUseCounts[item[0]],  # Sort by in use count
+                )
+            )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(wordToSimpleClozeFlashcards)

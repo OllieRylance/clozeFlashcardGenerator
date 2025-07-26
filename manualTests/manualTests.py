@@ -156,6 +156,14 @@ if __name__ == "__main__":
             "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, FREQUENCY",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
+        {
+            "FileStart": "leastInUsedSentenceFirst/",
+            "Algorithm": "MOST_DIFFERENT",
+            "n": "3",
+            "BenefitShorterSentences": "False",
+            "OutputOrder": "LEAST_IN_USED_SENTENCES_FIRST, ALPHABETICAL",
+            "ExistingOutputFileName": "existingClozeFlashcards"
+        }
     ]
 
     for config in configs:

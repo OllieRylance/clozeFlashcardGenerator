@@ -21,19 +21,24 @@ def runTest(config: Dict[str, str]) -> None:
     outputFilePath: str = f'manualTests/{currentTestFileStart}clozeFlashcards.json'
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm[config["Algorithm"].upper()]
     n: int = int(config["n"])
-    benefitShorterSentences: bool = config["BenefitShorterSentences"] == "True"
+    benefitShorterSentences: bool = config.get("BenefitShorterSentences") == "True"
     outputOrderStrings: List[str] = config["OutputOrder"].split(", ")
     outputOrder: List[OutputOrder] = [
         OutputOrder[order.strip().upper()] for order in outputOrderStrings
     ]
-    existingOutputFileName: str = config["ExistingOutputFileName"]
-    existingOutputFilePath: Optional[str] = (
-        f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
-        if existingOutputFileName != "None" else None
+    existingOutputFilePath: Optional[str] = None
+    existingOutputFileName: Optional[str] = config.get("ExistingOutputFileName")
+    if existingOutputFileName is not None:
+        existingOutputFilePath = (
+            f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
     )
+    buryWords: Optional[List[str]] = None
+    if config.get("BuryWords") is not None:
+        buryWords: Optional[List[str]] = config["BuryWords"].split(",")
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences, outputOrder, existingOutputFilePath
+        n, benefitShorterSentences, outputOrder, existingOutputFilePath,
+        buryWords
     )
 
 if __name__ == "__main__":
@@ -48,55 +53,42 @@ if __name__ == "__main__":
             "FileStart": "alonePunctuationMidCloze/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "punctuationBeforeFirstWord/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "alonePunctuationBeforeFirstWord/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "afterAndAlonePunctuationAfterLastWord/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "doubleAfterPunctuation/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "aloneAndBeforePunctuationMidSentence/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "noInputButExistingInUseOutput/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
@@ -104,7 +96,6 @@ if __name__ == "__main__":
             "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
             "OutputOrder": "ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
@@ -112,15 +103,12 @@ if __name__ == "__main__":
             "FileStart": "multiWordExpressionInDifferentOrderGetGrouped/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "sortUnusedFirstThenAlphabetical/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
             "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
@@ -128,31 +116,24 @@ if __name__ == "__main__":
             "FileStart": "invalidPunctuation/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "wordlessSentence/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "doubleSpace/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "None"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "sortUnusedFirstThenFrequency/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
             "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, FREQUENCY",
             "ExistingOutputFileName": "existingClozeFlashcards"
         },
@@ -160,9 +141,15 @@ if __name__ == "__main__":
             "FileStart": "leastInUsedSentenceFirst/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "BenefitShorterSentences": "False",
             "OutputOrder": "LEAST_IN_USED_SENTENCES_FIRST, ALPHABETICAL",
             "ExistingOutputFileName": "existingClozeFlashcards"
+        },
+        {
+            "FileStart": "buryWord/",
+            "Algorithm": "MOST_DIFFERENT",
+            "n": "3",
+            "OutputOrder": "ALPHABETICAL",
+            "BuryWords": "b"
         }
     ]
 

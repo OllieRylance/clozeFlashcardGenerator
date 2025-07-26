@@ -10,7 +10,7 @@ class OutputOrder(Enum):
     ALPHABETICAL = "alphabetical"
     FREQUENCY = "frequency"
     RANDOM = "random"
-    LEAST_USED_FIRST = "leastUsedFirst"
+    LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
 
 class ClozeChoosingAlgorithm(Enum):
     MOST_DIFFERENT = "mostDifferent"

@@ -103,7 +103,7 @@ def main(
             items = list(wordToSimpleClozeFlashcards.items())
             random.shuffle(items)
             wordToSimpleClozeFlashcards = dict(items)
-        elif order == OutputOrder.LEAST_USED_FIRST:
+        elif order == OutputOrder.LEAST_USED_AS_CLOZE_FIRST:
             usedCounts: Dict[str, int] = {}
             for word, flashcards in wordToSimpleClozeFlashcards.items():
                 usedCounts[word] = sum(1 for fc in flashcards if fc.inUse)
@@ -144,8 +144,8 @@ if __name__ == "__main__":
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     n: int = 3
     benefitShorterSentences: bool = True
-    # TODO : Add not in any in use cloze flashcards first to output order
-    outputOrder: List[OutputOrder] = [OutputOrder.LEAST_USED_FIRST, OutputOrder.FREQUENCY, OutputOrder.ALPHABETICAL]
+    # TODO : Add not in any in use cloze flashcards first to output order (LEAST_IN_USED_SENTENCES_FIRST)
+    outputOrder: List[OutputOrder] = [OutputOrder.LEAST_USED_AS_CLOZE_FIRST, OutputOrder.FREQUENCY, OutputOrder.ALPHABETICAL]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
         n, benefitShorterSentences, outputOrder

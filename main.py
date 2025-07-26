@@ -179,9 +179,9 @@ if __name__ == "__main__":
         OutputOrder.FREQUENCY,
         OutputOrder.ALPHABETICAL
     ]
-    # TODO : add option to just output in use cloze flashcards for
-    # words that have them (save processing time)
-    # onlyExistingForWordsWithClozeFlashcards: bool = True
+    # TODO : add option that allows words that are already used as
+    # cloze words to just output those flashcards for (save processing time)
+    # onlyInUseForWordsWithClozeFlashcards: bool = True
     wordsToBury: Optional[List[str]] = ["oni", "ona"]
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 

@@ -164,10 +164,9 @@ if __name__ == "__main__":
     )
     n: int = 3
     benefitShorterSentences: bool = True
-    # TODO : Add not in any in use cloze flashcards first to output
-    # order (LEAST_IN_USED_SENTENCES_FIRST)
     outputOrder: List[OutputOrder] = [
         OutputOrder.LEAST_USED_AS_CLOZE_FIRST,
+        OutputOrder.LEAST_IN_USED_SENTENCES_FIRST,
         OutputOrder.FREQUENCY,
         OutputOrder.ALPHABETICAL
     ]

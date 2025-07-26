@@ -171,7 +171,7 @@ czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na przystanek_2 autobus
 czy mogłabyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 autobusowy_2?
 czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na dworzec_2 kolejowy_2?
 czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 do remizy_2 strażackiej_2?
-czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na na plażę?
+czy mógłbyś mi powiedzieć jak mogę dostać_1 się_1 na plażę?
 
 czy mógłbyś powtórzyć?
 czy mógłbyś powtórzyć gdzie jest przystanek_1 autobusowy_1?

@@ -12,6 +12,10 @@ class OutputOrder(Enum):
     RANDOM = "random"
     LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
 
+# TODO : add an algorithm which prioritises sentences with the 
+# highest proportion of words that are either:
+# - not anywhere in existing flashcards
+# - not cloze words in existing flashcards
 class ClozeChoosingAlgorithm(Enum):
     MOST_DIFFERENT = "mostDifferent"
 

@@ -360,14 +360,6 @@ class ClozeFlashcard:
 
         return self.simpleClozeFlashcard
 
-    # def hasMultiWordExpression(self) -> bool:
-    #     """
-    #     Check if the cloze word is part of a multi-word expression.
-    #     """
-    #     if self.GetFirstClozeWord().multiWordExpression is not None:
-    #         return True
-    #     return False
-
     def GetStringOfSentencePart(
         self,
         part: 'sentencePart'

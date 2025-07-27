@@ -27,6 +27,8 @@ def help():
     logger.info("Use --help with any command to see details.")
 
 # Config command group
+# TODO : when delete config is implemented, add a cascade delete option
+# to delete all files associated with the config
 @cli.group()
 def config():
     """Commands for managing configs."""

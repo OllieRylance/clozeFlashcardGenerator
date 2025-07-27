@@ -4,7 +4,6 @@ from typing import Dict, List
 from models import ClozeFlashcard, SimpleClozeFlashcard, Word
 from utils import (
     generateClozeFlashcards,
-    getUniqueWordIdToWordObjects,
     getInUseClozeFlashcards,
     getOutputFileData,
     storeWordToSimpleClozeFlashcards
@@ -15,6 +14,9 @@ from resources import (
 from configUtils import (
     getOutputOrder,
     getWordsToBury
+)
+from globalUtils import (
+    getUniqueWordIdToWordObjects
 )
 
 logger = logging.getLogger(__name__)

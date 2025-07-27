@@ -85,6 +85,43 @@ class Word:
             self.multiWordExpression.getFirstIndex() == self.index
         )
         return self.firstWordInMultiWordExpression
+    
+    def getSentenceNewWordProportion(
+        self, 
+        seenWords: List[str],
+        calculatedSentenceProportions: Dict[int, float]
+    ) -> float:
+        if self.line is None:
+            logger.error(
+                f"Word '{self.thisWordString}' has no associated line."
+            )
+            return 0.0
+
+        line = self.line
+        lineId: int = line.id
+        if lineId in calculatedSentenceProportions:
+            return calculatedSentenceProportions[lineId]
+        
+        totalFirstWords: int = 0
+        totalUnseenWords: int = 0
+
+        for word in line.words:
+            if word.isFirstWordInMultiWordExpression():
+                totalFirstWords += 1
+                if word.getUniqueWordId() not in seenWords:
+                    totalUnseenWords += 1
+
+        if totalFirstWords == 0:
+            logger.error(
+                f"Line '{line}' has no first words in multi-word expressions."
+            )
+
+            calculatedSentenceProportions[lineId] = 0.0
+            return 0.0
+
+        proportion: float = totalUnseenWords / totalFirstWords
+        calculatedSentenceProportions[lineId] = proportion
+        return proportion
 
 class MultiWordExpression:
     def __init__(self) -> None:

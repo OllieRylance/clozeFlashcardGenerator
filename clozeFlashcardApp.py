@@ -59,7 +59,7 @@ def run():
     pass
 
 @run.command()
-def all():
+def all() -> None:
     """Run the full app with the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     if configFilePath.startswith("error:"):

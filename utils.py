@@ -2,7 +2,10 @@ import logging
 from typing import Dict, List, Optional
 import json
 
-from algorithms import mostDifferentAlgorithm
+from algorithms import (
+    mostDifferentAlgorithm,
+    highestProportionOfNewWordsAlgorithm
+)
 from models import (
     ClozeFlashcard,
     SimpleClozeFlashcard,
@@ -47,10 +50,7 @@ def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFl
     if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
         return mostDifferentAlgorithm(configFilePath)
     elif clozeChoosingAlgorithm == ClozeChoosingAlgorithm.HIGHEST_PROPORTION_OF_NEW_WORDS:
-        logger.error(
-            "The 'HIGHEST_PROPORTION_OF_NEW_WORDS' algorithm is not implemented yet."
-        )
-        return {}
+        return highestProportionOfNewWordsAlgorithm(configFilePath)
     
     # If an unknown algorithm is specified, log an error and return an empty dictionary
     logger.error(

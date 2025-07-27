@@ -7,7 +7,11 @@
         {
             "name": "ollie",
             "file": "ollie.json"
+        },
+        {
+            "name": "ollieProportion",
+            "file": "ollieProportion.json"
         }
     ],
-    "currentConfigIndex": 1
+    "currentConfigIndex": 2
 }

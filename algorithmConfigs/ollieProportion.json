@@ -1,0 +1,14 @@
+{
+    "inputFilePath": "ollieData/sentences.txt",
+    "outputFilePath": "ollieData/proportionClozeFlashcards.json",
+    "clozeChoosingAlgorithm": "highestProportionOfNewWords",
+    "numFlashcardsPerWord": 3,
+    "benefitShorterSentences": true,
+    "outputOrder": [
+        "leastUsedAsClozeFirst",
+        "leastInUsedSentencesFirst",
+        "frequency",
+        "alphabetical"
+    ],
+    "wordsToBury": ["oni", "ona"]
+}

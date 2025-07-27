@@ -1,0 +1,6310 @@
+{
+    "ponieważ": [
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " mam dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " mam bilet i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " chciałbym tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nauczyć się": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "nauczyć się",
+            "afterCloze": " więcej słów żeby tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "nauczyć się",
+            "afterCloze": " więcej słów żeby tworzyć lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "nauczyć się",
+            "afterCloze": " więcej słów żeby tworzyć dłuższe zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "powtórzyć": [
+        {
+            "beforeCloze": "czy ona mógłaby ",
+            "clozeWordPart1": "powtórzyć",
+            "afterCloze": " wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni mogliby ",
+            "clozeWordPart1": "powtórzyć",
+            "afterCloze": " wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś ",
+            "clozeWordPart1": "powtórzyć",
+            "afterCloze": " wolniej i głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "apteka": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "apteka",
+            "afterCloze": " jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "apteka",
+            "afterCloze": " jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest ",
+            "clozeWordPart1": "apteka",
+            "afterCloze": " dziękuję że wytłumaczyłeś mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "apteki": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko ",
+            "clozeWordPart1": "apteki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko ",
+            "clozeWordPart1": "apteki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę iśc do ",
+            "clozeWordPart1": "apteki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "idź": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "idź",
+            "afterCloze": " prosto przez sto metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "idź",
+            "afterCloze": " prosto przez dwieście metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "idź",
+            "afterCloze": " prosto przez trzysta metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "polecieć": [
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "polecieć",
+            "afterCloze": " do Australi ponieważ mam dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "polecieć",
+            "afterCloze": " do Australi ponieważ mam bilet i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "polecieć",
+            "afterCloze": " do Berlina ponieważ mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "prosto": [
+        {
+            "beforeCloze": "idź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": " przez sto metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": " przez dwieście metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": " przez trzysta metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przez": [
+        {
+            "beforeCloze": "idź prosto ",
+            "clozeWordPart1": "przez",
+            "afterCloze": " sto metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź prosto ",
+            "clozeWordPart1": "przez",
+            "afterCloze": " dwieście metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź prosto ",
+            "clozeWordPart1": "przez",
+            "afterCloze": " trzysta metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "złotych": [
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy tysiące dwieście pięćdziesiąt ",
+            "clozeWordPart1": "złotych",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić za trzydzieści pięć ",
+            "clozeWordPart1": "złotych",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę możesz ją kupić za siedemdziesiąt osiem ",
+            "clozeWordPart1": "złotych",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "autobusowy przystanek": [
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "przystanek autobusowy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem ",
+            "clozeWordPart1": "przystanek autobusowy",
+            "afterCloze": " jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem ",
+            "clozeWordPart1": "przystanek autobusowy",
+            "afterCloze": " jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "blisko": [
+        {
+            "beforeCloze": "apteka jest ",
+            "clozeWordPart1": "blisko",
+            "afterCloze": " to tylko sześćset metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest ",
+            "clozeWordPart1": "blisko",
+            "afterCloze": " to tylko czterysta metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest ",
+            "clozeWordPart1": "blisko",
+            "afterCloze": " to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kina": [
+        {
+            "beforeCloze": "oni muszą iść do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę kupić trzy bilety do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": " potrzebuje sześćdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chce iść do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": " więc musi kupić bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galerii handlowej": [
+        {
+            "beforeCloze": "on chciałby pojechać metrem do ",
+            "clozeWordPart1": "galerii handlowej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my musimy iść do ",
+            "clozeWordPart1": "galerii handlowej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy musisz iść do ",
+            "clozeWordPart1": "galerii handlowej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "plaża": [
+        {
+            "beforeCloze": "czy oni wiedzą gdzie jest ",
+            "clozeWordPart1": "plaża",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "plaża",
+            "afterCloze": " jest daleko to sześć kilometrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "plaża",
+            "afterCloze": " jest siedemset metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebujesz": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "potrzebujesz",
+            "afterCloze": " trochę wody?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli ",
+            "clozeWordPart1": "potrzebujesz",
+            "afterCloze": " roweru możesz go kupić za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli ",
+            "clozeWordPart1": "potrzebujesz",
+            "afterCloze": " ładowarkę możesz ją kupić za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wiesz": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "wiesz",
+            "afterCloze": " gdzie jest Bangkok?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "wiesz",
+            "afterCloze": " gdzie jest toaleta?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "wiesz",
+            "afterCloze": " gdzie jest dworzec kolejowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kino": [
+        {
+            "beforeCloze": "ona wie gdzie jest ",
+            "clozeWordPart1": "kino",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "kino",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "kino",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "muszą": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "muszą",
+            "afterCloze": " iść do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "muszą",
+            "afterCloze": " iść do kościoła",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "muszą",
+            "afterCloze": " iść do zoo",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tylko": [
+        {
+            "beforeCloze": "apteka jest ",
+            "clozeWordPart1": "tylko",
+            "afterCloze": " kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest ",
+            "clozeWordPart1": "tylko",
+            "afterCloze": " kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko to ",
+            "clozeWordPart1": "tylko",
+            "afterCloze": " sześćset metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dworzec kolejowy": [
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "dworzec kolejowy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni muszą iść na ",
+            "clozeWordPart1": "dworzec kolejowy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "dworzec kolejowy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "i": [
+        {
+            "beforeCloze": "ona chciałaby kupić wodę gazowaną ",
+            "clozeWordPart1": "i",
+            "afterCloze": " chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć wolniej ",
+            "clozeWordPart1": "i",
+            "afterCloze": " głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam bilet ",
+            "clozeWordPart1": "i",
+            "afterCloze": " dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lewej": [
+        {
+            "beforeCloze": "zobaczysz kino po ",
+            "clozeWordPart1": "lewej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zobaczysz apteke po ",
+            "clozeWordPart1": "lewej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zobaczysz stację metra po ",
+            "clozeWordPart1": "lewej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mam": [
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ ",
+            "clozeWordPart1": "mam",
+            "afterCloze": " dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ ",
+            "clozeWordPart1": "mam",
+            "afterCloze": " bilet i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Berlina ponieważ ",
+            "clozeWordPart1": "mam",
+            "afterCloze": " bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "remiza strażacka": [
+        {
+            "beforeCloze": "oni wiedzą gdzie jest ",
+            "clozeWordPart1": "remiza strażacka",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona nie wie gdzie jest ",
+            "clozeWordPart1": "remiza strażacka",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni wiedzą gdzie jest ",
+            "clozeWordPart1": "remiza strażacka",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tworzyć": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby ",
+            "clozeWordPart1": "tworzyć",
+            "afterCloze": " lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby ",
+            "clozeWordPart1": "tworzyć",
+            "afterCloze": " lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów żeby ",
+            "clozeWordPart1": "tworzyć",
+            "afterCloze": " dłuższe zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wolniej": [
+        {
+            "beforeCloze": "czy ona mógłaby powtórzyć ",
+            "clozeWordPart1": "wolniej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni mogliby powtórzyć ",
+            "clozeWordPart1": "wolniej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć ",
+            "clozeWordPart1": "wolniej",
+            "afterCloze": " i głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "za": [
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić ",
+            "clozeWordPart1": "za",
+            "afterCloze": " trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić ",
+            "clozeWordPart1": "za",
+            "afterCloze": " trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę możesz ją kupić ",
+            "clozeWordPart1": "za",
+            "afterCloze": " siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zdania": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze ",
+            "clozeWordPart1": "zdania",
+            "afterCloze": " w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze ",
+            "clozeWordPart1": "zdania",
+            "afterCloze": " po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów żeby tworzyć dłuższe ",
+            "clozeWordPart1": "zdania",
+            "afterCloze": " po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Australi": [
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Australi",
+            "afterCloze": " ponieważ mam dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Australi",
+            "afterCloze": " ponieważ mam bilet i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Australi",
+            "afterCloze": " ponieważ mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwieście": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "dwieście",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy tysiące ",
+            "clozeWordPart1": "dwieście",
+            "afterCloze": " pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez ",
+            "clozeWordPart1": "dwieście",
+            "afterCloze": " metrów i zobaczysz aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "metra stacja": [
+        {
+            "beforeCloze": "czy ona wie gdzie jest ",
+            "clozeWordPart1": "stacja metra",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "stacja metra",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on nie wie gdzie jest ",
+            "clozeWordPart1": "stacja metra",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "musimy": [
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "musimy",
+            "afterCloze": " iść do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "musimy",
+            "afterCloze": " iść na stację metra",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "musimy",
+            "afterCloze": " jechać na lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "musisz": [
+        {
+            "beforeCloze": "jeśli chcesz tworzyć dłuższe zdania ",
+            "clozeWordPart1": "musisz",
+            "afterCloze": " nauczyć się więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "musisz",
+            "afterCloze": " iść do kina?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "musisz",
+            "afterCloze": " iść do apteki?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "polsku": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze zdania po ",
+            "clozeWordPart1": "polsku",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów żeby tworzyć dłuższe zdania po ",
+            "clozeWordPart1": "polsku",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów aby lepiej rozumieć po ",
+            "clozeWordPart1": "polsku",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebuję": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebuję",
+            "afterCloze": " kartę sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebuję",
+            "afterCloze": " pomocy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "tak ",
+            "clozeWordPart1": "potrzebuję",
+            "afterCloze": " więcej informacji",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przepraszam": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "przepraszam",
+            "afterCloze": ", nie rozumiem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "przepraszam",
+            "afterCloze": ", gdzie jest galeria handlowa? muszę kupić miotłe",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "przepraszam",
+            "afterCloze": ", gdzie jest sklep spożywczy? chciałbym kupić chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wie": [
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "wie",
+            "afterCloze": " gdzie jest kino",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona nie ",
+            "clozeWordPart1": "wie",
+            "afterCloze": " gdzie jest remiza strażacka",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona ",
+            "clozeWordPart1": "wie",
+            "afterCloze": " gdzie jest stacja metra?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "autobusowy dworzec": [
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "dworzec autobusowy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "dworzec autobusowy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mogłabyś mi powiedzieć jak mogę dostać się na ",
+            "clozeWordPart1": "dworzec autobusowy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chciałby": [
+        {
+            "beforeCloze": "on ",
+            "clozeWordPart1": "chciałby",
+            "afterCloze": " kupić wodę gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "chciałby",
+            "afterCloze": " pojechać do galerii handlowej o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on ",
+            "clozeWordPart1": "chciałby",
+            "afterCloze": " pojechać metrem do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwudziestej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dwudziestej",
+            "afterCloze": " pierwszej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dwudziestej",
+            "afterCloze": " drugiej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dwudziestej",
+            "afterCloze": " trzeciej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "taksówką": [
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "taksówką",
+            "afterCloze": ". zobaczysz postój po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "plaża jest daleko to około siedem kilometrów stąd jeśli chcesz możesz pojechać tam ",
+            "clozeWordPart1": "taksówką",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "taksówką",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wiedzą": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "wiedzą",
+            "afterCloze": " gdzie jest sklep spożywczy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "wiedzą",
+            "afterCloze": " gdzie jest postój taksówek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "wiedzą",
+            "afterCloze": " gdzie jest remiza strażacka",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "więc": [
+        {
+            "beforeCloze": "oni chcę jechać w góry ",
+            "clozeWordPart1": "więc",
+            "afterCloze": " potrzebują trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. ",
+            "clozeWordPart1": "więc",
+            "afterCloze": " idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chce iść do kina ",
+            "clozeWordPart1": "więc",
+            "afterCloze": " musi kupić bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wodę": [
+        {
+            "beforeCloze": "potrzebujemy ",
+            "clozeWordPart1": "wodę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby kupić ",
+            "clozeWordPart1": "wodę",
+            "afterCloze": " gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuje ",
+            "clozeWordPart1": "wodę",
+            "afterCloze": " niegazowaną",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "bilety": [
+        {
+            "beforeCloze": "czy oni mają ",
+            "clozeWordPart1": "bilety",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym kupić dwa ",
+            "clozeWordPart1": "bilety",
+            "afterCloze": " potrzebuje dwadzieścia pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę kupić trzy ",
+            "clozeWordPart1": "bilety",
+            "afterCloze": " potrzebuje trzydzieści sześć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chciałaby": [
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "chciałaby",
+            "afterCloze": " pojechać samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "chciałaby",
+            "afterCloze": " kupić wodę gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "chciałaby",
+            "afterCloze": " pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwa": [
+        {
+            "beforeCloze": "potrzebuje dziewięćdziesiąt ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " złote",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym kupić ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " bilety potrzebuje dwadzieścia pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewięćset": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "dziewięćset",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko to tylko ",
+            "clozeWordPart1": "dziewięćset",
+            "afterCloze": " metrów stąd jeśli chcesz możesz pojechać tam rowerem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "kino jest ",
+            "clozeWordPart1": "dziewięćset",
+            "afterCloze": " metrów stąd jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galeria": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest ",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa? muszę kupić miotłe",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "handlowa": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": "? muszę kupić miotłe",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": " jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": " jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "informacji": [
+        {
+            "beforeCloze": "tak potrzebuję więcej ",
+            "clozeWordPart1": "informacji",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy potrzebujesz więcej ",
+            "clozeWordPart1": "informacji",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona potrzebuje więcej ",
+            "clozeWordPart1": "informacji",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kościoła": [
+        {
+            "beforeCloze": "oni muszą iść do ",
+            "clozeWordPart1": "kościoła",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni muszą iść do ",
+            "clozeWordPart1": "kościoła",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chciałby pojechać do ",
+            "clozeWordPart1": "kościoła",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lepsze": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć ",
+            "clozeWordPart1": "lepsze",
+            "afterCloze": " zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć ",
+            "clozeWordPart1": "lepsze",
+            "afterCloze": " zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ponieważ chciałbym tworzyć ",
+            "clozeWordPart1": "lepsze",
+            "afterCloze": " zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "metrem": [
+        {
+            "beforeCloze": "on chciałby pojechać ",
+            "clozeWordPart1": "metrem",
+            "afterCloze": " do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "metrem",
+            "afterCloze": ". zobaczysz stację po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "metrem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "postój taksówek": [
+        {
+            "beforeCloze": "oni wiedzą gdzie jest ",
+            "clozeWordPart1": "postój taksówek",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "postój taksówek",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "postój taksówek",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "samochodem": [
+        {
+            "beforeCloze": "ona chciałaby pojechać ",
+            "clozeWordPart1": "samochodem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to około sześć metrów stąd więc muszę pojechać tam ",
+            "clozeWordPart1": "samochodem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "samochodem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sześćset": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "sześćset",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko to tylko ",
+            "clozeWordPart1": "sześćset",
+            "afterCloze": " metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę iść do apteki to tylko ",
+            "clozeWordPart1": "sześćset",
+            "afterCloze": " metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "żeby": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ",
+            "clozeWordPart1": "żeby",
+            "afterCloze": " tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ",
+            "clozeWordPart1": "żeby",
+            "afterCloze": " tworzyć lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów ",
+            "clozeWordPart1": "żeby",
+            "afterCloze": " tworzyć dłuższe zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Berlina": [
+        {
+            "beforeCloze": "jak mogę dostać się do ",
+            "clozeWordPart1": "Berlina",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "Berlina",
+            "afterCloze": " ale nie wiem jak mogę dostać się tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Berlina",
+            "afterCloze": " ponieważ mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Hiszpani": [
+        {
+            "beforeCloze": "jak mogę dostać się do ",
+            "clozeWordPart1": "Hiszpani",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę polecieć do ",
+            "clozeWordPart1": "Hiszpani",
+            "afterCloze": " ale nie wiem jak mogę dostać się na lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Hiszpani",
+            "afterCloze": " mam bilet ale niewiem gdzie jest lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "aby": [
+        {
+            "beforeCloze": "potrzebujemy samochodu ",
+            "clozeWordPart1": "aby",
+            "afterCloze": " się dostać do Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów ",
+            "clozeWordPart1": "aby",
+            "afterCloze": " lepiej rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on musi nauczyć się więcej nowych słów ",
+            "clozeWordPart1": "aby",
+            "afterCloze": " lepiej rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chcieliby": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "chcieliby",
+            "afterCloze": " pojechać nad jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "chcieliby",
+            "afterCloze": " pojechać w góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "chcieliby",
+            "afterCloze": " nauczyć się więcej nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czwartej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "czwartej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym iść do kina o ",
+            "clozeWordPart1": "czwartej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "czwartej",
+            "afterCloze": " chciałbym pójść do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dłuższe": [
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów żeby tworzyć ",
+            "clozeWordPart1": "dłuższe",
+            "afterCloze": " zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli chcesz tworzyć ",
+            "clozeWordPart1": "dłuższe",
+            "afterCloze": " zdania musisz nauczyć się więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli chcesz tworzyć ",
+            "clozeWordPart1": "dłuższe",
+            "afterCloze": " zdania potrzebujesz znać więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galeria handlowa": [
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "galeria handlowa",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "galeria handlowa",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "galeria handlowa",
+            "afterCloze": " jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "gazowaną": [
+        {
+            "beforeCloze": "chciałbym kupić wodę ",
+            "clozeWordPart1": "gazowaną",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chciałby kupić wodę ",
+            "clozeWordPart1": "gazowaną",
+            "afterCloze": " i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby kupić wodę ",
+            "clozeWordPart1": "gazowaną",
+            "afterCloze": " i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "go": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ręcznika możesz ",
+            "clozeWordPart1": "go",
+            "afterCloze": " kupić za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz ",
+            "clozeWordPart1": "go",
+            "afterCloze": " kupić za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz samochodu możesz ",
+            "clozeWordPart1": "go",
+            "afterCloze": " kupić za pięćdziesiąt tysięcy złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ją": [
+        {
+            "beforeCloze": "ile kosztuje karta sim? chciałbym ",
+            "clozeWordPart1": "ją",
+            "afterCloze": " kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ",
+            "clozeWordPart1": "ją",
+            "afterCloze": " kupić za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę możesz ",
+            "clozeWordPart1": "ją",
+            "afterCloze": " kupić za siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kartę sim": [
+        {
+            "beforeCloze": "muszę kupić ",
+            "clozeWordPart1": "kartę sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym kupić ",
+            "clozeWordPart1": "kartę sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję ",
+            "clozeWordPart1": "kartę sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lepiej": [
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów aby ",
+            "clozeWordPart1": "lepiej",
+            "afterCloze": " rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby ",
+            "clozeWordPart1": "lepiej",
+            "afterCloze": " rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on musi nauczyć się więcej nowych słów aby ",
+            "clozeWordPart1": "lepiej",
+            "afterCloze": " rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "metra stację": [
+        {
+            "beforeCloze": "jak mogę dostać się na ",
+            "clozeWordPart1": "stację metra",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "stację metra",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my musimy iść na ",
+            "clozeWordPart1": "stację metra",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "około": [
+        {
+            "beforeCloze": "plaża jest daleko to ",
+            "clozeWordPart1": "około",
+            "afterCloze": " siedem kilometrów stąd jeśli chcesz możesz pojechać tam taksówką",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to ",
+            "clozeWordPart1": "około",
+            "afterCloze": " sześć metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to ",
+            "clozeWordPart1": "około",
+            "afterCloze": " sześć metrów stąd więc muszę pojechać tam samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "rozumieć": [
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów aby lepiej ",
+            "clozeWordPart1": "rozumieć",
+            "afterCloze": " po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby lepiej ",
+            "clozeWordPart1": "rozumieć",
+            "afterCloze": " po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on musi nauczyć się więcej nowych słów aby lepiej ",
+            "clozeWordPart1": "rozumieć",
+            "afterCloze": " po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ręcznik": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chce iść na basen więc potrzebuje kupić ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz kupić ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": " za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "samochodu": [
+        {
+            "beforeCloze": "oni potrzebują ",
+            "clozeWordPart1": "samochodu",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebujemy ",
+            "clozeWordPart1": "samochodu",
+            "afterCloze": " aby się dostać do Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "samochodu",
+            "afterCloze": " możesz go kupić za pięćdziesiąt tysięcy złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczą": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "uczą się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni ",
+            "clozeWordPart1": "uczą się",
+            "afterCloze": " nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni nie ",
+            "clozeWordPart1": "uczą się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "stację": [
+        {
+            "beforeCloze": "możesz pojechać pociągiem. zobaczysz ",
+            "clozeWordPart1": "stację",
+            "afterCloze": " po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać metrem. zobaczysz ",
+            "clozeWordPart1": "stację",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać metrem. zobaczysz ",
+            "clozeWordPart1": "stację",
+            "afterCloze": " po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sześć": [
+        {
+            "beforeCloze": "plaża jest daleko to ",
+            "clozeWordPart1": "sześć",
+            "afterCloze": " kilometrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to około ",
+            "clozeWordPart1": "sześć",
+            "afterCloze": " metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to około ",
+            "clozeWordPart1": "sześć",
+            "afterCloze": " metrów stąd więc muszę pojechać tam samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzy": [
+        {
+            "beforeCloze": "muszę kupić ",
+            "clozeWordPart1": "trzy",
+            "afterCloze": " bilety potrzebuje trzydzieści sześć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę kupić ",
+            "clozeWordPart1": "trzy",
+            "afterCloze": " bilety do kina potrzebuje sześćdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za ",
+            "clozeWordPart1": "trzy",
+            "afterCloze": " tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Krakowa": [
+        {
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "Krakowa",
+            "afterCloze": " ale nie wiem jak mogę dostać się tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebujemy samochodu aby się dostać do ",
+            "clozeWordPart1": "Krakowa",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Warszawy": [
+        {
+            "beforeCloze": "jak mogę dostać się do ",
+            "clozeWordPart1": "Warszawy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "Warszawy",
+            "afterCloze": " ale nie wiem jak mogę dostać się tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Włoch": [
+        {
+            "beforeCloze": "muszę polecieć do ",
+            "clozeWordPart1": "Włoch",
+            "afterCloze": " ale nie wiem jak mogę dostać się na lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę polecieć do ",
+            "clozeWordPart1": "Włoch",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "aptekę": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz ",
+            "clozeWordPart1": "aptekę",
+            "afterCloze": " po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz ",
+            "clozeWordPart1": "aptekę",
+            "afterCloze": " po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chce": [
+        {
+            "beforeCloze": "on ",
+            "clozeWordPart1": "chce",
+            "afterCloze": " iść na basen więc potrzebuje kupić ręcznik",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "chce",
+            "afterCloze": " iść do kina więc musi kupić bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czterysta": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "czterysta",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko to tylko ",
+            "clozeWordPart1": "czterysta",
+            "afterCloze": " metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czwarta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "czwarta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "czwarta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "druga": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "druga",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "druga",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "drugiej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "drugiej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o dwudziestej ",
+            "clozeWordPart1": "drugiej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dużo": [
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam ",
+            "clozeWordPart1": "dużo",
+            "afterCloze": " pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam bilet i ",
+            "clozeWordPart1": "dużo",
+            "afterCloze": " pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziesiąta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dziesiąta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dziesiąta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewiąta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dziewiąta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dziewiąta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewięćdziesiąt": [
+        {
+            "beforeCloze": "potrzebuje ",
+            "clozeWordPart1": "dziewięćdziesiąt",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuje ",
+            "clozeWordPart1": "dziewięćdziesiąt",
+            "afterCloze": " dwa złote",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "głośniej": [
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć ",
+            "clozeWordPart1": "głośniej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć wolniej i ",
+            "clozeWordPart1": "głośniej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ja": [
+        {
+            "beforeCloze": "ale ",
+            "clozeWordPart1": "ja",
+            "afterCloze": " nie wiem gdzie jest galeria handlowa. czy mógłbyś mi wytłumaczyć?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ja",
+            "afterCloze": " nie uczę się nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "je": [
+        {
+            "beforeCloze": "ile kosztuje jabłko? chciałbym ",
+            "clozeWordPart1": "je",
+            "afterCloze": " kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz spodenki możesz ",
+            "clozeWordPart1": "je",
+            "afterCloze": " kupić za dwadzieścia siedem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jednasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "jednasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "jednasta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "języku": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze zdania w ",
+            "clozeWordPart1": "języku",
+            "afterCloze": " polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ponieważ chciałbym tworzyć lepsze zdania w ",
+            "clozeWordPart1": "języku",
+            "afterCloze": " polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "karta sim": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "karta sim",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "karta sim",
+            "afterCloze": "? chciałbym ją kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kilka": [
+        {
+            "beforeCloze": "apteka jest tylko ",
+            "clozeWordPart1": "kilka",
+            "afterCloze": " metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko ",
+            "clozeWordPart1": "kilka",
+            "afterCloze": " metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kilometry": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa ",
+            "clozeWordPart1": "kilometry",
+            "afterCloze": " stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa ",
+            "clozeWordPart1": "kilometry",
+            "afterCloze": " stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kilometrów": [
+        {
+            "beforeCloze": "plaża jest daleko to sześć ",
+            "clozeWordPart1": "kilometrów",
+            "afterCloze": " stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "plaża jest daleko to około siedem ",
+            "clozeWordPart1": "kilometrów",
+            "afterCloze": " stąd jeśli chcesz możesz pojechać tam taksówką",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kurtkę": [
+        {
+            "beforeCloze": "chciałbym kupić ",
+            "clozeWordPart1": "kurtkę",
+            "afterCloze": " potrzebuje dziewięćdziesiąt siedem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "kurtkę",
+            "afterCloze": " możesz ją kupić za siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "miotłe": [
+        {
+            "beforeCloze": "gdzie możemy kupić ",
+            "clozeWordPart1": "miotłe",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, gdzie jest galeria handlowa? muszę kupić ",
+            "clozeWordPart1": "miotłe",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mogłabyś": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mogłabyś",
+            "afterCloze": " mi powiedzieć gdzie jest kino?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mogłabyś",
+            "afterCloze": " mi powiedzieć jak mogę dostać się na dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "naprzeciwko": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
+            "clozeWordPart1": "naprzeciwko",
+            "afterCloze": " apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
+            "clozeWordPart1": "naprzeciwko",
+            "afterCloze": " apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pierwszej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "pierwszej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o dwudziestej ",
+            "clozeWordPart1": "pierwszej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "piąta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "piąta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "piąta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pięćdziesiąt": [
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy tysiące dwieście ",
+            "clozeWordPart1": "pięćdziesiąt",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz samochodu możesz go kupić za ",
+            "clozeWordPart1": "pięćdziesiąt",
+            "afterCloze": " tysięcy złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "polskim": [
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze zdania w języku ",
+            "clozeWordPart1": "polskim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ponieważ chciałbym tworzyć lepsze zdania w języku ",
+            "clozeWordPart1": "polskim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pomocy": [
+        {
+            "beforeCloze": "potrzebuję ",
+            "clozeWordPart1": "pomocy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona potrzebuje ",
+            "clozeWordPart1": "pomocy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "postój": [
+        {
+            "beforeCloze": "możesz pojechać taksówką. zobaczysz ",
+            "clozeWordPart1": "postój",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać taksówką. zobaczysz ",
+            "clozeWordPart1": "postój",
+            "afterCloze": " po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebujemy": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebujemy",
+            "afterCloze": " wodę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebujemy",
+            "afterCloze": " samochodu aby się dostać do Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebują": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "potrzebują",
+            "afterCloze": " samochodu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni chcę jechać w góry więc ",
+            "clozeWordPart1": "potrzebują",
+            "afterCloze": " trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "resteuracja": [
+        {
+            "beforeCloze": "wiem gdzie jest ",
+            "clozeWordPart1": "resteuracja",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "resteuracja",
+            "afterCloze": " jest blisko jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siedem": [
+        {
+            "beforeCloze": "plaża jest daleko to około ",
+            "clozeWordPart1": "siedem",
+            "afterCloze": " kilometrów stąd jeśli chcesz możesz pojechać tam taksówką",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz spodenki możesz je kupić za dwadzieścia ",
+            "clozeWordPart1": "siedem",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siedemset": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "siedemset",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "plaża jest ",
+            "clozeWordPart1": "siedemset",
+            "afterCloze": " metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siódma": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "siódma",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "siódma",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczy": [
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "uczy się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona ",
+            "clozeWordPart1": "uczy się",
+            "afterCloze": " nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczymy": [
+        {
+            "beforeCloze": "czy my ",
+            "clozeWordPart1": "uczymy się",
+            "afterCloze": " nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my nie ",
+            "clozeWordPart1": "uczymy się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczysz": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "uczysz się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ty ",
+            "clozeWordPart1": "uczysz się",
+            "afterCloze": " nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "uczę się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ja nie ",
+            "clozeWordPart1": "uczę się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sklep spożywczy": [
+        {
+            "beforeCloze": "wiem gdzie jest ",
+            "clozeWordPart1": "sklep spożywczy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni wiedzą gdzie jest ",
+            "clozeWordPart1": "sklep spożywczy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sklepu spożywczego": [
+        {
+            "beforeCloze": "muszę iść do ",
+            "clozeWordPart1": "sklepu spożywczego",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona musi jechać do ",
+            "clozeWordPart1": "sklepu spożywczego",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sto": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "sto",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez ",
+            "clozeWordPart1": "sto",
+            "afterCloze": " metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szesnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "szesnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę pojechać na lotnisko o ",
+            "clozeWordPart1": "szesnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szesnaście": [
+        {
+            "beforeCloze": "możesz kupić ręcznik za ",
+            "clozeWordPart1": "szesnaście",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ręcznika możesz go kupić za ",
+            "clozeWordPart1": "szesnaście",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szpital": [
+        {
+            "beforeCloze": "my nie wiemy gdzie jest ",
+            "clozeWordPart1": "szpital",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć gdzie jest ",
+            "clozeWordPart1": "szpital",
+            "afterCloze": " ponieważ muszę tam pojechać?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szósta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "szósta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "szósta",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "toaleta": [
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "toaleta",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "toaleta",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trochę": [
+        {
+            "beforeCloze": "czy potrzebujesz ",
+            "clozeWordPart1": "trochę",
+            "afterCloze": " wody?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni chcę jechać w góry więc potrzebują ",
+            "clozeWordPart1": "trochę",
+            "afterCloze": " pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzecia": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "trzecia",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "trzecia",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzeciej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "trzeciej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o dwudziestej ",
+            "clozeWordPart1": "trzeciej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzysta": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "trzysta",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest ",
+            "clozeWordPart1": "trzysta",
+            "afterCloze": " metrów stąd jeśli chcesz możesz pójść tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zoo": [
+        {
+            "beforeCloze": "oni muszą iść do ",
+            "clozeWordPart1": "zoo",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona musi iść do ",
+            "clozeWordPart1": "zoo",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Bangkok": [
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "Bangkok",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Bangkoku": [
+        {
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "Bangkoku",
+            "afterCloze": " ale nie wiem jak mogę dostać się tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Brazyli": [
+        {
+            "beforeCloze": "muszę polecieć do ",
+            "clozeWordPart1": "Brazyli",
+            "afterCloze": " ale nie wiem jak mogę dostać się na lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Polski": [
+        {
+            "beforeCloze": "chciałbym polecieć do ",
+            "clozeWordPart1": "Polski",
+            "afterCloze": " ponieważ mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "Rzeszowa": [
+        {
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "Rzeszowa",
+            "afterCloze": " ale nie wiem jak mogę dostać się tam",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "apteke": [
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "apteke",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "bankomatu": [
+        {
+            "beforeCloze": "czy oni muszą iść do ",
+            "clozeWordPart1": "bankomatu",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "budynek": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży ",
+            "clozeWordPart1": "budynek",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chciałbyś": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "chciałbyś",
+            "afterCloze": " nauczyć się więcej nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chcę": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "chcę",
+            "afterCloze": " jechać w góry więc potrzebują trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chusteczki": [
+        {
+            "beforeCloze": "chciałbym kupić ",
+            "clozeWordPart1": "chusteczki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "cieszę się": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "cieszę się",
+            "afterCloze": " ponieważ wiem gdzie jest apteka dziękuję że wytłumaczyłeś mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czternasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "czternasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czternastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "czternastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "duży": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to ",
+            "clozeWordPart1": "duży",
+            "afterCloze": " budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwadzieścia": [
+        {
+            "beforeCloze": "jeśli potrzebujesz spodenki możesz je kupić za ",
+            "clozeWordPart1": "dwadzieścia",
+            "afterCloze": " siedem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwadzieścia pięć": [
+        {
+            "beforeCloze": "chciałbym kupić dwa bilety potrzebuje ",
+            "clozeWordPart1": "dwadzieścia pięć",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dworzec tramwajowy": [
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "dworzec tramwajowy",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwudziesta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dwudziesta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwudziestadruga": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dwudziestadruga",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwudziestapierwsza": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dwudziestapierwsza",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwudziestatrzecia": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dwudziestatrzecia",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwunasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dwunasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziesiątej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dziesiątej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewiątej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dziewiątej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewiętnasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "dziewiętnasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewiętnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dziewiętnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziewięćdziesiąt siedem": [
+        {
+            "beforeCloze": "chciałbym kupić kurtkę potrzebuje ",
+            "clozeWordPart1": "dziewięćdziesiąt siedem",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dziękuję": [
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest apteka ",
+            "clozeWordPart1": "dziękuję",
+            "afterCloze": " że wytłumaczyłeś mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galerie handlową": [
+        {
+            "beforeCloze": "zobaczysz ",
+            "clozeWordPart1": "galerie handlową",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galerii": [
+        {
+            "beforeCloze": "chciałby pojechać do ",
+            "clozeWordPart1": "galerii",
+            "afterCloze": " handlowej o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "gdzie jest": [
+        {
+            "beforeCloze": "muszę iść do sklepu ale nie wiem ",
+            "clozeWordPart1": "gdzie jest",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "godzina": [
+        {
+            "beforeCloze": "jest pierwsza ",
+            "clozeWordPart1": "godzina",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "handlowej": [
+        {
+            "beforeCloze": "chciałby pojechać do galerii ",
+            "clozeWordPart1": "handlowej",
+            "afterCloze": " o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "iśc": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "iśc",
+            "afterCloze": " do apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jabłko": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "jabłko",
+            "afterCloze": "? chciałbym je kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jednastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "jednastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jeszcze raz": [
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć ",
+            "clozeWordPart1": "jeszcze raz",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lecieć": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "lecieć",
+            "afterCloze": " do Australi",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mają": [
+        {
+            "beforeCloze": "czy oni ",
+            "clozeWordPart1": "mają",
+            "afterCloze": " bilety?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "miejsce": [
+        {
+            "beforeCloze": "czy wiesz gdzie jest to ",
+            "clozeWordPart1": "miejsce",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mogliby": [
+        {
+            "beforeCloze": "czy oni ",
+            "clozeWordPart1": "mogliby",
+            "afterCloze": " powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "możemy": [
+        {
+            "beforeCloze": "gdzie ",
+            "clozeWordPart1": "możemy",
+            "afterCloze": " kupić miotłe?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "musicie": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "musicie",
+            "afterCloze": " kupić karte sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mógłaby": [
+        {
+            "beforeCloze": "czy ona ",
+            "clozeWordPart1": "mógłaby",
+            "afterCloze": " powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mógłby": [
+        {
+            "beforeCloze": "czy on ",
+            "clozeWordPart1": "mógłby",
+            "afterCloze": " powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "niegazowaną": [
+        {
+            "beforeCloze": "potrzebuje wodę ",
+            "clozeWordPart1": "niegazowaną",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "niewiem": [
+        {
+            "beforeCloze": "chciałbym polecieć do Hiszpani mam bilet ale ",
+            "clozeWordPart1": "niewiem",
+            "afterCloze": " gdzie jest lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "osiem": [
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę możesz ją kupić za siedemdziesiąt ",
+            "clozeWordPart1": "osiem",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "osiem sześćdziesiąt": [
+        {
+            "beforeCloze": "muszę kupić trzy bilety do kina potrzebuje ",
+            "clozeWordPart1": "sześćdziesiąt osiem",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "osiemnasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "osiemnasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "osiemnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "osiemnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "osiemset": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "osiemset",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "piątej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "piątej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "piętnasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "piętnasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "piętnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "piętnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pięć": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić za trzydzieści ",
+            "clozeWordPart1": "pięć",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "poczta": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "poczta",
+            "afterCloze": " jest blisko jeśli chcesz możesz pojechać tam rowerem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potem": [
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów ",
+            "clozeWordPart1": "potem",
+            "afterCloze": " skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "południe": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "południe",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "prawo": [
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w ",
+            "clozeWordPart1": "prawo",
+            "afterCloze": " i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przystanek": [
+        {
+            "beforeCloze": "możesz pojechać autobusem. zobaczysz ",
+            "clozeWordPart1": "przystanek",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "północ": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "północ",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "północy": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "północy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "remizy strażackiej": [
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć jak mogę dostać się do ",
+            "clozeWordPart1": "remizy strażackiej",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "rower": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "rower",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "roweru": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "roweru",
+            "afterCloze": " możesz go kupić za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "rozumiem": [
+        {
+            "beforeCloze": "przepraszam, nie ",
+            "clozeWordPart1": "rozumiem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ręcznika": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "ręcznika",
+            "afterCloze": " możesz go kupić za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siedemdziesiąt": [
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę możesz ją kupić za ",
+            "clozeWordPart1": "siedemdziesiąt",
+            "afterCloze": " osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siedemnasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "siedemnasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siedemnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "siedemnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "siódmej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "siódmej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się uczycie": [
+        {
+            "beforeCloze": "wy ",
+            "clozeWordPart1": "uczycie się",
+            "afterCloze": " nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sklep": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest ",
+            "clozeWordPart1": "sklep",
+            "afterCloze": " spożywczy? chciałbym kupić chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sklepu": [
+        {
+            "beforeCloze": "muszę iść do ",
+            "clozeWordPart1": "sklepu",
+            "afterCloze": " ale nie wiem gdzie jest",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "skręć": [
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem ",
+            "clozeWordPart1": "skręć",
+            "afterCloze": " w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "spodenki": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "spodenki",
+            "afterCloze": " możesz je kupić za dwadzieścia siedem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "spożywczy": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest sklep ",
+            "clozeWordPart1": "spożywczy",
+            "afterCloze": "? chciałbym kupić chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szesnasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "szesnasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sześć trzydzieści": [
+        {
+            "beforeCloze": "muszę kupić trzy bilety potrzebuje ",
+            "clozeWordPart1": "trzydzieści sześć",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szóstej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "szóstej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tak": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "tak",
+            "afterCloze": " potrzebuję więcej informacji",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tramwajem": [
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "tramwajem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzydzieści": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić za ",
+            "clozeWordPart1": "trzydzieści",
+            "afterCloze": " pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzynasta": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "trzynasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "trzynastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "trzynastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ty": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "ty",
+            "afterCloze": " uczysz się nowych słów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tysiące": [
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy ",
+            "clozeWordPart1": "tysiące",
+            "afterCloze": " dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tysięcy": [
+        {
+            "beforeCloze": "jeśli potrzebujesz samochodu możesz go kupić za pięćdziesiąt ",
+            "clozeWordPart1": "tysięcy",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wiemy": [
+        {
+            "beforeCloze": "my nie ",
+            "clozeWordPart1": "wiemy",
+            "afterCloze": " gdzie jest szpital",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wody": [
+        {
+            "beforeCloze": "czy potrzebujesz trochę ",
+            "clozeWordPart1": "wody",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wy": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "wy",
+            "afterCloze": " uczycie się nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wytłumaczyłeś": [
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest apteka dziękuję że ",
+            "clozeWordPart1": "wytłumaczyłeś",
+            "afterCloze": " mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "znać": [
+        {
+            "beforeCloze": "jeśli chcesz tworzyć dłuższe zdania potrzebujesz ",
+            "clozeWordPart1": "znać",
+            "afterCloze": " więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "złote": [
+        {
+            "beforeCloze": "potrzebuje dziewięćdziesiąt dwa ",
+            "clozeWordPart1": "złote",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ósmej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "ósmej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ładowarkę": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ",
+            "clozeWordPart1": "ładowarkę",
+            "afterCloze": " możesz ją kupić za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "że": [
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest apteka dziękuję ",
+            "clozeWordPart1": "że",
+            "afterCloze": " wytłumaczyłeś mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mi": [
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest apteka dziękuję że wytłumaczyłeś ",
+            "clozeWordPart1": "mi",
+            "afterCloze": " to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mogłabyś ",
+            "clozeWordPart1": "mi",
+            "afterCloze": " powiedzieć gdzie jest kino?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, czy mógłbyś ",
+            "clozeWordPart1": "mi",
+            "afterCloze": " powiedzieć gdzie jest apteka?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "stąd": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów ",
+            "clozeWordPart1": "stąd",
+            "afterCloze": " idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów ",
+            "clozeWordPart1": "stąd",
+            "afterCloze": " idź prosto przez dwieście metrów i zobaczysz aptekę po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko to tylko sześćset metrów ",
+            "clozeWordPart1": "stąd",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chcesz": [
+        {
+            "beforeCloze": "jeśli ",
+            "clozeWordPart1": "chcesz",
+            "afterCloze": " tworzyć dłuższe zdania musisz nauczyć się więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli ",
+            "clozeWordPart1": "chcesz",
+            "afterCloze": " tworzyć dłuższe zdania potrzebujesz znać więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli ",
+            "clozeWordPart1": "chcesz",
+            "afterCloze": " mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lotnisko": [
+        {
+            "beforeCloze": "chciałbym polecieć do Hiszpani mam bilet ale niewiem gdzie jest ",
+            "clozeWordPart1": "lotnisko",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy oni muszą iść na ",
+            "clozeWordPart1": "lotnisko",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my musimy jechać na ",
+            "clozeWordPart1": "lotnisko",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "więcej": [
+        {
+            "beforeCloze": "tak potrzebuję ",
+            "clozeWordPart1": "więcej",
+            "afterCloze": " informacji",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się ",
+            "clozeWordPart1": "więcej",
+            "afterCloze": " słów żeby tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się ",
+            "clozeWordPart1": "więcej",
+            "afterCloze": " słów żeby tworzyć lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zobaczysz": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i ",
+            "clozeWordPart1": "zobaczysz",
+            "afterCloze": " aptekę po prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i ",
+            "clozeWordPart1": "zobaczysz",
+            "afterCloze": " aptekę po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "zobaczysz",
+            "afterCloze": " przystanek autobusowy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "powiedzieć": [
+        {
+            "beforeCloze": "czy mogłabyś mi ",
+            "clozeWordPart1": "powiedzieć",
+            "afterCloze": " gdzie jest kino?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, czy mógłbyś mi ",
+            "clozeWordPart1": "powiedzieć",
+            "afterCloze": " gdzie jest apteka?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mogłabyś mi ",
+            "clozeWordPart1": "powiedzieć",
+            "afterCloze": " jak mogę dostać się na dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jechać": [
+        {
+            "beforeCloze": "oni chcę ",
+            "clozeWordPart1": "jechać",
+            "afterCloze": " w góry więc potrzebują trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona musi ",
+            "clozeWordPart1": "jechać",
+            "afterCloze": " do sklepu spożywczego",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "jechać",
+            "afterCloze": " do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nowych": [
+        {
+            "beforeCloze": "ona uczy się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "wy uczycie się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni uczą się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "on": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "on",
+            "afterCloze": " mógłby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "on",
+            "afterCloze": " chciałby kupić wodę gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "on",
+            "afterCloze": " chciałby pojechać metrem do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "to": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej ",
+            "clozeWordPart1": "to",
+            "afterCloze": " duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "cieszę się ponieważ wiem gdzie jest apteka dziękuję że wytłumaczyłeś mi ",
+            "clozeWordPart1": "to",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest blisko ",
+            "clozeWordPart1": "to",
+            "afterCloze": " tylko sześćset metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "basen": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "basen",
+            "afterCloze": " jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz ",
+            "clozeWordPart1": "basen",
+            "afterCloze": " po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chce iść na ",
+            "clozeWordPart1": "basen",
+            "afterCloze": " więc potrzebuje kupić ręcznik",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "musi": [
+        {
+            "beforeCloze": "on ",
+            "clozeWordPart1": "musi",
+            "afterCloze": " nauczyć się więcej nowych słów aby lepiej rozumieć po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chce iść do kina więc ",
+            "clozeWordPart1": "musi",
+            "afterCloze": " kupić bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "musi",
+            "afterCloze": " iść do apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebuje": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebuje",
+            "afterCloze": " dziewięćdziesiąt dwa złote",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebuje",
+            "afterCloze": " wodę niegazowaną",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "potrzebuje",
+            "afterCloze": " dziewięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "bilet": [
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam ",
+            "clozeWordPart1": "bilet",
+            "afterCloze": " i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Berlina ponieważ mam ",
+            "clozeWordPart1": "bilet",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Polski ponieważ mam ",
+            "clozeWordPart1": "bilet",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "my": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "my",
+            "afterCloze": " musimy iść do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "my",
+            "afterCloze": " musimy iść na stację metra",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "my",
+            "afterCloze": " nie wiemy gdzie jest szpital",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kosztuje": [
+        {
+            "beforeCloze": "ile ",
+            "clozeWordPart1": "kosztuje",
+            "afterCloze": " rower?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ile ",
+            "clozeWordPart1": "kosztuje",
+            "afterCloze": " karta sim?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ile ",
+            "clozeWordPart1": "kosztuje",
+            "afterCloze": " karta sim? chciałbym ją kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "daleko": [
+        {
+            "beforeCloze": "plaża jest ",
+            "clozeWordPart1": "daleko",
+            "afterCloze": " to sześć kilometrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest ",
+            "clozeWordPart1": "daleko",
+            "afterCloze": " to około sześć metrów stąd więc muszę pojechać tam samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest ",
+            "clozeWordPart1": "daleko",
+            "afterCloze": " to około sześć metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "prawej": [
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po ",
+            "clozeWordPart1": "prawej",
+            "afterCloze": " to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po ",
+            "clozeWordPart1": "prawej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać taksówką. zobaczysz postój po ",
+            "clozeWordPart1": "prawej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "muzeum": [
+        {
+            "beforeCloze": "czy musimy iść do ",
+            "clozeWordPart1": "muzeum",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ona musi iść do ",
+            "clozeWordPart1": "muzeum",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć gdzie jest ",
+            "clozeWordPart1": "muzeum",
+            "afterCloze": " ponieważ muszę tam pojechać?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "cepen": [
+        {
+            "beforeCloze": "czy musimy iść na ",
+            "clozeWordPart1": "cepen",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy wiesz gdzie jest ",
+            "clozeWordPart1": "cepen",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie jest ",
+            "clozeWordPart1": "cepen",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jezioro": [
+        {
+            "beforeCloze": "oni chcieliby pojechać nad ",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": " jest blisko jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym pojechać nad ",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "rowerem": [
+        {
+            "beforeCloze": "apteka jest blisko to tylko dziewięćset metrów stąd jeśli chcesz możesz pojechać tam ",
+            "clozeWordPart1": "rowerem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "poczta jest blisko jeśli chcesz możesz pojechać tam ",
+            "clozeWordPart1": "rowerem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "plaża jest blisko jeśli chcesz możesz pójść tam pieszą lub pojechać ",
+            "clozeWordPart1": "rowerem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chleb": [
+        {
+            "beforeCloze": "ona chciałaby kupić wodę gazowaną i ",
+            "clozeWordPart1": "chleb",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chciałby kupić wodę gazowaną i ",
+            "clozeWordPart1": "chleb",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, gdzie jest sklep spożywczy? chciałbym kupić ",
+            "clozeWordPart1": "chleb",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "góry": [
+        {
+            "beforeCloze": "oni chcę jechać w ",
+            "clozeWordPart1": "góry",
+            "afterCloze": " więc potrzebują trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby pojechać w ",
+            "clozeWordPart1": "góry",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni chcieliby pojechać w ",
+            "clozeWordPart1": "góry",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pieniędzy": [
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam dużo ",
+            "clozeWordPart1": "pieniędzy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Australi ponieważ mam bilet i dużo ",
+            "clozeWordPart1": "pieniędzy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni chcę jechać w góry więc potrzebują trochę ",
+            "clozeWordPart1": "pieniędzy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wytłumaczyć": [
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": " ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ale ja nie wiem gdzie jest galeria handlowa. czy mógłbyś mi ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": " ci drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chcielibyśmy": [
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "chcielibyśmy",
+            "afterCloze": " pójść nad jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "chcielibyśmy",
+            "afterCloze": " pojechać w góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my ",
+            "clozeWordPart1": "chcielibyśmy",
+            "afterCloze": " kupić karte sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ci": [
+        {
+            "beforeCloze": "mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "drogę": [
+        {
+            "beforeCloze": "mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": ". więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "karte": [
+        {
+            "beforeCloze": "my chcielibyśmy kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "musicie kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie mogę kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "plażę": [
+        {
+            "beforeCloze": "czy musimy iść na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć jak mogę dostać się na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby pójść na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sim": [
+        {
+            "beforeCloze": "my chcielibyśmy kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "musicie kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie mogę kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "co": [
+        {
+            "beforeCloze": "nie słyszałem ",
+            "clozeWordPart1": "co",
+            "afterCloze": " powiedziałeś",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, ale nie słyszałem ",
+            "clozeWordPart1": "co",
+            "afterCloze": " powiedziałeś",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dwunastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dwunastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jem obiad o ",
+            "clozeWordPart1": "dwunastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pierwsza": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "pierwsza",
+            "afterCloze": " godzina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "pierwsza",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pięćset": [
+        {
+            "beforeCloze": "idź prosto przez ",
+            "clozeWordPart1": "pięćset",
+            "afterCloze": " metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muzeum jest ",
+            "clozeWordPart1": "pięćset",
+            "afterCloze": " metrów stąd jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pociągiem": [
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "pociągiem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "pociągiem",
+            "afterCloze": ". zobaczysz stację po prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "samochód": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "samochód",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę kupić nowy ",
+            "clozeWordPart1": "samochód",
+            "afterCloze": " ale potrzebuje więcej pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ósma": [
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "ósma",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest ",
+            "clozeWordPart1": "ósma",
+            "afterCloze": " po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jem": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jem",
+            "afterCloze": " obiad o dwunastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jestem": [
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć, gdzie ",
+            "clozeWordPart1": "jestem",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "masz": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "masz",
+            "afterCloze": " bilet?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "miasta": [
+        {
+            "beforeCloze": "oni muszą iść do ",
+            "clozeWordPart1": "miasta",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nowy": [
+        {
+            "beforeCloze": "muszę kupić ",
+            "clozeWordPart1": "nowy",
+            "afterCloze": " samochód ale potrzebuje więcej pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "obiad": [
+        {
+            "beforeCloze": "jem ",
+            "clozeWordPart1": "obiad",
+            "afterCloze": " o dwunastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pocztę": [
+        {
+            "beforeCloze": "on musi iść na ",
+            "clozeWordPart1": "pocztę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "toalety": [
+        {
+            "beforeCloze": "muszę iść do ",
+            "clozeWordPart1": "toalety",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "południu": [
+        {
+            "beforeCloze": "jest druga po ",
+            "clozeWordPart1": "południu",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest trzecia po ",
+            "clozeWordPart1": "południu",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jest czwarta po ",
+            "clozeWordPart1": "południu",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "autobusem": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam ",
+            "clozeWordPart1": "autobusem",
+            "afterCloze": " przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam ",
+            "clozeWordPart1": "autobusem",
+            "afterCloze": " przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz pojechać ",
+            "clozeWordPart1": "autobusem",
+            "afterCloze": ". zobaczysz przystanek po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pieszą": [
+        {
+            "beforeCloze": "plaża jest blisko jeśli chcesz możesz pójść tam ",
+            "clozeWordPart1": "pieszą",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "resteuracja jest blisko jeśli chcesz możesz pójść tam ",
+            "clozeWordPart1": "pieszą",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "kino jest dziewięćset metrów stąd jeśli chcesz możesz pójść tam ",
+            "clozeWordPart1": "pieszą",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pójść": [
+        {
+            "beforeCloze": "potrzebuję ",
+            "clozeWordPart1": "pójść",
+            "afterCloze": " do apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby ",
+            "clozeWordPart1": "pójść",
+            "afterCloze": " na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję ",
+            "clozeWordPart1": "pójść",
+            "afterCloze": " do apteki ale apteka jest daleko to około sześć metrów stąd więc muszę pojechać tam samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "o": [
+        {
+            "beforeCloze": "jem obiad ",
+            "clozeWordPart1": "o",
+            "afterCloze": " dwunastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "o",
+            "afterCloze": " dwudziestej pierwszej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "o",
+            "afterCloze": " dwudziestej drugiej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "o",
+            "afterCloze": " dwudziestej trzeciej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mógłbyś": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mógłbyś",
+            "afterCloze": " mi powiedzieć, gdzie jestem?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mógłbyś",
+            "afterCloze": " powtórzyć wolniej i głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mógłbyś",
+            "afterCloze": " powtórzyć głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "mógłbyś",
+            "afterCloze": " powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "słów": [
+        {
+            "beforeCloze": "uczę się nowych ",
+            "clozeWordPart1": "słów",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej ",
+            "clozeWordPart1": "słów",
+            "afterCloze": " żeby tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej ",
+            "clozeWordPart1": "słów",
+            "afterCloze": " żeby tworzyć lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej ",
+            "clozeWordPart1": "słów",
+            "afterCloze": " żeby tworzyć dłuższe zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jeśli": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " chcesz, możesz pojechać autobusem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " potrzebujesz roweru możesz go kupić za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " potrzebujesz ładowarkę możesz ją kupić za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " potrzebujesz kurtkę możesz ją kupić za siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ale": [
+        {
+            "beforeCloze": "muszę kupić nowy samochód ",
+            "clozeWordPart1": "ale",
+            "afterCloze": " potrzebuje więcej pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć ",
+            "clozeWordPart1": "ale",
+            "afterCloze": " wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ",
+            "clozeWordPart1": "ale",
+            "afterCloze": " apteka jest daleko to około sześć metrów stąd więc muszę pojechać tam samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ",
+            "clozeWordPart1": "ale",
+            "afterCloze": " apteka jest daleko to około sześć metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "w": [
+        {
+            "beforeCloze": "my chcielibyśmy pojechać ",
+            "clozeWordPart1": "w",
+            "afterCloze": " góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze zdania ",
+            "clozeWordPart1": "w",
+            "afterCloze": " języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów ponieważ chciałbym tworzyć lepsze zdania ",
+            "clozeWordPart1": "w",
+            "afterCloze": " języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni chcę jechać ",
+            "clozeWordPart1": "w",
+            "afterCloze": " góry więc potrzebują trochę pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nad": [
+        {
+            "beforeCloze": "chciałbym pójść ",
+            "clozeWordPart1": "nad",
+            "afterCloze": " jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "oni chcieliby pojechać ",
+            "clozeWordPart1": "nad",
+            "afterCloze": " jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym pojechać ",
+            "clozeWordPart1": "nad",
+            "afterCloze": " jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym pojechać ",
+            "clozeWordPart1": "nad",
+            "afterCloze": " jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lub": [
+        {
+            "beforeCloze": "możesz pójść tam pieszą ",
+            "clozeWordPart1": "lub",
+            "afterCloze": " pojechać rowerem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "plaża jest blisko jeśli chcesz możesz pójść tam pieszą ",
+            "clozeWordPart1": "lub",
+            "afterCloze": " pojechać rowerem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "powiedziałeś": [
+        {
+            "beforeCloze": "nie słyszałem co ",
+            "clozeWordPart1": "powiedziałeś",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "przepraszam, ale nie słyszałem co ",
+            "clozeWordPart1": "powiedziałeś",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "czy": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "czy",
+            "afterCloze": " masz bilet?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "czy",
+            "afterCloze": " ona mógłaby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "czy",
+            "afterCloze": " oni mogliby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "czy",
+            "afterCloze": " oni mają bilety?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "iść": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "iść",
+            "afterCloze": " do toalety",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "oni muszą ",
+            "clozeWordPart1": "iść",
+            "afterCloze": " do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni muszą ",
+            "clozeWordPart1": "iść",
+            "afterCloze": " do kościoła",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni muszą ",
+            "clozeWordPart1": "iść",
+            "afterCloze": " do zoo",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "na": [
+        {
+            "beforeCloze": "on musi iść ",
+            "clozeWordPart1": "na",
+            "afterCloze": " pocztę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "czy oni muszą iść ",
+            "clozeWordPart1": "na",
+            "afterCloze": " dworzec kolejowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my musimy iść ",
+            "clozeWordPart1": "na",
+            "afterCloze": " stację metra",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby pójść ",
+            "clozeWordPart1": "na",
+            "afterCloze": " plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "metrów": [
+        {
+            "beforeCloze": "lotnisko jest pięćset ",
+            "clozeWordPart1": "metrów",
+            "afterCloze": " stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "idź prosto przez sto ",
+            "clozeWordPart1": "metrów",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź prosto przez dwieście ",
+            "clozeWordPart1": "metrów",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź prosto przez trzysta ",
+            "clozeWordPart1": "metrów",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wiem": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "wiem",
+            "afterCloze": " gdzie jest basen",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "cieszę się ponieważ ",
+            "clozeWordPart1": "wiem",
+            "afterCloze": " gdzie jest apteka dziękuję że wytłumaczyłeś mi to",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "wiem",
+            "afterCloze": " gdzie jest kino",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "wiem",
+            "afterCloze": " gdzie jest sklep spożywczy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "słyszałem": [
+        {
+            "beforeCloze": "nie ",
+            "clozeWordPart1": "słyszałem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "przepraszam, ale nie ",
+            "clozeWordPart1": "słyszałem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "przepraszam, ale nie ",
+            "clozeWordPart1": "słyszałem",
+            "afterCloze": " co powiedziałeś",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "nie ",
+            "clozeWordPart1": "słyszałem",
+            "afterCloze": " co powiedziałeś",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "do": [
+        {
+            "beforeCloze": "chciałbym pojechać ",
+            "clozeWordPart1": "do",
+            "afterCloze": " muzeum",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "potrzebujemy samochodu aby się dostać ",
+            "clozeWordPart1": "do",
+            "afterCloze": " Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć ",
+            "clozeWordPart1": "do",
+            "afterCloze": " Australi ponieważ mam dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni muszą iść ",
+            "clozeWordPart1": "do",
+            "afterCloze": " kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "chciałbym": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "chciałbym",
+            "afterCloze": " pojechać autobusem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "chciałbym",
+            "afterCloze": " polecieć do Australi ponieważ mam dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "chciałbym",
+            "afterCloze": " polecieć do Australi ponieważ mam bilet i dużo pieniędzy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "chciałbym",
+            "afterCloze": " nauczyć się więcej słów żeby tworzyć dłuższe zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nie": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "nie",
+            "afterCloze": " wiem gdzie jest bankomat",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "przepraszam, ",
+            "clozeWordPart1": "nie",
+            "afterCloze": " rozumiem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "nie",
+            "afterCloze": " wie gdzie jest remiza strażacka",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ja ",
+            "clozeWordPart1": "nie",
+            "afterCloze": " uczę się nowych słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kupić": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru możesz go ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " wodę gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jak": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jak",
+            "afterCloze": " mogę dostać się do miasta?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "czy mogłabyś mi powiedzieć ",
+            "clozeWordPart1": "jak",
+            "afterCloze": " mogę dostać się na dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jak",
+            "afterCloze": " mogę dostać się do apteki?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jak",
+            "afterCloze": " mogę dostać się na przystanek autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "muszę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "muszę",
+            "afterCloze": " jechać",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "muszę",
+            "afterCloze": " nauczyć się więcej słów żeby tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "muszę",
+            "afterCloze": " nauczyć się więcej słów żeby tworzyć lepsze zdania po polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "muszę",
+            "afterCloze": " nauczyć się więcej słów ponieważ chciałbym tworzyć lepsze zdania w języku polskim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "tam": [
+        {
+            "beforeCloze": "możesz pójść ",
+            "clozeWordPart1": "tam",
+            "afterCloze": " pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać ",
+            "clozeWordPart1": "tam",
+            "afterCloze": " autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać ",
+            "clozeWordPart1": "tam",
+            "afterCloze": " autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to około sześć metrów stąd więc muszę pojechać ",
+            "clozeWordPart1": "tam",
+            "afterCloze": " samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "gdzie": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest cepen?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "ona wie ",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest kino",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni wiedzą ",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest sklep spożywczy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni wiedzą ",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest postój taksówek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "możesz": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "możesz",
+            "afterCloze": " pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz roweru ",
+            "clozeWordPart1": "możesz",
+            "afterCloze": " go kupić za trzy tysiące dwieście pięćdziesiąt złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę ",
+            "clozeWordPart1": "możesz",
+            "afterCloze": " ją kupić za trzydzieści pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli potrzebujesz kurtkę ",
+            "clozeWordPart1": "możesz",
+            "afterCloze": " ją kupić za siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pojechać": [
+        {
+            "beforeCloze": "możesz ",
+            "clozeWordPart1": "pojechać",
+            "afterCloze": " pociągiem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "ona chciałaby ",
+            "clozeWordPart1": "pojechać",
+            "afterCloze": " samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałby ",
+            "clozeWordPart1": "pojechać",
+            "afterCloze": " do galerii handlowej o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chciałby ",
+            "clozeWordPart1": "pojechać",
+            "afterCloze": " metrem do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dostać się": [
+        {
+            "beforeCloze": "jak mogę ",
+            "clozeWordPart1": "dostać się",
+            "afterCloze": " na dworzec kolejowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "jak mogę ",
+            "clozeWordPart1": "się",
+            "afterCloze": "?",
+            "midCloze": " tam ",
+            "clozeWordPart2": "dostać",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "potrzebujemy samochodu aby ",
+            "clozeWordPart1": "się dostać",
+            "afterCloze": " do Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mogłabyś mi powiedzieć jak mogę ",
+            "clozeWordPart1": "dostać się",
+            "afterCloze": " na dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jak mogę ",
+            "clozeWordPart1": "dostać się",
+            "afterCloze": " do apteki?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ile": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ile",
+            "afterCloze": " metrów?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ile",
+            "afterCloze": " to kosztuje?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ile",
+            "afterCloze": " kosztuje rower?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ile",
+            "afterCloze": " kosztuje karta sim?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ile",
+            "afterCloze": " kosztuje karta sim? chciałbym ją kupić",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "po": [
+        {
+            "beforeCloze": "jest pierwsza ",
+            "clozeWordPart1": "po",
+            "afterCloze": " południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "zobaczysz plażę ",
+            "clozeWordPart1": "po",
+            "afterCloze": " prawej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "muszę nauczyć się więcej słów żeby tworzyć lepsze zdania ",
+            "clozeWordPart1": "po",
+            "afterCloze": " polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym nauczyć się więcej słów żeby tworzyć dłuższe zdania ",
+            "clozeWordPart1": "po",
+            "afterCloze": " polsku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę ",
+            "clozeWordPart1": "po",
+            "afterCloze": " prawej to duży budynek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mogę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " wytłumaczyć ci drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "gdzie ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " kupić karte sim?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " wytłumaczyć ci drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mogłabyś mi powiedzieć jak ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " dostać się na dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " wytłumaczyć ci drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jest": [
+        {
+            "beforeCloze": "stacja metra ",
+            "clozeWordPart1": "jest",
+            "afterCloze": " daleko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jest",
+            "afterCloze": " ósma po południu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "ona wie gdzie ",
+            "clozeWordPart1": "jest",
+            "afterCloze": " kino",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni wiedzą gdzie ",
+            "clozeWordPart1": "jest",
+            "afterCloze": " sklep spożywczy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni wiedzą gdzie ",
+            "clozeWordPart1": "jest",
+            "afterCloze": " postój taksówek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "oni": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "oni",
+            "afterCloze": " potrzebują samochodu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "oni",
+            "afterCloze": " mogliby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "oni",
+            "afterCloze": " mają bilety?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ona": [
+        {
+            "beforeCloze": "czy ",
+            "clozeWordPart1": "ona",
+            "afterCloze": " mógłaby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ona",
+            "afterCloze": " chciałaby pojechać samochodem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ona",
+            "afterCloze": " chciałaby kupić wodę gazowaną i chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ]
+}

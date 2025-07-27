@@ -12,83 +12,101 @@ from globalUtils import (
 
 logger = logging.getLogger(__name__)
 
+def preAlgorithmChecks(
+    uniqueWordId: str,
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]],
+    numFlashcardsPerWord: int,
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    unusedWords: List[Word]
+) -> Tuple[Dict[str, List[SimpleClozeFlashcard]], bool]:
+    # If the word already has equal or more cloze flashcards than numFlashcardsPerWord, skip it
+    if (
+        uniqueWordId in wordToSimpleClozeFlashcards
+        and len(wordToSimpleClozeFlashcards[uniqueWordId]) >= numFlashcardsPerWord
+    ):
+        return wordToSimpleClozeFlashcards, True
+
+    inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
+        inUseClozeFlashcards.get(uniqueWordId, [])
+    )
+
+    # If the number of reference words plus the number of in use cloze flashcards
+    # is less than or equal to n, create cloze flashcards for all the words
+    if len(unusedWords) + len(inUseClozeFlashcardsForWord) <= numFlashcardsPerWord:
+        for word in unusedWords:
+            currentUniqueWordId: str = word.getUniqueWordId()
+
+            if word.line is None or word.index is None:
+                logger.error(
+                    f"Word '{currentUniqueWordId}' has no line or word index, "
+                    f"cannot create cloze flashcard."
+                )
+                continue
+
+            simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
+                word.line, word.index
+            ).GetSimpleClozeFlashcard()
+
+            if (currentUniqueWordId in inUseClozeFlashcards and
+                simpleClozeFlashcard in inUseClozeFlashcardsForWord):
+                # If the cloze flashcard is already in use, skip it
+                continue
+
+            if currentUniqueWordId not in wordToSimpleClozeFlashcards:
+                wordToSimpleClozeFlashcards[currentUniqueWordId] = []
+            wordToSimpleClozeFlashcards[currentUniqueWordId].append(
+                simpleClozeFlashcard
+            )
+
+        return wordToSimpleClozeFlashcards, True
+    
+    return wordToSimpleClozeFlashcards, False
+
 def mostDifferentAlgorithm(
     configFilePath: str
 ) -> Dict[str, List[SimpleClozeFlashcard]]:
+    # For each unique word, create cloze flashcards for the it's raw lines
+    # with the top n most different sentences
+    # If there are already cloze flashcards in use for the word, 
+    # use those as the start of the list
     
     uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
         getUniqueWordIdToWordObjects(configFilePath)
     )
-
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
         getInUseClozeFlashcards(configFilePath)
     )
-
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
         createInitialClozeFlashcards(inUseClozeFlashcards)
     )
-
-
-
     numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
 
+    calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
+    calculatedSentenceLengthScores: Dict[int, float] = {}    
+
     for uniqueWordId in uniqueWordIdToWordObjects.keys():
-        # If the word already has equal or more cloze flashcards than numFlashcardsPerWord, skip it
-        if (
-            uniqueWordId in wordToSimpleClozeFlashcards
-            and len(wordToSimpleClozeFlashcards[uniqueWordId]) >= numFlashcardsPerWord
-        ):
-            continue
+        # TODO : remove all mention of "raw"
+        # Create a list of the raw words that are not already in use
+        unusedWords: List[Word] = []
 
-        calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
-        calculatedSentenceLengthScores: Dict[int, float] = {}
-
-        # For each unique word, create cloze flashcards for the it's raw lines
-        # with the top n most different sentences
-        # If there are already cloze flashcards in use for the word, 
-        # use those as the start of the list
         words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
         inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
             inUseClozeFlashcards.get(uniqueWordId, [])
         )
-
-        # Create a list of the raw words that are not already in use
-        unusedWords: List[Word] = []
-
         for word in words:
             if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
                 unusedWords.append(word)
 
-        numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
-
-        # If the number of reference words plus the number of in use cloze flashcards
-        # is less than or equal to n, create cloze flashcards for all the words
-        if len(unusedWords) + len(inUseClozeFlashcardsForWord) <= numFlashcardsPerWord:
-            for word in unusedWords:
-                currentUniqueWordId: str = word.getUniqueWordId()
-
-                if word.line is None or word.index is None:
-                    logger.error(
-                        f"Word '{currentUniqueWordId}' has no line or word index, "
-                        f"cannot create cloze flashcard."
-                    )
-                    continue
-
-                simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-                    word.line, word.index
-                ).GetSimpleClozeFlashcard()
-
-                if (currentUniqueWordId in inUseClozeFlashcards and
-                    simpleClozeFlashcard in inUseClozeFlashcardsForWord):
-                    # If the cloze flashcard is already in use, skip it
-                    continue
-
-                if currentUniqueWordId not in wordToSimpleClozeFlashcards:
-                    wordToSimpleClozeFlashcards[currentUniqueWordId] = []
-                wordToSimpleClozeFlashcards[currentUniqueWordId].append(
-                    simpleClozeFlashcard
-                )
-
+        wordToSimpleClozeFlashcards, toContinue = (
+            preAlgorithmChecks(
+                uniqueWordId,
+                wordToSimpleClozeFlashcards,
+                numFlashcardsPerWord,
+                inUseClozeFlashcards,
+                unusedWords
+            )
+        )
+        if toContinue:
             continue
 
         # Create a dictionary that maps all of the relevant raw lines IDs to their objects
@@ -238,3 +256,81 @@ def removeInUseIds(
     Remove the in-use IDs from the combination.
     """
     return tuple(id_ for id_ in combination if id_ not in inUseIds)
+
+def highestProportionOfNewWordsAlgorithm(
+    configFilePath: str
+) -> Dict[str, List[SimpleClozeFlashcard]]:
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+        getUniqueWordIdToWordObjects(configFilePath)
+    )
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+        getInUseClozeFlashcards(configFilePath)
+    )
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        createInitialClozeFlashcards(inUseClozeFlashcards)
+    )
+    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
+
+    # List of words that have been used in any used cloze flashcards
+    seenWords: List[str] = []
+
+    for word in (word for flashcards in inUseClozeFlashcards.values() 
+                 for flashcard in flashcards 
+                 for word in flashcard.getWords()):
+        uniqueWordId: str = word.getUniqueWordId()
+        if uniqueWordId not in seenWords:
+            seenWords.append(uniqueWordId)
+
+    calculatedSentenceProportions: Dict[int, float] = {}
+
+    for uniqueWordId in uniqueWordIdToWordObjects.keys():
+        # Create a list of the raw words that are not already in use
+        unusedWords: List[Word] = []
+
+        words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
+        inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
+            inUseClozeFlashcards.get(uniqueWordId, [])
+        )
+        for word in words:
+            if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
+                unusedWords.append(word)
+
+        wordToSimpleClozeFlashcards, toContinue = (
+            preAlgorithmChecks(
+                uniqueWordId,
+                wordToSimpleClozeFlashcards,
+                numFlashcardsPerWord,
+                inUseClozeFlashcards,
+                unusedWords
+            )
+        )
+        if toContinue:
+            continue
+    
+        unusedWords.sort(
+            key=lambda w: (
+                w.getSentenceNewWordProportion(seenWords, calculatedSentenceProportions),
+                w.getUniqueWordId()
+            ),
+            reverse=True
+        )
+
+        for word in unusedWords[:numFlashcardsPerWord]:
+            if word.line is None or word.index is None:
+                logger.error(
+                    f"Word '{word.getUniqueWordId()}' has no line or word index, "
+                    f"cannot create cloze flashcard."
+                )
+                continue
+
+            simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
+                word.line, word.index
+            ).GetSimpleClozeFlashcard()
+
+            if word.getUniqueWordId() not in wordToSimpleClozeFlashcards:
+                wordToSimpleClozeFlashcards[word.getUniqueWordId()] = []
+            wordToSimpleClozeFlashcards[word.getUniqueWordId()].append(
+                simpleClozeFlashcard
+            )
+
+    return wordToSimpleClozeFlashcards

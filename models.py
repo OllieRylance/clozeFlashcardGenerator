@@ -136,7 +136,7 @@ class MultiWordExpression:
     def getUniqueWordId(self) -> str:
         """
         Get the unique punctuationless word string for the multi-word expression.
-        Combines the raw words in alphabetical order.
+        Combines the words in alphabetical order.
         """
         if self.uniqueWordId is not None:
             return self.uniqueWordId
@@ -240,7 +240,7 @@ class Line:
 
     def getUniqueWordIdVector(self, uniqueWordIdToWordObjects: Dict[str, List['Word']]) -> np.ndarray:
         """
-        Generate a word vector for the raw line.
+        Generate a word vector for the line.
         """
         if self.wordVector is not None:
             return self.wordVector
@@ -270,7 +270,7 @@ class Line:
             uniqueWordIdToWordObjects: Dict[str, List['Word']]
         ) -> float:
         """
-        Calculate the cosine dissimilarity between this raw line and another raw line.
+        Calculate the cosine dissimilarity between this line and another line.
         """
         # Check if the cosine dissimilarity has already been calculated
         if (self.id, otherLine.id) in calculatedCosDissimilarities:

@@ -102,7 +102,7 @@ Selects sentences that are most semantically different from each other using:
 ## File Structure
 
 - `clozeFlashcardGenerator.py` - Main application entry point
-- `models.py` - Core data classes (RawLine, RawWord, ClozeFlashcard, etc.)
+- `models.py` - Core data classes (Line, Word, ClozeFlashcard, etc.)
 - `algorithms.py` - Implementation of selection algorithms
 - `utils.py` - Utility functions for data processing and validation
 - `readWrite.py` - File I/O operations

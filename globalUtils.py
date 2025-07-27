@@ -349,7 +349,7 @@ def createClozeFlashcardFromSimpleJsonableDict(
 
 def getWordStringAndId(wordString: str) -> Tuple[str, int]:
     """
-    Split the raw word string into parts, e.g.,
+    Split the word string into parts, e.g.,
     "word_1" -> "word" and 1
     """
     parts = wordString.split('_')

@@ -65,7 +65,7 @@ def preAlgorithmChecks(
 def mostDifferentAlgorithm(
     configFilePath: str
 ) -> Dict[str, List[SimpleClozeFlashcard]]:
-    # For each unique word, create cloze flashcards for the it's raw lines
+    # For each unique word, create cloze flashcards for the it's lines
     # with the top n most different sentences
     # If there are already cloze flashcards in use for the word, 
     # use those as the start of the list
@@ -84,9 +84,9 @@ def mostDifferentAlgorithm(
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
     calculatedSentenceLengthScores: Dict[int, float] = {}    
 
+    # TODO : add progress bar
     for uniqueWordId in uniqueWordIdToWordObjects.keys():
-        # TODO : remove all mention of "raw"
-        # Create a list of the raw words that are not already in use
+        # Create a list of the words that are not already in use
         unusedWords: List[Word] = []
 
         words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
@@ -109,13 +109,10 @@ def mostDifferentAlgorithm(
         if toContinue:
             continue
 
-        # Create a dictionary that maps all of the relevant raw lines IDs to their objects
+        # Create a dictionary that maps all of the relevant line IDs to their objects
         lineIdToWord: Dict[int, Word] = {
             word.line.id: word for word in unusedWords if word.line is not None
         }
-
-        # Create a list of all the combinations of n raw lines
-        lineIds: List[int] = list(lineIdToWord.keys())
 
         # Add the in-use cloze flashcards to the lineIdToWord
         for clozeFlashcard in inUseClozeFlashcardsForWord:
@@ -130,6 +127,7 @@ def mostDifferentAlgorithm(
         # Subtract the number of cloze flashcards already in use for the word from n
         newSentenceNum = numFlashcardsPerWord - len(inUseClozeFlashcardsForWord)
 
+        lineIds: List[int] = list(lineIdToWord.keys())
         # Combination means combination of sentences, not words
         newCombinations: List[Tuple[int, ...]] = generateNewCombinations(
             lineIds, inUseIds, newSentenceNum
@@ -185,11 +183,11 @@ def generateNewCombinations(
     n: int
 ) -> List[Tuple[int, ...]]:
     """
-    Generate new combinations of raw line IDs that include the in-use cloze flashcards.
+    Generate new combinations of line IDs that include the in-use cloze flashcards.
     """
     newCombinations: List[Tuple[int, ...]] = []
 
-    # Generate all combinations of n raw lines
+    # Generate all combinations of n lines
     for combination in combinations(lineIds, n):
         # Create a new combination that includes the in-use cloze flashcards
         newCombination: Tuple[int, ...] = tuple(inUseIds) + combination
@@ -199,7 +197,7 @@ def generateNewCombinations(
 
 def findMostDifferentCombination(
     configFilePath: str,
-    combinationsOfRawLines: List[Tuple[int, ...]],
+    combinationsOfLines: List[Tuple[int, ...]],
     lineIdToWord: Dict[int, Word],
     calculatedCosDissimilarities: Dict[Tuple[int, int], float],
     uniqueWordIdToWordObjects: Dict[str, List[Word]],
@@ -210,11 +208,10 @@ def findMostDifferentCombination(
 
     benefitShorterSentences: bool = getBenefitShorterSentences(configFilePath)
 
-    # For each combination of raw lines work out the sum of the normalised 
-    # dot products of their word vectors and find the combination with the 
+    # For each combination of lines work out the sum of the normalised dot
+    # products of their word vectors and find the combination with the
     # highest cosine dissimilarity
-    # TODO : add progress bar
-    for combination in combinationsOfRawLines:
+    for combination in combinationsOfLines:
         sumOfCosDissimilarities: float = 0
         for i in range(len(combination)):
             for j in range(i + 1, len(combination)):
@@ -284,7 +281,7 @@ def highestProportionOfNewWordsAlgorithm(
     calculatedSentenceProportions: Dict[int, float] = {}
 
     for uniqueWordId in uniqueWordIdToWordObjects.keys():
-        # Create a list of the raw words that are not already in use
+        # Create a list of the words that are not already in use
         unusedWords: List[Word] = []
 
         words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]

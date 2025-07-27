@@ -26,19 +26,12 @@ def runTest(config: Dict[str, str]) -> None:
     outputOrder: List[OutputOrder] = [
         OutputOrder[order.strip().upper()] for order in outputOrderStrings
     ]
-    existingOutputFilePath: Optional[str] = None
-    existingOutputFileName: Optional[str] = config.get("ExistingOutputFileName")
-    if existingOutputFileName is not None:
-        existingOutputFilePath = (
-            f'manualTests/{currentTestFileStart}/{existingOutputFileName}.json'
-    )
     buryWords: Optional[List[str]] = None
     if config.get("BuryWords") is not None:
         buryWords: Optional[List[str]] = config["BuryWords"].split(",")
     main(
         inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences, outputOrder, existingOutputFilePath,
-        buryWords
+        n, benefitShorterSentences, outputOrder, buryWords
     )
 
 if __name__ == "__main__":
@@ -86,18 +79,10 @@ if __name__ == "__main__":
             "OutputOrder": "ALPHABETICAL"
         },
         {
-            "FileStart": "noInputButExistingInUseOutput/",
-            "Algorithm": "MOST_DIFFERENT",
-            "n": "3",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "existingClozeFlashcards"
-        },
-        {
             "FileStart": "complexExistingSentenceParsedAndNotDupicatedByNewSentence/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "OutputOrder": "ALPHABETICAL",
-            "ExistingOutputFileName": "existingClozeFlashcards"
+            "OutputOrder": "ALPHABETICAL"
         },
         {
             "FileStart": "multiWordExpressionInDifferentOrderGetGrouped/",
@@ -109,8 +94,7 @@ if __name__ == "__main__":
             "FileStart": "sortUnusedFirstThenAlphabetical/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, ALPHABETICAL",
-            "ExistingOutputFileName": "existingClozeFlashcards"
+            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, ALPHABETICAL"
         },
         {
             "FileStart": "invalidPunctuation/",
@@ -134,15 +118,13 @@ if __name__ == "__main__":
             "FileStart": "sortUnusedFirstThenFrequency/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, FREQUENCY",
-            "ExistingOutputFileName": "existingClozeFlashcards"
+            "OutputOrder": "LEAST_USED_AS_CLOZE_FIRST, FREQUENCY"
         },
         {
             "FileStart": "leastInUsedSentenceFirst/",
             "Algorithm": "MOST_DIFFERENT",
             "n": "3",
-            "OutputOrder": "LEAST_IN_USED_SENTENCES_FIRST, ALPHABETICAL",
-            "ExistingOutputFileName": "existingClozeFlashcards"
+            "OutputOrder": "LEAST_IN_USED_SENTENCES_FIRST, ALPHABETICAL"
         },
         {
             "FileStart": "buryWord/",

@@ -30,7 +30,6 @@ def main(
     n: int,
     benefitShorterSentences: bool,
     outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL],
-    existingOutputFilePath: Optional[str] = "Same",
     wordsToBury: Optional[List[str]] = None
 ) -> None:
     sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
@@ -47,24 +46,11 @@ def main(
 
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
 
-    # Determine which file to use for existing cloze flashcards
-    if existingOutputFilePath is None:
-        # User wants to ignore any existing files - start fresh
-        logger.info("Ignoring any existing cloze flashcards - starting fresh")
-    elif existingOutputFilePath == "Same":
-        # Use the same file as output (default behavior)
-        prepareInUseClozeFlashcards(
-            outputFilePath,
-            uniqueWordIdToWordObjects,
-            inUseClozeFlashcards
-        )
-    else:
-        # Use the specified existing file
-        prepareInUseClozeFlashcards(
-            existingOutputFilePath,
-            uniqueWordIdToWordObjects,
-            inUseClozeFlashcards
-        )
+    prepareInUseClozeFlashcards(
+        outputFilePath,
+        uniqueWordIdToWordObjects,
+        inUseClozeFlashcards
+    )
 
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 

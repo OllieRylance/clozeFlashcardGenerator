@@ -1,10 +1,11 @@
+from typing import List
 from matplotlib.pylab import Enum
 
 class Resources:
     """
     A class to hold various resources used in the application.
     """
-    punctuationChars = "\",.?_"
+    punctuationChars: str = "\",.?_"
 
 class OutputOrder(Enum):
     ALPHABETICAL = "alphabetical"
@@ -31,3 +32,14 @@ class PunctuationWordPosition(Enum):
     BEFORE = "before"
     AFTER = "after"
     ALONE = "alone"
+
+class algorithmConfigDefaults:
+    """
+    Default values for the algorithm configuration.
+    """
+    inputFilePath: str = "sentences.txt"
+    outputFilePath: str = "clozeFlashcards.json"
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
+    numFlashcardsPerWord: int = 3
+    benefitShorterSentences: bool = False
+    outputOrder: List[OutputOrder] = []

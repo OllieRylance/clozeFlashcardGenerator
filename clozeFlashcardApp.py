@@ -1,5 +1,8 @@
 import logging
 import click
+import cProfile
+import pstats
+import io
 import os
 from typing import List
 
@@ -28,18 +31,6 @@ def help():
 def config():
     """Commands for managing configs."""
     pass
-
-# @config.command()
-# @click.argument('name')
-# def create(name: str):
-#     """Create a new config."""
-#     click.echo(f"Creating config '{name}'")
-
-# @config.command()
-# @click.argument('name')
-# def delete(name: str):
-#     """Delete a config."""
-#     click.echo(f"Deleting config '{name}'")
 
 @config.command()
 def list():
@@ -87,7 +78,34 @@ if __name__ == "__main__":
     
     isDev = os.getenv("DEV_MODE", "false").lower() == "true"
     
+    profiler = None
+
+    if isDev:
+        # Create profiler
+        profiler = cProfile.Profile()
+
+        # Start profiling
+        profiler.enable()
+    
     if isDev:
         all()
     else:
         cli()
+
+    if profiler is not None:
+        # Stop profiling
+        profiler.disable()
+
+        # Create a string buffer to capture output
+        s = io.StringIO()
+        ps = pstats.Stats(profiler, stream=s)
+
+        # Sort by cumulative time and print top 20 functions
+        ps.sort_stats('cumulative')
+        ps.print_stats(20)
+
+        # Print the results
+        print(s.getvalue())
+
+        # You can also save to file
+        ps.dump_stats('profile_results.prof')

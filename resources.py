@@ -43,3 +43,10 @@ class algorithmConfigDefaults:
     numFlashcardsPerWord: int = 3
     benefitShorterSentences: bool = False
     outputOrder: List[OutputOrder] = []
+    wordsToBury: List[str] = []
+
+class algorithmConfigMapping:
+    requiredKeys: List[str] = [
+        "name",
+        "file"
+    ]

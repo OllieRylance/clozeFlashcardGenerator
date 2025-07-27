@@ -4,8 +4,12 @@ import os
 from typing import Any, List, Optional
 
 from readWrite import readJsonFile, writeJsonFile
-from resources import ClozeChoosingAlgorithm, OutputOrder, algorithmConfigDefaults
-from main import main
+from resources import (
+    ClozeChoosingAlgorithm,
+    OutputOrder,
+    algorithmConfigDefaults,
+    algorithmConfigMapping
+)
 
 logger = logging.getLogger(__name__)
 
@@ -13,10 +17,7 @@ def validateConfigObject(config: Any) -> bool:
     """
     Validates the configuration object.
     """
-    requiredKeys = [
-        "name",
-        "file"
-    ]
+    requiredKeys: List[str] = algorithmConfigMapping.requiredKeys
     return all(
         config.get(key) is not None for key in requiredKeys
     )
@@ -169,35 +170,11 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
         if order in OutputOrder.__members__
     ] or algorithmConfigDefaults.outputOrder
 
-def runAlgorithm(configFilePath: str) -> None:
-    configJsonString: Optional[str] = readJsonFile(configFilePath)
-    if configJsonString is None:
-        logger.error(f"Config file {configFilePath} not found")
-        return
-    
-    configJson = json.loads(configJsonString)
-
-    inputFilePath: str = configJson.get("inputFilePath", "sentences.txt")
-    outputFilePath: str = configJson.get("outputFilePath", "clozeFlashcards.json")
-    clozeChoosingAlgorithmString: Optional[str] = configJson.get("clozeChoosingAlgorithm")
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = (
-        ClozeChoosingAlgorithm(clozeChoosingAlgorithmString)
-        if clozeChoosingAlgorithmString else ClozeChoosingAlgorithm.MOST_DIFFERENT
-    )
-    numFlashcardsPerWord: int = configJson.get("numFlashcardsPerWord", 3)
-    benefitShorterSentences: bool = configJson.get("benefitShorterSentences", False)
-    outputOrderStrings: List[str] = configJson.get("outputOrder", [])
-    outputOrder: List[OutputOrder] = [ # TODO : handle invalid outputOrder strings
-        OutputOrder(order) for order in outputOrderStrings
-    ] or []
-    wordsToBury: List[str] = configJson.get("wordsToBury", [])
-
-    main(
-        inputFilePath,
-        outputFilePath,
-        clozeChoosingAlgorithm,
-        numFlashcardsPerWord,
-        benefitShorterSentences,
-        outputOrder,
-        wordsToBury
-    )
+def getWordsToBury(configFilePath: str) -> List[str]:
+    """
+    Returns the list of words to bury from the configuration file.
+    """
+    algorithmConfig = getAlgorithmConfig(configFilePath)
+    if algorithmConfig is None:
+        return algorithmConfigDefaults.wordsToBury
+    return algorithmConfig.get("wordsToBury", algorithmConfigDefaults.wordsToBury)

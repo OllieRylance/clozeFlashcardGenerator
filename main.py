@@ -8,6 +8,8 @@ from utils import (
     getOutputFileData,
     storeWordToSimpleClozeFlashcards
 )
+# TODO : move sorting logic to utils.py so that config utils, resources,
+# and global utils are not needed here
 from resources import (
     OutputOrder
 )

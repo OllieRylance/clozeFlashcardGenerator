@@ -14,12 +14,15 @@ class OutputOrder(Enum):
     LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
     LEAST_IN_USED_SENTENCES_FIRST = "leastInUsedSentencesFirst"
 
+# TODO : add a simple algorithm that just outputs the first
+# sentences until the number of flashcards is reached
 # TODO : add an algorithms which prioritise sentences with the 
 # highest proportion of words that are either:
 # - not anywhere in existing flashcards
 # - not cloze words in existing flashcards
 class ClozeChoosingAlgorithm(Enum):
     MOST_DIFFERENT = "mostDifferent"
+    HIGHEST_PROPORTION_OF_NEW_WORDS = "highestProportionOfNewWords"
 
 class sentencePart(Enum):
     BEFORE_CLOZE = "beforeCloze"

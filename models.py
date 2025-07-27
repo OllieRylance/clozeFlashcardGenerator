@@ -586,6 +586,7 @@ class SimpleClozeFlashcard:
 
     def toJsonableDict(self) -> Dict[str, str]:
         """Convert SimpleClozeFlashcard to dictionary for JSON serialization."""
+        # TODO: polymorphic json so that flashcards without mid or part 2 dont need extra lines
         return {
             'beforeCloze': self.beforeCloze,
             'clozeWordPart1': self.clozePart1,

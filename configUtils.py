@@ -49,7 +49,8 @@ def getCurrentConfigName() -> str:
 def getAppConfigJson() -> Any:
     appConfigJsonString: Optional[str] = readJsonFile("appConfig.json")
     if appConfigJsonString is None:
-        #TODO : create an appConfig.json file with a default config
+        # TODO : when reaching this point automatically create an
+        # appConfig.json file with a default config
         return "error: appConfig.json not found"
     
     return json.loads(appConfigJsonString)

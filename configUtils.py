@@ -166,8 +166,8 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
         return algorithmConfigDefaults.outputOrder
     outputOrderStrings: List[str] = algorithmConfig.get("outputOrder", [])
     return [
+        # TODO : handle invalid output order strings
         OutputOrder(order) for order in outputOrderStrings
-        if order in OutputOrder.__members__
     ] or algorithmConfigDefaults.outputOrder
 
 def getWordsToBury(configFilePath: str) -> List[str]:

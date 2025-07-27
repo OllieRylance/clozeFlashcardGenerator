@@ -44,6 +44,10 @@ class algorithmConfigDefaults:
     benefitShorterSentences: bool = False
     outputOrder: List[OutputOrder] = []
     wordsToBury: List[str] = []
+    # TODO : add option that allows words that are already used
+    # as cloze words to just output those flashcards for (save
+    # processing time)
+    # onlyInUseForWordsWithClozeFlashcards: bool = True
 
 class algorithmConfigMapping:
     requiredKeys: List[str] = [

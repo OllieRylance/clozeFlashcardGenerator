@@ -1,51 +1,40 @@
 import logging
-from typing import Dict, List, Optional
-import cProfile
-import pstats
-import io
+from typing import Dict, List
 
+from configUtils import getNumFlashcardsPerWord
 from models import ClozeFlashcard, SimpleClozeFlashcard, Word
 from readWrite import writeJsonFile
 from utils import (
     convertToJsonableFormat,
     ensureInUseClozeFlashcardsPersist,
     generateClozeFlashcards,
-    parseSentenceLine,
     prepareInUseClozeFlashcards,
-    prepareSentenceLines
+    getUniqueWordIdToWordObjects
 )
 from resources import (
     ClozeChoosingAlgorithm,
     OutputOrder
+)
+from configUtils import (
+    getOutputFilePath,
+    getClozeChoosingAlgorithm,
+    getBenefitShorterSentences,
+    getOutputOrder,
+    getWordsToBury
 )
 
 logger = logging.getLogger(__name__)
 
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
-def main(
-    inputFilePath: str,
-    outputFilePath: str,
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm,
-    n: int,
-    benefitShorterSentences: bool,
-    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL],
-    wordsToBury: Optional[List[str]] = None
-) -> None:
-    sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
-
-    if sentenceLines is None: return
-
-    uniqueWordIdToWordObjects: Dict[str, List[Word]] = {}
-
-    for line in sentenceLines:
-        parseSentenceLine(
-            line,
-            uniqueWordIdToWordObjects
-        )
+def main(configFilePath: str) -> None:
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+        getUniqueWordIdToWordObjects(configFilePath)
+    )
 
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
 
+    outputFilePath: str = getOutputFilePath(configFilePath)
     prepareInUseClozeFlashcards(
         outputFilePath,
         uniqueWordIdToWordObjects,
@@ -54,8 +43,11 @@ def main(
 
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
+    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
+    benefitShorterSentences: bool = getBenefitShorterSentences(configFilePath)
     generateClozeFlashcards(
-        clozeChoosingAlgorithm, n, benefitShorterSentences,
+        clozeChoosingAlgorithm, numFlashcardsPerWord, benefitShorterSentences,
         inUseClozeFlashcards, uniqueWordIdToWordObjects,
         wordToSimpleClozeFlashcards
     )
@@ -68,6 +60,7 @@ def main(
     # TODO : complete seperate sorting logic so that it can be used
     # with and without rerunning the algorithm
 
+    outputOrder: List[OutputOrder] = getOutputOrder(configFilePath)
     outputOrder.reverse()
     for order in outputOrder:
         if order == OutputOrder.ALPHABETICAL:
@@ -126,14 +119,14 @@ def main(
                 )
             )
 
-    if wordsToBury is not None:
-        wordToSimpleClozeFlashcards = dict(
-            sorted(
-                wordToSimpleClozeFlashcards.items(),
-                # Bury specified words
-                key=lambda item: 1 if item[0] in wordsToBury else 0
-            )
+    wordsToBury: List[str] = getWordsToBury(configFilePath)
+    wordToSimpleClozeFlashcards = dict(
+        sorted(
+            wordToSimpleClozeFlashcards.items(),
+            # Bury specified words
+            key=lambda item: 1 if item[0] in wordsToBury else 0
         )
+    )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(wordToSimpleClozeFlashcards)
@@ -145,65 +138,3 @@ def main(
     )
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
-
-# TODO : come up with and stick to naming convention
-if __name__ == "__main__":
-    # Configure logging
-    logging.basicConfig(
-        # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
-        level=logging.DEBUG,
-        format='%(levelname)s: %(message)s'
-    )
-
-    profiler = None
-
-    # If the logger is set to DEBUG, create a profile to
-    # analyze performance
-    if logger.isEnabledFor(logging.DEBUG):
-        # Create profiler
-        profiler = cProfile.Profile()
-
-        # Start profiling
-        profiler.enable()
-
-    # Your code to profile
-    inputFilePath: str = 'sentences.txt'
-    outputFilePath: str = 'clozeFlashcards.json'
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = (
-        ClozeChoosingAlgorithm.MOST_DIFFERENT
-    )
-    n: int = 3
-    benefitShorterSentences: bool = True
-    outputOrder: List[OutputOrder] = [
-        OutputOrder.LEAST_USED_AS_CLOZE_FIRST,
-        OutputOrder.LEAST_IN_USED_SENTENCES_FIRST,
-        OutputOrder.FREQUENCY,
-        OutputOrder.ALPHABETICAL
-    ]
-    # TODO : add option that allows words that are already used
-    # as cloze words to just output those flashcards for (save
-    # processing time)
-    # onlyInUseForWordsWithClozeFlashcards: bool = True
-    wordsToBury: Optional[List[str]] = ["oni", "ona"]
-    main(
-        inputFilePath, outputFilePath, clozeChoosingAlgorithm, 
-        n, benefitShorterSentences, outputOrder, wordsToBury=wordsToBury
-    )
-
-    if profiler is not None:
-        # Stop profiling
-        profiler.disable()
-
-        # Create a string buffer to capture output
-        s = io.StringIO()
-        ps = pstats.Stats(profiler, stream=s)
-
-        # Sort by cumulative time and print top 20 functions
-        ps.sort_stats('cumulative')
-        ps.print_stats(20)
-
-        # Print the results
-        print(s.getvalue())
-
-        # You can also save to file
-        ps.dump_stats('profile_results.prof')

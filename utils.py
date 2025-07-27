@@ -18,6 +18,9 @@ from resources import (
     Resources,
     ClozeChoosingAlgorithm
 )
+from configUtils import (
+    getInputFilePath
+)
 
 logger = logging.getLogger(__name__)
 
@@ -430,3 +433,23 @@ def createInitialClozeFlashcards(
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
     wordToSimpleClozeFlashcards.update(wordToClozeFlashcards)
+
+def getUniqueWordIdToWordObjects(configFilePath: str) -> Dict[str, List[Word]]:
+    """
+    Get a mapping of unique word IDs to their corresponding Word objects.
+    """
+    inputFilePath: str = getInputFilePath(configFilePath)
+    sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
+
+    if sentenceLines is None: 
+        return {}
+
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = {}
+
+    for line in sentenceLines:
+        parseSentenceLine(
+            line,
+            uniqueWordIdToWordObjects
+        )
+
+    return uniqueWordIdToWordObjects

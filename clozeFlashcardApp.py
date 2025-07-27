@@ -6,12 +6,12 @@ import io
 import os
 from typing import List
 
-from terminalUtils import (
+from terminalUtils import runAlgorithm
+from configUtils import (
     getConfigList,
-    getCurrentConfigFilePath,
     getCurrentConfigName,
     setCurrentConfig,
-    runAlgorithm
+    getCurrentConfigFilePath
 )
 
 logger = logging.getLogger(__name__)
@@ -70,6 +70,7 @@ def all():
 
     runAlgorithm(configFilePath)
 
+# TODO : come up with and stick to naming convention
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL

@@ -1,12 +1,17 @@
+import logging
 import click
+import os
 from typing import List
 
 from terminalUtils import (
     getConfigList,
     getCurrentConfigFilePath,
     getCurrentConfigName,
+    setCurrentConfig,
     runAlgorithm
 )
+
+logger = logging.getLogger(__name__)
 
 @click.group()
 def cli():
@@ -16,7 +21,7 @@ def cli():
 @cli.command()
 def help():
     """Show help info."""
-    click.echo("Use --help with any command to see details.")
+    logger.info("Use --help with any command to see details.")
 
 # Config command group
 @cli.group()
@@ -50,6 +55,12 @@ def current():
     """Show the currently active config's name."""
     click.echo(getCurrentConfigName())
 
+@config.command(name='set-current')
+@click.argument('name')
+def setCurrent(name: str):
+    """Set the currently active config by name."""
+    setCurrentConfig(name)
+
 # Run command group
 @cli.group()
 def run():
@@ -61,13 +72,22 @@ def all():
     """Run the full app with the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     if configFilePath.startswith("error:"):
-        click.echo(configFilePath)
+        logger.error(configFilePath)
         return
     # Proceed with running the app using the config file
-    click.echo(f"Running app with config: {configFilePath}")
+    logger.info(f"Running app with config: {configFilePath}")
 
     runAlgorithm(configFilePath)
 
 if __name__ == "__main__":
-    #cli()
-    all()
+    logging.basicConfig(
+        level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
+        format='%(levelname)s: %(message)s'
+    )
+    
+    isDev = os.getenv("DEV_MODE", "false").lower() == "true"
+    
+    if isDev:
+        all()
+    else:
+        cli()

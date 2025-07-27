@@ -1,6 +1,6 @@
 import logging
 import json
-from typing import Dict, List, Optional
+from typing import Any, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ def readJsonFile(filePath: str) -> Optional[str]:
 
 def writeJsonFile(
     filePath: str,
-    data: Dict[str, List[Dict[str, str]]]
+    data: Any
 ) -> None:
     """
     Dump the data to a JSON file.

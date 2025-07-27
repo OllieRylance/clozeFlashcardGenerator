@@ -74,7 +74,7 @@ def main(
         wordToSimpleClozeFlashcards
     )
 
-    # Ensure that that all of the past in use cloze flashcards are still in the output
+    # Ensure that the in use cloze flashcards are persisted
     ensureInUseClozeFlashcardsPersist(
         inUseClozeFlashcards, wordToSimpleClozeFlashcards
     )
@@ -98,8 +98,10 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: frequencies[item[0]], # Sort by frequency
-                    reverse=True # Most frequent first
+                    # Sort by frequency
+                    key=lambda item: frequencies[item[0]],
+                    # Most frequent first
+                    reverse=True
                 )
             )
         elif order == OutputOrder.RANDOM:
@@ -114,7 +116,8 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: usedCounts[item[0]], # Sort by used count
+                    # Sort by used count
+                    key=lambda item: usedCounts[item[0]],
                 )
             )
         elif order == OutputOrder.LEAST_IN_USED_SENTENCES_FIRST:
@@ -132,7 +135,8 @@ def main(
             wordToSimpleClozeFlashcards = dict(
                 sorted(
                     wordToSimpleClozeFlashcards.items(),
-                    key=lambda item: inUseCounts[item[0]], # Sort by in use count
+                    # Sort by in use count
+                    key=lambda item: inUseCounts[item[0]],
                 )
             )
 
@@ -140,12 +144,18 @@ def main(
         wordToSimpleClozeFlashcards = dict(
             sorted(
                 wordToSimpleClozeFlashcards.items(),
-                key=lambda item: 1 if item[0] in wordsToBury else 0 # Bury specified words
+                # Bury specified words
+                key=lambda item: 1 if item[0] in wordsToBury else 0
             )
         )
 
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
         convertToJsonableFormat(wordToSimpleClozeFlashcards)
+    )
+
+    # Ensure that the in use cloze flashcards are persisted
+    ensureInUseClozeFlashcardsPersist(
+        inUseClozeFlashcards, wordToSimpleClozeFlashcards
     )
 
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)
@@ -154,13 +164,15 @@ def main(
 if __name__ == "__main__":
     # Configure logging
     logging.basicConfig(
-        level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
+        # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
+        level=logging.DEBUG,
         format='%(levelname)s: %(message)s'
     )
 
     profiler = None
 
-    # If the logger is set to DEBUG, create a profile to analyze performance
+    # If the logger is set to DEBUG, create a profile to
+    # analyze performance
     if logger.isEnabledFor(logging.DEBUG):
         # Create profiler
         profiler = cProfile.Profile()
@@ -182,8 +194,9 @@ if __name__ == "__main__":
         OutputOrder.FREQUENCY,
         OutputOrder.ALPHABETICAL
     ]
-    # TODO : add option that allows words that are already used as
-    # cloze words to just output those flashcards for (save processing time)
+    # TODO : add option that allows words that are already used
+    # as cloze words to just output those flashcards for (save
+    # processing time)
     # onlyInUseForWordsWithClozeFlashcards: bool = True
     wordsToBury: Optional[List[str]] = ["oni", "ona"]
     main(

@@ -3,7 +3,7 @@ import json
 import os
 from typing import Any, List, Optional
 
-from readWrite import readJsonFile
+from readWrite import readJsonFile, writeJsonFile
 from resources import ClozeChoosingAlgorithm, OutputOrder
 from main import main
 
@@ -75,6 +75,29 @@ def getCurrentConfigFilePath() -> str:
             return os.path.join("algorithmConfigs", configFileName)
     return "error: current config file not found"
 
+def setCurrentConfig(name: str) -> None:
+    """
+    Sets the currently active configuration by name.
+    """
+    appConfigJsonString: Optional[str] = readJsonFile("appConfig.json")
+    if appConfigJsonString is None:
+        logger.error("appConfig.json not found")
+        return
+
+    appConfigJson = json.loads(appConfigJsonString)
+    configs = appConfigJson.get("configs", [])
+    if not configs:
+        logger.error("No configs available")
+        return
+    
+    for index, config in enumerate(configs):
+        if config.get("name") == name:
+            appConfigJson["currentConfigIndex"] = index
+            writeJsonFile("appConfig.json", appConfigJson)
+            logger.info(f"Current config set to: {name}")
+            return
+    logger.error(f"Config '{name}' not found")
+
 def runAlgorithm(configFilePath: str) -> None:
     configJsonString: Optional[str] = readJsonFile(configFilePath)
     if configJsonString is None:
@@ -83,21 +106,21 @@ def runAlgorithm(configFilePath: str) -> None:
     
     configJson = json.loads(configJsonString)
 
-    inputFilePath: str = configJson.get("inputFilePath", "")
-    outputFilePath: str = configJson.get("outputFilePath", "")
+    inputFilePath: str = configJson.get("inputFilePath", "sentences.txt")
+    outputFilePath: str = configJson.get("outputFilePath", "clozeFlashcards.json")
     clozeChoosingAlgorithmString: Optional[str] = configJson.get("clozeChoosingAlgorithm")
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = (
         ClozeChoosingAlgorithm(clozeChoosingAlgorithmString)
         if clozeChoosingAlgorithmString else ClozeChoosingAlgorithm.MOST_DIFFERENT
     )
-    numFlashcardsPerWord: int = configJson.get("numFlashcardsPerWord", 0)
+    numFlashcardsPerWord: int = configJson.get("numFlashcardsPerWord", 3)
     benefitShorterSentences: bool = configJson.get("benefitShorterSentences", False)
     outputOrderStrings: List[str] = configJson.get("outputOrder", [])
     outputOrder: List[OutputOrder] = [ # TODO : handle invalid outputOrder strings
         OutputOrder(order) for order in outputOrderStrings
-    ] or [OutputOrder.ALPHABETICAL]
-    existingOutputFilePath: Optional[str] = configJson.get("existingOutputFilePath", "Same")
-    wordsToBury: Optional[List[str]] = configJson.get("wordsToBury", None)
+    ] or []
+    existingOutputFilePath: str = configJson.get("existingOutputFilePath", "Same")
+    wordsToBury: List[str] = configJson.get("wordsToBury", [])
 
     main(
         inputFilePath,

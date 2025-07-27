@@ -14,7 +14,7 @@ class OutputOrder(Enum):
     LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
     LEAST_IN_USED_SENTENCES_FIRST = "leastInUsedSentencesFirst"
 
-# TODO : add an algorithm which prioritises sentences with the 
+# TODO : add an algorithms which prioritise sentences with the 
 # highest proportion of words that are either:
 # - not anywhere in existing flashcards
 # - not cloze words in existing flashcards

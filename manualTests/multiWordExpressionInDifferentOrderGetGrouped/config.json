@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/multiWordExpressionInDifferentOrderGetGrouped/sentences.txt",
-    "outputFilePath": "manualTests/multiWordExpressionInDifferentOrderGetGrouped/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/multiWordExpressionInDifferentOrderGetGrouped/clozeFlashcards.json"
 }

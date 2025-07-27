@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/punctuationBeforeFirstWord/sentences.txt",
-    "outputFilePath": "manualTests/punctuationBeforeFirstWord/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/punctuationBeforeFirstWord/clozeFlashcards.json"
 }

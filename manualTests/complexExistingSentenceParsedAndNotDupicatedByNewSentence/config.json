@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/complexExistingSentenceParsedAndNotDupicatedByNewSentence/sentences.txt",
-    "outputFilePath": "manualTests/complexExistingSentenceParsedAndNotDupicatedByNewSentence/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/complexExistingSentenceParsedAndNotDupicatedByNewSentence/clozeFlashcards.json"
 }

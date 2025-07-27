@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/aloneAndBeforePunctuationMidSentence/sentences.txt",
-    "outputFilePath": "manualTests/aloneAndBeforePunctuationMidSentence/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/aloneAndBeforePunctuationMidSentence/clozeFlashcards.json"
 }

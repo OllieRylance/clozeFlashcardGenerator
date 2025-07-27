@@ -1,0 +1,2 @@
+this file is the default sentences file
+i have not generated an output because, if the output does get generated, that is an indicator that something has gone wrong

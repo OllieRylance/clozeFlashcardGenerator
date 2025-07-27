@@ -37,12 +37,12 @@ class algorithmConfigDefaults:
     """
     Default values for the algorithm configuration.
     """
-    inputFilePath: str = "sentences.txt"
-    outputFilePath: str = "clozeFlashcards.json"
+    inputFilePath: str = "defaultData/sentences.txt"
+    outputFilePath: str = "defaultData/clozeFlashcards.json"
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     numFlashcardsPerWord: int = 3
     benefitShorterSentences: bool = False
-    outputOrder: List[OutputOrder] = []
+    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL]
     wordsToBury: List[str] = []
     # TODO : add option that allows words that are already used
     # as cloze words to just output those flashcards for (save

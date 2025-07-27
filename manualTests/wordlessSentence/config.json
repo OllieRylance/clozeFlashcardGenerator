@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/wordlessSentence/sentences.txt",
-    "outputFilePath": "manualTests/wordlessSentence/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/wordlessSentence/clozeFlashcards.json"
 }

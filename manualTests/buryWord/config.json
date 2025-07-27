@@ -1,8 +1,5 @@
 {
     "inputFilePath": "manualTests/buryWord/sentences.txt",
     "outputFilePath": "manualTests/buryWord/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ],
     "wordsToBury": ["b"]
 }

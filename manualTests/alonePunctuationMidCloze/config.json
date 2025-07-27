@@ -1,7 +1,4 @@
 {
     "inputFilePath": "manualTests/alonePunctuationMidCloze/sentences.txt",
-    "outputFilePath": "manualTests/alonePunctuationMidCloze/clozeFlashcards.json",
-    "outputOrder": [
-        "alphabetical"
-    ]
+    "outputFilePath": "manualTests/alonePunctuationMidCloze/clozeFlashcards.json"
 }

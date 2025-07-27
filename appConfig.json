@@ -1,0 +1,9 @@
+{
+    "configs": [
+        {
+            "name": "default",
+            "file": "default.json" 
+        }
+    ],
+    "currentConfigIndex": 0
+}

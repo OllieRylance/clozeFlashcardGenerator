@@ -1,0 +1,14 @@
+{
+    "inputFilePath": "sentences.txt",
+    "outputFilePath": "clozeFlashcards.json",
+    "clozeChoosingAlgorithm": "mostDifferent",
+    "numFlashcardsPerWord": 3,
+    "benefitShorterSentences": true,
+    "outputOrder": [
+        "leastUsedAsClozeFirst",
+        "leastInUsedSentencesFirst",
+        "frequency",
+        "alphabetical"
+    ],
+    "wordsToBury": ["oni", "ona"]
+}

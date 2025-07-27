@@ -79,6 +79,9 @@ def main(
         inUseClozeFlashcards, wordToSimpleClozeFlashcards
     )
 
+    # TODO : complete seperate sorting logic so that it can be used
+    # with and without rerunning the algorithm
+
     outputOrder.reverse()
     for order in outputOrder:
         if order == OutputOrder.ALPHABETICAL:

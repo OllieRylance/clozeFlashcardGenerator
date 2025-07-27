@@ -596,6 +596,22 @@ class SimpleClozeFlashcard:
         }
     
     @staticmethod
+    def fromJsonableDict(
+        jsonableDict: Dict[str, str]
+    ) -> 'SimpleClozeFlashcard':
+        """
+        Create a SimpleClozeFlashcard from a JSON-serializable dictionary.
+        """
+        return SimpleClozeFlashcard(
+            beforeCloze=jsonableDict['beforeCloze'],
+            midCloze=jsonableDict['midCloze'],
+            afterCloze=jsonableDict['afterCloze'],
+            clozePart1=jsonableDict['clozeWordPart1'],
+            clozePart2=jsonableDict['clozeWordPart2'],
+            inUse=jsonableDict['inUse'] == 'True'
+        )
+
+    @staticmethod
     def wordsInString(string: str) -> int:
         words: List[str] = string.split()
         # Ignore words that are just punctuation

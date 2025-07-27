@@ -1,15 +1,13 @@
 import logging
 from typing import Dict, List
 
-from configUtils import getOutputFilePath
 from models import ClozeFlashcard, SimpleClozeFlashcard, Word
-from readWrite import writeJsonFile
 from utils import (
-    convertToJsonableFormat,
-    ensureInUseClozeFlashcardsPersist,
     generateClozeFlashcards,
     getUniqueWordIdToWordObjects,
-    getInUseClozeFlashcards
+    getInUseClozeFlashcards,
+    getOutputFileData,
+    storeWordToSimpleClozeFlashcards
 )
 from resources import (
     OutputOrder
@@ -24,20 +22,26 @@ logger = logging.getLogger(__name__)
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
 def main(configFilePath: str) -> None:
+    applyAlgorithm(configFilePath)
+    sortOutputWords(configFilePath)
+    buryOutputWords(configFilePath)
+
+def applyAlgorithm(configFilePath: str) -> None:
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
         generateClozeFlashcards(
             configFilePath
         )
     )
 
-    # Ensure that the in use cloze flashcards are persisted
-    ensureInUseClozeFlashcardsPersist(
+    storeWordToSimpleClozeFlashcards(
         configFilePath,
         wordToSimpleClozeFlashcards
     )
 
-    # TODO : complete seperate sorting logic so that it can be used
-    # with and without rerunning the algorithm
+def sortOutputWords(configFilePath: str) -> None:
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        getOutputFileData(configFilePath)
+    )
 
     outputOrder: List[OutputOrder] = getOutputOrder(configFilePath)
     outputOrder.reverse()
@@ -105,6 +109,18 @@ def main(configFilePath: str) -> None:
                 )
             )
 
+    storeWordToSimpleClozeFlashcards(
+        configFilePath,
+        wordToSimpleClozeFlashcards
+    )
+
+    buryOutputWords(configFilePath)
+
+def buryOutputWords(configFilePath: str) -> None:
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        getOutputFileData(configFilePath)
+    )
+
     wordsToBury: List[str] = getWordsToBury(configFilePath)
     wordToSimpleClozeFlashcards = dict(
         sorted(
@@ -114,15 +130,7 @@ def main(configFilePath: str) -> None:
         )
     )
 
-    wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
-        convertToJsonableFormat(wordToSimpleClozeFlashcards)
-    )
-
-    # Ensure that the in use cloze flashcards are persisted
-    ensureInUseClozeFlashcardsPersist(
+    storeWordToSimpleClozeFlashcards(
         configFilePath,
         wordToSimpleClozeFlashcards
     )
-
-    outputFilePath: str = getOutputFilePath(configFilePath)
-    writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)

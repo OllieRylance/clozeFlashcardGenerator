@@ -13,7 +13,7 @@ from models import (
     ClozeFlashcard,
     SimpleClozeFlashcard,
 )
-from readWrite import readJsonFile, readLines
+from readWrite import readJsonFile, readLines, writeJsonFile
 from resources import (
     Resources,
     ClozeChoosingAlgorithm
@@ -485,3 +485,43 @@ def getInUseClozeFlashcards(configFilePath: str) -> Dict[str, List[ClozeFlashcar
     )
 
     return inUseClozeFlashcards
+
+def getOutputFileData(configFilePath: str) -> Dict[str, List[SimpleClozeFlashcard]]:
+    """
+    Get a mapping of words to their corresponding SimpleClozeFlashcard objects from the output file.
+    """
+    outputFilePath: str = getOutputFilePath(configFilePath)
+    jsonDataString: Optional[str] = readJsonFile(outputFilePath)
+    if jsonDataString is None:
+        logger.error(f"Output file '{outputFilePath}' not found or empty.")
+        return {}
+
+    jsonData: Dict[str, List[Dict[str, str]]] = json.loads(jsonDataString)
+    if not jsonData:
+        logger.error(f"No data found in output file '{outputFilePath}'.")
+        return {}
+
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
+    for word, flashcards in jsonData.items():
+        wordToSimpleClozeFlashcards[word] = [
+            SimpleClozeFlashcard.fromJsonableDict(fc) for fc in flashcards
+        ]
+
+    return wordToSimpleClozeFlashcards
+
+def storeWordToSimpleClozeFlashcards(
+        configFilePath: str,
+        wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
+) -> None:
+    # Ensure that the in use cloze flashcards are persisted
+    ensureInUseClozeFlashcardsPersist(
+        configFilePath,
+        wordToSimpleClozeFlashcards
+    )
+
+    wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = (
+        convertToJsonableFormat(wordToSimpleClozeFlashcards)
+    )
+
+    outputFilePath: str = getOutputFilePath(configFilePath)
+    writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)

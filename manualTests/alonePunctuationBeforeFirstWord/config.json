@@ -1,0 +1,7 @@
+{
+    "inputFilePath": "manualTests/alonePunctuationBeforeFirstWord/sentences.txt",
+    "outputFilePath": "manualTests/alonePunctuationBeforeFirstWord/clozeFlashcards.json",
+    "outputOrder": [
+        "alphabetical"
+    ]
+}

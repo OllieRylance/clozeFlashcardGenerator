@@ -1,0 +1,7 @@
+{
+    "inputFilePath": "manualTests/doubleSpace/sentences.txt",
+    "outputFilePath": "manualTests/doubleSpace/clozeFlashcards.json",
+    "outputOrder": [
+        "alphabetical"
+    ]
+}

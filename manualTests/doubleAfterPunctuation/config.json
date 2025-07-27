@@ -1,0 +1,7 @@
+{
+    "inputFilePath": "manualTests/doubleAfterPunctuation/sentences.txt",
+    "outputFilePath": "manualTests/doubleAfterPunctuation/clozeFlashcards.json",
+    "outputOrder": [
+        "alphabetical"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "inputFilePath": "manualTests/invalidPunctuation/sentences.txt",
+    "outputFilePath": "manualTests/invalidPunctuation/clozeFlashcards.json",
+    "outputOrder": [
+        "alphabetical"
+    ]
+}

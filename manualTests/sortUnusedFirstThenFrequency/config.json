@@ -1,0 +1,8 @@
+{
+    "inputFilePath": "manualTests/sortUnusedFirstThenFrequency/sentences.txt",
+    "outputFilePath": "manualTests/sortUnusedFirstThenFrequency/clozeFlashcards.json",
+    "outputOrder": [
+        "leastUsedAsClozeFirst",
+        "frequency"
+    ]
+}

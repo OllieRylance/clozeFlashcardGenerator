@@ -1,0 +1,7 @@
+{
+    "inputFilePath": "manualTests/afterAndAlonePunctuationAfterLastWord/sentences.txt",
+    "outputFilePath": "manualTests/afterAndAlonePunctuationAfterLastWord/clozeFlashcards.json",
+    "outputOrder": [
+        "alphabetical"
+    ]
+}

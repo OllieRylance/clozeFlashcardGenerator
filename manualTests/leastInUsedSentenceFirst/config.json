@@ -1,0 +1,8 @@
+{
+    "inputFilePath": "manualTests/leastInUsedSentenceFirst/sentences.txt",
+    "outputFilePath": "manualTests/leastInUsedSentenceFirst/clozeFlashcards.json",
+    "outputOrder": [
+        "leastInUsedSentencesFirst",
+        "alphabetical"
+    ]
+}

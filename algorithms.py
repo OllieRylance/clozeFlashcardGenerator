@@ -2,14 +2,14 @@ import logging
 from typing import Dict, List, Optional, Tuple
 from itertools import combinations
 
+from configUtils import getBenefitShorterSentences, getNumFlashcardsPerWord
 from models import Line, ClozeFlashcard, SimpleClozeFlashcard, Word
 
 logger = logging.getLogger(__name__)
 
 def mostDifferentAlgorithm(
+    configFilePath: str,
     uniqueWordId: str,
-    n: int,
-    benefitShorterSentences: bool,
     calculatedCosDissimilarities: Dict[Tuple[int, int], float],
     uniqueWordIdToWordObjects: Dict[str, List[Word]],
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
@@ -32,9 +32,11 @@ def mostDifferentAlgorithm(
         if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
             unusedWords.append(word)
 
+    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
+
     # If the number of reference words plus the number of in use cloze flashcards
     # is less than or equal to n, create cloze flashcards for all the words
-    if len(unusedWords) + len(inUseClozeFlashcardsForWord) <= n:
+    if len(unusedWords) + len(inUseClozeFlashcardsForWord) <= numFlashcardsPerWord:
         for word in unusedWords:
             currentUniqueWordId: str = word.getUniqueWordId()
 
@@ -81,7 +83,7 @@ def mostDifferentAlgorithm(
     ]
 
     # Subtract the number of cloze flashcards already in use for the word from n
-    newSentenceNum = n - len(inUseClozeFlashcardsForWord)
+    newSentenceNum = numFlashcardsPerWord - len(inUseClozeFlashcardsForWord)
 
     # Combination means combination of sentences, not words
     newCombinations: List[Tuple[int, ...]] = generateNewCombinations(
@@ -89,9 +91,9 @@ def mostDifferentAlgorithm(
     )
 
     bestCombination: Optional[Tuple[int, ...]] = findMostDifferentCombination(
+        configFilePath,
         newCombinations,
         lineIdToWord,
-        benefitShorterSentences,
         calculatedCosDissimilarities,
         uniqueWordIdToWordObjects,
         calculatedSentenceLengthScores
@@ -149,15 +151,17 @@ def generateNewCombinations(
     return newCombinations
 
 def findMostDifferentCombination(
+    configFilePath: str,
     combinationsOfRawLines: List[Tuple[int, ...]],
     lineIdToWord: Dict[int, Word],
-    benefitShorterSentences: bool,
     calculatedCosDissimilarities: Dict[Tuple[int, int], float],
     uniqueWordIdToWordObjects: Dict[str, List[Word]],
     calculatedSentenceLengthScores: Dict[int, float]
 ) -> Optional[Tuple[int, ...]]:
     currentHighestCosDissimilarity: float = 0
     currentBestCombination: Optional[Tuple[int, ...]] = None
+
+    benefitShorterSentences: bool = getBenefitShorterSentences(configFilePath)
 
     # For each combination of raw lines work out the sum of the normalised 
     # dot products of their word vectors and find the combination with the 

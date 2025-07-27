@@ -19,7 +19,10 @@ from resources import (
     ClozeChoosingAlgorithm
 )
 from configUtils import (
-    getInputFilePath
+    getClozeChoosingAlgorithm,
+    getInputFilePath,
+    getNumFlashcardsPerWord,
+    getOutputFilePath
 )
 
 logger = logging.getLogger(__name__)
@@ -49,8 +52,8 @@ def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
     return sentenceLines
 
 def prepareInUseClozeFlashcards(
+        configFilePath: str,
         outputFilePath: str,
-        uniqueWordIdToWordObjects: Dict[str, List[Word]],
         inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
     ) -> None:
     """
@@ -66,15 +69,17 @@ def prepareInUseClozeFlashcards(
         )
 
     makeInUseClozeFlashcards(
+        configFilePath,
         existingClozeFlashcardsJsonFileString,
-        uniqueWordIdToWordObjects,
         inUseClozeFlashcards
     )
 
-def printGeneratingClozeFlashcardsInfo(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm
-) -> None:
+def printGeneratingClozeFlashcardsInfo(configFilePath: str) -> None:
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+        getInUseClozeFlashcards(configFilePath)
+    )
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
+    
     totalInUseClozeFlashcards: int = sum(
         len(flashcards) for flashcards in inUseClozeFlashcards.values()
     )
@@ -83,30 +88,34 @@ def printGeneratingClozeFlashcardsInfo(
         f"given {totalInUseClozeFlashcards} existing cloze flashcards..."
     )
 
-def generateClozeFlashcards(
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm,
-    n: int,
-    benefitShorterSentences: bool,
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
-    uniqueWordIdToWordObjects: Dict[str, List[Word]],
-    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
-) -> None:
+def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFlashcard]]:
     """
     Generate cloze flashcards based on the chosen algorithm.
     Returns a dictionary of words to lists of SimpleClozeFlashcard objects.
     """
     if logger.isEnabledFor(logging.INFO):
-        printGeneratingClozeFlashcardsInfo(
-            inUseClozeFlashcards, clozeChoosingAlgorithm
-        )
+        printGeneratingClozeFlashcardsInfo(configFilePath)
 
-    createInitialClozeFlashcards(inUseClozeFlashcards, wordToSimpleClozeFlashcards)
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+        getUniqueWordIdToWordObjects(configFilePath)
+    )
+
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+        getInUseClozeFlashcards(configFilePath)
+    )
+
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        createInitialClozeFlashcards(inUseClozeFlashcards)
+    )
+
+    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
+    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
 
     for uniqueWordId in uniqueWordIdToWordObjects.keys():
-        # If the word already has equal or more cloze flashcards than n, skip it
+        # If the word already has equal or more cloze flashcards than numFlashcardsPerWord, skip it
         if (
             uniqueWordId in wordToSimpleClozeFlashcards
-            and len(wordToSimpleClozeFlashcards[uniqueWordId]) >= n
+            and len(wordToSimpleClozeFlashcards[uniqueWordId]) >= numFlashcardsPerWord
         ):
             continue
 
@@ -115,20 +124,25 @@ def generateClozeFlashcards(
 
         if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
             mostDifferentAlgorithm(
+                configFilePath,
                 uniqueWordId,
-                n,
-                benefitShorterSentences,
                 calculatedCosDissimilarities,
                 uniqueWordIdToWordObjects,
                 inUseClozeFlashcards,
                 wordToSimpleClozeFlashcards,
                 calculatedSentenceLengthScores
             )
+    
+    return wordToSimpleClozeFlashcards
 
 def ensureInUseClozeFlashcardsPersist(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
+    configFilePath: str,
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
 ) -> None:
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+        getInUseClozeFlashcards(configFilePath)
+    )
+    
     for word, clozeFlashcards in inUseClozeFlashcards.items():
         if word not in wordToSimpleClozeFlashcards:
             # If the word is not in the new cloze flashcards, 
@@ -212,8 +226,8 @@ def createClozeFlashcardFromSimpleJsonableDict(
     return clozeFlashcardInstance
 
 def makeInUseClozeFlashcards(
+    configFilePath: str,
     existingClozeFlashcardsJsonFileString: Optional[str],
-    uniqueWordIdToWordObjects: Dict[str, List[Word]],
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
 ) -> None:
     """
@@ -231,6 +245,10 @@ def makeInUseClozeFlashcards(
         )
     except json.JSONDecodeError:
         logger.error("Error decoding JSON from clozeFlashcards.json. Starting fresh.")
+
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+        getUniqueWordIdToWordObjects(configFilePath)
+    )
 
     # Log the number of unique words found
     logger.debug(
@@ -416,9 +434,8 @@ def convertToJsonableFormat(
     return wordToJsonableClozeFlashcards
 
 def createInitialClozeFlashcards(
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]],
-    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
-) -> None:
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
+) -> Dict[str, List[SimpleClozeFlashcard]]:
     wordToClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
 
     for word in inUseClozeFlashcards:
@@ -432,7 +449,7 @@ def createInitialClozeFlashcards(
             )
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
-    wordToSimpleClozeFlashcards.update(wordToClozeFlashcards)
+    return wordToClozeFlashcards
 
 def getUniqueWordIdToWordObjects(configFilePath: str) -> Dict[str, List[Word]]:
     """
@@ -453,3 +470,18 @@ def getUniqueWordIdToWordObjects(configFilePath: str) -> Dict[str, List[Word]]:
         )
 
     return uniqueWordIdToWordObjects
+
+def getInUseClozeFlashcards(configFilePath: str) -> Dict[str, List[ClozeFlashcard]]:
+    """
+    Get a mapping of unique word IDs to their corresponding in-use ClozeFlashcard objects.
+    """
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
+
+    outputFilePath: str = getOutputFilePath(configFilePath)
+    prepareInUseClozeFlashcards(
+        configFilePath,
+        outputFilePath,
+        inUseClozeFlashcards
+    )
+
+    return inUseClozeFlashcards

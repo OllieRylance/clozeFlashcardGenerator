@@ -1,24 +1,20 @@
 import logging
 from typing import Dict, List
 
-from configUtils import getNumFlashcardsPerWord
+from configUtils import getOutputFilePath
 from models import ClozeFlashcard, SimpleClozeFlashcard, Word
 from readWrite import writeJsonFile
 from utils import (
     convertToJsonableFormat,
     ensureInUseClozeFlashcardsPersist,
     generateClozeFlashcards,
-    prepareInUseClozeFlashcards,
-    getUniqueWordIdToWordObjects
+    getUniqueWordIdToWordObjects,
+    getInUseClozeFlashcards
 )
 from resources import (
-    ClozeChoosingAlgorithm,
     OutputOrder
 )
 from configUtils import (
-    getOutputFilePath,
-    getClozeChoosingAlgorithm,
-    getBenefitShorterSentences,
     getOutputOrder,
     getWordsToBury
 )
@@ -28,33 +24,16 @@ logger = logging.getLogger(__name__)
 # Main Function
 # Generates optimal cloze flashcards from a file of sentences
 def main(configFilePath: str) -> None:
-    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
-        getUniqueWordIdToWordObjects(configFilePath)
-    )
-
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
-
-    outputFilePath: str = getOutputFilePath(configFilePath)
-    prepareInUseClozeFlashcards(
-        outputFilePath,
-        uniqueWordIdToWordObjects,
-        inUseClozeFlashcards
-    )
-
-    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}
-
-    clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
-    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
-    benefitShorterSentences: bool = getBenefitShorterSentences(configFilePath)
-    generateClozeFlashcards(
-        clozeChoosingAlgorithm, numFlashcardsPerWord, benefitShorterSentences,
-        inUseClozeFlashcards, uniqueWordIdToWordObjects,
-        wordToSimpleClozeFlashcards
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        generateClozeFlashcards(
+            configFilePath
+        )
     )
 
     # Ensure that the in use cloze flashcards are persisted
     ensureInUseClozeFlashcardsPersist(
-        inUseClozeFlashcards, wordToSimpleClozeFlashcards
+        configFilePath,
+        wordToSimpleClozeFlashcards
     )
 
     # TODO : complete seperate sorting logic so that it can be used
@@ -71,6 +50,9 @@ def main(configFilePath: str) -> None:
                 )
             )
         elif order == OutputOrder.FREQUENCY:
+            uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+                getUniqueWordIdToWordObjects(configFilePath)
+            )            
             frequencies: Dict[str, int] = {}
             for word, references in uniqueWordIdToWordObjects.items():
                 frequencies[word] = len(references)
@@ -103,6 +85,10 @@ def main(configFilePath: str) -> None:
             inUseCounts: Dict[str, int] = {}
             for word in wordToSimpleClozeFlashcards.keys():
                 inUseCounts[word] = 0
+
+            inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+                getInUseClozeFlashcards(configFilePath)
+            )
             for word in (word for flashcards in inUseClozeFlashcards.values() 
                          for flashcard in flashcards 
                          for word in flashcard.getWords()):
@@ -134,7 +120,9 @@ def main(configFilePath: str) -> None:
 
     # Ensure that the in use cloze flashcards are persisted
     ensureInUseClozeFlashcardsPersist(
-        inUseClozeFlashcards, wordToSimpleClozeFlashcards
+        configFilePath,
+        wordToSimpleClozeFlashcards
     )
 
+    outputFilePath: str = getOutputFilePath(configFilePath)
     writeJsonFile(outputFilePath, wordToJsonableClozeFlashcards)

@@ -42,7 +42,7 @@ class algorithmConfigDefaults:
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = ClozeChoosingAlgorithm.MOST_DIFFERENT
     numFlashcardsPerWord: int = 3
     benefitShorterSentences: bool = False
-    outputOrder: List[OutputOrder] = [OutputOrder.ALPHABETICAL]
+    outputOrder: List[OutputOrder] = []
     wordsToBury: List[str] = []
     # TODO : add option that allows words that are already used
     # as cloze words to just output those flashcards for (save

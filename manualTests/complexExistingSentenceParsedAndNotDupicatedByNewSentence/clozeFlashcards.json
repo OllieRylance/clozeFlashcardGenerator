@@ -1,14 +1,4 @@
 {
-    "a": [
-        {
-            "beforeCloze": "?",
-            "clozeWordPart1": "a",
-            "afterCloze": " b ? c? d? e",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "b d": [
         {
             "beforeCloze": "?a ",
@@ -17,6 +7,16 @@
             "midCloze": " ? c? ",
             "clozeWordPart2": "d",
             "inUse": "True"
+        }
+    ],
+    "a": [
+        {
+            "beforeCloze": "?",
+            "clozeWordPart1": "a",
+            "afterCloze": " b ? c? d? e",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
         }
     ],
     "c e": [

@@ -4,14 +4,26 @@ import cProfile
 import pstats
 import io
 import os
-from typing import List
+from typing import List, Tuple
 
 from terminalUtils import runAlgorithm
 from configUtils import (
     getConfigList,
     getCurrentConfigName,
+    setConfigBenefitShorter,
+    setConfigFlashcardsPerWord,
+    setConfigOutputOrder,
     setCurrentConfig,
-    getCurrentConfigFilePath
+    getCurrentConfigFilePath,
+    setConfigInputFile,
+    setConfigOutputFile,
+    setConfigAlgorithm,
+    addBuryWordToConfig,
+    removeBuryWordFromConfig
+)
+from resources import (
+    ClozeChoosingAlgorithm,
+    OutputOrder
 )
 
 logger = logging.getLogger(__name__)
@@ -53,6 +65,63 @@ def current():
 def setCurrent(name: str):
     """Set the currently active config by name."""
     setCurrentConfig(name)
+
+@config.command(name='set-input-file')
+@click.argument('path')
+def setInputFile(path: str):
+    """Set the input file path for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    setConfigInputFile(currentConfigName, path)
+
+@config.command(name='set-output-file')
+@click.argument('path')
+def setOutputFile(path: str):
+    """Set the output file path for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    setConfigOutputFile(currentConfigName, path)
+
+@config.command(name='set-algorithm')
+@click.argument('algorithm', type=click.Choice(ClozeChoosingAlgorithm.getTerminalOptions()))
+def setAlgorithm(algorithm: str):
+    """Set the cloze choosing algorithm for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    setConfigAlgorithm(currentConfigName, algorithm)
+
+@config.command(name='set-flashcards-per-word')
+@click.argument('count', type=int)
+def setFlashcardsPerWord(count: int):
+    """Set the number of flashcards per word for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    setConfigFlashcardsPerWord(currentConfigName, count)
+
+@config.command(name='set-benefit-shorter')
+@click.argument('enabled', type=bool)
+def setBenefitShorter(enabled: bool):
+    """Enable or disable benefiting shorter sentences for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    setConfigBenefitShorter(currentConfigName, enabled)
+
+@config.command(name='set-output-order')
+@click.argument('orders', nargs=-1, type=click.Choice(OutputOrder.getTerminalOptions()))
+def setOutputOrder(orders: Tuple[str, ...]):
+    """Set the output order for the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    ordersList = [order for order in orders]
+    setConfigOutputOrder(currentConfigName, ordersList)
+
+@config.command(name='add-bury-word')
+@click.argument('word')
+def addBuryWord(word: str):
+    """Add a word to bury in the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    addBuryWordToConfig(currentConfigName, word)
+
+@config.command(name='remove-bury-word')
+@click.argument('word')
+def removeBuryWord(word: str):
+    """Remove a word from bury list in the current config."""
+    currentConfigName: str = getCurrentConfigName()
+    removeBuryWordFromConfig(currentConfigName, word)
 
 # Run command group
 @cli.group()

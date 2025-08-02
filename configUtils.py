@@ -93,14 +93,15 @@ def setCurrentConfig(name: str) -> None:
             return
     logger.error(f"Config '{name}' not found")
 
-def getAlgorithmConfig(configFilePath: str) -> Any:
+def getConfigJson(configFilePath: str) -> Any:
     """
     Returns the algorithm configuration from the specified file.
     """
     configJsonString: Optional[str] = readJsonFile(configFilePath)
     if configJsonString is None:
         logger.error(f"Config file {configFilePath} not found")
-        return getAlgorithmConfig(getConfigFilePath("default"))
+        setCurrentConfig("default")
+        return getConfigJson(getConfigFilePath("default"))
     
     try:
         configJson = json.loads(configJsonString)
@@ -113,28 +114,28 @@ def getInputFilePath(configFilePath: str) -> str:
     """
     Returns the input file path from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.inputFilePath
-    return algorithmConfig.get("inputFilePath", algorithmConfigDefaults.inputFilePath)
+    return configJson.get("inputFilePath", algorithmConfigDefaults.inputFilePath)
 
 def getOutputFilePath(configFilePath: str) -> str:
     """
     Returns the output file path from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.outputFilePath
-    return algorithmConfig.get("outputFilePath", algorithmConfigDefaults.outputFilePath)
+    return configJson.get("outputFilePath", algorithmConfigDefaults.outputFilePath)
 
 def getClozeChoosingAlgorithm(configFilePath: str) -> ClozeChoosingAlgorithm:
     """
     Returns the cloze choosing algorithm from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.clozeChoosingAlgorithm
-    clozeChoosingAlgorithmString: Optional[str] = algorithmConfig.get("clozeChoosingAlgorithm")
+    clozeChoosingAlgorithmString: Optional[str] = configJson.get("clozeChoosingAlgorithm")
     return (
         ClozeChoosingAlgorithm(clozeChoosingAlgorithmString)
         if clozeChoosingAlgorithmString else algorithmConfigDefaults.clozeChoosingAlgorithm
@@ -144,28 +145,28 @@ def getNumFlashcardsPerWord(configFilePath: str) -> int:
     """
     Returns the number of flashcards per word from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.numFlashcardsPerWord
-    return algorithmConfig.get("numFlashcardsPerWord", algorithmConfigDefaults.numFlashcardsPerWord)
+    return configJson.get("numFlashcardsPerWord", algorithmConfigDefaults.numFlashcardsPerWord)
 
 def getBenefitShorterSentences(configFilePath: str) -> bool:
     """
     Returns whether to benefit shorter sentences from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.benefitShorterSentences
-    return algorithmConfig.get("benefitShorterSentences", algorithmConfigDefaults.benefitShorterSentences)
+    return configJson.get("benefitShorterSentences", algorithmConfigDefaults.benefitShorterSentences)
 
 def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
     Returns the output order from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.outputOrder
-    outputOrderStrings: List[str] = algorithmConfig.get("outputOrder", [])
+    outputOrderStrings: List[str] = configJson.get("outputOrder", [])
     return [
         # TODO : handle invalid output order strings
         OutputOrder(order) for order in outputOrderStrings
@@ -175,7 +176,96 @@ def getWordsToBury(configFilePath: str) -> List[str]:
     """
     Returns the list of words to bury from the configuration file.
     """
-    algorithmConfig = getAlgorithmConfig(configFilePath)
-    if algorithmConfig is None:
+    configJson = getConfigJson(configFilePath)
+    if configJson is None:
         return algorithmConfigDefaults.wordsToBury
-    return algorithmConfig.get("wordsToBury", algorithmConfigDefaults.wordsToBury)
+    return configJson.get("wordsToBury", algorithmConfigDefaults.wordsToBury)
+
+def updateConfigFile(configName: str, update: Any) -> None:
+    """
+    Updates the configuration file with the given update dictionary.
+    """
+    # TODO : add error handling
+    configFilePath: str = getConfigFilePath(configName)
+    configJson = getConfigJson(configFilePath)
+    # TODO : error handling
+    configJson.update(update)
+    writeJsonFile(configFilePath, configJson)
+
+def setConfigInputFile(configName: str, path: str) -> None:
+    """
+    Sets the input file path for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"inputFilePath": path})
+
+def setConfigOutputFile(configName: str, path: str) -> None:
+    """
+    Sets the output file path for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"outputFilePath": path})
+
+def setConfigAlgorithm(configName: str, algorithm: str) -> None:
+    """
+    Sets the cloze choosing algorithm for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"clozeChoosingAlgorithm": algorithm})
+
+def setConfigFlashcardsPerWord(configName: str, count: int) -> None:
+    """
+    Sets the number of flashcards per word for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"numFlashcardsPerWord": count})
+
+def setConfigBenefitShorter(configName: str, enabled: bool) -> None:
+    """
+    Enables or disables benefiting shorter sentences for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"benefitShorterSentences": enabled})
+
+def setConfigOutputOrder(configName: str, orders: List[str]) -> None:
+    """
+    Sets the output order for the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    updateConfigFile(configName, {"outputOrder": list(orders)})
+
+def addBuryWordToConfig(configName: str, word: str) -> None:
+    """
+    Adds a word to the bury list in the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
+    if word not in currentWordsToBury:
+        currentWordsToBury.append(word)
+        updateConfigFile(configName, {"wordsToBury": currentWordsToBury})
+
+def removeBuryWordFromConfig(configName: str, word: str) -> None:
+    """
+    Removes a word from the bury list in the specified configuration.
+    """
+    # if configName == "default":
+    #     # Create a new config based on the default
+    #     createNewConfigFromDefault(configName)
+    currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
+    if word in currentWordsToBury:
+        currentWordsToBury.remove(word)
+        updateConfigFile(configName, {"wordsToBury": currentWordsToBury})

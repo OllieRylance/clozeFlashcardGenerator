@@ -39,8 +39,9 @@ def preAlgorithmChecks(
 
             if word.line is None or word.index is None:
                 logger.error(
-                    f"Word '{currentUniqueWordId}' has no line or word index, "
-                    f"cannot create cloze flashcard."
+                    "Word '%s' has no line or word index, "
+                    "cannot create cloze flashcard.",
+                    currentUniqueWordId
                 )
                 continue
 
@@ -110,8 +111,9 @@ def firstSentencesFirstAlgorithm(
             for word in unusedWords[:newSentenceNum]:
                 if word.line is None or word.index is None:
                     logger.error(
-                        f"Word '{word.getUniqueWordId()}' has no line or word index, "
-                        f"cannot create cloze flashcard."
+                        "Word '%s' has no line or word index, "
+                        "cannot create cloze flashcard.",
+                        word.getUniqueWordId()
                     )
                     continue
                 simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
@@ -209,7 +211,7 @@ def mostDifferentAlgorithm(
             )
 
             if bestCombination is None:
-                logger.error(f"No valid combination found for word '{uniqueWordId}'.")
+                logger.error("No valid combination found for word '%s'.", uniqueWordId)
                 pbar.update(1)
                 continue
 
@@ -220,8 +222,9 @@ def mostDifferentAlgorithm(
             for lineId in bestCombinationWithoutInUse:
                 if lineId not in lineIdToWord:
                     logger.error(
-                        f"Line ID {lineId} not found in lineIdToWord mapping "
-                        f"for word '{uniqueWordId}'."
+                        "Line ID %d not found in lineIdToWord mapping "
+                        "for word '%s'.",
+                        lineId, uniqueWordId
                     )
                     continue
 
@@ -229,8 +232,9 @@ def mostDifferentAlgorithm(
                 wordIndex: Optional[int] = lineIdToWord[lineId].index
                 if line is None or wordIndex is None:
                     logger.error(
-                        f"Word '{uniqueWordId}' has no line or word index, "
-                        f"cannot create cloze flashcard."
+                        "Word '%s' has no line or word index, "
+                        "cannot create cloze flashcard.",
+                        uniqueWordId
                     )
                     continue
                 newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
@@ -287,7 +291,8 @@ def findMostDifferentCombination(
                 line2: Optional[Line] = lineIdToWord[combination[j]].line
                 if line1 is None or line2 is None:
                     logger.error(
-                        f"One of the lines for combination {combination} is None."
+                        "One of the lines for combination %s is None.",
+                        combination
                     )
                     continue
                 cosDissimilarity: float = line1.getCosDissimilarity(
@@ -383,8 +388,9 @@ def highestProportionOfNewWordsAlgorithm(
         for word in unusedWords[:numFlashcardsPerWord]:
             if word.line is None or word.index is None:
                 logger.error(
-                    f"Word '{word.getUniqueWordId()}' has no line or word index, "
-                    f"cannot create cloze flashcard."
+                    "Word '%s' has no line or word index, "
+                    "cannot create cloze flashcard.",
+                    word.getUniqueWordId()
                 )
                 continue
 

@@ -22,7 +22,7 @@ def readJsonFile(filePath: str) -> Optional[str]:
         with open(filePath, 'r', encoding='utf-8') as file:
             return file.read()
     except FileNotFoundError:
-        logger.warning(f"File '{filePath}' not found.")
+        logger.warning("File '%s' not found.", filePath)
         return None
 
 def writeJsonFile(

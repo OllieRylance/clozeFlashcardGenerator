@@ -3,7 +3,10 @@ import logging
 import json
 import re
 
-from models import Word, ClozeFlashcard, SimpleClozeFlashcard, Line, Punctuation, MultiWordExpression
+from models import (
+    Word, ClozeFlashcard, SimpleClozeFlashcard, Line,
+    Punctuation, MultiWordExpression
+)
 from configUtils import getInputFilePath, getOutputFilePath
 from readWrite import readLines, readJsonFile
 from resources import Resources, PunctuationWordPosition
@@ -147,8 +150,8 @@ def findInvalidLines(lines: List[str]) -> List[str]:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
         if (not any(c.isalpha() for c in line) or
             '  ' in line or
-            not all(c.isalpha() or c.isdigit() or c.isspace() or c == "_" or c in Resources.punctuationChars
-                   for c in line)):
+            not all(c.isalpha() or c.isdigit() or c.isspace() or c == "_"
+                   or c in Resources.punctuationChars for c in line)):
             invalidLines.append(line)
 
     return invalidLines

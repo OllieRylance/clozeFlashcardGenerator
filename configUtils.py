@@ -185,7 +185,7 @@ def getConfigFilePath(configName: str) -> str:
             optionalConfigFileName: Optional[str] = config.get("file")
             if optionalConfigFileName:
                 return os.path.join("generatorConfigs", optionalConfigFileName)
-            logger.error(f"Config '{configName}' found but has no file name, making a new one")
+            logger.error("Config '%s' found but has no file name, making a new one", configName)
 
     configFileName: str = f"{configName}.json"
     configs.append({
@@ -216,9 +216,9 @@ def setCurrentConfig(name: str) -> None:
         if config.get("name") == name:
             appConfigJson["currentConfigIndex"] = index
             writeAppConfigJsonFile(appConfigJson)
-            logger.info(f"Current config set to: {name}")
+            logger.info("Current config set to: %s", name)
             return
-    logger.error(f"Config '{name}' not found")
+    logger.error("Config '%s' not found", name)
 
 def getConfigJson(configFilePath: str) -> Any:
     """
@@ -226,7 +226,7 @@ def getConfigJson(configFilePath: str) -> Any:
     """
     configJsonString: Optional[str] = readJsonFile(configFilePath)
     if configJsonString is None:
-        logger.error(f"Config file {configFilePath} not found, resetting to default")
+        logger.error("Config file %s not found, resetting to default", configFilePath)
         resetConfigFile(configFilePath)
         return {}
 
@@ -234,7 +234,7 @@ def getConfigJson(configFilePath: str) -> Any:
         configJson = json.loads(configJsonString)
         return configJson
     except json.JSONDecodeError as e:
-        logger.error(f"Failed to parse config file {configFilePath}: {e}")
+        logger.error("Failed to parse config file %s: %s", configFilePath, e)
         return None
 
 def createConfigMapping(configName: str, configFilePath: str) -> None:
@@ -247,7 +247,7 @@ def createConfigMapping(configName: str, configFilePath: str) -> None:
     # Check if the config already exists
     for config in configs:
         if config.get("name") == configName:
-            logger.info(f"Config '{configName}' already exists")
+            logger.info("Config '%s' already exists", configName)
             return
 
     # Add new config mapping
@@ -257,7 +257,7 @@ def createConfigMapping(configName: str, configFilePath: str) -> None:
     }
     configs.append(newConfig)
     writeAppConfigJsonFile(appConfigJson)
-    logger.info(f"Created new config mapping for: {configName}")
+    logger.info("Created new config mapping for: %s", configName)
 
 def createNewConfigName() -> str:
     existingConfigNames: List[str] = getConfigList()
@@ -281,7 +281,7 @@ def resetConfigFile(filePath: str) -> None:
         defaultConfig = {}
 
     writeJsonFile(filePath, defaultConfig)
-    logger.info(f"Reset config file {filePath} to default state")
+    logger.info("Reset config file %s to default state", filePath)
 
 def createAndUseNewConfig() -> str:
     newConfigName: str = createNewConfigName()
@@ -341,7 +341,10 @@ def getBenefitShorterSentences(configFilePath: str) -> bool:
     Returns whether to benefit shorter sentences from the configuration file.
     """
     configJson = getConfigJson(configFilePath)
-    return configJson.get("benefitShorterSentences", GeneratorConfigDefaults.benefitShorterSentences)
+    return configJson.get(
+        "benefitShorterSentences", 
+        GeneratorConfigDefaults.benefitShorterSentences
+    )
 
 def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
@@ -357,7 +360,7 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
         try:
             outputOrderEnums.append(OutputOrder(order))
         except ValueError:
-            logger.warning(f"Invalid output order string: {order}, skipping")
+            logger.warning("Invalid output order string: %s, skipping", order)
 
     return outputOrderEnums
 

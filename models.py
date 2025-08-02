@@ -88,7 +88,8 @@ class Word:
     ) -> float:
         if self.line is None:
             logger.error(
-                f"Word '{self.thisWordString}' has no associated line."
+                "Word '%s' has no associated line.",
+                self.thisWordString
             )
             return 0.0
 
@@ -108,7 +109,8 @@ class Word:
 
         if totalFirstWords == 0:
             logger.error(
-                f"Line '{line}' has no first words in multi-word expressions."
+                "Line '%s' has no first words in multi-word expressions.",
+                line
             )
 
             calculatedSentenceProportions[lineId] = 0.0
@@ -183,8 +185,9 @@ class MultiWordExpression:
         Handle the case where a word in the multi-word expression has no index.
         """
         logger.error(
-            f"Word '{word.thisWordString}' in multi-word expression "
-            f"'{self.getUniqueWordId()}' has no index."
+            "Word '%s' in multi-word expression "
+            "'%s' has no index.",
+            word.thisWordString, self.getUniqueWordId()
         )
         exit(1)
 
@@ -224,7 +227,9 @@ class Line:
             return NotImplemented
         return self.id == other.id
 
-    def getUniqueWordIdVector(self, uniqueWordIdToWordObjects: Dict[str, List['Word']]) -> np.ndarray:
+    def getUniqueWordIdVector(
+        self, uniqueWordIdToWordObjects: Dict[str, List['Word']]
+    ) -> np.ndarray:
         """
         Generate a word vector for the line.
         """

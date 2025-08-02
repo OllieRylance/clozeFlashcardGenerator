@@ -63,6 +63,69 @@ def preAlgorithmChecks(
     
     return wordToSimpleClozeFlashcards, False
 
+def firstSentencesFirstAlgorithm(
+    configFilePath: str
+) -> Dict[str, List[SimpleClozeFlashcard]]:
+    # For each unique word, add the first n sentences
+    uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
+        getUniqueWordIdToWordObjects(configFilePath)
+    )
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
+        getInUseClozeFlashcards(configFilePath)
+    )
+    wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = (
+        createInitialClozeFlashcards(inUseClozeFlashcards)
+    )
+    numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
+
+    with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
+        for uniqueWordId in uniqueWordIdToWordObjects.keys():
+            # Create a list of the words that are not already in use
+            unusedWords: List[Word] = []
+
+            words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
+            inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
+                inUseClozeFlashcards.get(uniqueWordId, [])
+            )
+            for word in words:
+                if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
+                    unusedWords.append(word)
+
+            wordToSimpleClozeFlashcards, toContinue = (
+                preAlgorithmChecks(
+                    uniqueWordId,
+                    wordToSimpleClozeFlashcards,
+                    numFlashcardsPerWord,
+                    inUseClozeFlashcards,
+                    unusedWords
+                )
+            )
+            if toContinue:
+                pbar.update(1)
+                continue
+
+            # Subtract the number of cloze flashcards already in use for the word from n
+            newSentenceNum = numFlashcardsPerWord - len(inUseClozeFlashcardsForWord)
+
+            for word in unusedWords[:newSentenceNum]:
+                if word.line is None or word.index is None:
+                    logger.error(
+                        f"Word '{word.getUniqueWordId()}' has no line or word index, "
+                        f"cannot create cloze flashcard."
+                    )
+                    continue
+                simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
+                    word.line, word.index
+                ).GetSimpleClozeFlashcard()
+
+                if uniqueWordId not in wordToSimpleClozeFlashcards:
+                    wordToSimpleClozeFlashcards[uniqueWordId] = []
+                wordToSimpleClozeFlashcards[uniqueWordId].append(
+                    simpleClozeFlashcard
+                )
+
+    return wordToSimpleClozeFlashcards
+
 def mostDifferentAlgorithm(
     configFilePath: str
 ) -> Dict[str, List[SimpleClozeFlashcard]]:
@@ -70,7 +133,6 @@ def mostDifferentAlgorithm(
     # with the top n most different sentences
     # If there are already cloze flashcards in use for the word, 
     # use those as the start of the list
-    
     uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
         getUniqueWordIdToWordObjects(configFilePath)
     )

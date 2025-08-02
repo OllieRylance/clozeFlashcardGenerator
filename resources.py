@@ -21,9 +21,8 @@ class OutputOrder(Enum):
         """
         return [order.value for order in OutputOrder]
 
-# TODO : add a simple algorithm that just outputs the first
-# sentences until the number of flashcards is reached
 class ClozeChoosingAlgorithm(Enum):
+    FIRST_SENTENCES_FIRST = "first-sentences-first"
     MOST_DIFFERENT = "most-different"
     HIGHEST_PROPORTION_OF_NEW_WORDS = "highest-proportion-of-new-words"
 

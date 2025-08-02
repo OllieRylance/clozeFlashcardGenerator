@@ -3,6 +3,7 @@ from typing import Dict, List, Optional
 import json
 
 from algorithms import (
+    firstSentencesFirstAlgorithm,
     mostDifferentAlgorithm,
     highestProportionOfNewWordsAlgorithm
 )
@@ -52,7 +53,9 @@ def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFl
         printGeneratingClozeFlashcardsInfo(configFilePath)
 
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
-    if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
+    if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.FIRST_SENTENCES_FIRST:
+        return firstSentencesFirstAlgorithm(configFilePath)
+    elif clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
         return mostDifferentAlgorithm(configFilePath)
     elif clozeChoosingAlgorithm == ClozeChoosingAlgorithm.HIGHEST_PROPORTION_OF_NEW_WORDS:
         return highestProportionOfNewWordsAlgorithm(configFilePath)

@@ -2,6 +2,7 @@ import hashlib
 import logging
 import math
 import re
+import sys
 from typing import Dict, List, Optional, Tuple
 
 import numpy as np
@@ -189,7 +190,7 @@ class MultiWordExpression:
             "'%s' has no index.",
             word.thisWordString, self.getUniqueWordId()
         )
-        exit(1)
+        sys.exit(1)
 
 class Punctuation:
     def __init__(self, character: str, wordPosition: 'PunctuationWordPosition') -> None:
@@ -490,7 +491,7 @@ class ClozeFlashcard:
             if not getLeadingAndTrailingPunctuation:
                 return ""
             # Before cloze
-            elif not leadingSpace and trailingSpace:
+            if not leadingSpace and trailingSpace:
                 if nextIndex in punctuationDict:
                     punctuationsBeforeTheFirstWord: str = ""
                     for punctuation in punctuationDict[nextIndex]:

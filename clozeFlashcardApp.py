@@ -58,8 +58,8 @@ def listConfigs():
     # Read the generatorConfigs/default.json file
     getTerminalConfigList: List[str] = getConfigList()
     click.echo("Available configs:")
-    for config in getTerminalConfigList:
-        click.echo(f"- {config}")
+    for cfg in getTerminalConfigList:
+        click.echo(f"- {cfg}")
 
 @config.command()
 def current():
@@ -212,27 +212,27 @@ if __name__ == "__main__":
 
     isDev = os.getenv("DEV_MODE", "false").lower() == "true"
 
-    codeProfiler = None
+    code_profiler = None
 
     if isDev:
         # Create profiler
-        codeProfiler = cProfile.Profile()
+        code_profiler = cProfile.Profile()
 
         # Start profiling
-        codeProfiler.enable()
+        code_profiler.enable()
 
     if isDev:
         runAll()
     else:
         cli()
 
-    if codeProfiler is not None:
+    if code_profiler is not None:
         # Stop profiling
-        codeProfiler.disable()
+        code_profiler.disable()
 
         # Create a string buffer to capture output
         s = io.StringIO()
-        ps = pstats.Stats(codeProfiler, stream=s)
+        ps = pstats.Stats(code_profiler, stream=s)
 
         # Sort by cumulative time and print top 20 functions
         ps.sort_stats('cumulative')

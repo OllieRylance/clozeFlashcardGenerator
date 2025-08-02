@@ -1,4 +1,6 @@
 import logging
+import sys
+import random
 from typing import Dict, List, Optional
 import json
 
@@ -85,7 +87,7 @@ def ensureInUseClozeFlashcardsPersist(
                 "in the new cloze flashcards.",
                 word
             )
-            exit(1)
+            sys.exit(1)
 
         for clozeFlashcard in clozeFlashcards:
             simpleClozeFlashcard = clozeFlashcard.getSimpleClozeFlashcard()
@@ -98,7 +100,7 @@ def ensureInUseClozeFlashcardsPersist(
                     "cloze flashcards.",
                     simpleClozeFlashcard, word
                 )
-                exit(1)
+                sys.exit(1)
 
 def convertToJsonableFormat(
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]]
@@ -189,7 +191,6 @@ def sortSimpleClozeFlashcards(
                 )
             )
         elif order == OutputOrder.RANDOM:
-            import random
             items = list(wordToSimpleClozeFlashcards.items())
             random.shuffle(items)
             wordToSimpleClozeFlashcards = dict(items)

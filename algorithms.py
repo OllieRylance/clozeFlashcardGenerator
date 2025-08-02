@@ -80,11 +80,10 @@ def firstSentencesFirstAlgorithm(
     numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
 
     with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
-        for uniqueWordId in uniqueWordIdToWordObjects.keys():
+        for uniqueWordId, words in uniqueWordIdToWordObjects.items():
             # Create a list of the words that are not already in use
             unusedWords: List[Word] = []
 
-            words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
             inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
                 inUseClozeFlashcards.get(uniqueWordId, [])
             )
@@ -150,11 +149,10 @@ def mostDifferentAlgorithm(
     calculatedSentenceLengthScores: Dict[int, float] = {}
 
     with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
-        for uniqueWordId in uniqueWordIdToWordObjects.keys():
+        for uniqueWordId, words in uniqueWordIdToWordObjects.items():
             # Create a list of the words that are not already in use
             unusedWords: List[Word] = []
 
-            words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
             inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
                 inUseClozeFlashcards.get(uniqueWordId, [])
             )
@@ -285,9 +283,9 @@ def findMostDifferentCombination(
     # highest cosine dissimilarity
     for combination in combinationsOfLines:
         sumOfCosDissimilarities: float = 0
-        for i in range(len(combination)):
+        for i, lineIdI in enumerate(combination):
             for j in range(i + 1, len(combination)):
-                line1: Optional[Line] = lineIdToWord[combination[i]].line
+                line1: Optional[Line] = lineIdToWord[lineIdI].line
                 line2: Optional[Line] = lineIdToWord[combination[j]].line
                 if line1 is None or line2 is None:
                     logger.error(
@@ -353,11 +351,10 @@ def highestProportionOfNewWordsAlgorithm(
 
     calculatedSentenceProportions: Dict[int, float] = {}
 
-    for uniqueWordId in uniqueWordIdToWordObjects.keys():
+    for uniqueWordId, words in uniqueWordIdToWordObjects.items():
         # Create a list of the words that are not already in use
         unusedWords: List[Word] = []
 
-        words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
         inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
             inUseClozeFlashcards.get(uniqueWordId, [])
         )

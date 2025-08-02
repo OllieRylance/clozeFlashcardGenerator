@@ -52,17 +52,21 @@ def getInUseClozeFlashcards(configFilePath: str) -> Dict[str, List[ClozeFlashcar
     """
     Get a mapping of unique word IDs to their corresponding in-use ClozeFlashcard objects.
     """
-    # TODO : make this return the in-use cloze flashcards from the function
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
-
     outputFilePath: str = getOutputFilePath(configFilePath)
-    prepareInUseClozeFlashcards(
-        configFilePath,
-        outputFilePath,
-        inUseClozeFlashcards
-    )
 
-    return inUseClozeFlashcards
+    # Try to read existing cloze flashcards from the output file
+    existingClozeFlashcardsJsonFileString: Optional[str] = readJsonFile(outputFilePath)
+    if existingClozeFlashcardsJsonFileString is None:
+        logger.info(
+            f"No existing cloze flashcards found in '{outputFilePath}'. "
+            f"Starting fresh."
+        )
+        return {}
+
+    return makeInUseClozeFlashcards(
+        configFilePath,
+        existingClozeFlashcardsJsonFileString,
+    )
 
 def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
     """
@@ -87,29 +91,6 @@ def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
 
     logger.info("Sentence lines are valid.")
     return sentenceLines
-
-def prepareInUseClozeFlashcards(
-        configFilePath: str,
-        outputFilePath: str,
-        inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
-    ) -> None:
-    """
-    Prepare the in-use cloze flashcards from the output file.
-    Returns a dictionary of in-use cloze flashcards.
-    """
-    # Try to read existing cloze flashcards from the output file
-    existingClozeFlashcardsJsonFileString: Optional[str] = readJsonFile(outputFilePath)
-    if existingClozeFlashcardsJsonFileString is None:
-        logger.info(
-            f"No existing cloze flashcards found in '{outputFilePath}'. "
-            f"Starting fresh."
-        )
-
-    makeInUseClozeFlashcards(
-        configFilePath,
-        existingClozeFlashcardsJsonFileString,
-        inUseClozeFlashcards
-    )
 
 def parseSentenceLine(
         line: str,
@@ -180,16 +161,12 @@ def printFoundInvalidLines(invalidLines: List[str]) -> None:
 
 def makeInUseClozeFlashcards(
     configFilePath: str,
-    existingClozeFlashcardsJsonFileString: Optional[str],
-    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]]
-) -> None:
+    existingClozeFlashcardsJsonFileString: str
+) -> Dict[str, List[ClozeFlashcard]]:
     """
     Parse the existing cloze flashcards JSON file string and return a dictionary
     of in-use cloze flashcards.
     """
-    if existingClozeFlashcardsJsonFileString is None:
-        return
-
     existingClozeFlashcards: Dict[str, List[Dict[str, str]]] = {}
 
     try:
@@ -208,6 +185,8 @@ def makeInUseClozeFlashcards(
         f"{len(uniqueWordIdToWordObjects)} unique words "
         f"(+ multi word expressions) found in the sentences."
     )
+
+    inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
 
     for clozeFlashcard in [
         clozeFlashcard
@@ -235,6 +214,8 @@ def makeInUseClozeFlashcards(
         inUseClozeFlashcards[uniqueWordId].append(
             clozeFlashcardInstance
         )
+
+    return inUseClozeFlashcards
 
 def processPunctuation(
     subString: str,

@@ -103,32 +103,6 @@
             "inUse": "False"
         }
     ],
-    "apteki": [
-        {
-            "beforeCloze": "ona musi iść do ",
-            "clozeWordPart1": "apteki",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "muszę iśc do ",
-            "clozeWordPart1": "apteki",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "potrzebuję pójść do ",
-            "clozeWordPart1": "apteki",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "idź": [
         {
             "beforeCloze": "",
@@ -253,6 +227,32 @@
         {
             "beforeCloze": "możesz kupić ręcznik za szesnaście ",
             "clozeWordPart1": "złotych",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "apteki": [
+        {
+            "beforeCloze": "ona musi iść do ",
+            "clozeWordPart1": "apteki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę iśc do ",
+            "clozeWordPart1": "apteki",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuję pójść do ",
+            "clozeWordPart1": "apteki",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
@@ -1221,32 +1221,6 @@
             "inUse": "False"
         }
     ],
-    "dwa": [
-        {
-            "beforeCloze": "galeria handlowa jest ",
-            "clozeWordPart1": "dwa",
-            "afterCloze": " kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "potrzebuje dziewięćdziesiąt ",
-            "clozeWordPart1": "dwa",
-            "afterCloze": " złote",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "chciałbym kupić ",
-            "clozeWordPart1": "dwa",
-            "afterCloze": " bilety potrzebuje dwadzieścia pięć złotych",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "dziewięćset": [
         {
             "beforeCloze": "idź prosto przez ",
@@ -1268,58 +1242,6 @@
             "beforeCloze": "galeria handlowa jest ",
             "clozeWordPart1": "dziewięćset",
             "afterCloze": " metrów stąd jeśli chcesz możesz pójść tam pieszą",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "galeria": [
-        {
-            "beforeCloze": "przepraszam, gdzie jest ",
-            "clozeWordPart1": "galeria",
-            "afterCloze": " handlowa? muszę kupić miotłe",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "galeria",
-            "afterCloze": " handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ale ja nie wiem gdzie jest ",
-            "clozeWordPart1": "galeria",
-            "afterCloze": " handlowa. czy mógłbyś mi wytłumaczyć?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "handlowa": [
-        {
-            "beforeCloze": "przepraszam, gdzie jest galeria ",
-            "clozeWordPart1": "handlowa",
-            "afterCloze": "? muszę kupić miotłe",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "galeria ",
-            "clozeWordPart1": "handlowa",
-            "afterCloze": " jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ale ja nie wiem gdzie jest galeria ",
-            "clozeWordPart1": "handlowa",
-            "afterCloze": ". czy mógłbyś mi wytłumaczyć?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1663,6 +1585,32 @@
             "inUse": "False"
         }
     ],
+    "dwa": [
+        {
+            "beforeCloze": "galeria handlowa jest ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "potrzebuje dziewięćdziesiąt ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " złote",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym kupić ",
+            "clozeWordPart1": "dwa",
+            "afterCloze": " bilety potrzebuje dwadzieścia pięć złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "dłuższe": [
         {
             "beforeCloze": "chciałbym nauczyć się więcej słów żeby tworzyć ",
@@ -1684,6 +1632,32 @@
             "beforeCloze": "jeśli chcesz tworzyć ",
             "clozeWordPart1": "dłuższe",
             "afterCloze": " zdania potrzebujesz znać więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "galeria": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest ",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa? muszę kupić miotłe",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ale ja nie wiem gdzie jest ",
+            "clozeWordPart1": "galeria",
+            "afterCloze": " handlowa. czy mógłbyś mi wytłumaczyć?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1762,6 +1736,32 @@
             "beforeCloze": "jeśli potrzebujesz samochodu możesz ",
             "clozeWordPart1": "go",
             "afterCloze": " kupić za pięćdziesiąt tysięcy złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "handlowa": [
+        {
+            "beforeCloze": "przepraszam, gdzie jest galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": "? muszę kupić miotłe",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": " jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ale ja nie wiem gdzie jest galeria ",
+            "clozeWordPart1": "handlowa",
+            "afterCloze": ". czy mógłbyś mi wytłumaczyć?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2439,24 +2439,6 @@
             "inUse": "False"
         }
     ],
-    "kilometry": [
-        {
-            "beforeCloze": "galeria handlowa jest dwa ",
-            "clozeWordPart1": "kilometry",
-            "afterCloze": " stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "galeria handlowa jest dwa ",
-            "clozeWordPart1": "kilometry",
-            "afterCloze": " stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "kilometrów": [
         {
             "beforeCloze": "plaża jest daleko to sześć ",
@@ -2524,24 +2506,6 @@
             "beforeCloze": "czy ",
             "clozeWordPart1": "mogłabyś",
             "afterCloze": " mi powiedzieć jak mogę dostać się na dworzec autobusowy?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "naprzeciwko": [
-        {
-            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
-            "clozeWordPart1": "naprzeciwko",
-            "afterCloze": " apteki",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
-            "clozeWordPart1": "naprzeciwko",
-            "afterCloze": " apteki",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3449,6 +3413,16 @@
             "inUse": "False"
         }
     ],
+    "kilometry": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa ",
+            "clozeWordPart1": "kilometry",
+            "afterCloze": " stąd możesz pojechać tam autobusem przystanek autobusowy jest naprzeciwko apteki",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "lecieć": [
         {
             "beforeCloze": "muszę ",
@@ -3524,6 +3498,16 @@
             "beforeCloze": "czy on ",
             "clozeWordPart1": "mógłby",
             "afterCloze": " powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "naprzeciwko": [
+        {
+            "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
+            "clozeWordPart1": "naprzeciwko",
+            "afterCloze": " apteki",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4085,32 +4069,6 @@
             "inUse": "False"
         }
     ],
-    "stąd": [
-        {
-            "beforeCloze": "plaża jest siedemset metrów ",
-            "clozeWordPart1": "stąd",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "plaża jest daleko to sześć kilometrów ",
-            "clozeWordPart1": "stąd",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "muszę iść do apteki to tylko sześćset metrów ",
-            "clozeWordPart1": "stąd",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "chcesz": [
         {
             "beforeCloze": "jeśli ",
@@ -4157,6 +4115,32 @@
         {
             "beforeCloze": "muszę iść na ",
             "clozeWordPart1": "lotnisko",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "stąd": [
+        {
+            "beforeCloze": "plaża jest siedemset metrów ",
+            "clozeWordPart1": "stąd",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "plaża jest daleko to sześć kilometrów ",
+            "clozeWordPart1": "stąd",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę iść do apteki to tylko sześćset metrów ",
+            "clozeWordPart1": "stąd",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",

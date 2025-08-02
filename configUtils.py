@@ -44,7 +44,26 @@ def getCurrentConfigName() -> str:
         return configs[currentConfigIndex].get("name", "unknown")
     # TODO : make the currentConfigIndex the first config if there is a
     # first config. else, create a default config amd set it as current
-    return "error: invalid currentConfigIndex"
+    if configs:
+        logger.error("Invalid currentConfigIndex, resetting to first config")
+        appConfigJson["currentConfigIndex"] = 0
+        writeJsonFile("appConfig.json", appConfigJson)
+        return configs[0].get("name", "unknown")
+    
+    logger.error("No configs available, creating default config")
+    defaultConfig = {
+        "name": "default",
+        "file": "default.json"
+    }
+    appConfigJson["configs"] = [defaultConfig]
+    appConfigJson["currentConfigIndex"] = 0
+    writeJsonFile("appConfig.json", appConfigJson)
+
+    defaultConfigContent = {}
+    defaultConfigFilePath = getConfigFilePath("default")
+    writeJsonFile(defaultConfigFilePath, defaultConfigContent)
+
+    return defaultConfig.get("name", "unknown")
 
 def getAppConfigJson() -> Any:
     appConfigJsonString: Optional[str] = readJsonFile("appConfig.json")
@@ -58,15 +77,18 @@ def getAppConfigJson() -> Any:
 def getConfigFilePath(configName: str) -> str:
     appConfigJson = getAppConfigJson()
     configs = appConfigJson.get("configs", [])
+    
     if not configs:
-        return "error: no configs available"
+        return os.path.join("generatorConfigs", configName + ".json")
+    
     for config in configs:
         if config.get("name") == configName:
             configFileName: Optional[str] = config.get("file")
             if not configFileName:
-                return "error: config file name not found"
+                configFileName = configName + ".json"
             return os.path.join("generatorConfigs", configFileName)
-    return "error: current config file not found"
+    
+    return os.path.join("generatorConfigs", configName + ".json")
 
 def getCurrentConfigFilePath() -> str:
     """
@@ -109,6 +131,58 @@ def getConfigJson(configFilePath: str) -> Any:
     except json.JSONDecodeError as e:
         logger.error(f"Failed to parse config file {configFilePath}: {e}")
         return None
+
+def createConfigMapping(configName: str, configFilePath: str) -> None:
+    """
+    Creates a mapping for the configuration in the appConfig.json.
+    """
+    appConfigJson = getAppConfigJson()
+    configs = appConfigJson.get("configs", [])
+    
+    # Check if the config already exists
+    for config in configs:
+        if config.get("name") == configName:
+            logger.info(f"Config '{configName}' already exists")
+            return
+    
+    # Add new config mapping
+    newConfig = {
+        "name": configName,
+        "file": configFilePath
+    }
+    configs.append(newConfig)
+    writeJsonFile("appConfig.json", appConfigJson)
+    logger.info(f"Created new config mapping for: {configName}")
+
+def createNewConfigName() -> str:
+    existingConfigNames: List[str] = getConfigList()
+
+    newConfigNumber: int = 1
+    newConfigName: str = f"new_config_{newConfigNumber}"
+    while newConfigName in existingConfigNames:
+        newConfigNumber += 1
+        newConfigName = f"new_config_{newConfigNumber}"
+
+    return newConfigName
+
+def createAndUseNewConfig() -> str:
+    defaultConfig = getConfigJson(getConfigFilePath("default"))
+    if defaultConfig is None:
+        logger.error("Failed to load default config")
+        # Create a default and continue
+        return ""
+
+    newConfigName: str = createNewConfigName()
+    
+    newConfigFilePath = getConfigFilePath(newConfigName)
+    writeJsonFile(newConfigFilePath, defaultConfig)
+
+    newConfigFile: str = f"{newConfigName}.json"
+    createConfigMapping(newConfigName, newConfigFile)
+
+    setCurrentConfig(newConfigName)
+
+    return newConfigName
 
 def getInputFilePath(configFilePath: str) -> str:
     """
@@ -196,63 +270,63 @@ def setConfigInputFile(configName: str, path: str) -> None:
     """
     Sets the input file path for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"inputFilePath": path})
 
 def setConfigOutputFile(configName: str, path: str) -> None:
     """
     Sets the output file path for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"outputFilePath": path})
 
 def setConfigAlgorithm(configName: str, algorithm: str) -> None:
     """
     Sets the cloze choosing algorithm for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"clozeChoosingAlgorithm": algorithm})
 
 def setConfigFlashcardsPerWord(configName: str, count: int) -> None:
     """
     Sets the number of flashcards per word for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"numFlashcardsPerWord": count})
 
 def setConfigBenefitShorter(configName: str, enabled: bool) -> None:
     """
     Enables or disables benefiting shorter sentences for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"benefitShorterSentences": enabled})
 
 def setConfigOutputOrder(configName: str, orders: List[str]) -> None:
     """
     Sets the output order for the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     updateConfigFile(configName, {"outputOrder": list(orders)})
 
 def addBuryWordToConfig(configName: str, word: str) -> None:
     """
     Adds a word to the bury list in the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
     if word not in currentWordsToBury:
         currentWordsToBury.append(word)
@@ -262,9 +336,9 @@ def removeBuryWordFromConfig(configName: str, word: str) -> None:
     """
     Removes a word from the bury list in the specified configuration.
     """
-    # if configName == "default":
-    #     # Create a new config based on the default
-    #     createNewConfigFromDefault(configName)
+    if configName == "default":
+        # Create a new config based on the default
+        configName = createAndUseNewConfig()
     currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
     if word in currentWordsToBury:
         currentWordsToBury.remove(word)

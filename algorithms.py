@@ -1,6 +1,7 @@
 import logging
 from typing import Dict, List, Optional, Tuple
 from itertools import combinations
+from tqdm import tqdm
 
 from configUtils import getBenefitShorterSentences, getNumFlashcardsPerWord
 from models import Line, ClozeFlashcard, SimpleClozeFlashcard, Word
@@ -85,95 +86,101 @@ def mostDifferentAlgorithm(
     calculatedSentenceLengthScores: Dict[int, float] = {}    
 
     # TODO : add progress bar
-    for uniqueWordId in uniqueWordIdToWordObjects.keys():
-        # Create a list of the words that are not already in use
-        unusedWords: List[Word] = []
+    with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
+        for uniqueWordId in uniqueWordIdToWordObjects.keys():
+            # Create a list of the words that are not already in use
+            unusedWords: List[Word] = []
 
-        words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
-        inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
-            inUseClozeFlashcards.get(uniqueWordId, [])
-        )
-        for word in words:
-            if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
-                unusedWords.append(word)
-
-        wordToSimpleClozeFlashcards, toContinue = (
-            preAlgorithmChecks(
-                uniqueWordId,
-                wordToSimpleClozeFlashcards,
-                numFlashcardsPerWord,
-                inUseClozeFlashcards,
-                unusedWords
+            words: List[Word] = uniqueWordIdToWordObjects[uniqueWordId]
+            inUseClozeFlashcardsForWord: List[ClozeFlashcard] = (
+                inUseClozeFlashcards.get(uniqueWordId, [])
             )
-        )
-        if toContinue:
-            continue
+            for word in words:
+                if not word.thisInstanceInClozeFlashcards(inUseClozeFlashcardsForWord):
+                    unusedWords.append(word)
 
-        # Create a dictionary that maps all of the relevant line IDs to their objects
-        lineIdToWord: Dict[int, Word] = {
-            word.line.id: word for word in unusedWords if word.line is not None
-        }
-
-        # Add the in-use cloze flashcards to the lineIdToWord
-        for clozeFlashcard in inUseClozeFlashcardsForWord:
-            lineId: int = clozeFlashcard.line.id
-            clozeWord: Word = clozeFlashcard.GetFirstClozeWord()
-            lineIdToWord[lineId] = clozeWord
-
-        inUseIds: List[int] = [
-            clozeFlashcard.line.id for clozeFlashcard in inUseClozeFlashcardsForWord
-        ]
-
-        # Subtract the number of cloze flashcards already in use for the word from n
-        newSentenceNum = numFlashcardsPerWord - len(inUseClozeFlashcardsForWord)
-
-        lineIds: List[int] = list(lineIdToWord.keys())
-        # Combination means combination of sentences, not words
-        newCombinations: List[Tuple[int, ...]] = generateNewCombinations(
-            lineIds, inUseIds, newSentenceNum
-        )
-
-        bestCombination: Optional[Tuple[int, ...]] = findMostDifferentCombination(
-            configFilePath,
-            newCombinations,
-            lineIdToWord,
-            calculatedCosDissimilarities,
-            uniqueWordIdToWordObjects,
-            calculatedSentenceLengthScores
-        )
-
-        if bestCombination is None:
-            logger.error(f"No valid combination found for word '{uniqueWordId}'.")
-            continue
-
-        bestCombinationWithoutInUse: Tuple[int, ...] = removeInUseIds(
-            bestCombination, inUseIds
-        )
-
-        for lineId in bestCombinationWithoutInUse:
-            if lineId not in lineIdToWord:
-                logger.error(
-                    f"Line ID {lineId} not found in lineIdToWord mapping "
-                    f"for word '{uniqueWordId}'."
+            wordToSimpleClozeFlashcards, toContinue = (
+                preAlgorithmChecks(
+                    uniqueWordId,
+                    wordToSimpleClozeFlashcards,
+                    numFlashcardsPerWord,
+                    inUseClozeFlashcards,
+                    unusedWords
                 )
+            )
+            if toContinue:
+                pbar.update(1)
                 continue
 
-            line: Optional[Line] = lineIdToWord[lineId].line
-            wordIndex: Optional[int] = lineIdToWord[lineId].index
-            if line is None or wordIndex is None:
-                logger.error(
-                    f"Word '{uniqueWordId}' has no line or word index, "
-                    f"cannot create cloze flashcard."
-                )
-                continue
-            newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
-                line, wordIndex
-            ).GetSimpleClozeFlashcard()
-            if uniqueWordId not in wordToSimpleClozeFlashcards:
-                wordToSimpleClozeFlashcards[uniqueWordId] = []
-            wordToSimpleClozeFlashcards[uniqueWordId].append(
-                newSimpleClozeFlashcard
+            # Create a dictionary that maps all of the relevant line IDs to their objects
+            lineIdToWord: Dict[int, Word] = {
+                word.line.id: word for word in unusedWords if word.line is not None
+            }
+
+            # Add the in-use cloze flashcards to the lineIdToWord
+            for clozeFlashcard in inUseClozeFlashcardsForWord:
+                lineId: int = clozeFlashcard.line.id
+                clozeWord: Word = clozeFlashcard.GetFirstClozeWord()
+                lineIdToWord[lineId] = clozeWord
+
+            inUseIds: List[int] = [
+                clozeFlashcard.line.id for clozeFlashcard in inUseClozeFlashcardsForWord
+            ]
+
+            # Subtract the number of cloze flashcards already in use for the word from n
+            newSentenceNum = numFlashcardsPerWord - len(inUseClozeFlashcardsForWord)
+
+            lineIds: List[int] = list(lineIdToWord.keys())
+            # Remove the in-use IDs from the line IDs
+            lineIds = [lineId for lineId in lineIds if lineId not in inUseIds]
+            # Combination means combination of sentences, not words
+            newCombinations: List[Tuple[int, ...]] = generateNewCombinations(
+                lineIds, inUseIds, newSentenceNum
             )
+
+            bestCombination: Optional[Tuple[int, ...]] = findMostDifferentCombination(
+                configFilePath,
+                newCombinations,
+                lineIdToWord,
+                calculatedCosDissimilarities,
+                uniqueWordIdToWordObjects,
+                calculatedSentenceLengthScores
+            )
+
+            if bestCombination is None:
+                logger.error(f"No valid combination found for word '{uniqueWordId}'.")
+                pbar.update(1)
+                continue
+
+            bestCombinationWithoutInUse: Tuple[int, ...] = removeInUseIds(
+                bestCombination, inUseIds
+            )
+
+            for lineId in bestCombinationWithoutInUse:
+                if lineId not in lineIdToWord:
+                    logger.error(
+                        f"Line ID {lineId} not found in lineIdToWord mapping "
+                        f"for word '{uniqueWordId}'."
+                    )
+                    continue
+
+                line: Optional[Line] = lineIdToWord[lineId].line
+                wordIndex: Optional[int] = lineIdToWord[lineId].index
+                if line is None or wordIndex is None:
+                    logger.error(
+                        f"Word '{uniqueWordId}' has no line or word index, "
+                        f"cannot create cloze flashcard."
+                    )
+                    continue
+                newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
+                    line, wordIndex
+                ).GetSimpleClozeFlashcard()
+                if uniqueWordId not in wordToSimpleClozeFlashcards:
+                    wordToSimpleClozeFlashcards[uniqueWordId] = []
+                wordToSimpleClozeFlashcards[uniqueWordId].append(
+                    newSimpleClozeFlashcard
+                )
+            pbar.update(1)
     
     return wordToSimpleClozeFlashcards
 

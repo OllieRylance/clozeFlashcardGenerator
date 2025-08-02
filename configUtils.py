@@ -129,27 +129,6 @@ def getCurrentConfigName() -> str:
 
     return "default"
 
-    if configs:
-        logger.error("Invalid currentConfigIndex, resetting to default config")
-        appConfigJson["currentConfigIndex"] = 0
-        writeAppConfigJsonFile(appConfigJson)
-        return configs[0].get("name", "unknown")
-
-    logger.error("No configs available, creating default config")
-    defaultConfig = {
-        "name": "default",
-        "file": "default.json"
-    }
-    appConfigJson["configs"] = [defaultConfig]
-    appConfigJson["currentConfigIndex"] = 0
-    writeAppConfigJsonFile(appConfigJson)
-
-    defaultConfigContent = {}
-    defaultConfigFilePath = getConfigFilePath("default")
-    writeJsonFile(defaultConfigFilePath, defaultConfigContent)
-
-    return defaultConfig.get("name", "unknown")
-
 def readAppConfigJsonFile() -> Optional[str]:
     """
     Reads the appConfig.json file and returns its content as a string.

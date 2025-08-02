@@ -40,8 +40,9 @@ def printGeneratingClozeFlashcardsInfo(configFilePath: str) -> None:
         len(flashcards) for flashcards in inUseClozeFlashcards.values()
     )
     logger.info(
-        f"Generating cloze flashcards using the '{clozeChoosingAlgorithm}' algorithm "
-        f"given {totalInUseClozeFlashcards} existing cloze flashcards..."
+        "Generating cloze flashcards using the '%s' algorithm "
+        "given %d existing cloze flashcards...",
+        clozeChoosingAlgorithm, totalInUseClozeFlashcards
     )
 
 def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFlashcard]]:
@@ -62,7 +63,8 @@ def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFl
 
     # If an unknown algorithm is specified, log an error and return an empty dictionary
     logger.error(
-        f"Unknown cloze choosing algorithm '{clozeChoosingAlgorithm}' specified in the config file."
+        "Unknown cloze choosing algorithm '%s' specified in the config file.",
+        clozeChoosingAlgorithm
     )
     return {}
 
@@ -79,8 +81,9 @@ def ensureInUseClozeFlashcardsPersist(
             # If the word is not in the new cloze flashcards,
             # a serious error has occurred
             logger.error(
-                f"Word '{word}' from in-use cloze flashcards is not present "
-                f"in the new cloze flashcards."
+                "Word '%s' from in-use cloze flashcards is not present "
+                "in the new cloze flashcards.",
+                word
             )
             exit(1)
 
@@ -90,9 +93,10 @@ def ensureInUseClozeFlashcardsPersist(
                 # If the cloze flashcard is not in the new cloze flashcards,
                 # a serious error has occurred
                 logger.error(
-                    f"Cloze flashcard '{simpleClozeFlashcard}' for word '{word}' "
-                    f"from in-use cloze flashcards is not present in the new "
-                    f"cloze flashcards."
+                    "Cloze flashcard '%s' for word '%s' "
+                    "from in-use cloze flashcards is not present in the new "
+                    "cloze flashcards.",
+                    simpleClozeFlashcard, word
                 )
                 exit(1)
 
@@ -121,12 +125,12 @@ def getOutputFileData(configFilePath: str) -> Dict[str, List[SimpleClozeFlashcar
     outputFilePath: str = getOutputFilePath(configFilePath)
     jsonDataString: Optional[str] = readJsonFile(outputFilePath)
     if jsonDataString is None:
-        logger.error(f"Output file '{outputFilePath}' not found or empty.")
+        logger.error("Output file '%s' not found or empty.", outputFilePath)
         return {}
 
     jsonData: Dict[str, List[Dict[str, str]]] = json.loads(jsonDataString)
     if not jsonData:
-        logger.error(f"No data found in output file '{outputFilePath}'.")
+        logger.error("No data found in output file '%s'.", outputFilePath)
         return {}
 
     wordToSimpleClozeFlashcards: Dict[str, List[SimpleClozeFlashcard]] = {}

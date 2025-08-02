@@ -58,8 +58,9 @@ def getInUseClozeFlashcards(configFilePath: str) -> Dict[str, List[ClozeFlashcar
     existingClozeFlashcardsJsonFileString: Optional[str] = readJsonFile(outputFilePath)
     if existingClozeFlashcardsJsonFileString is None:
         logger.info(
-            f"No existing cloze flashcards found in '{outputFilePath}'. "
-            f"Starting fresh."
+            "No existing cloze flashcards found in '%s'. "
+            "Starting fresh.",
+            outputFilePath
         )
         return {}
 
@@ -73,11 +74,11 @@ def prepareSentenceLines(inputFilePath: str) -> Optional[List[str]]:
     Read sentences from a file and validate them.
     Returns a list of valid sentences.
     """
-    logger.info(f"Reading sentences from '{inputFilePath}'...")
+    logger.info("Reading sentences from '%s'...", inputFilePath)
     sentenceLines: List[str] = readLines(inputFilePath)
 
     # Check for invalid lines in the sentences file
-    logger.info(f"Checking for invalid lines in '{inputFilePath}'...")
+    logger.info("Checking for invalid lines in '%s'...", inputFilePath)
 
     invalidLines: List[str] = findInvalidLines(sentenceLines)
 
@@ -123,7 +124,7 @@ def parseSentenceLine(
         multiWordExpression.words.append(word)
 
     if addWordsToClassDict:
-        for multiWordExpression in [m for m in multiWordExpressions.values()]:
+        for multiWordExpression in list(multiWordExpressions.values()):
             addWordToClassDict(
                 multiWordExpression.words[0], uniqueWordIdToWordObjects
             )
@@ -182,8 +183,9 @@ def makeInUseClozeFlashcards(
 
     # Log the number of unique words found
     logger.debug(
-        f"{len(uniqueWordIdToWordObjects)} unique words "
-        f"(+ multi word expressions) found in the sentences."
+        "%d unique words "
+        "(+ multi word expressions) found in the sentences.",
+        len(uniqueWordIdToWordObjects)
     )
 
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = {}
@@ -335,9 +337,9 @@ def getWordStringAndId(wordString: str) -> Tuple[str, int]:
     """
     parts = wordString.split('_')
     if len(parts) != 2:
-        logger.error(f"Invalid word string format: {wordString}")
+        logger.error("Invalid word string format: %s", wordString)
         return wordString, 0
     if not parts[1].isdigit():
-        logger.error(f"Invalid word ID in word string: {wordString}")
+        logger.error("Invalid word ID in word string: %s", wordString)
         return parts[0], 0
     return parts[0], int(parts[1])

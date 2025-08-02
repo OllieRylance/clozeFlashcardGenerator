@@ -40,8 +40,8 @@ logger = logging.getLogger(__name__)
 def cli():
     """Flashcard App CLI."""
 
-@cli.command()
-def help():
+@cli.command(name='help')
+def showHelp():
     """Show help info."""
     logger.info("Use --help with any command to see details.")
 
@@ -52,8 +52,8 @@ def help():
 def config():
     """Commands for managing configs."""
 
-@config.command()
-def list():
+@config.command(name='list')
+def listConfigs():
     """List all available configs."""
     # Read the generatorConfigs/default.json file
     getTerminalConfigList: List[str] = getConfigList()
@@ -191,15 +191,15 @@ def getCurrentBuryWords():
 def run():
     """Commands for running the app."""
 
-@run.command()
-def all() -> None:
+@run.command(name='all')
+def runAll() -> None:
     """Run the full app with the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     if configFilePath.startswith("error:"):
         logger.error(configFilePath)
         return
     # Proceed with running the app using the config file
-    logger.info(f"Running app with config: {configFilePath}")
+    logger.info("Running app with config: %s", configFilePath)
 
     runAlgorithm(configFilePath)
 
@@ -212,27 +212,27 @@ if __name__ == "__main__":
 
     isDev = os.getenv("DEV_MODE", "false").lower() == "true"
 
-    profiler = None
+    codeProfiler = None
 
     if isDev:
         # Create profiler
-        profiler = cProfile.Profile()
+        codeProfiler = cProfile.Profile()
 
         # Start profiling
-        profiler.enable()
+        codeProfiler.enable()
 
     if isDev:
-        all()
+        runAll()
     else:
         cli()
 
-    if profiler is not None:
+    if codeProfiler is not None:
         # Stop profiling
-        profiler.disable()
+        codeProfiler.disable()
 
         # Create a string buffer to capture output
         s = io.StringIO()
-        ps = pstats.Stats(profiler, stream=s)
+        ps = pstats.Stats(codeProfiler, stream=s)
 
         # Sort by cumulative time and print top 20 functions
         ps.sort_stats('cumulative')

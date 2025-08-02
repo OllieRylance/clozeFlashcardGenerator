@@ -262,8 +262,9 @@ def resetConfigFile(filePath: str) -> None:
     writeJsonFile(filePath, defaultConfig)
     logger.info("Reset config file %s to default state", filePath)
 
-def createAndUseNewConfig() -> str:
-    newConfigName: str = createNewConfigName()
+def createAndUseNewConfig(newConfigName: Optional[str] = None) -> str:
+    if newConfigName is None:
+        newConfigName = createNewConfigName()
 
     newConfigFilePath = getConfigFilePath(newConfigName)
     resetConfigFile(newConfigFilePath)
@@ -274,6 +275,53 @@ def createAndUseNewConfig() -> str:
     setCurrentConfig(newConfigName)
 
     return newConfigName
+
+def addConfigByName(name: str) -> None:
+    """
+    Adds a new configuration by name and sets it as the current configuration.
+    """
+    if not name:
+        logger.error("Config name cannot be empty")
+        return
+
+    createAndUseNewConfig(name)
+
+    setCurrentConfig(name)
+
+def deleteConfigByName(name: str, cascade: bool = False) -> None:
+    """
+    Deletes a configuration by name.
+    """
+    if not name:
+        logger.error("Config name cannot be empty")
+        return
+
+    configFilePath: str = getConfigFilePath(name)
+
+    inputFilePath: str = getInputFilePath(configFilePath)
+    outputFilePath: str = getOutputFilePath(configFilePath)
+
+    if cascade:
+        if os.path.exists(inputFilePath):
+            os.remove(inputFilePath)
+        if os.path.exists(outputFilePath):
+            os.remove(outputFilePath)
+
+    if os.path.exists(configFilePath):
+        os.remove(configFilePath)
+
+    configs = getConfigs()
+    for index, config in enumerate(configs):
+        if config.get("name") == name:
+            del configs[index]
+
+            if index == getCurrentConfigIndex():
+                setCurrentConfig("default")
+
+            writeAppConfigJsonFile({"configs": configs, "currentConfigIndex": getCurrentConfigIndex()})
+            logger.info("Deleted config: %s", name)
+            break
+
 
 def getInputFilePath(configFilePath: str) -> str:
     """

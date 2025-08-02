@@ -16,6 +16,8 @@ from configUtils import (
     setConfigOutputOrder,
     setCurrentConfig,
     getCurrentConfigFilePath,
+    addConfigByName,
+    deleteConfigByName,
     setConfigInputFile,
     setConfigOutputFile,
     setConfigAlgorithm,
@@ -46,8 +48,6 @@ def showHelp():
     logger.info("Use --help with any command to see details.")
 
 # Config command group
-# TODO : when delete config is implemented, add a cascade delete option
-# to delete all files associated with the config
 @cli.group()
 def config():
     """Commands for managing configs."""
@@ -61,8 +61,8 @@ def listConfigs():
     for cfg in getTerminalConfigList:
         click.echo(f"- {cfg}")
 
-@config.command()
-def current():
+@config.command(name='view')
+def viewCurrent():
     """Show the currently active config's name."""
     click.echo(getCurrentConfigName())
 
@@ -128,6 +128,24 @@ def removeBuryWord(word: str):
     """Remove a word from bury list in the current config."""
     currentConfigName: str = getCurrentConfigName()
     removeBuryWordFromConfig(currentConfigName, word)
+
+@config.command(name='add')
+@click.argument('name')
+def addConfig(name: str):
+    """Add a new config by name."""
+    addConfigByName(name)
+
+# config delete command
+@config.command(name='delete')
+@click.argument('name')
+@click.option(
+    '--cascade',
+    is_flag=True,
+    help="Delete all files associated with the config."
+)
+def deleteConfig(name: str, cascade: bool = False):
+    """Delete a config by name."""
+    deleteConfigByName(name, cascade)
 
 @config.group(name='current')
 def currentSettings():
@@ -203,7 +221,6 @@ def runAll() -> None:
 
     runAlgorithm(configFilePath)
 
-# TODO : come up with and stick to naming convention
 if __name__ == "__main__":
     logging.basicConfig(
         level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL

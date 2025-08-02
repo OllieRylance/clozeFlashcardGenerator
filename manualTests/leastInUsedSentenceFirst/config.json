@@ -2,7 +2,7 @@
     "inputFilePath": "manualTests/leastInUsedSentenceFirst/sentences.txt",
     "outputFilePath": "manualTests/leastInUsedSentenceFirst/clozeFlashcards.json",
     "outputOrder": [
-        "leastInUsedSentencesFirst",
+        "least-in-used-sentences-first",
         "alphabetical"
     ]
 }

@@ -2,7 +2,7 @@
     "inputFilePath": "manualTests/sortUnusedFirstThenFrequency/sentences.txt",
     "outputFilePath": "manualTests/sortUnusedFirstThenFrequency/clozeFlashcards.json",
     "outputOrder": [
-        "leastUsedAsClozeFirst",
+        "least-used-as-cloze-first",
         "frequency"
     ]
 }

@@ -11,8 +11,15 @@ class OutputOrder(Enum):
     ALPHABETICAL = "alphabetical"
     FREQUENCY = "frequency"
     RANDOM = "random"
-    LEAST_USED_AS_CLOZE_FIRST = "leastUsedAsClozeFirst"
-    LEAST_IN_USED_SENTENCES_FIRST = "leastInUsedSentencesFirst"
+    LEAST_USED_AS_CLOZE_FIRST = "least-used-as-cloze-first"
+    LEAST_IN_USED_SENTENCES_FIRST = "least-in-used-sentences-first"
+
+    @staticmethod
+    def getTerminalOptions() -> List[str]:
+        """
+        Returns a list of terminal options for the output order.
+        """
+        return [order.value for order in OutputOrder]
 
 # TODO : add a simple algorithm that just outputs the first
 # sentences until the number of flashcards is reached
@@ -21,8 +28,15 @@ class OutputOrder(Enum):
 # - not anywhere in existing flashcards
 # - not cloze words in existing flashcards
 class ClozeChoosingAlgorithm(Enum):
-    MOST_DIFFERENT = "mostDifferent"
-    HIGHEST_PROPORTION_OF_NEW_WORDS = "highestProportionOfNewWords"
+    MOST_DIFFERENT = "most-different"
+    HIGHEST_PROPORTION_OF_NEW_WORDS = "highest-proportion-of-new-words"
+
+    @staticmethod
+    def getTerminalOptions() -> List[str]:
+        """
+        Returns a list of terminal options for the cloze choosing algorithm.
+        """
+        return [algorithm.value for algorithm in ClozeChoosingAlgorithm]
 
 class sentencePart(Enum):
     BEFORE_CLOZE = "beforeCloze"

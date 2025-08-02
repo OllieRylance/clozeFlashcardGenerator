@@ -85,7 +85,6 @@ def mostDifferentAlgorithm(
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
     calculatedSentenceLengthScores: Dict[int, float] = {}    
 
-    # TODO : add progress bar
     with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
         for uniqueWordId in uniqueWordIdToWordObjects.keys():
             # Create a list of the words that are not already in use

@@ -50,7 +50,7 @@ class PunctuationWordPosition(Enum):
     AFTER = "after"
     ALONE = "alone"
 
-class algorithmConfigDefaults:
+class generatorConfigDefaults:
     """
     Default values for the algorithm configuration.
     """
@@ -66,7 +66,7 @@ class algorithmConfigDefaults:
     # processing time)
     # onlyInUseForWordsWithClozeFlashcards: bool = True
 
-class algorithmConfigMapping:
+class generatorConfigMapping:
     requiredKeys: List[str] = [
         "name",
         "file"

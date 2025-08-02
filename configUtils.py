@@ -7,8 +7,8 @@ from readWrite import readJsonFile, writeJsonFile
 from resources import (
     ClozeChoosingAlgorithm,
     OutputOrder,
-    algorithmConfigDefaults,
-    algorithmConfigMapping
+    generatorConfigDefaults,
+    generatorConfigMapping
 )
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ def validateConfigObject(config: Any) -> bool:
     """
     Validates the configuration object.
     """
-    requiredKeys: List[str] = algorithmConfigMapping.requiredKeys
+    requiredKeys: List[str] = generatorConfigMapping.requiredKeys
     return all(
         config.get(key) is not None for key in requiredKeys
     )
@@ -65,7 +65,7 @@ def getConfigFilePath(configName: str) -> str:
             configFileName: Optional[str] = config.get("file")
             if not configFileName:
                 return "error: config file name not found"
-            return os.path.join("algorithmConfigs", configFileName)
+            return os.path.join("generatorConfigs", configFileName)
     return "error: current config file not found"
 
 def getCurrentConfigFilePath() -> str:
@@ -116,8 +116,8 @@ def getInputFilePath(configFilePath: str) -> str:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.inputFilePath
-    return configJson.get("inputFilePath", algorithmConfigDefaults.inputFilePath)
+        return generatorConfigDefaults.inputFilePath
+    return configJson.get("inputFilePath", generatorConfigDefaults.inputFilePath)
 
 def getOutputFilePath(configFilePath: str) -> str:
     """
@@ -125,8 +125,8 @@ def getOutputFilePath(configFilePath: str) -> str:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.outputFilePath
-    return configJson.get("outputFilePath", algorithmConfigDefaults.outputFilePath)
+        return generatorConfigDefaults.outputFilePath
+    return configJson.get("outputFilePath", generatorConfigDefaults.outputFilePath)
 
 def getClozeChoosingAlgorithm(configFilePath: str) -> ClozeChoosingAlgorithm:
     """
@@ -134,11 +134,11 @@ def getClozeChoosingAlgorithm(configFilePath: str) -> ClozeChoosingAlgorithm:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.clozeChoosingAlgorithm
+        return generatorConfigDefaults.clozeChoosingAlgorithm
     clozeChoosingAlgorithmString: Optional[str] = configJson.get("clozeChoosingAlgorithm")
     return (
         ClozeChoosingAlgorithm(clozeChoosingAlgorithmString)
-        if clozeChoosingAlgorithmString else algorithmConfigDefaults.clozeChoosingAlgorithm
+        if clozeChoosingAlgorithmString else generatorConfigDefaults.clozeChoosingAlgorithm
     )
 
 def getNumFlashcardsPerWord(configFilePath: str) -> int:
@@ -147,8 +147,8 @@ def getNumFlashcardsPerWord(configFilePath: str) -> int:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.numFlashcardsPerWord
-    return configJson.get("numFlashcardsPerWord", algorithmConfigDefaults.numFlashcardsPerWord)
+        return generatorConfigDefaults.numFlashcardsPerWord
+    return configJson.get("numFlashcardsPerWord", generatorConfigDefaults.numFlashcardsPerWord)
 
 def getBenefitShorterSentences(configFilePath: str) -> bool:
     """
@@ -156,8 +156,8 @@ def getBenefitShorterSentences(configFilePath: str) -> bool:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.benefitShorterSentences
-    return configJson.get("benefitShorterSentences", algorithmConfigDefaults.benefitShorterSentences)
+        return generatorConfigDefaults.benefitShorterSentences
+    return configJson.get("benefitShorterSentences", generatorConfigDefaults.benefitShorterSentences)
 
 def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
@@ -165,12 +165,12 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.outputOrder
+        return generatorConfigDefaults.outputOrder
     outputOrderStrings: List[str] = configJson.get("outputOrder", [])
     return [
         # TODO : handle invalid output order strings
         OutputOrder(order) for order in outputOrderStrings
-    ] or algorithmConfigDefaults.outputOrder
+    ] or generatorConfigDefaults.outputOrder
 
 def getWordsToBury(configFilePath: str) -> List[str]:
     """
@@ -178,8 +178,8 @@ def getWordsToBury(configFilePath: str) -> List[str]:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return algorithmConfigDefaults.wordsToBury
-    return configJson.get("wordsToBury", algorithmConfigDefaults.wordsToBury)
+        return generatorConfigDefaults.wordsToBury
+    return configJson.get("wordsToBury", generatorConfigDefaults.wordsToBury)
 
 def updateConfigFile(configName: str, update: Any) -> None:
     """

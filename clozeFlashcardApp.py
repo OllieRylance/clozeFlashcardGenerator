@@ -56,7 +56,7 @@ def config():
 @config.command()
 def list():
     """List all available configs."""
-    # Read the algorithmConfigs/default.json file
+    # Read the generatorConfigs/default.json file
     getTerminalConfigList: List[str] = getConfigList()
     click.echo("Available configs:")
     for config in getTerminalConfigList:

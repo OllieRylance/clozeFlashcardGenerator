@@ -46,7 +46,7 @@ def preAlgorithmChecks(
 
             simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
                 word.line, word.index
-            ).GetSimpleClozeFlashcard()
+            ).getSimpleClozeFlashcard()
 
             if (currentUniqueWordId in inUseClozeFlashcards and
                 simpleClozeFlashcard in inUseClozeFlashcardsForWord):
@@ -60,7 +60,7 @@ def preAlgorithmChecks(
             )
 
         return wordToSimpleClozeFlashcards, True
-    
+
     return wordToSimpleClozeFlashcards, False
 
 def firstSentencesFirstAlgorithm(
@@ -116,7 +116,7 @@ def firstSentencesFirstAlgorithm(
                     continue
                 simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
                     word.line, word.index
-                ).GetSimpleClozeFlashcard()
+                ).getSimpleClozeFlashcard()
 
                 if uniqueWordId not in wordToSimpleClozeFlashcards:
                     wordToSimpleClozeFlashcards[uniqueWordId] = []
@@ -131,7 +131,7 @@ def mostDifferentAlgorithm(
 ) -> Dict[str, List[SimpleClozeFlashcard]]:
     # For each unique word, create cloze flashcards for the it's lines
     # with the top n most different sentences
-    # If there are already cloze flashcards in use for the word, 
+    # If there are already cloze flashcards in use for the word,
     # use those as the start of the list
     uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
         getUniqueWordIdToWordObjects(configFilePath)
@@ -145,7 +145,7 @@ def mostDifferentAlgorithm(
     numFlashcardsPerWord: int = getNumFlashcardsPerWord(configFilePath)
 
     calculatedCosDissimilarities: Dict[Tuple[int, int], float] = {}
-    calculatedSentenceLengthScores: Dict[int, float] = {}    
+    calculatedSentenceLengthScores: Dict[int, float] = {}
 
     with tqdm(total=len(uniqueWordIdToWordObjects), desc="Processing unique words") as pbar:
         for uniqueWordId in uniqueWordIdToWordObjects.keys():
@@ -181,7 +181,7 @@ def mostDifferentAlgorithm(
             # Add the in-use cloze flashcards to the lineIdToWord
             for clozeFlashcard in inUseClozeFlashcardsForWord:
                 lineId: int = clozeFlashcard.line.id
-                clozeWord: Word = clozeFlashcard.GetFirstClozeWord()
+                clozeWord: Word = clozeFlashcard.getFirstClozeWord()
                 lineIdToWord[lineId] = clozeWord
 
             inUseIds: List[int] = [
@@ -235,14 +235,14 @@ def mostDifferentAlgorithm(
                     continue
                 newSimpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
                     line, wordIndex
-                ).GetSimpleClozeFlashcard()
+                ).getSimpleClozeFlashcard()
                 if uniqueWordId not in wordToSimpleClozeFlashcards:
                     wordToSimpleClozeFlashcards[uniqueWordId] = []
                 wordToSimpleClozeFlashcards[uniqueWordId].append(
                     newSimpleClozeFlashcard
                 )
             pbar.update(1)
-    
+
     return wordToSimpleClozeFlashcards
 
 def generateNewCombinations(
@@ -339,8 +339,8 @@ def highestProportionOfNewWordsAlgorithm(
     # List of words that have been used in any used cloze flashcards
     seenWords: List[str] = []
 
-    for word in (word for flashcards in inUseClozeFlashcards.values() 
-                 for flashcard in flashcards 
+    for word in (word for flashcards in inUseClozeFlashcards.values()
+                 for flashcard in flashcards
                  for word in flashcard.getWords()):
         uniqueWordId: str = word.getUniqueWordId()
         if uniqueWordId not in seenWords:
@@ -371,7 +371,7 @@ def highestProportionOfNewWordsAlgorithm(
         )
         if toContinue:
             continue
-    
+
         unusedWords.sort(
             key=lambda w: (
                 w.getSentenceNewWordProportion(seenWords, calculatedSentenceProportions),
@@ -390,7 +390,7 @@ def highestProportionOfNewWordsAlgorithm(
 
             simpleClozeFlashcard: SimpleClozeFlashcard = ClozeFlashcard(
                 word.line, word.index
-            ).GetSimpleClozeFlashcard()
+            ).getSimpleClozeFlashcard()
 
             if word.getUniqueWordId() not in wordToSimpleClozeFlashcards:
                 wordToSimpleClozeFlashcards[word.getUniqueWordId()] = []

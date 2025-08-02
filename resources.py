@@ -33,7 +33,7 @@ class ClozeChoosingAlgorithm(Enum):
         """
         return [algorithm.value for algorithm in ClozeChoosingAlgorithm]
 
-class sentencePart(Enum):
+class SentencePart(Enum):
     BEFORE_CLOZE = "beforeCloze"
     MID_CLOZE = "midCloze"
     AFTER_CLOZE = "afterCloze"
@@ -45,7 +45,7 @@ class PunctuationWordPosition(Enum):
     AFTER = "after"
     ALONE = "alone"
 
-class generatorConfigDefaults:
+class GeneratorConfigDefaults:
     """
     Default values for the algorithm configuration.
     """
@@ -57,7 +57,7 @@ class generatorConfigDefaults:
     outputOrder: List[OutputOrder] = []
     wordsToBury: List[str] = []
 
-class generatorConfigMapping:
+class GeneratorConfigMapping:
     requiredKeys: List[str] = [
         "name",
         "file"

@@ -17,7 +17,7 @@ def getUniqueWordIdToWordObjects(configFilePath: str) -> Dict[str, List[Word]]:
     inputFilePath: str = getInputFilePath(configFilePath)
     sentenceLines: Optional[List[str]] = prepareSentenceLines(inputFilePath)
 
-    if sentenceLines is None: 
+    if sentenceLines is None:
         return {}
 
     uniqueWordIdToWordObjects: Dict[str, List[Word]] = {}
@@ -42,7 +42,7 @@ def createInitialClozeFlashcards(
 
         for clozeFlashcard in inUseClozeFlashcards[word]:
             simpleClozeFlashcard: SimpleClozeFlashcard = (
-                clozeFlashcard.GetSimpleClozeFlashcard()
+                clozeFlashcard.getSimpleClozeFlashcard()
             )
             wordToClozeFlashcards[word].append(simpleClozeFlashcard)
 
@@ -111,12 +111,12 @@ def parseSentenceLine(
         if alonePunctuationFound:
             alonePunctuation += 1
             continue
-        
+
         # Detect multi-word expressions
         wordString, multiWordExpression = processMultiWordExpressions(
             wordString, multiWordExpressions
         )
-        
+
         word: Word = Word(wordString, multiWordExpression)
         words.append(word)
 
@@ -207,7 +207,7 @@ def makeInUseClozeFlashcards(
 
         # Add the cloze flashcard to the in-use cloze flashcards dictionary
         uniqueWordId: str = (
-            clozeFlashcardInstance.GetFirstClozeWord().getUniqueWordId()
+            clozeFlashcardInstance.getFirstClozeWord().getUniqueWordId()
         )
         if uniqueWordId not in inUseClozeFlashcards:
             inUseClozeFlashcards[uniqueWordId] = []
@@ -237,7 +237,7 @@ def processPunctuation(
         # If the word is just punctuation, treat it as alone punctuation
         punctuationDict[realIndex].append(
             Punctuation(
-                match.group(1) + match.group(3), 
+                match.group(1) + match.group(3),
                 PunctuationWordPosition.ALONE
             )
         )
@@ -253,7 +253,7 @@ def processPunctuation(
         punctuationDict[realIndex].append(
             Punctuation(match.group(3), PunctuationWordPosition.AFTER)
         )
-    
+
     return wordString, False
 
 def processMultiWordExpressions(
@@ -270,7 +270,7 @@ def processMultiWordExpressions(
         wordString, inSentenceMultiWordExpressionId = getWordStringAndId(wordString)
     else:
         currentLowestExpressionId = min(
-            multiWordExpressions.keys(), 
+            multiWordExpressions.keys(),
             default=1
         )
         if currentLowestExpressionId < 0:
@@ -283,7 +283,7 @@ def processMultiWordExpressions(
         multiWordExpressions[inSentenceMultiWordExpressionId] = (
             MultiWordExpression()
         )
-    
+
     multiWordExpression = multiWordExpressions[inSentenceMultiWordExpressionId]
     return wordString, multiWordExpression
 
@@ -305,11 +305,11 @@ def createClozeFlashcardFromSimpleJsonableDict(
     Create a ClozeFlashcard from a simple JSON-serializable dictionary.
     """
     clozeWordsPart1: List[str] = [
-        Word.addClozeIdToString(word, 1) 
+        Word.addClozeIdToString(word, 1)
         for word in clozeFlashcard['clozeWordPart1'].split()
     ]
     clozeWordsPart2: List[str] = [
-        Word.addClozeIdToString(word, 1) 
+        Word.addClozeIdToString(word, 1)
         for word in clozeFlashcard['clozeWordPart2'].split()
     ]
     lineString: str = (

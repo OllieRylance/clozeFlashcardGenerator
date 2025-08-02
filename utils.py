@@ -35,7 +35,7 @@ def printGeneratingClozeFlashcardsInfo(configFilePath: str) -> None:
         getInUseClozeFlashcards(configFilePath)
     )
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
-    
+
     totalInUseClozeFlashcards: int = sum(
         len(flashcards) for flashcards in inUseClozeFlashcards.values()
     )
@@ -55,11 +55,11 @@ def generateClozeFlashcards(configFilePath: str) -> Dict[str, List[SimpleClozeFl
     clozeChoosingAlgorithm: ClozeChoosingAlgorithm = getClozeChoosingAlgorithm(configFilePath)
     if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.FIRST_SENTENCES_FIRST:
         return firstSentencesFirstAlgorithm(configFilePath)
-    elif clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
+    if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.MOST_DIFFERENT:
         return mostDifferentAlgorithm(configFilePath)
-    elif clozeChoosingAlgorithm == ClozeChoosingAlgorithm.HIGHEST_PROPORTION_OF_NEW_WORDS:
+    if clozeChoosingAlgorithm == ClozeChoosingAlgorithm.HIGHEST_PROPORTION_OF_NEW_WORDS:
         return highestProportionOfNewWordsAlgorithm(configFilePath)
-    
+
     # If an unknown algorithm is specified, log an error and return an empty dictionary
     logger.error(
         f"Unknown cloze choosing algorithm '{clozeChoosingAlgorithm}' specified in the config file."
@@ -73,10 +73,10 @@ def ensureInUseClozeFlashcardsPersist(
     inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
         getInUseClozeFlashcards(configFilePath)
     )
-    
+
     for word, clozeFlashcards in inUseClozeFlashcards.items():
         if word not in wordToSimpleClozeFlashcards:
-            # If the word is not in the new cloze flashcards, 
+            # If the word is not in the new cloze flashcards,
             # a serious error has occurred
             logger.error(
                 f"Word '{word}' from in-use cloze flashcards is not present "
@@ -85,7 +85,7 @@ def ensureInUseClozeFlashcardsPersist(
             exit(1)
 
         for clozeFlashcard in clozeFlashcards:
-            simpleClozeFlashcard = clozeFlashcard.GetSimpleClozeFlashcard()
+            simpleClozeFlashcard = clozeFlashcard.getSimpleClozeFlashcard()
             if simpleClozeFlashcard not in wordToSimpleClozeFlashcards[word]:
                 # If the cloze flashcard is not in the new cloze flashcards,
                 # a serious error has occurred
@@ -101,7 +101,7 @@ def convertToJsonableFormat(
 ) -> Dict[str, List[Dict[str, str]]]:
     """
     Convert the word to SimpleClozeFlashcard dictionary to a JSON-serializable format.
-    Returns a dictionary of words to lists of dictionaries 
+    Returns a dictionary of words to lists of dictionaries
     representing SimpleClozeFlashcards.
     """
     wordToJsonableClozeFlashcards: Dict[str, List[Dict[str, str]]] = {}
@@ -171,7 +171,7 @@ def sortSimpleClozeFlashcards(
         elif order == OutputOrder.FREQUENCY:
             uniqueWordIdToWordObjects: Dict[str, List[Word]] = (
                 getUniqueWordIdToWordObjects(configFilePath)
-            )            
+            )
             frequencies: Dict[str, int] = {}
             for word, references in uniqueWordIdToWordObjects.items():
                 frequencies[word] = len(references)
@@ -208,8 +208,8 @@ def sortSimpleClozeFlashcards(
             inUseClozeFlashcards: Dict[str, List[ClozeFlashcard]] = (
                 getInUseClozeFlashcards(configFilePath)
             )
-            for word in (word for flashcards in inUseClozeFlashcards.values() 
-                         for flashcard in flashcards 
+            for word in (word for flashcards in inUseClozeFlashcards.values()
+                         for flashcard in flashcards
                          for word in flashcard.getWords()):
                 if word.isFirstWordInMultiWordExpression():
                     uniqueWordId: str = word.getUniqueWordId()
@@ -223,7 +223,7 @@ def sortSimpleClozeFlashcards(
                     key=lambda item: inUseCounts[item[0]],
                 )
             )
-    
+
     return wordToSimpleClozeFlashcards
 
 def burySimpleClozeFlashcards(

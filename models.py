@@ -1,13 +1,14 @@
+import hashlib
 import logging
-from typing import Dict, List, Optional, Tuple
-import numpy as np
 import math
 import re
-import hashlib
+from typing import Dict, List, Optional, Tuple
+
+import numpy as np
 
 from resources import (
     PunctuationWordPosition,
-    sentencePart
+    SentencePart
 )
 
 logger = logging.getLogger(__name__)
@@ -16,7 +17,7 @@ class Word:
     # uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
 
     def __init__(
-        self, wordString: str, 
+        self, wordString: str,
         multiWordExpression: 'MultiWordExpression'
     ) -> None:
         self.thisWordString: str = wordString
@@ -26,20 +27,20 @@ class Word:
         self.firstWordInMultiWordExpression: Optional[bool] = None
 
         self.multiWordExpression: 'MultiWordExpression' = multiWordExpression
-    
+
     def getUniqueWordId(self) -> str:
         """
-        Get a unique identifier for the word (and the rest of its 
+        Get a unique identifier for the word (and the rest of its
         multi-word expression).
         """
         if self.uniqueWordId is not None:
             return self.uniqueWordId
-        
+
         # If the word is part of a multi-word expression
         multiWordExpression: 'MultiWordExpression' = self.multiWordExpression
         self.uniqueWordId = multiWordExpression.getUniqueWordId()
         return self.uniqueWordId
-    
+
     def thisInstanceInClozeFlashcards(
         self, clozeFlashcards: List['ClozeFlashcard']
     ) -> bool:
@@ -47,7 +48,7 @@ class Word:
         Check if this instance of the word is in the list of cloze flashcards.
         """
         for clozeFlashcard in clozeFlashcards:
-            if (clozeFlashcard.line == self.line 
+            if (clozeFlashcard.line == self.line
                 and clozeFlashcard.wordIndex == self.index):
                 return True
         return False
@@ -67,21 +68,21 @@ class Word:
         """Add a reference to the line and index of this word."""
         self.line = line
         self.index = index
-    
+
     def isFirstWordInMultiWordExpression(self) -> bool:
         """
         Check if this word is the first word in its multi-word expression.
         """
         if self.firstWordInMultiWordExpression is not None:
             return self.firstWordInMultiWordExpression
-        
+
         self.firstWordInMultiWordExpression = (
             self.multiWordExpression.getFirstIndex() == self.index
         )
         return self.firstWordInMultiWordExpression
-    
+
     def getSentenceNewWordProportion(
-        self, 
+        self,
         seenWords: List[str],
         calculatedSentenceProportions: Dict[int, float]
     ) -> float:
@@ -95,7 +96,7 @@ class Word:
         lineId: int = line.id
         if lineId in calculatedSentenceProportions:
             return calculatedSentenceProportions[lineId]
-        
+
         totalFirstWords: int = 0
         totalUnseenWords: int = 0
 
@@ -123,7 +124,7 @@ class MultiWordExpression:
 
         self.uniqueWordId: Optional[str] = None
         self.numWordsBeforeSplitInCloze: Optional[int] = None
-    
+
     def __str__(self) -> str:
         return " ".join([word.thisWordString for word in self.words])
 
@@ -134,7 +135,7 @@ class MultiWordExpression:
         """
         if self.uniqueWordId is not None:
             return self.uniqueWordId
-        
+
         self.uniqueWordId = ' '.join(
             sorted([word.thisWordString for word in self.words])
         )
@@ -143,7 +144,7 @@ class MultiWordExpression:
     def getNumWordsBeforeSplitInCloze(self) -> int:
         if self.numWordsBeforeSplitInCloze is not None:
             return self.numWordsBeforeSplitInCloze
-        
+
         currentIndex: int = self.getFirstIndex()
         currentIndex -= 1
         for wordNumber, word in enumerate(self.words):
@@ -159,17 +160,17 @@ class MultiWordExpression:
         firstWordIndex: int = self.getFirstIndex()
         lastWordIndex: int = self.getLastIndex()
         return (lastWordIndex - firstWordIndex + 1) - len(self.words)
-    
+
     def getNumWordsAfterSplitInCloze(self) -> int:
         return len(self.words) - self.getNumWordsBeforeSplitInCloze()
-    
+
     def getFirstIndex(self) -> int:
         firstWordIndex: Optional[int] = self.words[0].index
         if firstWordIndex is None:
             self.handleMissingIndexError(self.words[0])
             return -1
         return firstWordIndex
-    
+
     def getLastIndex(self) -> int:
         lastWordIndex: Optional[int] = self.words[-1].index
         if lastWordIndex is None:
@@ -197,7 +198,7 @@ class Line:
     # calculatedSentenceLengthScores: Dict[int, float] = {}
 
     def __init__(
-        self, words: List['Word'], 
+        self, words: List['Word'],
         punctuationDict: Dict[int, List['Punctuation']]
     ) -> None:
         for index, word in enumerate(words):
@@ -223,15 +224,6 @@ class Line:
             return NotImplemented
         return self.id == other.id
 
-    def GetLastIndex(self) -> int:
-        """
-        Get the last index of the line.
-        This is used to determine if the line has any words after a certain index.
-        """
-        highestWordIndex: int = len(self.words) - 1
-        highestPunctuationIndex: int = max(self.punctuationDict.keys())
-        return max(highestWordIndex, highestPunctuationIndex)  
-
     def getUniqueWordIdVector(self, uniqueWordIdToWordObjects: Dict[str, List['Word']]) -> np.ndarray:
         """
         Generate a word vector for the line.
@@ -242,7 +234,7 @@ class Line:
         # Initialize the word vector as a dictionary
         # where keys are the punctuationless words and values are their counts
         wordCounts: Dict[str, int] = {
-            uniqueWordId: 0 
+            uniqueWordId: 0
             for uniqueWordId in uniqueWordIdToWordObjects.keys()
         }
 
@@ -312,7 +304,7 @@ class Line:
         sentenceLengthScore = 1 / (math.exp((3 * length / 25) ** 2))
         calculatedSentenceLengthScores[length] = sentenceLengthScore
         return sentenceLengthScore
-    
+
     @staticmethod
     def stringifyWordsAndPunctuation(
         words: List['Word'],
@@ -332,35 +324,35 @@ class Line:
             wordString: str = word.thisWordString
             if relevantPunctuation:
                 alonePunctuation = [
-                    p for p in relevantPunctuation 
+                    p for p in relevantPunctuation
                     if p.wordPosition == PunctuationWordPosition.ALONE
                 ]
                 if alonePunctuation:
                     result += f"{alonePunctuation[0].character} "
                 beforePunctuation: List[Punctuation] = [
-                    p for p in relevantPunctuation 
+                    p for p in relevantPunctuation
                     if p.wordPosition == PunctuationWordPosition.BEFORE
                 ]
                 if beforePunctuation:
                     wordString = beforePunctuation[0].character + wordString
                 afterPunctuation: List[Punctuation] = [
-                    p for p in relevantPunctuation 
+                    p for p in relevantPunctuation
                     if p.wordPosition == PunctuationWordPosition.AFTER
                 ]
                 if afterPunctuation:
                     wordString += afterPunctuation[0].character
             result += wordString
-        
+
         # Add any punctuation that is alone at the end of the sentence
         indexAfterWords = len(words)
         if indexAfterWords in punctuationDict:
             alonePunctuation = [
-                p for p in punctuationDict[indexAfterWords] 
+                p for p in punctuationDict[indexAfterWords]
                 if p.wordPosition == PunctuationWordPosition.ALONE
             ]
             if alonePunctuation:
                 result += f"{alonePunctuation[0].character} "
-            
+
         return result
 
 class ClozeFlashcard:
@@ -378,24 +370,24 @@ class ClozeFlashcard:
             return NotImplemented
         return self.simpleClozeFlashcard == other.simpleClozeFlashcard
 
-    def GetSimpleClozeFlashcard(self) -> 'SimpleClozeFlashcard':
+    def getSimpleClozeFlashcard(self) -> 'SimpleClozeFlashcard':
         if self.simpleClozeFlashcard is not None:
             return self.simpleClozeFlashcard
 
-        beforeCloze: str = self.GetStringOfSentencePart(
-            sentencePart.BEFORE_CLOZE
+        beforeCloze: str = self.getStringOfSentencePart(
+            SentencePart.BEFORE_CLOZE
         )
-        midCloze: str = self.GetStringOfSentencePart(
-            sentencePart.MID_CLOZE
+        midCloze: str = self.getStringOfSentencePart(
+            SentencePart.MID_CLOZE
         )
-        afterCloze: str = self.GetStringOfSentencePart(
-            sentencePart.AFTER_CLOZE
+        afterCloze: str = self.getStringOfSentencePart(
+            SentencePart.AFTER_CLOZE
         )
-        clozePart1: str = self.GetStringOfSentencePart(
-            sentencePart.CLOZE_PART_1
+        clozePart1: str = self.getStringOfSentencePart(
+            SentencePart.CLOZE_PART_1
         )
-        clozePart2: str = self.GetStringOfSentencePart(
-            sentencePart.CLOZE_PART_2
+        clozePart2: str = self.getStringOfSentencePart(
+            SentencePart.CLOZE_PART_2
         )
 
         self.simpleClozeFlashcard = SimpleClozeFlashcard(
@@ -404,33 +396,33 @@ class ClozeFlashcard:
 
         return self.simpleClozeFlashcard
 
-    def GetStringOfSentencePart(
+    def getStringOfSentencePart(
         self,
-        part: 'sentencePart'
+        part: 'SentencePart'
     ) -> str:
         leadingSpace: bool = False
         trailingSpace: bool = False
         getLeadingAndTrailingPunctuation: bool = True
         firstIndex: int = 0
         nextIndex: int = 0
-        firstClozeWord: 'Word' = self.GetFirstClozeWord()
+        firstClozeWord: 'Word' = self.getFirstClozeWord()
         multiWordExpression: Optional['MultiWordExpression'] = (
             firstClozeWord.multiWordExpression
         )
         words: List[Word] = self.line.words
-        
-        if part == sentencePart.BEFORE_CLOZE:
+
+        if part == SentencePart.BEFORE_CLOZE:
             trailingSpace = True
             firstIndex = 0
             nextIndex = self.wordIndex
-        elif part == sentencePart.CLOZE_PART_1:
+        elif part == SentencePart.CLOZE_PART_1:
             getLeadingAndTrailingPunctuation = False
             firstIndex = self.wordIndex
             nextIndex = (
                 self.wordIndex
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
             )
-        elif part == sentencePart.MID_CLOZE:
+        elif part == SentencePart.MID_CLOZE:
             leadingSpace = True
             trailingSpace = True
             firstIndex = (
@@ -438,34 +430,34 @@ class ClozeFlashcard:
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
             )
             nextIndex = (
-                self.wordIndex 
+                self.wordIndex
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
                 + multiWordExpression.getNumWordsInSplitOfCloze()
             )
-        elif part == sentencePart.CLOZE_PART_2:
+        elif part == SentencePart.CLOZE_PART_2:
             getLeadingAndTrailingPunctuation = False
             firstIndex = (
-                self.wordIndex 
+                self.wordIndex
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
                 + multiWordExpression.getNumWordsInSplitOfCloze()
             )
             nextIndex = (
-                self.wordIndex 
+                self.wordIndex
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
                 + multiWordExpression.getNumWordsInSplitOfCloze()
                 + multiWordExpression.getNumWordsAfterSplitInCloze()
             )
-        elif part == sentencePart.AFTER_CLOZE:
+        elif part == SentencePart.AFTER_CLOZE:
             leadingSpace = True
             firstIndex = (
-                self.wordIndex 
+                self.wordIndex
                 + multiWordExpression.getNumWordsBeforeSplitInCloze()
                 + multiWordExpression.getNumWordsInSplitOfCloze()
                 + multiWordExpression.getNumWordsAfterSplitInCloze()
             )
             nextIndex = len(words)
 
-        return self.GenerateSentencePart(
+        return self.generateSentencePart(
             leadingSpace,
             trailingSpace,
             getLeadingAndTrailingPunctuation,
@@ -476,7 +468,7 @@ class ClozeFlashcard:
         )
 
     @staticmethod
-    def GenerateSentencePart(
+    def generateSentencePart(
         leadingSpace: bool,
         trailingSpace: bool,
         getLeadingAndTrailingPunctuation: bool,
@@ -487,7 +479,7 @@ class ClozeFlashcard:
     ) -> str:
         # If the first index is the same as the next index, return an empty string
         previousIndex: int = firstIndex - 1
-        
+
         # If this part has no words
         if firstIndex == nextIndex:
             if not getLeadingAndTrailingPunctuation:
@@ -531,12 +523,12 @@ class ClozeFlashcard:
 
         if previousPunctuationFound or leadingSpace:
             result += " "
-        
+
         # Add the words and punctuation in the range from firstIndex to nextIndex
         lastIndex: int = nextIndex - 1
         for i in range(firstIndex, nextIndex):
             addAlonePunctuation: bool = (
-                getLeadingAndTrailingPunctuation 
+                getLeadingAndTrailingPunctuation
                 or i != firstIndex
             )
             addBeforePunctuation: bool = addAlonePunctuation
@@ -548,7 +540,7 @@ class ClozeFlashcard:
             wordString: str = words[i].thisWordString
             if i in punctuationDict:
                 for punctuation in punctuationDict[i]:
-                    if (punctuation.wordPosition == PunctuationWordPosition.ALONE 
+                    if (punctuation.wordPosition == PunctuationWordPosition.ALONE
                         and addAlonePunctuation):
                         result += punctuation.character + " "
                     elif (punctuation.wordPosition == PunctuationWordPosition.BEFORE
@@ -581,7 +573,7 @@ class ClozeFlashcard:
         """
         return self.line.words
 
-    def GetFirstClozeWord(self) -> 'Word':
+    def getFirstClozeWord(self) -> 'Word':
         """Get the word that is clozed."""
         return self.line.words[self.wordIndex]
 
@@ -625,7 +617,7 @@ class SimpleClozeFlashcard:
             'clozeWordPart2': self.clozePart2,
             'inUse': str(self.inUse)
         }
-    
+
     @staticmethod
     def fromJsonableDict(
         jsonableDict: Dict[str, str]

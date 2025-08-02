@@ -7,8 +7,8 @@ from readWrite import readJsonFile, writeJsonFile
 from resources import (
     ClozeChoosingAlgorithm,
     OutputOrder,
-    generatorConfigDefaults,
-    generatorConfigMapping
+    GeneratorConfigDefaults,
+    GeneratorConfigMapping
 )
 
 logger = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ def validateConfigObject(config: Any) -> bool:
     """
     Validates the configuration object.
     """
-    requiredKeys: List[str] = generatorConfigMapping.requiredKeys
+    requiredKeys: List[str] = GeneratorConfigMapping.requiredKeys
     return all(
         config.get(key) is not None for key in requiredKeys
     )
@@ -77,7 +77,7 @@ def getConfigs() -> List[Any]:
         resetConfigsList()
         appConfigJson = getAppConfigJson()
         configs = appConfigJson.get("configs")
-    
+
     if not configs:
         logger.critical("Failed to retrieve configs after reset")
         return [
@@ -105,7 +105,7 @@ def getCurrentConfigIndex() -> int:
     if not isinstance(currentConfigIndex, int):
         logger.critical("currentConfigIndex is not an integer after reset")
         return 0
-    
+
     return currentConfigIndex
 
 def getCurrentConfigName() -> str:
@@ -118,7 +118,7 @@ def getCurrentConfigName() -> str:
     if 0 > currentConfigIndex or currentConfigIndex >= len(configs):
         logger.error("Invalid currentConfigIndex, resetting to default config")
         resetCurrentConfigIndex()
-        
+
 
     configName = configs[currentConfigIndex].get("name")
     if configName:
@@ -134,7 +134,7 @@ def getCurrentConfigName() -> str:
         appConfigJson["currentConfigIndex"] = 0
         writeAppConfigJsonFile(appConfigJson)
         return configs[0].get("name", "unknown")
-    
+
     logger.error("No configs available, creating default config")
     defaultConfig = {
         "name": "default",
@@ -162,7 +162,7 @@ def getAppConfigJson() -> Any:
         logger.warning("appConfig.json not found, resetting to default")
         resetAppConfigJson()
         appConfigJsonString = readAppConfigJsonFile()
-    
+
     if not appConfigJsonString:
         logger.critical("Failed to read appConfig.json after reset")
         return {
@@ -211,7 +211,7 @@ def setCurrentConfig(name: str) -> None:
     if not configs:
         logger.error("No configs available")
         return
-    
+
     for index, config in enumerate(configs):
         if config.get("name") == name:
             appConfigJson["currentConfigIndex"] = index
@@ -229,7 +229,7 @@ def getConfigJson(configFilePath: str) -> Any:
         logger.error(f"Config file {configFilePath} not found, resetting to default")
         resetConfigFile(configFilePath)
         return {}
-    
+
     try:
         configJson = json.loads(configJsonString)
         return configJson
@@ -243,13 +243,13 @@ def createConfigMapping(configName: str, configFilePath: str) -> None:
     """
     appConfigJson = getAppConfigJson()
     configs = appConfigJson.get("configs", [])
-    
+
     # Check if the config already exists
     for config in configs:
         if config.get("name") == configName:
             logger.info(f"Config '{configName}' already exists")
             return
-    
+
     # Add new config mapping
     newConfig = {
         "name": configName,
@@ -285,7 +285,7 @@ def resetConfigFile(filePath: str) -> None:
 
 def createAndUseNewConfig() -> str:
     newConfigName: str = createNewConfigName()
-    
+
     newConfigFilePath = getConfigFilePath(newConfigName)
     resetConfigFile(newConfigFilePath)
 
@@ -302,8 +302,8 @@ def getInputFilePath(configFilePath: str) -> str:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.inputFilePath
-    return configJson.get("inputFilePath", generatorConfigDefaults.inputFilePath)
+        return GeneratorConfigDefaults.inputFilePath
+    return configJson.get("inputFilePath", GeneratorConfigDefaults.inputFilePath)
 
 def getOutputFilePath(configFilePath: str) -> str:
     """
@@ -311,8 +311,8 @@ def getOutputFilePath(configFilePath: str) -> str:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.outputFilePath
-    return configJson.get("outputFilePath", generatorConfigDefaults.outputFilePath)
+        return GeneratorConfigDefaults.outputFilePath
+    return configJson.get("outputFilePath", GeneratorConfigDefaults.outputFilePath)
 
 def getClozeChoosingAlgorithm(configFilePath: str) -> ClozeChoosingAlgorithm:
     """
@@ -320,11 +320,11 @@ def getClozeChoosingAlgorithm(configFilePath: str) -> ClozeChoosingAlgorithm:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.clozeChoosingAlgorithm
+        return GeneratorConfigDefaults.clozeChoosingAlgorithm
     clozeChoosingAlgorithmString: Optional[str] = configJson.get("clozeChoosingAlgorithm")
     return (
         ClozeChoosingAlgorithm(clozeChoosingAlgorithmString)
-        if clozeChoosingAlgorithmString else generatorConfigDefaults.clozeChoosingAlgorithm
+        if clozeChoosingAlgorithmString else GeneratorConfigDefaults.clozeChoosingAlgorithm
     )
 
 def getNumFlashcardsPerWord(configFilePath: str) -> int:
@@ -333,15 +333,15 @@ def getNumFlashcardsPerWord(configFilePath: str) -> int:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.numFlashcardsPerWord
-    return configJson.get("numFlashcardsPerWord", generatorConfigDefaults.numFlashcardsPerWord)
+        return GeneratorConfigDefaults.numFlashcardsPerWord
+    return configJson.get("numFlashcardsPerWord", GeneratorConfigDefaults.numFlashcardsPerWord)
 
 def getBenefitShorterSentences(configFilePath: str) -> bool:
     """
     Returns whether to benefit shorter sentences from the configuration file.
     """
     configJson = getConfigJson(configFilePath)
-    return configJson.get("benefitShorterSentences", generatorConfigDefaults.benefitShorterSentences)
+    return configJson.get("benefitShorterSentences", GeneratorConfigDefaults.benefitShorterSentences)
 
 def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
@@ -349,7 +349,7 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.outputOrder
+        return GeneratorConfigDefaults.outputOrder
     outputOrderStrings: List[str] = configJson.get("outputOrder", [])
 
     outputOrderEnums: List[OutputOrder] = []
@@ -367,8 +367,8 @@ def getWordsToBury(configFilePath: str) -> List[str]:
     """
     configJson = getConfigJson(configFilePath)
     if configJson is None:
-        return generatorConfigDefaults.wordsToBury
-    return configJson.get("wordsToBury", generatorConfigDefaults.wordsToBury)
+        return GeneratorConfigDefaults.wordsToBury
+    return configJson.get("wordsToBury", GeneratorConfigDefaults.wordsToBury)
 
 def updateConfigFile(configName: str, update: Any) -> None:
     """

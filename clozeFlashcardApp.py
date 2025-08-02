@@ -1,10 +1,11 @@
-import logging
-import click
 import cProfile
-import pstats
 import io
+import logging
 import os
+import pstats
 from typing import List, Tuple
+
+import click
 
 from terminalUtils import runAlgorithm
 from configUtils import (
@@ -38,7 +39,6 @@ logger = logging.getLogger(__name__)
 @click.group()
 def cli():
     """Flashcard App CLI."""
-    pass
 
 @cli.command()
 def help():
@@ -51,7 +51,6 @@ def help():
 @cli.group()
 def config():
     """Commands for managing configs."""
-    pass
 
 @config.command()
 def list():
@@ -113,7 +112,7 @@ def setBenefitShorter(enabled: bool):
 def setOutputOrder(orders: Tuple[str, ...]):
     """Set the output order for the current config."""
     currentConfigName: str = getCurrentConfigName()
-    ordersList = [order for order in orders]
+    ordersList = list(orders)
     setConfigOutputOrder(currentConfigName, ordersList)
 
 @config.command(name='add-bury-word')
@@ -131,46 +130,45 @@ def removeBuryWord(word: str):
     removeBuryWordFromConfig(currentConfigName, word)
 
 @config.group(name='current')
-def current_settings():
+def currentSettings():
     """Commands for getting current config settings."""
-    pass
 
-@current_settings.command(name='input-file')
+@currentSettings.command(name='input-file')
 def getCurrentInputFile():
     """Get the input file path for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     inputFile = getInputFilePath(configFilePath)
     click.echo(f"Input file: {inputFile}")
 
-@current_settings.command(name='output-file')
+@currentSettings.command(name='output-file')
 def getCurrentOutputFile():
     """Get the output file path for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     outputFile = getOutputFilePath(configFilePath)
     click.echo(f"Output file: {outputFile}")
 
-@current_settings.command(name='algorithm')
+@currentSettings.command(name='algorithm')
 def getCurrentAlgorithm():
     """Get the cloze choosing algorithm for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     algorithm = getClozeChoosingAlgorithm(configFilePath)
     click.echo(f"Algorithm: {algorithm.value}")
 
-@current_settings.command(name='flashcards-per-word')
+@currentSettings.command(name='flashcards-per-word')
 def getCurrentFlashcardsPerWord():
     """Get the number of flashcards per word for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     count = getNumFlashcardsPerWord(configFilePath)
     click.echo(f"Flashcards per word: {count}")
 
-@current_settings.command(name='benefit-shorter')
+@currentSettings.command(name='benefit-shorter')
 def getCurrentBenefitShorter():
     """Get whether shorter sentences are benefited for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
     enabled = getBenefitShorterSentences(configFilePath)
     click.echo(f"Benefit shorter sentences: {enabled}")
 
-@current_settings.command(name='output-order')
+@currentSettings.command(name='output-order')
 def getCurrentOutputOrder():
     """Get the output order for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
@@ -178,7 +176,7 @@ def getCurrentOutputOrder():
     orderValues = [order.value for order in orders]
     click.echo(f"Output order: {', '.join(orderValues)}")
 
-@current_settings.command(name='bury-words')
+@currentSettings.command(name='bury-words')
 def getCurrentBuryWords():
     """Get the list of words to bury for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
@@ -192,7 +190,6 @@ def getCurrentBuryWords():
 @cli.group()
 def run():
     """Commands for running the app."""
-    pass
 
 @run.command()
 def all() -> None:
@@ -212,9 +209,9 @@ if __name__ == "__main__":
         level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
         format='%(levelname)s: %(message)s'
     )
-    
+
     isDev = os.getenv("DEV_MODE", "false").lower() == "true"
-    
+
     profiler = None
 
     if isDev:
@@ -223,7 +220,7 @@ if __name__ == "__main__":
 
         # Start profiling
         profiler.enable()
-    
+
     if isDev:
         all()
     else:

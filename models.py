@@ -12,13 +12,6 @@ from resources import (
 
 logger = logging.getLogger(__name__)
 
-# def resetForTesting() -> None:
-#     Line.calculatedCosDissimilarities.clear()
-#     Line.calculatedSentenceLengthScores.clear()
-#     Word.uniqueWordIdToWordObjects.clear()
-#     SimpleClozeFlashcard.wordToFlashcards.clear()
-#     ClozeFlashcard.inUseClozeFlashcards.clear()
-
 class Word:
     # uniqueWordIdToWordObjects: Dict[str, List['Word']] = {}
 

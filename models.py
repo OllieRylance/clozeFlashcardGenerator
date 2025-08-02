@@ -3,6 +3,7 @@ from typing import Dict, List, Optional, Tuple
 import numpy as np
 import math
 import re
+import hashlib
 
 from resources import (
     PunctuationWordPosition,
@@ -212,7 +213,7 @@ class Line:
         self.punctuationDict: Dict[int, List['Punctuation']] = punctuationDict
 
         self.asString: Optional[str] = None
-        self.id: int = hash(str(self))
+        self.id: int = int(hashlib.sha256(str(self).encode()).hexdigest()[:8], 16)
         self.wordVector: Optional[np.ndarray] = None
 
     def __str__(self) -> str:
@@ -224,7 +225,7 @@ class Line:
         return self.asString
 
     def __eq__(self, other: object) -> bool:
-        """Check if two Lines have equal hashes."""
+        """Check if two Lines have equal ids."""
         if not isinstance(other, Line):
             return NotImplemented
         return self.id == other.id

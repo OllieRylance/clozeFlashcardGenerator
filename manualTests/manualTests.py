@@ -3,10 +3,11 @@ import sys
 import os
 from typing import List
 
+# Add the parent directory to the path to import main
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, root_dir)
 
-from main import main
+from main import main  # pylint: disable=wrong-import-position,import-error
 
 logger = logging.getLogger(__name__)
 

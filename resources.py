@@ -23,10 +23,6 @@ class OutputOrder(Enum):
 
 # TODO : add a simple algorithm that just outputs the first
 # sentences until the number of flashcards is reached
-# TODO : add an algorithms which prioritise sentences with the 
-# highest proportion of words that are either:
-# - not anywhere in existing flashcards
-# - not cloze words in existing flashcards
 class ClozeChoosingAlgorithm(Enum):
     MOST_DIFFERENT = "most-different"
     HIGHEST_PROPORTION_OF_NEW_WORDS = "highest-proportion-of-new-words"
@@ -61,10 +57,6 @@ class generatorConfigDefaults:
     benefitShorterSentences: bool = False
     outputOrder: List[OutputOrder] = []
     wordsToBury: List[str] = []
-    # TODO : add option that allows words that are already used
-    # as cloze words to just output those flashcards for (save
-    # processing time)
-    # onlyInUseForWordsWithClozeFlashcards: bool = True
 
 class generatorConfigMapping:
     requiredKeys: List[str] = [

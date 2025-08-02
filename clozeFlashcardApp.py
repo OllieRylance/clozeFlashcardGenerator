@@ -139,7 +139,6 @@ def current_settings():
 def getCurrentInputFile():
     """Get the input file path for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     inputFile = getInputFilePath(configFilePath)
     click.echo(f"Input file: {inputFile}")
 
@@ -147,7 +146,6 @@ def getCurrentInputFile():
 def getCurrentOutputFile():
     """Get the output file path for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     outputFile = getOutputFilePath(configFilePath)
     click.echo(f"Output file: {outputFile}")
 
@@ -155,7 +153,6 @@ def getCurrentOutputFile():
 def getCurrentAlgorithm():
     """Get the cloze choosing algorithm for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     algorithm = getClozeChoosingAlgorithm(configFilePath)
     click.echo(f"Algorithm: {algorithm.value}")
 
@@ -163,7 +160,6 @@ def getCurrentAlgorithm():
 def getCurrentFlashcardsPerWord():
     """Get the number of flashcards per word for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     count = getNumFlashcardsPerWord(configFilePath)
     click.echo(f"Flashcards per word: {count}")
 
@@ -171,7 +167,6 @@ def getCurrentFlashcardsPerWord():
 def getCurrentBenefitShorter():
     """Get whether shorter sentences are benefited for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     enabled = getBenefitShorterSentences(configFilePath)
     click.echo(f"Benefit shorter sentences: {enabled}")
 
@@ -179,7 +174,6 @@ def getCurrentBenefitShorter():
 def getCurrentOutputOrder():
     """Get the output order for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     orders = getOutputOrder(configFilePath)
     orderValues = [order.value for order in orders]
     click.echo(f"Output order: {', '.join(orderValues)}")
@@ -188,7 +182,6 @@ def getCurrentOutputOrder():
 def getCurrentBuryWords():
     """Get the list of words to bury for the current config."""
     configFilePath: str = getCurrentConfigFilePath()
-    # TODO : error handling
     words = getWordsToBury(configFilePath)
     if words:
         click.echo(f"Bury words: {', '.join(words)}")

@@ -33,21 +33,106 @@ def getConfigList() -> List[str]:
         if validateConfigObject(config)
     ]
 
+def writeAppConfigJsonFile(appConfigJson: Any) -> None:
+    """
+    Writes the appConfig.json file with the provided JSON object.
+    """
+    writeJsonFile("appConfig.json", appConfigJson)
+
+def resetConfigsList() -> None:
+    appConfigJson = getAppConfigJson()
+    appConfigJson["configs"] = [
+        {
+            "name": "default",
+            "file": "default.json"
+        }
+    ]
+    writeAppConfigJsonFile(appConfigJson)
+
+def resetCurrentConfigIndex() -> None:
+    appConfigJson = getAppConfigJson()
+    appConfigJson["currentConfigIndex"] = 0
+    writeAppConfigJsonFile(appConfigJson)
+
+def resetAppConfigJson() -> None:
+    appConfigJson: Any = {
+        "configs": [
+            {
+                "name": "default",
+                "file": "default.json"
+            }
+        ],
+        "currentConfigIndex": 0
+    }
+    writeAppConfigJsonFile(appConfigJson)
+
+def getConfigs() -> List[Any]:
+    """
+    Returns the list of configurations from appConfig.json.
+    """
+    appConfigJson = getAppConfigJson()
+    configs = appConfigJson.get("configs")
+    if not configs:
+        logger.error("No configs available, resetting configs in appConfig.json")
+        resetConfigsList()
+        appConfigJson = getAppConfigJson()
+        configs = appConfigJson.get("configs")
+    
+    if not configs:
+        logger.critical("Failed to retrieve configs after reset")
+        return [
+            {
+                "name": "default",
+                "file": "default.json"
+            }
+        ]
+
+    return configs
+
+def getCurrentConfigIndex() -> int:
+    """
+    Returns the index of the currently active configuration.
+    """
+    appConfigJson = getAppConfigJson()
+    currentConfigIndex = appConfigJson.get("currentConfigIndex")
+
+    if not isinstance(currentConfigIndex, int):
+        logger.error("Invalid currentConfigIndex, resetting to 0")
+        resetCurrentConfigIndex()
+        appConfigJson = getAppConfigJson()
+        currentConfigIndex = appConfigJson.get("currentConfigIndex")
+
+    if not isinstance(currentConfigIndex, int):
+        logger.critical("currentConfigIndex is not an integer after reset")
+        return 0
+    
+    return currentConfigIndex
+
 def getCurrentConfigName() -> str:
     """
     Returns the name of the currently active configuration.
     """
-    appConfigJson = getAppConfigJson()
-    currentConfigIndex = appConfigJson.get("currentConfigIndex", 0)
-    configs = appConfigJson.get("configs", [])
-    if 0 <= currentConfigIndex < len(configs):
-        return configs[currentConfigIndex].get("name", "unknown")
-    # TODO : make the currentConfigIndex the first config if there is a
-    # first config. else, create a default config amd set it as current
+    currentConfigIndex = getCurrentConfigIndex()
+    configs = getConfigs()
+
+    if 0 > currentConfigIndex or currentConfigIndex >= len(configs):
+        logger.error("Invalid currentConfigIndex, resetting to default config")
+        resetCurrentConfigIndex()
+        
+
+    configName = configs[currentConfigIndex].get("name")
+    if configName:
+        return configName
+
+    logger.error("Current config name is not set, resetting to default config")
+    resetAppConfigJson()
+
+    return "default"
+
     if configs:
-        logger.error("Invalid currentConfigIndex, resetting to first config")
+        logger.error("Invalid currentConfigIndex, resetting to default config")
         appConfigJson["currentConfigIndex"] = 0
-        writeJsonFile("appConfig.json", appConfigJson)
+        writeAppConfigJsonFile(appConfigJson)
         return configs[0].get("name", "unknown")
     
     logger.error("No configs available, creating default config")
@@ -57,7 +142,7 @@ def getCurrentConfigName() -> str:
     }
     appConfigJson["configs"] = [defaultConfig]
     appConfigJson["currentConfigIndex"] = 0
-    writeJsonFile("appConfig.json", appConfigJson)
+    writeAppConfigJsonFile(appConfigJson)
 
     defaultConfigContent = {}
     defaultConfigFilePath = getConfigFilePath("default")
@@ -65,30 +150,50 @@ def getCurrentConfigName() -> str:
 
     return defaultConfig.get("name", "unknown")
 
+def readAppConfigJsonFile() -> Optional[str]:
+    """
+    Reads the appConfig.json file and returns its content as a string.
+    """
+    return readJsonFile("appConfig.json")
+
 def getAppConfigJson() -> Any:
-    appConfigJsonString: Optional[str] = readJsonFile("appConfig.json")
-    if appConfigJsonString is None:
-        # TODO : when reaching this point automatically create an
-        # appConfig.json file with a default config
-        return "error: appConfig.json not found"
+    appConfigJsonString: Optional[str] = readAppConfigJsonFile()
+    if not appConfigJsonString:
+        logger.warning("appConfig.json not found, resetting to default")
+        resetAppConfigJson()
+        appConfigJsonString = readAppConfigJsonFile()
     
+    if not appConfigJsonString:
+        logger.critical("Failed to read appConfig.json after reset")
+        return {
+            "configs": [
+                {
+                    "name": "default",
+                    "file": "default.json"
+                }
+            ],
+            "currentConfigIndex": 0
+        }
+
     return json.loads(appConfigJsonString)
 
 def getConfigFilePath(configName: str) -> str:
-    appConfigJson = getAppConfigJson()
-    configs = appConfigJson.get("configs", [])
-    
-    if not configs:
-        return os.path.join("generatorConfigs", configName + ".json")
-    
+    configs = getConfigs()
+
     for config in configs:
         if config.get("name") == configName:
-            configFileName: Optional[str] = config.get("file")
-            if not configFileName:
-                configFileName = configName + ".json"
-            return os.path.join("generatorConfigs", configFileName)
-    
-    return os.path.join("generatorConfigs", configName + ".json")
+            optionalConfigFileName: Optional[str] = config.get("file")
+            if optionalConfigFileName:
+                return os.path.join("generatorConfigs", optionalConfigFileName)
+            logger.error(f"Config '{configName}' found but has no file name, making a new one")
+
+    configFileName: str = f"{configName}.json"
+    configs.append({
+        "name": configName,
+        "file": configFileName
+    })
+
+    return os.path.join("generatorConfigs", configFileName)
 
 def getCurrentConfigFilePath() -> str:
     """
@@ -110,7 +215,7 @@ def setCurrentConfig(name: str) -> None:
     for index, config in enumerate(configs):
         if config.get("name") == name:
             appConfigJson["currentConfigIndex"] = index
-            writeJsonFile("appConfig.json", appConfigJson)
+            writeAppConfigJsonFile(appConfigJson)
             logger.info(f"Current config set to: {name}")
             return
     logger.error(f"Config '{name}' not found")
@@ -121,9 +226,9 @@ def getConfigJson(configFilePath: str) -> Any:
     """
     configJsonString: Optional[str] = readJsonFile(configFilePath)
     if configJsonString is None:
-        logger.error(f"Config file {configFilePath} not found")
-        setCurrentConfig("default")
-        return getConfigJson(getConfigFilePath("default"))
+        logger.error(f"Config file {configFilePath} not found, resetting to default")
+        resetConfigFile(configFilePath)
+        return {}
     
     try:
         configJson = json.loads(configJsonString)
@@ -151,7 +256,7 @@ def createConfigMapping(configName: str, configFilePath: str) -> None:
         "file": configFilePath
     }
     configs.append(newConfig)
-    writeJsonFile("appConfig.json", appConfigJson)
+    writeAppConfigJsonFile(appConfigJson)
     logger.info(f"Created new config mapping for: {configName}")
 
 def createNewConfigName() -> str:
@@ -165,17 +270,24 @@ def createNewConfigName() -> str:
 
     return newConfigName
 
-def createAndUseNewConfig() -> str:
+def resetConfigFile(filePath: str) -> None:
+    """
+    Resets the configuration file to the default state.
+    """
     defaultConfig = getConfigJson(getConfigFilePath("default"))
     if defaultConfig is None:
         logger.error("Failed to load default config")
-        # Create a default and continue
-        return ""
+        resetConfigFile("default.json")
+        defaultConfig = {}
 
+    writeJsonFile(filePath, defaultConfig)
+    logger.info(f"Reset config file {filePath} to default state")
+
+def createAndUseNewConfig() -> str:
     newConfigName: str = createNewConfigName()
     
     newConfigFilePath = getConfigFilePath(newConfigName)
-    writeJsonFile(newConfigFilePath, defaultConfig)
+    resetConfigFile(newConfigFilePath)
 
     newConfigFile: str = f"{newConfigName}.json"
     createConfigMapping(newConfigName, newConfigFile)
@@ -229,8 +341,6 @@ def getBenefitShorterSentences(configFilePath: str) -> bool:
     Returns whether to benefit shorter sentences from the configuration file.
     """
     configJson = getConfigJson(configFilePath)
-    if configJson is None:
-        return generatorConfigDefaults.benefitShorterSentences
     return configJson.get("benefitShorterSentences", generatorConfigDefaults.benefitShorterSentences)
 
 def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
@@ -241,10 +351,15 @@ def getOutputOrder(configFilePath: str) -> List[OutputOrder]:
     if configJson is None:
         return generatorConfigDefaults.outputOrder
     outputOrderStrings: List[str] = configJson.get("outputOrder", [])
-    return [
-        # TODO : handle invalid output order strings
-        OutputOrder(order) for order in outputOrderStrings
-    ] or generatorConfigDefaults.outputOrder
+
+    outputOrderEnums: List[OutputOrder] = []
+    for order in outputOrderStrings:
+        try:
+            outputOrderEnums.append(OutputOrder(order))
+        except ValueError:
+            logger.warning(f"Invalid output order string: {order}, skipping")
+
+    return outputOrderEnums
 
 def getWordsToBury(configFilePath: str) -> List[str]:
     """
@@ -259,10 +374,12 @@ def updateConfigFile(configName: str, update: Any) -> None:
     """
     Updates the configuration file with the given update dictionary.
     """
-    # TODO : add error handling
+    if configName == "default":
+        # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
+        configName = createAndUseNewConfig()
     configFilePath: str = getConfigFilePath(configName)
     configJson = getConfigJson(configFilePath)
-    # TODO : error handling
     configJson.update(update)
     writeJsonFile(configFilePath, configJson)
 
@@ -272,6 +389,7 @@ def setConfigInputFile(configName: str, path: str) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"inputFilePath": path})
 
@@ -281,6 +399,7 @@ def setConfigOutputFile(configName: str, path: str) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"outputFilePath": path})
 
@@ -290,6 +409,7 @@ def setConfigAlgorithm(configName: str, algorithm: str) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"clozeChoosingAlgorithm": algorithm})
 
@@ -299,6 +419,7 @@ def setConfigFlashcardsPerWord(configName: str, count: int) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"numFlashcardsPerWord": count})
 
@@ -308,6 +429,7 @@ def setConfigBenefitShorter(configName: str, enabled: bool) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"benefitShorterSentences": enabled})
 
@@ -317,6 +439,7 @@ def setConfigOutputOrder(configName: str, orders: List[str]) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     updateConfigFile(configName, {"outputOrder": list(orders)})
 
@@ -326,6 +449,7 @@ def addBuryWordToConfig(configName: str, word: str) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
     if word not in currentWordsToBury:
@@ -338,6 +462,7 @@ def removeBuryWordFromConfig(configName: str, word: str) -> None:
     """
     if configName == "default":
         # Create a new config based on the default
+        logger.warning("Cannot update 'default' config, creating a new one")
         configName = createAndUseNewConfig()
     currentWordsToBury = getWordsToBury(getConfigFilePath(configName))
     if word in currentWordsToBury:

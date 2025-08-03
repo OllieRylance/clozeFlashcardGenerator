@@ -5573,6 +5573,16 @@
             "inUse": "False"
         }
     ],
+    "będę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "będę",
+            "afterCloze": " płakać",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ],
     "potem": [
         {
             "beforeCloze": "idź prosto przez pięćset metrów, ",
@@ -5586,32 +5596,6 @@
             "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów ",
             "clozeWordPart1": "potem",
             "afterCloze": " skręć w prawo i zobaczysz basen po lewej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "na": [
-        {
-            "beforeCloze": "on musi iść ",
-            "clozeWordPart1": "na",
-            "afterCloze": " pocztę",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "chciałbym pojechać ",
-            "clozeWordPart1": "na",
-            "afterCloze": " lotnisko",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "jadę ",
-            "clozeWordPart1": "na",
-            "afterCloze": " basen",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6399,6 +6383,32 @@
             "inUse": "False"
         }
     ],
+    "na": [
+        {
+            "beforeCloze": "on musi iść ",
+            "clozeWordPart1": "na",
+            "afterCloze": " pocztę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "idziemy ",
+            "clozeWordPart1": "na",
+            "afterCloze": " spacer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "chciałbym pojechać ",
+            "clozeWordPart1": "na",
+            "afterCloze": " przystanek autobusowy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "po": [
         {
             "beforeCloze": "jest pierwsza ",
@@ -6417,12 +6427,12 @@
             "inUse": "True"
         },
         {
-            "beforeCloze": "zobaczysz stację metra ",
+            "beforeCloze": "idziemy na spacer ",
             "clozeWordPart1": "po",
-            "afterCloze": " lewej",
+            "afterCloze": " mieście",
             "midCloze": "",
             "clozeWordPart2": "",
-            "inUse": "False"
+            "inUse": "True"
         }
     ],
     "oni": [

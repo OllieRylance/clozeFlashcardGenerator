@@ -1403,6 +1403,32 @@
             "inUse": "False"
         }
     ],
+    "wytłumaczyć": [
+        {
+            "beforeCloze": "mogę ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": " ci drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": " ci drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ale ja nie wiem gdzie jest galeria handlowa. czy mógłbyś mi ",
+            "clozeWordPart1": "wytłumaczyć",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "żeby": [
         {
             "beforeCloze": "muszę nauczyć się więcej słów ",
@@ -1559,6 +1585,32 @@
             "inUse": "False"
         }
     ],
+    "ci": [
+        {
+            "beforeCloze": "mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
+            "clozeWordPart1": "ci",
+            "afterCloze": " drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "czwartej": [
         {
             "beforeCloze": "o ",
@@ -1580,6 +1632,32 @@
             "beforeCloze": "o ",
             "clozeWordPart1": "czwartej",
             "afterCloze": " chciałbym pójść do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "drogę": [
+        {
+            "beforeCloze": "mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
+            "clozeWordPart1": "drogę",
+            "afterCloze": ". więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4541,32 +4619,6 @@
             "inUse": "False"
         }
     ],
-    "wytłumaczyć": [
-        {
-            "beforeCloze": "mogę ",
-            "clozeWordPart1": "wytłumaczyć",
-            "afterCloze": " ci drogę",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę ",
-            "clozeWordPart1": "wytłumaczyć",
-            "afterCloze": " ci drogę",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ale ja nie wiem gdzie jest galeria handlowa. czy mógłbyś mi ",
-            "clozeWordPart1": "wytłumaczyć",
-            "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "aptekę": [
         {
             "beforeCloze": "zobaczysz ",
@@ -4619,53 +4671,27 @@
             "inUse": "False"
         }
     ],
-    "ci": [
+    "karte": [
         {
-            "beforeCloze": "mogę wytłumaczyć ",
-            "clozeWordPart1": "ci",
-            "afterCloze": " drogę",
+            "beforeCloze": "my chcielibyśmy kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
-            "clozeWordPart1": "ci",
-            "afterCloze": " drogę",
+            "beforeCloze": "musicie kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ",
-            "clozeWordPart1": "ci",
-            "afterCloze": " drogę. więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "drogę": [
-        {
-            "beforeCloze": "mogę wytłumaczyć ci ",
-            "clozeWordPart1": "drogę",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
-            "clozeWordPart1": "drogę",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci ",
-            "clozeWordPart1": "drogę",
-            "afterCloze": ". więc idź prosto przez sto metrów potem skręć w prawo i zobaczysz basen po lewej",
+            "beforeCloze": "gdzie mogę kupić ",
+            "clozeWordPart1": "karte",
+            "afterCloze": " sim?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4744,6 +4770,32 @@
             "beforeCloze": "możesz kupić ",
             "clozeWordPart1": "ręcznik",
             "afterCloze": " za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sim": [
+        {
+            "beforeCloze": "my chcielibyśmy kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "musicie kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "gdzie mogę kupić karte ",
+            "clozeWordPart1": "sim",
+            "afterCloze": "?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5077,58 +5129,6 @@
             "inUse": "False"
         }
     ],
-    "karte": [
-        {
-            "beforeCloze": "my chcielibyśmy kupić ",
-            "clozeWordPart1": "karte",
-            "afterCloze": " sim",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "musicie kupić ",
-            "clozeWordPart1": "karte",
-            "afterCloze": " sim",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "gdzie mogę kupić ",
-            "clozeWordPart1": "karte",
-            "afterCloze": " sim?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "sim": [
-        {
-            "beforeCloze": "my chcielibyśmy kupić karte ",
-            "clozeWordPart1": "sim",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "musicie kupić karte ",
-            "clozeWordPart1": "sim",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "gdzie mogę kupić karte ",
-            "clozeWordPart1": "sim",
-            "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "pięćset": [
         {
             "beforeCloze": "idź prosto przez ",
@@ -5147,27 +5147,27 @@
             "inUse": "False"
         }
     ],
-    "prosto": [
+    "mogę": [
         {
-            "beforeCloze": "idź ",
-            "clozeWordPart1": "prosto",
-            "afterCloze": " przez sto metrów",
+            "beforeCloze": "jak ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " się tam dostać?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "idź ",
-            "clozeWordPart1": "prosto",
-            "afterCloze": " przez dwieście metrów",
+            "beforeCloze": "",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " wytłumaczyć ci drogę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "idź ",
-            "clozeWordPart1": "prosto",
-            "afterCloze": " przez trzysta metrów",
+            "beforeCloze": "gdzie ",
+            "clozeWordPart1": "mogę",
+            "afterCloze": " kupić karte sim?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6061,6 +6061,32 @@
             "inUse": "False"
         }
     ],
+    "prosto": [
+        {
+            "beforeCloze": "usiądź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "idź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": " przez sto metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idź ",
+            "clozeWordPart1": "prosto",
+            "afterCloze": " przez dwieście metrów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "skręć": [
         {
             "beforeCloze": "",
@@ -6191,6 +6217,32 @@
             "inUse": "False"
         }
     ],
+    "kupić": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " nową koszulę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " kartę sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "musicie ",
+            "clozeWordPart1": "kupić",
+            "afterCloze": " karte sim",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "pójść": [
         {
             "beforeCloze": "możesz ",
@@ -6243,27 +6295,27 @@
             "inUse": "False"
         }
     ],
-    "kupić": [
+    "gdzie": [
         {
-            "beforeCloze": "muszę ",
-            "clozeWordPart1": "kupić",
-            "afterCloze": " nową koszulę",
+            "beforeCloze": "",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " kupić karte sim?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "True"
         },
         {
-            "beforeCloze": "chciałbym ",
-            "clozeWordPart1": "kupić",
-            "afterCloze": " kartę sim",
+            "beforeCloze": "",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest przystanek autobusowy?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "musicie ",
-            "clozeWordPart1": "kupić",
-            "afterCloze": " karte sim",
+            "beforeCloze": "",
+            "clozeWordPart1": "gdzie",
+            "afterCloze": " jest dworzec autobusowy?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6290,32 +6342,6 @@
             "beforeCloze": "stacja metra ",
             "clozeWordPart1": "jest",
             "afterCloze": " daleko",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "gdzie": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "gdzie",
-            "afterCloze": " kupić karte sim?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "gdzie",
-            "afterCloze": " jest przystanek autobusowy?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "gdzie",
-            "afterCloze": " jest dworzec autobusowy?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6368,32 +6394,6 @@
             "beforeCloze": "potrzebujemy samochodu aby ",
             "clozeWordPart1": "się dostać",
             "afterCloze": " do Krakowa",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "mogę": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "mogę",
-            "afterCloze": " wytłumaczyć ci drogę",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "gdzie ",
-            "clozeWordPart1": "mogę",
-            "afterCloze": " kupić karte sim?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "jak ",
-            "clozeWordPart1": "mogę",
-            "afterCloze": " się tam dostać?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"

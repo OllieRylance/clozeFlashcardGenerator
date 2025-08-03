@@ -223,7 +223,7 @@ def runAll() -> None:
 
 if __name__ == "__main__":
     logging.basicConfig(
-        level=logging.DEBUG, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
+        level=logging.WARNING, # Options are DEBUG, INFO, WARNING, ERROR, CRITICAL
         format='%(levelname)s: %(message)s'
     )
 

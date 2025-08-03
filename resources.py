@@ -5,7 +5,7 @@ class Resources:
     """
     A class to hold various resources used in the application.
     """
-    punctuationChars: str = "\",.?_"
+    punctuationChars: str = "\",.?!_"
 
 class OutputOrder(Enum):
     ALPHABETICAL = "alphabetical"

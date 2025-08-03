@@ -38,11 +38,14 @@ zobaczysz galerie_1 handlową_1
 zobaczysz postój_1 taksówek_1
 
 zobaczysz kino po lewej
-zobaczysz apteke po lewej
+zobaczysz aptekę po lewej
 zobaczysz stację_1 metra_1 po lewej
 
 zobaczysz cepen po prawej
 zobaczysz lotnisko po prawej
+
+skręć w lewo
+skręć w prawo
 
 idź prosto przez sto metrów
 idź prosto przez dwieście metrów

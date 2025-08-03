@@ -11,3 +11,5 @@ def runAlgorithm(configFilePath: str) -> None:
     main(
         configFilePath
     )
+
+# Add options to run individual sections of the app

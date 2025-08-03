@@ -1,8 +1,6 @@
 {
     "inputFilePath": "ollieData/sentences.txt",
     "outputFilePath": "ollieData/clozeFlashcards.json",
-    "clozeChoosingAlgorithm": "most-different",
-    "numFlashcardsPerWord": 3,
     "benefitShorterSentences": true,
     "outputOrder": [
         "least-used-as-cloze-first",

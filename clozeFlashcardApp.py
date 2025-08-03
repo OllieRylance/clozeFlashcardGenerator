@@ -3,6 +3,7 @@ import io
 import logging
 import os
 import pstats
+import sys
 from typing import List, Tuple
 
 import click
@@ -239,7 +240,16 @@ if __name__ == "__main__":
         code_profiler.enable()
 
     if isDev:
-        runAll()
+        # Do what the "runAll" command does (copy of code because click
+        # stops the script after command execution)
+        configFilePath: str = getCurrentConfigFilePath()
+        if configFilePath.startswith("error:"):
+            logger.error(configFilePath)
+            sys.exit(1)
+        # Proceed with running the app using the config file
+        logger.info("Running app with config: %s", configFilePath)
+
+        runAlgorithm(configFilePath)
     else:
         cli()
 

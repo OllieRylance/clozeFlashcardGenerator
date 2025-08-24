@@ -159,6 +159,12 @@ def addInUseClozeFlashcardWords(
                 wordObject: Word = clozeFlashcard.getFirstClozeWord()
                 uniqueWordIdToWordObjects[word].append(wordObject)
 
+def isArabic(c: str) -> bool:
+    arabicPunctuationChars = "،؛؟"
+    arabicAccentChars = "ًٌٍَُِْ"
+    moreArabicAccentChars = "ّ"
+    return c in arabicPunctuationChars or c in arabicAccentChars or c in moreArabicAccentChars
+
 def findInvalidLines(lines: List[str]) -> List[str]:
     """
     Find invalid lines in a list of lines.
@@ -173,10 +179,14 @@ def findInvalidLines(lines: List[str]) -> List[str]:
 
     for line in lines:
         # Check for multiple spaces, leading/trailing whitespace, and invalid characters
-        if (not any(c.isalpha() for c in line) or
-            '  ' in line or
-            not all(c.isalpha() or c.isdigit() or c.isspace() or c == "_"
-                   or c in Resources.punctuationChars for c in line)):
+        noAlphabeticalCharacters = not any(c.isalpha() for c in line)
+        hasDoubleSpace = '  ' in line
+        notAllAcceptedCharacters = not all(c.isalpha() or c.isdigit() or c.isspace() or c == "_"
+                   or isArabic(c) or c in Resources.punctuationChars for c in line)
+
+        if (noAlphabeticalCharacters or
+            hasDoubleSpace or
+            notAllAcceptedCharacters):
             invalidLines.append(line)
 
     return invalidLines

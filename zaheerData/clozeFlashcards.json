@@ -1,0 +1,1014 @@
+{
+    "الطالب": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "الطالب",
+            "afterCloze": " يدرس في مختبر الفيزياء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يدرس": [
+        {
+            "beforeCloze": "الطالب ",
+            "clozeWordPart1": "يدرس",
+            "afterCloze": " في مختبر الفيزياء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "في": [
+        {
+            "beforeCloze": "الطالب يدرس ",
+            "clozeWordPart1": "في",
+            "afterCloze": " مختبر الفيزياء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "يجلس الأستاذ بين الطلاب ",
+            "clozeWordPart1": "في",
+            "afterCloze": " الورشة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "مختبر": [
+        {
+            "beforeCloze": "الطالب يدرس في ",
+            "clozeWordPart1": "مختبر",
+            "afterCloze": " الفيزياء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الفيزياء": [
+        {
+            "beforeCloze": "الطالب يدرس في مختبر ",
+            "clozeWordPart1": "الفيزياء",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "وضع": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "وضع",
+            "afterCloze": " المهندس الكتاب على الطاولة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المهندس": [
+        {
+            "beforeCloze": "وضع ",
+            "clozeWordPart1": "المهندس",
+            "afterCloze": " الكتاب على الطاولة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الكتاب": [
+        {
+            "beforeCloze": "وضع المهندس ",
+            "clozeWordPart1": "الكتاب",
+            "afterCloze": " على الطاولة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "على": [
+        {
+            "beforeCloze": "وضع المهندس الكتاب ",
+            "clozeWordPart1": "على",
+            "afterCloze": " الطاولة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "حصلنا ",
+            "clozeWordPart1": "على",
+            "afterCloze": " الطاقة من خلال التفاعل الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "تم تسجيل البيانات ",
+            "clozeWordPart1": "على",
+            "afterCloze": " مدار أسبوع كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الطاولة": [
+        {
+            "beforeCloze": "وضع المهندس الكتاب على ",
+            "clozeWordPart1": "الطاولة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الباحث": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "الباحث",
+            "afterCloze": " يعمل مع فريق دولي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "يكتب ",
+            "clozeWordPart1": "الباحث",
+            "afterCloze": " الملاحظات بالقلم.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يعمل": [
+        {
+            "beforeCloze": "الباحث ",
+            "clozeWordPart1": "يعمل",
+            "afterCloze": " مع فريق دولي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "مع": [
+        {
+            "beforeCloze": "الباحث يعمل ",
+            "clozeWordPart1": "مع",
+            "afterCloze": " فريق دولي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "فريق": [
+        {
+            "beforeCloze": "الباحث يعمل مع ",
+            "clozeWordPart1": "فريق",
+            "afterCloze": " دولي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "دولي": [
+        {
+            "beforeCloze": "الباحث يعمل مع فريق ",
+            "clozeWordPart1": "دولي",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "خرجت": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "خرجت",
+            "afterCloze": " النتيجة من التجربة بوضوح.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "النتيجة": [
+        {
+            "beforeCloze": "خرجت ",
+            "clozeWordPart1": "النتيجة",
+            "afterCloze": " من التجربة بوضوح.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "من": [
+        {
+            "beforeCloze": "خرجت النتيجة ",
+            "clozeWordPart1": "من",
+            "afterCloze": " التجربة بوضوح.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "حصلنا على الطاقة ",
+            "clozeWordPart1": "من",
+            "afterCloze": " خلال التفاعل الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "التجربة": [
+        {
+            "beforeCloze": "خرجت النتيجة من ",
+            "clozeWordPart1": "التجربة",
+            "afterCloze": " بوضوح.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بوضوح": [
+        {
+            "beforeCloze": "خرجت النتيجة من التجربة ",
+            "clozeWordPart1": "بوضوح",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "نُقل": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "نُقل",
+            "afterCloze": " الجهاز إلى غرفة الحاسوب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الجهاز": [
+        {
+            "beforeCloze": "نُقل ",
+            "clozeWordPart1": "الجهاز",
+            "afterCloze": " إلى غرفة الحاسوب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "إلى": [
+        {
+            "beforeCloze": "نُقل الجهاز ",
+            "clozeWordPart1": "إلى",
+            "afterCloze": " غرفة الحاسوب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "وضعت العينة ",
+            "clozeWordPart1": "إلى",
+            "afterCloze": " جانب المجهر.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "غرفة": [
+        {
+            "beforeCloze": "نُقل الجهاز إلى ",
+            "clozeWordPart1": "غرفة",
+            "afterCloze": " الحاسوب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الحاسوب": [
+        {
+            "beforeCloze": "نُقل الجهاز إلى غرفة ",
+            "clozeWordPart1": "الحاسوب",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "نتحدث": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "نتحدث",
+            "afterCloze": " عن أهمية الطاقة المتجددة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "عن": [
+        {
+            "beforeCloze": "نتحدث ",
+            "clozeWordPart1": "عن",
+            "afterCloze": " أهمية الطاقة المتجددة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "أهمية": [
+        {
+            "beforeCloze": "نتحدث عن ",
+            "clozeWordPart1": "أهمية",
+            "afterCloze": " الطاقة المتجددة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الطاقة": [
+        {
+            "beforeCloze": "نتحدث عن أهمية ",
+            "clozeWordPart1": "الطاقة",
+            "afterCloze": " المتجددة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "حصلنا على ",
+            "clozeWordPart1": "الطاقة",
+            "afterCloze": " من خلال التفاعل الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المتجددة": [
+        {
+            "beforeCloze": "نتحدث عن أهمية الطاقة ",
+            "clozeWordPart1": "المتجددة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "رُكِّب": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "رُكِّب",
+            "afterCloze": " الحساس تحت المحرك.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الحساس": [
+        {
+            "beforeCloze": "رُكِّب ",
+            "clozeWordPart1": "الحساس",
+            "afterCloze": " تحت المحرك.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "تحت": [
+        {
+            "beforeCloze": "رُكِّب الحساس ",
+            "clozeWordPart1": "تحت",
+            "afterCloze": " المحرك.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المحرك": [
+        {
+            "beforeCloze": "رُكِّب الحساس تحت ",
+            "clozeWordPart1": "المحرك",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "القمر": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "القمر",
+            "afterCloze": " يدور حول الأرض.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يدور": [
+        {
+            "beforeCloze": "القمر ",
+            "clozeWordPart1": "يدور",
+            "afterCloze": " حول الأرض.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "حول": [
+        {
+            "beforeCloze": "القمر يدور ",
+            "clozeWordPart1": "حول",
+            "afterCloze": " الأرض.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الأرض": [
+        {
+            "beforeCloze": "القمر يدور حول ",
+            "clozeWordPart1": "الأرض",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يجلس": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "يجلس",
+            "afterCloze": " الأستاذ بين الطلاب في الورشة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الأستاذ": [
+        {
+            "beforeCloze": "يجلس ",
+            "clozeWordPart1": "الأستاذ",
+            "afterCloze": " بين الطلاب في الورشة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "يشرح ",
+            "clozeWordPart1": "الأستاذ",
+            "afterCloze": " النظرية أمام الطلاب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بين": [
+        {
+            "beforeCloze": "يجلس الأستاذ ",
+            "clozeWordPart1": "بين",
+            "afterCloze": " الطلاب في الورشة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الطلاب": [
+        {
+            "beforeCloze": "يجلس الأستاذ بين ",
+            "clozeWordPart1": "الطلاب",
+            "afterCloze": " في الورشة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "يشرح الأستاذ النظرية أمام ",
+            "clozeWordPart1": "الطلاب",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الورشة": [
+        {
+            "beforeCloze": "يجلس الأستاذ بين الطلاب في ",
+            "clozeWordPart1": "الورشة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "نلاحظ": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "نلاحظ",
+            "afterCloze": " الإلكترونات تتحرك داخل الذرة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الإلكترونات": [
+        {
+            "beforeCloze": "نلاحظ ",
+            "clozeWordPart1": "الإلكترونات",
+            "afterCloze": " تتحرك داخل الذرة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "تتحرك": [
+        {
+            "beforeCloze": "نلاحظ الإلكترونات ",
+            "clozeWordPart1": "تتحرك",
+            "afterCloze": " داخل الذرة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "داخل": [
+        {
+            "beforeCloze": "نلاحظ الإلكترونات تتحرك ",
+            "clozeWordPart1": "داخل",
+            "afterCloze": " الذرة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الذرة": [
+        {
+            "beforeCloze": "نلاحظ الإلكترونات تتحرك داخل ",
+            "clozeWordPart1": "الذرة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "رُسِم": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "رُسِم",
+            "afterCloze": " المخطط فوق الورقة البيضاء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المخطط": [
+        {
+            "beforeCloze": "رُسِم ",
+            "clozeWordPart1": "المخطط",
+            "afterCloze": " فوق الورقة البيضاء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "فوق": [
+        {
+            "beforeCloze": "رُسِم المخطط ",
+            "clozeWordPart1": "فوق",
+            "afterCloze": " الورقة البيضاء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الورقة": [
+        {
+            "beforeCloze": "رُسِم المخطط فوق ",
+            "clozeWordPart1": "الورقة",
+            "afterCloze": " البيضاء.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "البيضاء": [
+        {
+            "beforeCloze": "رُسِم المخطط فوق الورقة ",
+            "clozeWordPart1": "البيضاء",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "وضعت": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "وضعت",
+            "afterCloze": " العينة إلى جانب المجهر.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "العينة": [
+        {
+            "beforeCloze": "وضعت ",
+            "clozeWordPart1": "العينة",
+            "afterCloze": " إلى جانب المجهر.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "جانب": [
+        {
+            "beforeCloze": "وضعت العينة إلى ",
+            "clozeWordPart1": "جانب",
+            "afterCloze": " المجهر.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المجهر": [
+        {
+            "beforeCloze": "وضعت العينة إلى جانب ",
+            "clozeWordPart1": "المجهر",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يكتب": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "يكتب",
+            "afterCloze": " الباحث الملاحظات بالقلم.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الملاحظات": [
+        {
+            "beforeCloze": "يكتب الباحث ",
+            "clozeWordPart1": "الملاحظات",
+            "afterCloze": " بالقلم.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بالقلم": [
+        {
+            "beforeCloze": "يكتب الباحث الملاحظات ",
+            "clozeWordPart1": "بالقلم",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "قاس": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "قاس",
+            "afterCloze": " الفني درجة الحرارة بواسطة جهاز خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الفني": [
+        {
+            "beforeCloze": "قاس ",
+            "clozeWordPart1": "الفني",
+            "afterCloze": " درجة الحرارة بواسطة جهاز خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "درجة": [
+        {
+            "beforeCloze": "قاس الفني ",
+            "clozeWordPart1": "درجة",
+            "afterCloze": " الحرارة بواسطة جهاز خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الحرارة": [
+        {
+            "beforeCloze": "قاس الفني درجة ",
+            "clozeWordPart1": "الحرارة",
+            "afterCloze": " بواسطة جهاز خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بواسطة": [
+        {
+            "beforeCloze": "قاس الفني درجة الحرارة ",
+            "clozeWordPart1": "بواسطة",
+            "afterCloze": " جهاز خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "جهاز": [
+        {
+            "beforeCloze": "قاس الفني درجة الحرارة بواسطة ",
+            "clozeWordPart1": "جهاز",
+            "afterCloze": " خاص.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "خاص": [
+        {
+            "beforeCloze": "قاس الفني درجة الحرارة بواسطة جهاز ",
+            "clozeWordPart1": "خاص",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ينتقل": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "ينتقل",
+            "afterCloze": " الصوت عبر الهواء بسرعة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الصوت": [
+        {
+            "beforeCloze": "ينتقل ",
+            "clozeWordPart1": "الصوت",
+            "afterCloze": " عبر الهواء بسرعة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "عبر": [
+        {
+            "beforeCloze": "ينتقل الصوت ",
+            "clozeWordPart1": "عبر",
+            "afterCloze": " الهواء بسرعة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الهواء": [
+        {
+            "beforeCloze": "ينتقل الصوت عبر ",
+            "clozeWordPart1": "الهواء",
+            "afterCloze": " بسرعة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بسرعة": [
+        {
+            "beforeCloze": "ينتقل الصوت عبر الهواء ",
+            "clozeWordPart1": "بسرعة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "حصلنا": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "حصلنا",
+            "afterCloze": " على الطاقة من خلال التفاعل الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "خلال": [
+        {
+            "beforeCloze": "حصلنا على الطاقة من ",
+            "clozeWordPart1": "خلال",
+            "afterCloze": " التفاعل الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "التفاعل": [
+        {
+            "beforeCloze": "حصلنا على الطاقة من خلال ",
+            "clozeWordPart1": "التفاعل",
+            "afterCloze": " الكيميائي.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الكيميائي": [
+        {
+            "beforeCloze": "حصلنا على الطاقة من خلال التفاعل ",
+            "clozeWordPart1": "الكيميائي",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "يشرح": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "يشرح",
+            "afterCloze": " الأستاذ النظرية أمام الطلاب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "النظرية": [
+        {
+            "beforeCloze": "يشرح الأستاذ ",
+            "clozeWordPart1": "النظرية",
+            "afterCloze": " أمام الطلاب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "أمام": [
+        {
+            "beforeCloze": "يشرح الأستاذ النظرية ",
+            "clozeWordPart1": "أمام",
+            "afterCloze": " الطلاب.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "تم": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "تم",
+            "afterCloze": " تسجيل البيانات على مدار أسبوع كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "تسجيل": [
+        {
+            "beforeCloze": "تم ",
+            "clozeWordPart1": "تسجيل",
+            "afterCloze": " البيانات على مدار أسبوع كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "البيانات": [
+        {
+            "beforeCloze": "تم تسجيل ",
+            "clozeWordPart1": "البيانات",
+            "afterCloze": " على مدار أسبوع كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "مدار": [
+        {
+            "beforeCloze": "تم تسجيل البيانات على ",
+            "clozeWordPart1": "مدار",
+            "afterCloze": " أسبوع كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "أسبوع": [
+        {
+            "beforeCloze": "تم تسجيل البيانات على مدار ",
+            "clozeWordPart1": "أسبوع",
+            "afterCloze": " كامل.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "كامل": [
+        {
+            "beforeCloze": "تم تسجيل البيانات على مدار أسبوع ",
+            "clozeWordPart1": "كامل",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "تطورت": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "تطورت",
+            "afterCloze": " التكنولوجيا بفضل الاكتشافات الحديثة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "التكنولوجيا": [
+        {
+            "beforeCloze": "تطورت ",
+            "clozeWordPart1": "التكنولوجيا",
+            "afterCloze": " بفضل الاكتشافات الحديثة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "بفضل": [
+        {
+            "beforeCloze": "تطورت التكنولوجيا ",
+            "clozeWordPart1": "بفضل",
+            "afterCloze": " الاكتشافات الحديثة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الاكتشافات": [
+        {
+            "beforeCloze": "تطورت التكنولوجيا بفضل ",
+            "clozeWordPart1": "الاكتشافات",
+            "afterCloze": " الحديثة.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الحديثة": [
+        {
+            "beforeCloze": "تطورت التكنولوجيا بفضل الاكتشافات ",
+            "clozeWordPart1": "الحديثة",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "نجح": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "نجح",
+            "afterCloze": " المشروع رغم الصعوبات.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "المشروع": [
+        {
+            "beforeCloze": "نجح ",
+            "clozeWordPart1": "المشروع",
+            "afterCloze": " رغم الصعوبات.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "رغم": [
+        {
+            "beforeCloze": "نجح المشروع ",
+            "clozeWordPart1": "رغم",
+            "afterCloze": " الصعوبات.",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "الصعوبات": [
+        {
+            "beforeCloze": "نجح المشروع رغم ",
+            "clozeWordPart1": "الصعوبات",
+            "afterCloze": ".",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ]
+}

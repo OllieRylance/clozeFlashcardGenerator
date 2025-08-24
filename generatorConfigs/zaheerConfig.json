@@ -1,0 +1,4 @@
+{
+    "inputFilePath": "zaheerData/sentences.txt",
+    "outputFilePath": "zaheerData/clozeFlashcards.json"
+}

@@ -1,4 +1,30 @@
 {
+    "ponieważ": [
+        {
+            "beforeCloze": "chciałbym pojechać do kina ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "chciałbym polecieć do Berlina ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " mam bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę wziąć laptop ",
+            "clozeWordPart1": "ponieważ",
+            "afterCloze": " będzie mi potrzebny w pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "apteki": [
         {
             "beforeCloze": "ona musi iść do ",
@@ -25,27 +51,27 @@
             "inUse": "False"
         }
     ],
-    "ponieważ": [
+    "kina": [
         {
-            "beforeCloze": "chciałbym pojechać do kina ",
-            "clozeWordPart1": "ponieważ",
-            "afterCloze": " mam bilet",
+            "beforeCloze": "muszę jechać do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "chciałbym polecieć do Berlina ",
-            "clozeWordPart1": "ponieważ",
-            "afterCloze": " mam bilet",
+            "beforeCloze": "oni muszą iść do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "chciałbym polecieć do Australi ",
-            "clozeWordPart1": "ponieważ",
-            "afterCloze": " mam dużo pieniędzy",
+            "beforeCloze": "chciałbym pojechać do ",
+            "clozeWordPart1": "kina",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -103,41 +129,7 @@
             "inUse": "False"
         }
     ],
-    "kina": [
-        {
-            "beforeCloze": "muszę jechać do ",
-            "clozeWordPart1": "kina",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "oni muszą iść do ",
-            "clozeWordPart1": "kina",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "chciałbym pojechać do ",
-            "clozeWordPart1": "kina",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "jadę": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jadę",
-            "afterCloze": " do galerii handlowej. wrócę około dziewiątej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
         {
             "beforeCloze": "",
             "clozeWordPart1": "jadę",
@@ -150,6 +142,66 @@
             "beforeCloze": "jutro ",
             "clozeWordPart1": "jadę",
             "afterCloze": " na wycieczkę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę bilet i ",
+            "clozeWordPart1": "jadę",
+            "afterCloze": " do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jednastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "jednastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jutro o ",
+            "clozeWordPart1": "jednastej",
+            "afterCloze": " jadę na wycieczkę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "wrócę za cztery dni o ",
+            "clozeWordPart1": "jednastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wziąć": [
+        {
+            "beforeCloze": "muszę ",
+            "clozeWordPart1": "wziąć",
+            "afterCloze": " prysznic przed basenem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz ",
+            "clozeWordPart1": "wziąć",
+            "afterCloze": " laptopa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz ",
+            "clozeWordPart1": "wziąć",
+            "afterCloze": " psa na spacer",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -233,6 +285,32 @@
             "inUse": "False"
         }
     ],
+    "około": [
+        {
+            "beforeCloze": "jadę do galerii handlowej. wrócę ",
+            "clozeWordPart1": "około",
+            "afterCloze": " dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "wrócę ",
+            "clozeWordPart1": "około",
+            "afterCloze": " dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "po pracy ",
+            "clozeWordPart1": "około",
+            "afterCloze": " jednastej muszę wziąć psa na specer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "potrzebujesz": [
         {
             "beforeCloze": "czy ",
@@ -280,6 +358,32 @@
             "beforeCloze": "czy ",
             "clozeWordPart1": "wiesz",
             "afterCloze": " gdzie jest postój taksówek?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "jutro": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jutro",
+            "afterCloze": " pójdę do miasta",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jutro",
+            "afterCloze": " o siedemnastej pojadę na basen",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jutro",
+            "afterCloze": " jadę na wycieczkę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -337,6 +441,32 @@
             "inUse": "False"
         }
     ],
+    "psa": [
+        {
+            "beforeCloze": "ona bierze ",
+            "clozeWordPart1": "psa",
+            "afterCloze": " w góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni biorą ",
+            "clozeWordPart1": "psa",
+            "afterCloze": " nad jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz wziąć ",
+            "clozeWordPart1": "psa",
+            "afterCloze": " na spacer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "tylko": [
         {
             "beforeCloze": "apteka jest blisko to ",
@@ -358,6 +488,32 @@
             "beforeCloze": "apteka jest blisko to ",
             "clozeWordPart1": "tylko",
             "afterCloze": " czterysta metrów stąd",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "biorę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "biorę",
+            "afterCloze": " prysznic",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "biorę",
+            "afterCloze": " bilet i jadę do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "biorę",
+            "afterCloze": " kąpiel przed basenem",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -410,32 +566,6 @@
             "beforeCloze": "zobaczysz ",
             "clozeWordPart1": "dworzec kolejowy",
             "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "jutro": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jutro",
-            "afterCloze": " pójdę do miasta",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jutro",
-            "afterCloze": " o siedemnastej pojadę na basen",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jutro",
-            "afterCloze": " jadę na wycieczkę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -675,32 +805,6 @@
             "inUse": "False"
         }
     ],
-    "jednastej": [
-        {
-            "beforeCloze": "o ",
-            "clozeWordPart1": "jednastej",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "jutro o ",
-            "clozeWordPart1": "jednastej",
-            "afterCloze": " jadę na wycieczkę",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "wrócę za cztery dni o ",
-            "clozeWordPart1": "jednastej",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "metra stacja": [
         {
             "beforeCloze": "on nie wie gdzie jest ",
@@ -805,6 +909,32 @@
             "inUse": "False"
         }
     ],
+    "prysznic": [
+        {
+            "beforeCloze": "biorę ",
+            "clozeWordPart1": "prysznic",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on bierze ",
+            "clozeWordPart1": "prysznic",
+            "afterCloze": " po pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę wziąć ",
+            "clozeWordPart1": "prysznic",
+            "afterCloze": " przed basenem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "autobusowy dworzec": [
         {
             "beforeCloze": "jak mogę dostać się na ",
@@ -826,6 +956,32 @@
             "beforeCloze": "zobaczysz ",
             "clozeWordPart1": "dworzec autobusowy",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "bierze": [
+        {
+            "beforeCloze": "on ",
+            "clozeWordPart1": "bierze",
+            "afterCloze": " laptopa do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "bierze",
+            "afterCloze": " psa w góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "bierze",
+            "afterCloze": " kąpiel",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -883,27 +1039,79 @@
             "inUse": "False"
         }
     ],
-    "około": [
+    "dziewiątej": [
         {
-            "beforeCloze": "potrzebuję pójść do apteki ale apteka jest daleko to ",
-            "clozeWordPart1": "około",
-            "afterCloze": " sześć metrów stąd",
+            "beforeCloze": "o ",
+            "clozeWordPart1": "dziewiątej",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "jadę do galerii handlowej. wrócę ",
-            "clozeWordPart1": "około",
-            "afterCloze": " dziewiątej",
+            "beforeCloze": "wrócę około ",
+            "clozeWordPart1": "dziewiątej",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "wrócę ",
-            "clozeWordPart1": "około",
-            "afterCloze": " dziewiątej",
+            "beforeCloze": "jutro o ",
+            "clozeWordPart1": "dziewiątej",
+            "afterCloze": " jadę na wycieczkę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "idę": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "idę",
+            "afterCloze": " do apteki. wrócę o szesnastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "idę",
+            "afterCloze": " do kina. wrócę o trzynastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę prysznic i ",
+            "clozeWordPart1": "idę",
+            "afterCloze": " do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "szesnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "szesnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę pojechać na lotnisko o ",
+            "clozeWordPart1": "szesnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "idę do apteki. wrócę o ",
+            "clozeWordPart1": "szesnastej",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1091,6 +1299,32 @@
             "inUse": "False"
         }
     ],
+    "dobry": [
+        {
+            "beforeCloze": "oni mieli ",
+            "clozeWordPart1": "dobry",
+            "afterCloze": " czas",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "miałem ",
+            "clozeWordPart1": "dobry",
+            "afterCloze": " sen",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona miała ",
+            "clozeWordPart1": "dobry",
+            "afterCloze": " posiłek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "dwa": [
         {
             "beforeCloze": "potrzebuje dziewięćdziesiąt ",
@@ -1112,32 +1346,6 @@
             "beforeCloze": "za ",
             "clozeWordPart1": "dwa",
             "afterCloze": " dni jadę na wycieczkę do Zakopanego",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "dziewiątej": [
-        {
-            "beforeCloze": "o ",
-            "clozeWordPart1": "dziewiątej",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "wrócę około ",
-            "clozeWordPart1": "dziewiątej",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "jutro o ",
-            "clozeWordPart1": "dziewiątej",
-            "afterCloze": " jadę na wycieczkę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1247,6 +1455,32 @@
             "inUse": "False"
         }
     ],
+    "pogoda": [
+        {
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na specer pójdziemy na plażę ponieważ ",
+            "clozeWordPart1": "pogoda",
+            "afterCloze": " jest zachwycająca",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "pogoda",
+            "afterCloze": " jest zachwycająca jeśli chcesz możesz wziąć okulary przeciwsłoneczne i pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "pogoda",
+            "afterCloze": " jest zachwycająca jeśli chcesz możesz wziąć ręcznik i pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "pojadę": [
         {
             "beforeCloze": "",
@@ -1325,27 +1559,27 @@
             "inUse": "False"
         }
     ],
-    "szesnastej": [
+    "specer": [
         {
-            "beforeCloze": "o ",
-            "clozeWordPart1": "szesnastej",
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na ",
+            "clozeWordPart1": "specer",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "muszę pojechać na lotnisko o ",
-            "clozeWordPart1": "szesnastej",
-            "afterCloze": "",
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na ",
+            "clozeWordPart1": "specer",
+            "afterCloze": " pójdziemy na plażę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "idę do apteki. wrócę o ",
-            "clozeWordPart1": "szesnastej",
-            "afterCloze": "",
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na ",
+            "clozeWordPart1": "specer",
+            "afterCloze": " pójdziemy na plażę ponieważ pogoda jest zachwycająca",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1424,6 +1658,58 @@
             "beforeCloze": "ale ja nie wiem gdzie jest galeria handlowa. czy mógłbyś mi ",
             "clozeWordPart1": "wytłumaczyć",
             "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zachwycająca": [
+        {
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na specer pójdziemy na plażę ponieważ pogoda jest ",
+            "clozeWordPart1": "zachwycająca",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "pogoda jest ",
+            "clozeWordPart1": "zachwycająca",
+            "afterCloze": " jeśli chcesz możesz wziąć okulary przeciwsłoneczne i pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "pogoda jest ",
+            "clozeWordPart1": "zachwycająca",
+            "afterCloze": " jeśli chcesz możesz wziąć ręcznik i pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ósmej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "ósmej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jutro o ",
+            "clozeWordPart1": "ósmej",
+            "afterCloze": " jadę na wycieczkę do Krakowa",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "codziennie o ",
+            "clozeWordPart1": "ósmej",
+            "afterCloze": " biorę prysznic a potem idę do pracy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1585,6 +1871,32 @@
             "inUse": "False"
         }
     ],
+    "chodzę": [
+        {
+            "beforeCloze": "zazwyczaj ",
+            "clozeWordPart1": "chodzę",
+            "afterCloze": " do kina o piętnastej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zwykle ",
+            "clozeWordPart1": "chodzę",
+            "afterCloze": " do pracy o dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zazwyczaj w poniedziałki o szesnastej ",
+            "clozeWordPart1": "chodzę",
+            "afterCloze": " do lasu na spacer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "ci": [
         {
             "beforeCloze": "mogę wytłumaczyć ",
@@ -1741,6 +2053,32 @@
             "inUse": "False"
         }
     ],
+    "galerii": [
+        {
+            "beforeCloze": "chciałby pojechać do ",
+            "clozeWordPart1": "galerii",
+            "afterCloze": " handlowej o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jadę do ",
+            "clozeWordPart1": "galerii",
+            "afterCloze": " handlowej. wrócę około dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o której godzinie zwykle chodzisz do ",
+            "clozeWordPart1": "galerii",
+            "afterCloze": " handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "gazowaną": [
         {
             "beforeCloze": "chciałbym kupić wodę ",
@@ -1845,6 +2183,32 @@
             "inUse": "False"
         }
     ],
+    "handlowej": [
+        {
+            "beforeCloze": "chciałby pojechać do galerii ",
+            "clozeWordPart1": "handlowej",
+            "afterCloze": " o dwudziestej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jadę do galerii ",
+            "clozeWordPart1": "handlowej",
+            "afterCloze": ". wrócę około dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o której godzinie zwykle chodzisz do galerii ",
+            "clozeWordPart1": "handlowej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "ją": [
         {
             "beforeCloze": "ile kosztuje karta sim? chciałbym ",
@@ -1892,6 +2256,32 @@
             "beforeCloze": "potrzebuję ",
             "clozeWordPart1": "kartę sim",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kąpiel": [
+        {
+            "beforeCloze": "ona bierze ",
+            "clozeWordPart1": "kąpiel",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona bierze ",
+            "clozeWordPart1": "kąpiel",
+            "afterCloze": " przed pracą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę ",
+            "clozeWordPart1": "kąpiel",
+            "afterCloze": " przed basenem",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -1949,6 +2339,32 @@
             "inUse": "False"
         }
     ],
+    "mieli": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "mieli",
+            "afterCloze": " dobry czas",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "mieli",
+            "afterCloze": " dobry dzień wczoraj",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "mieli",
+            "afterCloze": " wspaniałą przygodę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "pierwszej": [
         {
             "beforeCloze": "o ",
@@ -1970,6 +2386,58 @@
             "beforeCloze": "za godzinę jadę na basen. wrócę o dwudziestej ",
             "clozeWordPart1": "pierwszej",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przed": [
+        {
+            "beforeCloze": "ona bierze kąpiel ",
+            "clozeWordPart1": "przed",
+            "afterCloze": " pracą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę kąpiel ",
+            "clozeWordPart1": "przed",
+            "afterCloze": " basenem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę wziąć prysznic ",
+            "clozeWordPart1": "przed",
+            "afterCloze": " basenem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pójdziemy": [
+        {
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na specer ",
+            "clozeWordPart1": "pójdziemy",
+            "afterCloze": " na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "po pracy około jednastej muszę wziąć psa na specer ",
+            "clozeWordPart1": "pójdziemy",
+            "afterCloze": " na plażę ponieważ pogoda jest zachwycająca",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jutro po pracy około jednastej muszę wziąć psa na specer ",
+            "clozeWordPart1": "pójdziemy",
+            "afterCloze": " na plażę ponieważ pogoda jest zachwycająca",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2105,27 +2573,27 @@
             "inUse": "False"
         }
     ],
-    "ósmej": [
+    "zazwyczaj": [
         {
-            "beforeCloze": "o ",
-            "clozeWordPart1": "ósmej",
-            "afterCloze": "",
+            "beforeCloze": "o której godzinie ",
+            "clozeWordPart1": "zazwyczaj",
+            "afterCloze": " jeździsz do kina",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "jutro o ",
-            "clozeWordPart1": "ósmej",
-            "afterCloze": " jadę na wycieczkę do Krakowa i wrócę za cztery dni o jednastej",
+            "beforeCloze": "",
+            "clozeWordPart1": "zazwyczaj",
+            "afterCloze": " chodzę do kina o piętnastej",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "jutro o ",
-            "clozeWordPart1": "ósmej",
-            "afterCloze": " jadę na wycieczkę do Krakowa",
+            "beforeCloze": "",
+            "clozeWordPart1": "zazwyczaj",
+            "afterCloze": " w poniedziałki o szesnastej chodzę do lasu na spacer",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2149,6 +2617,42 @@
             "inUse": "False"
         }
     ],
+    "basenem": [
+        {
+            "beforeCloze": "biorę kąpiel przed ",
+            "clozeWordPart1": "basenem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "muszę wziąć prysznic przed ",
+            "clozeWordPart1": "basenem",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "biorą": [
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "biorą",
+            "afterCloze": " kanapki do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni ",
+            "clozeWordPart1": "biorą",
+            "afterCloze": " psa nad jezioro",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "chce": [
         {
             "beforeCloze": "on ",
@@ -2162,6 +2666,24 @@
             "beforeCloze": "ona ",
             "clozeWordPart1": "chce",
             "afterCloze": " iść do kina więc musi kupić bilet",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "codziennie": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "codziennie",
+            "afterCloze": " o ósmej biorę prysznic a potem idę do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "codziennie",
+            "afterCloze": " o jednastej biorę psa na spacer",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2329,19 +2851,37 @@
             "inUse": "False"
         }
     ],
-    "galerii": [
+    "dzień": [
         {
-            "beforeCloze": "chciałby pojechać do ",
-            "clozeWordPart1": "galerii",
-            "afterCloze": " handlowej o dwudziestej",
+            "beforeCloze": "oni mieli dobry ",
+            "clozeWordPart1": "dzień",
+            "afterCloze": " wczoraj",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "jadę do ",
-            "clozeWordPart1": "galerii",
-            "afterCloze": " handlowej. wrócę około dziewiątej",
+            "beforeCloze": "ona miała wspaniały ",
+            "clozeWordPart1": "dzień",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "godzinie": [
+        {
+            "beforeCloze": "o której ",
+            "clozeWordPart1": "godzinie",
+            "afterCloze": " zazwyczaj jeździsz do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o której ",
+            "clozeWordPart1": "godzinie",
+            "afterCloze": " zwykle chodzisz do galerii handlowej",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2360,42 +2900,6 @@
             "beforeCloze": "czy mógłbyś powtórzyć wolniej i ",
             "clozeWordPart1": "głośniej",
             "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "handlowej": [
-        {
-            "beforeCloze": "chciałby pojechać do galerii ",
-            "clozeWordPart1": "handlowej",
-            "afterCloze": " o dwudziestej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "jadę do galerii ",
-            "clozeWordPart1": "handlowej",
-            "afterCloze": ". wrócę około dziewiątej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "idę": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "idę",
-            "afterCloze": " do apteki. wrócę o szesnastej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "idę",
-            "afterCloze": " do kina. wrócę o trzynastej",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2527,6 +3031,24 @@
             "inUse": "False"
         }
     ],
+    "której": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "której",
+            "afterCloze": " godzinie zazwyczaj jeździsz do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "której",
+            "afterCloze": " godzinie zwykle chodzisz do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "kurtkę": [
         {
             "beforeCloze": "chciałbym kupić ",
@@ -2540,6 +3062,78 @@
             "beforeCloze": "jeśli potrzebujesz ",
             "clozeWordPart1": "kurtkę",
             "afterCloze": " możesz ją kupić za siedemdziesiąt osiem złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "laptop": [
+        {
+            "beforeCloze": "muszę wziąć ",
+            "clozeWordPart1": "laptop",
+            "afterCloze": " ponieważ będzie mi potrzebny w pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "jeśli chcesz możesz wziąć mój ",
+            "clozeWordPart1": "laptop",
+            "afterCloze": " i telefon",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "laptopa": [
+        {
+            "beforeCloze": "on bierze ",
+            "clozeWordPart1": "laptopa",
+            "afterCloze": " do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz wziąć ",
+            "clozeWordPart1": "laptopa",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "miała": [
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "miała",
+            "afterCloze": " dobry posiłek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona ",
+            "clozeWordPart1": "miała",
+            "afterCloze": " wspaniały dzień",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "miałem": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "miałem",
+            "afterCloze": " dobry sen",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "miałem",
+            "afterCloze": " wspaniałe wspomnienia",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -2599,6 +3193,42 @@
             "inUse": "False"
         }
     ],
+    "piętnastej": [
+        {
+            "beforeCloze": "o ",
+            "clozeWordPart1": "piętnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zazwyczaj chodzę do kina o ",
+            "clozeWordPart1": "piętnastej",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pięć": [
+        {
+            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić za trzydzieści ",
+            "clozeWordPart1": "pięć",
+            "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "pięć",
+            "afterCloze": " razy w tygodniu",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "pięćdziesiąt": [
         {
             "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy tysiące dwieście ",
@@ -2648,6 +3278,24 @@
             "beforeCloze": "czy ona potrzebuje ",
             "clozeWordPart1": "pomocy",
             "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "posiłek": [
+        {
+            "beforeCloze": "ona miała dobry ",
+            "clozeWordPart1": "posiłek",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "mieliśmy wspaniały ",
+            "clozeWordPart1": "posiłek",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3067,6 +3715,24 @@
             "inUse": "False"
         }
     ],
+    "wspaniały": [
+        {
+            "beforeCloze": "ona miała ",
+            "clozeWordPart1": "wspaniały",
+            "afterCloze": " dzień",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "mieliśmy ",
+            "clozeWordPart1": "wspaniały",
+            "afterCloze": " posiłek",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "zoo": [
         {
             "beforeCloze": "oni muszą iść do ",
@@ -3080,6 +3746,24 @@
             "beforeCloze": "czy ona musi iść do ",
             "clozeWordPart1": "zoo",
             "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zwykle": [
+        {
+            "beforeCloze": "o której godzinie ",
+            "clozeWordPart1": "zwykle",
+            "afterCloze": " chodzisz do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "zwykle",
+            "afterCloze": " chodzę do pracy o dziewiątej",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3145,6 +3829,16 @@
             "inUse": "False"
         }
     ],
+    "a": [
+        {
+            "beforeCloze": "codziennie o ósmej biorę prysznic ",
+            "clozeWordPart1": "a",
+            "afterCloze": " potem idę do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "bankomatu": [
         {
             "beforeCloze": "czy oni muszą iść do ",
@@ -3160,6 +3854,16 @@
             "beforeCloze": "apteka jest tylko kilka metrów stąd idź prosto przez dwieście metrów i zobaczysz aptekę po prawej to duży ",
             "clozeWordPart1": "budynek",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "będzie": [
+        {
+            "beforeCloze": "muszę wziąć laptop ponieważ ",
+            "clozeWordPart1": "będzie",
+            "afterCloze": " mi potrzebny w pracy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3185,6 +3889,16 @@
             "inUse": "False"
         }
     ],
+    "chodzisz": [
+        {
+            "beforeCloze": "o której godzinie zwykle ",
+            "clozeWordPart1": "chodzisz",
+            "afterCloze": " do galerii handlowej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "chusteczki": [
         {
             "beforeCloze": "chciałbym kupić ",
@@ -3205,11 +3919,31 @@
             "inUse": "False"
         }
     ],
+    "czas": [
+        {
+            "beforeCloze": "oni mieli dobry ",
+            "clozeWordPart1": "czas",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "czternasta": [
         {
             "beforeCloze": "jest ",
             "clozeWordPart1": "czternasta",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "dodatkową": [
+        {
+            "beforeCloze": "chciałbym wziąść ",
+            "clozeWordPart1": "dodatkową",
+            "afterCloze": " lekcję polskiego ponieważ lubię się uczyć",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3415,11 +4149,41 @@
             "inUse": "False"
         }
     ],
+    "jeździsz": [
+        {
+            "beforeCloze": "o której godzinie zazwyczaj ",
+            "clozeWordPart1": "jeździsz",
+            "afterCloze": " do kina",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "jutra": [
         {
             "beforeCloze": "do ",
             "clozeWordPart1": "jutra",
             "afterCloze": "!",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kanapki": [
+        {
+            "beforeCloze": "oni biorą ",
+            "clozeWordPart1": "kanapki",
+            "afterCloze": " do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "kiedy": [
+        {
+            "beforeCloze": "biorę prysznic i idę do pracy ",
+            "clozeWordPart1": "kiedy",
+            "afterCloze": " wrócę chciałbym zrobić zakupy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3435,11 +4199,41 @@
             "inUse": "False"
         }
     ],
+    "lasu": [
+        {
+            "beforeCloze": "zazwyczaj w poniedziałki o szesnastej chodzę do ",
+            "clozeWordPart1": "lasu",
+            "afterCloze": " na spacer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "lecieć": [
         {
             "beforeCloze": "muszę ",
             "clozeWordPart1": "lecieć",
             "afterCloze": " do Australi",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lekcję": [
+        {
+            "beforeCloze": "chciałbym wziąść dodatkową ",
+            "clozeWordPart1": "lekcję",
+            "afterCloze": " polskiego ponieważ lubię się uczyć",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "lubię": [
+        {
+            "beforeCloze": "chciałbym wziąść dodatkową lekcję polskiego ponieważ ",
+            "clozeWordPart1": "lubię",
+            "afterCloze": " się uczyć",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3460,6 +4254,16 @@
             "beforeCloze": "czy wiesz gdzie jest to ",
             "clozeWordPart1": "miejsce",
             "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "mieliśmy": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "mieliśmy",
+            "afterCloze": " wspaniały posiłek",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3515,6 +4319,16 @@
             "inUse": "False"
         }
     ],
+    "mój": [
+        {
+            "beforeCloze": "jeśli chcesz możesz wziąć ",
+            "clozeWordPart1": "mój",
+            "afterCloze": " laptop i telefon",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "naprzeciwko": [
         {
             "beforeCloze": "galeria handlowa jest dwa kilometry stąd możesz pojechać tam autobusem przystanek autobusowy jest ",
@@ -3540,6 +4354,26 @@
             "beforeCloze": "chciałbym polecieć do Hiszpani mam bilet ale ",
             "clozeWordPart1": "niewiem",
             "afterCloze": " gdzie jest lotnisko",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "od": [
+        {
+            "beforeCloze": "pracuje ",
+            "clozeWordPart1": "od",
+            "afterCloze": " poniedziałku do piątku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "okulary": [
+        {
+            "beforeCloze": "pogoda jest zachwycająca jeśli chcesz możesz wziąć ",
+            "clozeWordPart1": "okulary",
+            "afterCloze": " przeciwsłoneczne i pójść na plażę",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3605,31 +4439,21 @@
             "inUse": "False"
         }
     ],
+    "piątku": [
+        {
+            "beforeCloze": "pracuje od poniedziałku do ",
+            "clozeWordPart1": "piątku",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "piętnasta": [
         {
             "beforeCloze": "jest ",
             "clozeWordPart1": "piętnasta",
             "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "piętnastej": [
-        {
-            "beforeCloze": "o ",
-            "clozeWordPart1": "piętnastej",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "pięć": [
-        {
-            "beforeCloze": "jeśli potrzebujesz ładowarkę możesz ją kupić za trzydzieści ",
-            "clozeWordPart1": "pięć",
-            "afterCloze": " złotych",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3645,10 +4469,90 @@
             "inUse": "False"
         }
     ],
+    "polskiego": [
+        {
+            "beforeCloze": "chciałbym wziąść dodatkową lekcję ",
+            "clozeWordPart1": "polskiego",
+            "afterCloze": " ponieważ lubię się uczyć",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "poniedziałki": [
+        {
+            "beforeCloze": "zazwyczaj w ",
+            "clozeWordPart1": "poniedziałki",
+            "afterCloze": " o szesnastej chodzę do lasu na spacer",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "poniedziałku": [
+        {
+            "beforeCloze": "pracuje od ",
+            "clozeWordPart1": "poniedziałku",
+            "afterCloze": " do piątku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potrzebny": [
+        {
+            "beforeCloze": "muszę wziąć laptop ponieważ będzie mi ",
+            "clozeWordPart1": "potrzebny",
+            "afterCloze": " w pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "południe": [
         {
             "beforeCloze": "jest ",
             "clozeWordPart1": "południe",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pracuje": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "pracuje",
+            "afterCloze": " od poniedziałku do piątku",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "pracą": [
+        {
+            "beforeCloze": "ona bierze kąpiel przed ",
+            "clozeWordPart1": "pracą",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przeciwsłoneczne": [
+        {
+            "beforeCloze": "pogoda jest zachwycająca jeśli chcesz możesz wziąć okulary ",
+            "clozeWordPart1": "przeciwsłoneczne",
+            "afterCloze": " i pójść na plażę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "przygodę": [
+        {
+            "beforeCloze": "oni mieli wspaniałą ",
+            "clozeWordPart1": "przygodę",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
@@ -3680,6 +4584,16 @@
             "beforeCloze": "o ",
             "clozeWordPart1": "północy",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "razy": [
+        {
+            "beforeCloze": "pięć ",
+            "clozeWordPart1": "razy",
+            "afterCloze": " w tygodniu",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3730,6 +4644,16 @@
             "beforeCloze": "jeśli potrzebujesz ",
             "clozeWordPart1": "ręcznika",
             "afterCloze": " możesz go kupić za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "sen": [
+        {
+            "beforeCloze": "miałem dobry ",
+            "clozeWordPart1": "sen",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3855,6 +4779,16 @@
             "inUse": "False"
         }
     ],
+    "telefon": [
+        {
+            "beforeCloze": "jeśli chcesz możesz wziąć mój laptop i ",
+            "clozeWordPart1": "telefon",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "tramwajem": [
         {
             "beforeCloze": "możesz pojechać ",
@@ -3895,6 +4829,16 @@
             "inUse": "False"
         }
     ],
+    "tygodniu": [
+        {
+            "beforeCloze": "pięć razy w ",
+            "clozeWordPart1": "tygodniu",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "tysiące": [
         {
             "beforeCloze": "jeśli potrzebujesz roweru możesz go kupić za trzy ",
@@ -3910,6 +4854,26 @@
             "beforeCloze": "jeśli potrzebujesz samochodu możesz go kupić za pięćdziesiąt ",
             "clozeWordPart1": "tysięcy",
             "afterCloze": " złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "uczyć": [
+        {
+            "beforeCloze": "chciałbym wziąść dodatkową lekcję polskiego ponieważ lubię się ",
+            "clozeWordPart1": "uczyć",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wczoraj": [
+        {
+            "beforeCloze": "oni mieli dobry dzień ",
+            "clozeWordPart1": "wczoraj",
+            "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -3935,6 +4899,36 @@
             "inUse": "False"
         }
     ],
+    "wspaniałe": [
+        {
+            "beforeCloze": "miałem ",
+            "clozeWordPart1": "wspaniałe",
+            "afterCloze": " wspomnienia",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wspaniałą": [
+        {
+            "beforeCloze": "oni mieli ",
+            "clozeWordPart1": "wspaniałą",
+            "afterCloze": " przygodę",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "wspomnienia": [
+        {
+            "beforeCloze": "miałem wspaniałe ",
+            "clozeWordPart1": "wspomnienia",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "wy": [
         {
             "beforeCloze": "",
@@ -3955,11 +4949,41 @@
             "inUse": "False"
         }
     ],
+    "wziąść": [
+        {
+            "beforeCloze": "chciałbym ",
+            "clozeWordPart1": "wziąść",
+            "afterCloze": " dodatkową lekcję polskiego ponieważ lubię się uczyć",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zakupy": [
+        {
+            "beforeCloze": "biorę prysznic i idę do pracy kiedy wrócę chciałbym zrobić ",
+            "clozeWordPart1": "zakupy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "znać": [
         {
             "beforeCloze": "jeśli chcesz tworzyć dłuższe zdania potrzebujesz ",
             "clozeWordPart1": "znać",
             "afterCloze": " więcej słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "zrobić": [
+        {
+            "beforeCloze": "biorę prysznic i idę do pracy kiedy wrócę chciałbym ",
+            "clozeWordPart1": "zrobić",
+            "afterCloze": " zakupy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4005,9 +5029,9 @@
             "inUse": "False"
         },
         {
-            "beforeCloze": "plaża jest blisko jeśli ",
+            "beforeCloze": "jeśli ",
             "clozeWordPart1": "chcesz",
-            "afterCloze": " możesz pójść tam pieszą",
+            "afterCloze": " tworzyć dłuższe zdania potrzebujesz znać więcej słów",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4015,7 +5039,7 @@
         {
             "beforeCloze": "jeśli ",
             "clozeWordPart1": "chcesz",
-            "afterCloze": " tworzyć dłuższe zdania potrzebujesz znać więcej słów",
+            "afterCloze": " możesz wziąć mój laptop i telefon",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4099,32 +5123,6 @@
             "inUse": "False"
         }
     ],
-    "nowych": [
-        {
-            "beforeCloze": "uczę się ",
-            "clozeWordPart1": "nowych",
-            "afterCloze": " słów",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "uczysz się ",
-            "clozeWordPart1": "nowych",
-            "afterCloze": " słów",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ona uczy się ",
-            "clozeWordPart1": "nowych",
-            "afterCloze": " słów",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "on": [
         {
             "beforeCloze": "",
@@ -4146,6 +5144,32 @@
             "beforeCloze": "czy ",
             "clozeWordPart1": "on",
             "afterCloze": " mógłby powtórzyć wolniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "nowych": [
+        {
+            "beforeCloze": "uczę się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "uczysz się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona uczy się ",
+            "clozeWordPart1": "nowych",
+            "afterCloze": " słów",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4229,6 +5253,32 @@
             "inUse": "False"
         }
     ],
+    "pracy": [
+        {
+            "beforeCloze": "zwykle chodzę do ",
+            "clozeWordPart1": "pracy",
+            "afterCloze": " o dziewiątej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni biorą kanapki do ",
+            "clozeWordPart1": "pracy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on bierze prysznic po ",
+            "clozeWordPart1": "pracy",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "złotych": [
         {
             "beforeCloze": "potrzebuje dziewięćdziesiąt ",
@@ -4257,14 +5307,6 @@
     ],
     "bilet": [
         {
-            "beforeCloze": "chciałbym pojechać do kina ponieważ mam ",
-            "clozeWordPart1": "bilet",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
             "beforeCloze": "czy masz ",
             "clozeWordPart1": "bilet",
             "afterCloze": "?",
@@ -4276,6 +5318,14 @@
             "beforeCloze": "ile kosztuje ",
             "clozeWordPart1": "bilet",
             "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę ",
+            "clozeWordPart1": "bilet",
+            "afterCloze": " i jadę do kina",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4359,6 +5409,32 @@
             "inUse": "False"
         }
     ],
+    "plażę": [
+        {
+            "beforeCloze": "czy musimy iść na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "czy mógłbyś mi powiedzieć jak mogę dostać się na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "ona chciałaby pójść na ",
+            "clozeWordPart1": "plażę",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "Australi": [
         {
             "beforeCloze": "chciałbym polecieć do ",
@@ -4411,6 +5487,32 @@
             "inUse": "False"
         }
     ],
+    "jezioro": [
+        {
+            "beforeCloze": "chciałbym pojechać nad ",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "my chcielibyśmy pójść nad ",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "oni biorą psa nad ",
+            "clozeWordPart1": "jezioro",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "muzeum": [
         {
             "beforeCloze": "czy ona musi iść do ",
@@ -4437,26 +5539,26 @@
             "inUse": "False"
         }
     ],
-    "jezioro": [
+    "góry": [
         {
-            "beforeCloze": "chciałbym pojechać nad ",
-            "clozeWordPart1": "jezioro",
+            "beforeCloze": "my chcielibyśmy pojechać w ",
+            "clozeWordPart1": "góry",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "my chcielibyśmy pójść nad ",
-            "clozeWordPart1": "jezioro",
+            "beforeCloze": "oni chcieliby pojechać w ",
+            "clozeWordPart1": "góry",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
         },
         {
-            "beforeCloze": "oni chcieliby pojechać nad ",
-            "clozeWordPart1": "jezioro",
+            "beforeCloze": "ona bierze psa w ",
+            "clozeWordPart1": "góry",
             "afterCloze": "",
             "midCloze": "",
             "clozeWordPart2": "",
@@ -4567,32 +5669,6 @@
             "inUse": "False"
         }
     ],
-    "góry": [
-        {
-            "beforeCloze": "my chcielibyśmy pojechać w ",
-            "clozeWordPart1": "góry",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ona chciałaby pojechać w ",
-            "clozeWordPart1": "góry",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "oni chcieliby pojechać w ",
-            "clozeWordPart1": "góry",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "pieniędzy": [
         {
             "beforeCloze": "chciałbym polecieć do Australi ponieważ mam dużo ",
@@ -4614,6 +5690,32 @@
             "beforeCloze": "oni chcę jechać w góry więc potrzebują trochę ",
             "clozeWordPart1": "pieniędzy",
             "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "ręcznik": [
+        {
+            "beforeCloze": "ile kosztuje ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": "?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "on chce iść na basen więc potrzebuje kupić ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz kupić ",
+            "clozeWordPart1": "ręcznik",
+            "afterCloze": " za szesnaście złotych",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -4718,58 +5820,6 @@
             "beforeCloze": "jutro pójdę do ",
             "clozeWordPart1": "miasta",
             "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "plażę": [
-        {
-            "beforeCloze": "czy musimy iść na ",
-            "clozeWordPart1": "plażę",
-            "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "czy mógłbyś mi powiedzieć jak mogę dostać się na ",
-            "clozeWordPart1": "plażę",
-            "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "ona chciałaby pójść na ",
-            "clozeWordPart1": "plażę",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "ręcznik": [
-        {
-            "beforeCloze": "ile kosztuje ",
-            "clozeWordPart1": "ręcznik",
-            "afterCloze": "?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "on chce iść na basen więc potrzebuje kupić ",
-            "clozeWordPart1": "ręcznik",
-            "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "możesz kupić ",
-            "clozeWordPart1": "ręcznik",
-            "afterCloze": " za szesnaście złotych",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5043,9 +6093,9 @@
             "inUse": "False"
         },
         {
-            "beforeCloze": "czy mógłbyś ",
+            "beforeCloze": "muszę wziąć laptop ponieważ będzie ",
             "clozeWordPart1": "mi",
-            "afterCloze": " powiedzieć gdzie jest remiza strażacka?",
+            "afterCloze": " potrzebny w pracy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5129,6 +6179,32 @@
             "inUse": "False"
         }
     ],
+    "spacer": [
+        {
+            "beforeCloze": "codziennie o jednastej biorę psa na ",
+            "clozeWordPart1": "spacer",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "zazwyczaj w poniedziałki o szesnastej chodzę do lasu na ",
+            "clozeWordPart1": "spacer",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "możesz wziąć psa na ",
+            "clozeWordPart1": "spacer",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "pięćset": [
         {
             "beforeCloze": "idź prosto przez ",
@@ -5142,6 +6218,16 @@
             "beforeCloze": "muzeum jest ",
             "clozeWordPart1": "pięćset",
             "afterCloze": " metrów stąd jeśli chcesz możesz pójść tam pieszą",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "się": [
+        {
+            "beforeCloze": "chciałbym wziąść dodatkową lekcję polskiego ponieważ lubię ",
+            "clozeWordPart1": "się",
+            "afterCloze": " uczyć",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5225,6 +6311,32 @@
             "inUse": "False"
         }
     ],
+    "jeśli": [
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " chcesz, możesz pojechać autobusem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " potrzebujesz ręcznika możesz go kupić za szesnaście złotych",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "",
+            "clozeWordPart1": "jeśli",
+            "afterCloze": " chcesz możesz wziąć mój laptop i telefon",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "słów": [
         {
             "beforeCloze": "uczę się nowych ",
@@ -5246,32 +6358,6 @@
             "beforeCloze": "chciałbym nauczyć się więcej ",
             "clozeWordPart1": "słów",
             "afterCloze": "",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "jeśli": [
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jeśli",
-            "afterCloze": " chcesz, możesz pojechać autobusem",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jeśli",
-            "afterCloze": " potrzebujesz ręcznika możesz go kupić za szesnaście złotych",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "",
-            "clozeWordPart1": "jeśli",
-            "afterCloze": " chcesz tworzyć dłuższe zdania potrzebujesz znać więcej słów",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5355,6 +6441,32 @@
             "inUse": "False"
         }
     ],
+    "i": [
+        {
+            "beforeCloze": "chciałbym kupić wodę ",
+            "clozeWordPart1": "i",
+            "afterCloze": " chleb",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "czy mógłbyś powtórzyć wolniej ",
+            "clozeWordPart1": "i",
+            "afterCloze": " głośniej?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "biorę prysznic ",
+            "clozeWordPart1": "i",
+            "afterCloze": " idę do pracy",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
     "powtórzyć": [
         {
             "beforeCloze": "czy mógłbyś ",
@@ -5402,32 +6514,6 @@
             "beforeCloze": "",
             "clozeWordPart1": "ile",
             "afterCloze": " kosztuje karta sim?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
-    "i": [
-        {
-            "beforeCloze": "chciałbym kupić wodę ",
-            "clozeWordPart1": "i",
-            "afterCloze": " chleb",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "czy mógłbyś powtórzyć wolniej ",
-            "clozeWordPart1": "i",
-            "afterCloze": " głośniej?",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "on chciałby kupić wodę gazowaną ",
-            "clozeWordPart1": "i",
-            "afterCloze": " chleb",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5521,7 +6607,7 @@
             "inUse": "True"
         },
         {
-            "beforeCloze": "my chcielibyśmy pójść ",
+            "beforeCloze": "oni chcieliby pojechać ",
             "clozeWordPart1": "nad",
             "afterCloze": " jezioro",
             "midCloze": "",
@@ -5529,7 +6615,7 @@
             "inUse": "False"
         },
         {
-            "beforeCloze": "oni chcieliby pojechać ",
+            "beforeCloze": "oni biorą psa ",
             "clozeWordPart1": "nad",
             "afterCloze": " jezioro",
             "midCloze": "",
@@ -5550,6 +6636,32 @@
             "beforeCloze": "plaża jest blisko jeśli chcesz możesz pójść tam pieszą ",
             "clozeWordPart1": "lub",
             "afterCloze": " pojechać rowerem",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "potem": [
+        {
+            "beforeCloze": "idź prosto przez pięćset metrów, ",
+            "clozeWordPart1": "potem",
+            "afterCloze": " skręć w lewo",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów ",
+            "clozeWordPart1": "potem",
+            "afterCloze": " skręć w prawo i zobaczysz basen po lewej",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "codziennie o ósmej biorę prysznic a ",
+            "clozeWordPart1": "potem",
+            "afterCloze": " idę do pracy",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -5581,24 +6693,6 @@
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "True"
-        }
-    ],
-    "potem": [
-        {
-            "beforeCloze": "idź prosto przez pięćset metrów, ",
-            "clozeWordPart1": "potem",
-            "afterCloze": " skręć w lewo",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "basen jest blisko to tylko dwieście metrów stąd jeśli chcesz mogę wytłumaczyć ci drogę. więc idź prosto przez sto metrów ",
-            "clozeWordPart1": "potem",
-            "afterCloze": " skręć w prawo i zobaczysz basen po lewej",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
         }
     ],
     "wiem": [
@@ -5849,7 +6943,7 @@
         {
             "beforeCloze": "",
             "clozeWordPart1": "jak",
-            "afterCloze": " mogę dostać się na przystanek autobusowy?",
+            "afterCloze": " mogę dostać się na lotnisko?",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6271,9 +7365,9 @@
             "inUse": "False"
         },
         {
-            "beforeCloze": "skręć ",
+            "beforeCloze": "pięć razy ",
             "clozeWordPart1": "w",
-            "afterCloze": " prawo",
+            "afterCloze": " tygodniu",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6351,7 +7445,7 @@
         {
             "beforeCloze": "",
             "clozeWordPart1": "możesz",
-            "afterCloze": " kupić ręcznik za szesnaście złotych",
+            "afterCloze": " wziąć laptopa",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6401,9 +7495,9 @@
             "inUse": "True"
         },
         {
-            "beforeCloze": "chciałbym pojechać ",
+            "beforeCloze": "jadę ",
             "clozeWordPart1": "na",
-            "afterCloze": " przystanek autobusowy",
+            "afterCloze": " basen",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6455,7 +7549,7 @@
         {
             "beforeCloze": "",
             "clozeWordPart1": "oni",
-            "afterCloze": " uczą się nowych słów",
+            "afterCloze": " mieli dobry czas",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"
@@ -6481,7 +7575,7 @@
         {
             "beforeCloze": "",
             "clozeWordPart1": "ona",
-            "afterCloze": " uczy się nowych słów",
+            "afterCloze": " bierze kąpiel",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"

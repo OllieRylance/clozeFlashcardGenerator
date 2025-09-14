@@ -6695,6 +6695,16 @@
             "inUse": "True"
         }
     ],
+    "podnosi": [
+        {
+            "beforeCloze": "wiatr ",
+            "clozeWordPart1": "podnosi",
+            "afterCloze": " kurz w powietrze",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ],
     "wiem": [
         {
             "beforeCloze": "",
@@ -7347,32 +7357,6 @@
             "inUse": "False"
         }
     ],
-    "w": [
-        {
-            "beforeCloze": "my chcielibyśmy pojechać ",
-            "clozeWordPart1": "w",
-            "afterCloze": " góry",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "True"
-        },
-        {
-            "beforeCloze": "skręć ",
-            "clozeWordPart1": "w",
-            "afterCloze": " lewo",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        },
-        {
-            "beforeCloze": "pięć razy ",
-            "clozeWordPart1": "w",
-            "afterCloze": " tygodniu",
-            "midCloze": "",
-            "clozeWordPart2": "",
-            "inUse": "False"
-        }
-    ],
     "gdzie": [
         {
             "beforeCloze": "",
@@ -7394,6 +7378,32 @@
             "beforeCloze": "",
             "clozeWordPart1": "gdzie",
             "afterCloze": " jest dworzec autobusowy?",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        }
+    ],
+    "w": [
+        {
+            "beforeCloze": "my chcielibyśmy pojechać ",
+            "clozeWordPart1": "w",
+            "afterCloze": " góry",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        },
+        {
+            "beforeCloze": "skręć ",
+            "clozeWordPart1": "w",
+            "afterCloze": " lewo",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "False"
+        },
+        {
+            "beforeCloze": "pięć razy ",
+            "clozeWordPart1": "w",
+            "afterCloze": " tygodniu",
             "midCloze": "",
             "clozeWordPart2": "",
             "inUse": "False"

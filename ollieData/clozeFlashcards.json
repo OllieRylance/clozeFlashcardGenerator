@@ -6695,6 +6695,16 @@
             "inUse": "True"
         }
     ],
+    "okulary przeciwsłoneczne": [
+        {
+            "beforeCloze": "fajni ludzie noszą ",
+            "clozeWordPart1": "okulary przeciwsłoneczne",
+            "afterCloze": "",
+            "midCloze": "",
+            "clozeWordPart2": "",
+            "inUse": "True"
+        }
+    ],
     "podnosi": [
         {
             "beforeCloze": "wiatr ",
